@@ -1,0 +1,248 @@
+/*.carousel-item>img{
+    max-height: 600px;
+}*/
+a{
+  color: #FF1F7B;
+}
+a:hover{
+  color: rgb(194, 26, 96);
+}
+a:active{
+  color: rgb(194, 26, 96);
+}
+.btn-primary {
+  background-color: #11CDBB!important;
+  border-color: #11CDBB;
+}
+.btn-primary:hover {
+  background-color: black!important;
+  border-color: black;
+}
+
+.card2 {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.10)!important;
+}
+.card-title{
+  font-size: 20px;
+  text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card-body{
+  padding: 15px;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: #F5F5F5;
+}
+
+
+.dropdown-menu{
+  border-bottom:3px solid #FF1F7B;
+}
+.dropdown-item:hover{
+	background-color:rgb(255, 71, 147);
+	color:#fff;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 150px;
+  background-color: #000;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+}
+
+body{
+	background-color: black;
+}
+.navbar{
+	background: rgba(0, 0, 0,0.6);
+}
+.logo-traveline{
+	color: white;text-decoration: none;margin-left: 30px;
+}
+.navbar-toggler{	
+	background-color: white;
+}
+
+a.menu_link:after{
+    position: absolute;
+    bottom: 11px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #11CDBB;
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+    transform: translateY(10px);                    
+}
+
+a.menu_link:hover:after{
+    opacity:1;
+    transform: translateY(13px);
+}
+.menu_link{
+    position: relative;
+    font-weight: bold;font-size:15px;        
+}        
+
+div.card {
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.descrip {
+  width: 100%;
+	border: 0px;
+  resize: none;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	margin-top: 0px;
+  background-color: white;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+}
+
+.imageny {
+	padding-bottom: 150px;
+	text-align: center;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+
+
+/*No usado*/
+
+
+
+.imageny2 {
+	padding-bottom: 240px;
+	text-align: center;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.imageny3 {
+	padding-bottom: 150px;
+	text-align: center;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+  background-size: cover;
+  
+}
+
+
+
+
+
+
+img.img-categoria {
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.section2 {
+  background-color: #F5F5F5;
+}
+
+hr.style14 { 
+  border: 0; 
+  height: 2px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+
+h4{
+  text-align: center center;
+}
+
+.categoria {
+  width: 95%;
+  max-width: 360px;
+  margin: 100px auto;
+  position: relative;
+  overflow: hidden; /*para que no se desvorde*/
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+
+}
+.categoria::before, .categoria::after{
+    content:"";
+    position: absolute;
+    width: calc(100% - 16px);
+    height: 55px;
+    background: #000;
+    
+}
+
+.categoria::after{left: 100%; bottom: 10px;}
+
+.categoria:hover:before, .categoria:hover:after {
+  height: 70px;
+}
+
+.img-categoria {
+  width: 100%;
+}
+
+.txt-categoria {
+  text-align: center;
+  position: absolute;
+  transition: all .2s;
+  transform: scale(1);
+  
+  
+}
+
+h2.txt {
+  text-align: center;
+  color: #fff;
+  font: oblique bold 180% cursive;
+}
+
+.categoria:hover .txt-categoria {
+  transform: scale(1.2);
+  opacity: 1;
+}
+

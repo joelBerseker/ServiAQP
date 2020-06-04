@@ -1,5 +1,4 @@
 <?php
-
 $database_red ="localhost";
 $database_nombre="root";
 $database_contraseña="";
@@ -11,13 +10,4 @@ $conn = mysqli_connect(
     $database_contraseña,
     $database_name
 )or die("Error al conectar al servidor. Contactar con el administrador.");
-
-/*
-
-$conn = mysqli_connect(
-    'localhost',
-    'root',
-    '',
-    'S4P'
-)or die("Error al conectar al servidor");*/
 ?>
