@@ -3,7 +3,7 @@
 $database_red ="localhost";
 $database_nombre="root";
 $database_contraseña="";
-$database_name="S4P";
+$database_name="serviaqp";
 
 $conn = mysqli_connect(
     $database_red,
