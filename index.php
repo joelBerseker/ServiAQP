@@ -4,8 +4,35 @@
 	include("includes/header.php");
 ?>
 
-<div class="section2 pt-3">
+
+
+<div class="section2 pt-3 ">
 	<div class="container">
+	<div id="demo" class="carousel slide mb-3" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+		</ul>
+		<div class="carousel-inner" role="listbox">
+
+			<div class="carousel-item active">
+				<img src="frontend/images/anuncio1.png" alt="personas" class="d-block img-fluid w-100">
+			</div>
+
+			<div class="carousel-item">
+				<img src="frontend/images/anuncio2.png" alt="personas" class="d-block img-fluid w-100">
+			</div>
+
+			<div class="carousel-item">
+				<img src="frontend/images/anuncio3.png" alt="torres" class="d-block img-fluid w-100">
+			</div>
+
+		</div>
+	</div>
+
+
+
 		<div><h5>Destacados</h5>
 		<p>Prueba los servicios destacados que tenemos para ti</p>
 		</div>

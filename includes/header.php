@@ -39,8 +39,9 @@
 </head>
 
 <body>
-	<nav id="pri" class="container-fluid navbar navbar-expand-lg navbar-light sticky-top ">
-		<a href="<?php echo $dirEjec ?>/" class="logo-traveline"><img src="<?php echo $dirEjec ?>/frontend/images/logo.png" height="35" alt="logo de traveline"></a>
+	<nav id="pri" class="container-fluid navbar navbar-expand-lg navbar-light sticky-top">
+		<div class="container">
+		<a href="<?php echo $dirEjec ?>/"><img src="<?php echo $dirEjec ?>/frontend/images/logo.png" height="35" alt="logo de traveline"></a>
 	
 		
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,5 +133,6 @@
 				<?php endif; ?>
 			
 			</ul>
+		</div>
 		</div>
 	</nav>
