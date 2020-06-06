@@ -9,11 +9,16 @@
 			<h5>Categorias</h5>	
 		</div>
 		<div >
-			<a href="#" class="btn btn-info btn-sm">Cursos Online</a><a href=""></a>
-			<a href="#" class="btn btn-info btn-sm">Tutoriales</a><a href=""></a>
-			<a href="#" class="btn btn-info btn-sm">Ayuda</a><a href=""></a>
-			<a href="#" class="btn btn-info btn-sm">Salud</a><a href=""></a>
-			<a href="#" class="btn btn-info btn-sm">Cocina</a><a href=""></a>
+			<a href="#" class="btn btn-info btn-sm">Cursos</a>
+			<a href="#" class="btn btn-info btn-sm">Tutoriales</a>
+			<a href="#" class="btn btn-info btn-sm">Ayuda</a>
+			<a href="#" class="btn btn-info btn-sm">Salud</a>
+			<a href="#" class="btn btn-info btn-sm">Cocina</a>
+			<a href="#" class="btn btn-info btn-sm">Videojuegos</a>
+			<a href="#" class="btn btn-info btn-sm">Teconologia</a>
+			<a href="#" class="btn btn-info btn-sm">Programacion</a>
+			<a href="#" class="btn btn-info btn-sm">Diseño</a>
+			<a href="#" class="btn btn-info btn-sm">Consejos</a>
 		</div>
 
 		<div class="mt-3">
@@ -47,7 +52,7 @@
 					<div class="card-body text-center">
 						<h3 class="card-title">	Clases de escritura d sfsd dfsdfsd fds sf </h3>
 						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
+						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a>
 						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm"><span class=" icon-heart"></span></a><a href=""></a>
 				
 					</div>

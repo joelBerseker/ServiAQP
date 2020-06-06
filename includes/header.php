@@ -1,6 +1,6 @@
 <?php
 	include('global_variable.php');
-	include('navbar.php');
+	
 	include('data_base.php');
 	function estadosGenerales($valor)
 	{
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-	<nav id="pri" class="container-fluid navbar navbar-expand-lg navbar-light sticky-top">
+	<nav id="pri" class="container-fluid navbar navbar-expand-lg navbar-light position-fixed fixed-top">
 		<div class="container">
 		<a href="<?php echo $dirEjec ?>/"><img src="<?php echo $dirEjec ?>/frontend/images/logo.png" height="35" alt="logo de traveline"></a>
 	
@@ -51,24 +51,24 @@
 				
 			<ul class="navbar-nav ml-auto">
 
-			<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
+				<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
 					<input class="form-control form-control-sm mr-sm-2" type="search" placeholder="">
 					<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit">Buscar</button>
 				</form>
 
-				<li class="nav-item <?php if ($inicio) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$inicio) { ?> menu_link<?php } ?>" style="color: white;<?php if ($inicio) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/">Inicio</a>
+				<li class="nav-item menu_link">
+					<a class="nav-link menu_link <?php if ($inicio) { ?>select <?php } ?>" href="<?php echo $dirEjec ?>/">Inicio</a>
 				</li>
 				<li class="nav-item <?php if ($producto) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$producto) { ?> menu_link<?php } ?>" style="color: white;<?php if ($producto) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/servicios">Servicios</a>
+					<a class="nav-link <?php if (!$producto) { ?> menu_link<?php } ?>" style="<?php if ($producto) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/servicios">Servicios</a>
 				</li>
 				<li class="nav-item <?php if ($nosotros) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$nosotros) { ?> menu_link<?php } ?>" style="color: white;<?php if ($nosotros) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a>
+					<a class="nav-link <?php if (!$nosotros) { ?> menu_link<?php } ?>" style="<?php if ($nosotros) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Categorias</a>
 				</li>
-				<li class="nav-item <?php if ($contactanos) { ?>menu_link<?php } ?>">
-					<a class="nav-link  <?php if (!$contactanos) { ?> menu_link<?php } ?>" style="color: white;<?php if ($contactanos) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/contactanos">Contactanos</a>
+				<li class="nav-item <?php if ($nosotros) { ?>menu_link<?php } ?>">
+					<a class="nav-link <?php if (!$nosotros) { ?> menu_link<?php } ?>" style="<?php if ($nosotros) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a>
 				</li>
-
+		
 
 				<?php if (!empty($user)) : ?>
 
@@ -126,7 +126,7 @@
 
 
 				<li class="nav-item <?php if ($login) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$login) { ?> menu_link<?php } ?>" style="color: white;<?php if ($login) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/autenticacion/Login">Ingresar</a>
+					<a class="nav-link <?php if (!$login) { ?> menu_link<?php } ?>" style="<?php if ($login) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/autenticacion/Login">Ingresar</a>
 				</li>
 					
 

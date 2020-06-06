@@ -1,26 +1,20 @@
 <?php
-include("../includes/sesion.php");
 include("../includes/global_variable.php");
 include("../includes/navbar.php");
 $nosotros=true;
 $titulo_html="Nosotros";
 include("../includes/header.php");
 ?>
+
+
+<div class="section">
 <nav aria-label="breadcrumb" style="">
-	<ol class="breadcrumb" style="border-radius: 0px; margin-bottom: 0px!important; padding-left: 48px;">
+	<ol class="breadcrumb" style="">
 		<li class="breadcrumb-item"><a href="<?=$dirEjec?>">Inicio</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Nosotros</li>
 
 	</ol>
 </nav>
-
-
-<div class="categorias">
-	<img src="https://1.bp.blogspot.com/-cjsCNloxB-8/XSWkDYYqSBI/AAAAAAAAAgQ/eqee5dhdWakRDF3aTX6n0oHzJYEm02XDgCLcBGAs/s1600/02d63b75-119f-47db-b0fe-c5e2dd25dcea.jpg" class="img-categoria mx-auto d-block" style="max-height: 614px;">
-
-</div>
-
-<div class="section2">
 	<div class="container text-center">
 		<br>
 		<p class="display-4">¿Quiénes somos?</p>

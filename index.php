@@ -1,14 +1,12 @@
 <?php
+include('includes/global_variable.php');
+include('includes/navbar.php');
 	$inicio = true;
 	$titulo_html = "Inicio";
 	include("includes/header.php");
 ?>
 
-
-
-<div class="section pt-3 ">
-	<div class="container">
-	<div id="demo" class="carousel slide mb-3" data-ride="carousel">
+<div id="demo" class="carousel slide mb-3" data-ride="carousel">
 		<ul class="carousel-indicators">
 			<li data-target="#demo" data-slide-to="0" class="active"></li>
 			<li data-target="#demo" data-slide-to="1"></li>
@@ -30,6 +28,10 @@
 
 		</div>
 	</div>
+
+<div class="section-index ">
+	<div class="container">
+	
 
 
 
