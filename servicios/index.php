@@ -1,4 +1,5 @@
 <?php
+	include("../includes/navbar.php");
 	$inicio = true;
 	$titulo_html = "Servicios";
 	include("../includes/header.php");

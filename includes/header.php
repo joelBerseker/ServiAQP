@@ -1,13 +1,5 @@
 <?php
 include('global_variable.php');
-function estadosGenerales($valor)
-{
-	if ($valor == 1) {
-		return "Activo";
-	} else {
-		return "Inactivo";
-	}
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,7 +53,7 @@ function estadosGenerales($valor)
 
 
 					<li class="nav-item dropdown ">
-						<a style="color: white; white; text-transform: uppercase;" class="nav-link menu_link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a style="color: white; text-transform: uppercase;" class="nav-link menu_link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<?= $user['UsuCor']; ?>
 						</a>
 						<div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
