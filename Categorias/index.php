@@ -4,7 +4,8 @@
     $titulo_html="Categorias";
     include("../includes/header.php");
 ?>
-    <div class="container p-4">
+<div class="section">
+    <div class="container pt-4">
 	
 	<div class="row">
 		<div class="col-md-2">
@@ -12,14 +13,14 @@
 			include("crud_categoria/add.php");
 		?>
 		</div>
-		<div class="col-md-11">
+		<div class="col-md-11 pt-2">
 			<table class='table table-bordered'>
 				<thead>
 					<th>ID</th>
-					<th>NOMBRE</th>
-					<th>DESCRIPCION</th>
-					<th>ESTADO</th>
-					<th>FECHA DE CREACION</th>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Estado</th>
+					<th>Fecha de creacion</th>
 					<th>Acciones</th>
 				</thead>
 				<tbody>
@@ -52,6 +53,7 @@
 			>
 		</div>
 	</div>
+</div>
 </div>
 <?php
     include("../includes/footer.php");
