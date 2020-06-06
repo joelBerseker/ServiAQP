@@ -1,8 +1,7 @@
 <?php
   	$inicio			=	false;
-	$producto		=	false;
+	$servicio		=	false;
 	$categoria		=	false;
-	$contactanos	=	false;
 	$nosotros		=	false;
 	$login			=	false;
 ?>

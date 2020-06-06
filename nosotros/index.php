@@ -12,7 +12,6 @@ include("../includes/header.php");
 	<ol class="breadcrumb" style="">
 		<li class="breadcrumb-item"><a href="<?=$dirEjec?>">Inicio</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Nosotros</li>
-
 	</ol>
 </nav>
 	<div class="container text-center">
