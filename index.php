@@ -18,19 +18,23 @@ include("includes/header.php");
 
 		<div class="carousel-item active">
 			<img src="frontend/images/anuncio1.jpg" alt="personas" class="d-block img-fluid w-100">
-			<div class="carousel-caption d-none d-md-block carrusel-backgroud">
-				<h3>En estos tiempos de dificultad, te ayudamos brindando una plataforma donde puedes ofrecer servicios</h3>
-				
+			<div class="carousel-caption d-none d-md-block carrusel-background">
+				<h3>En estos tiempos de dificultad, te ayudamos brindando una plataforma donde puedes ofrecer servicios y ganar un ingreso extra.</h3>
 			</div>
 		</div>
 
 		<div class="carousel-item">
 			<img src="frontend/images/anuncio2.jpg" alt="personas" class="d-block img-fluid w-100">
+			<div class="carousel-caption d-none d-md-block carrusel-background">
+				<h3>Publicar un servicio desde casa y genera millones</h3>
+			</div>
 		</div>
 
 		<div class="carousel-item">
 			<img src="frontend/images/anuncio3.jpg" alt="torres" class="d-block img-fluid w-100">
-
+			<div class="carousel-caption d-none d-md-block carrusel-background">
+				<h3>Se tu propio jefe, no dependas de nadie para ganar dinero</h3>
+			</div>
 		</div>
 
 	</div>
