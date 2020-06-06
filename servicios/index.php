@@ -34,7 +34,7 @@
 		<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
 					<div class="card mb-4 border-0 ">
 						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/137877433/original/3f9ec5c88603b6da99a31f15da29351f19a73ac9/write-travel-and-leisure-content.png');">
+							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
 							</div>
 							<!--<img src="https://images-na.ssl-images-amazon.com/images/I/51bWIMdXiML.jpg	" alt="Card image cap" class="card-img-top">
 					-->	<div class="card-img-overlay">
@@ -54,7 +54,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
 					<div class="card mb-4 border-0 ">
 						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/137877433/original/3f9ec5c88603b6da99a31f15da29351f19a73ac9/write-travel-and-leisure-content.png');">
+							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
 							</div>
 							<!--<img src="https://images-na.ssl-images-amazon.com/images/I/51bWIMdXiML.jpg	" alt="Card image cap" class="card-img-top">
 					-->	<div class="card-img-overlay">
@@ -74,7 +74,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
 					<div class="card mb-4 border-0 ">
 						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/137877433/original/3f9ec5c88603b6da99a31f15da29351f19a73ac9/write-travel-and-leisure-content.png');">
+							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
 							</div>
 							<!--<img src="https://images-na.ssl-images-amazon.com/images/I/51bWIMdXiML.jpg	" alt="Card image cap" class="card-img-top">
 					-->	<div class="card-img-overlay">
@@ -94,7 +94,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
 					<div class="card mb-4 border-0 ">
 						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/137877433/original/3f9ec5c88603b6da99a31f15da29351f19a73ac9/write-travel-and-leisure-content.png');">
+							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
 							</div>
 							<!--<img src="https://images-na.ssl-images-amazon.com/images/I/51bWIMdXiML.jpg	" alt="Card image cap" class="card-img-top">
 					-->	<div class="card-img-overlay">
