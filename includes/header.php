@@ -42,7 +42,7 @@ include('global_variable.php');
 						<a class="nav-link menu_link<?php if ($servicio) { ?> select<?php } ?>" href="<?php echo $dirEjec ?>/servicios">Servicios</a>
 					</li>
 					<li class="nav-item menu_link">
-						<a class="nav-link menu_link<?php if ($categoria) { ?> select<?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Categorias</a>
+						<a class="nav-link menu_link<?php if ($categoria) { ?> select<?php } ?>" href="<?php echo $dirEjec ?>/categorias">Categorias</a>
 					</li>
 					<li class="nav-item menu_link">
 						<a class="nav-link menu_link<?php if ($nosotros) { ?> select<?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a>

@@ -32,8 +32,10 @@ div.section {
 div.section-index {
   background-color: var(--fondo-principal);
 }
+
 .carrusel-background{
-  background: rgba(0, 0, 0,0.4);
+  background: rgba(0, 0, 0,0.2);
+  border-radius: .25rem;
 }
 /*Genral fin*/
 
