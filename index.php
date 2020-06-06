@@ -6,7 +6,7 @@
 
 
 
-<div class="section2 pt-3 ">
+<div class="section pt-3 ">
 	<div class="container">
 	<div id="demo" class="carousel slide mb-3" data-ride="carousel">
 		<ul class="carousel-indicators">
@@ -185,10 +185,6 @@
 	</div>
 </div>
 
-
-
-<div id="section1" class="wrapper">	
-</div>
 
 
 <?php

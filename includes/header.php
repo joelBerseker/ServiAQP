@@ -60,13 +60,13 @@
 					<a class="nav-link <?php if (!$inicio) { ?> menu_link<?php } ?>" style="color: white;<?php if ($inicio) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/">Inicio</a>
 				</li>
 				<li class="nav-item <?php if ($producto) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$producto) { ?> menu_link<?php } ?>" style="color: white;<?php if ($producto) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/Intercambio">Servicios</a>
+					<a class="nav-link <?php if (!$producto) { ?> menu_link<?php } ?>" style="color: white;<?php if ($producto) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/servicios">Servicios</a>
 				</li>
 				<li class="nav-item <?php if ($nosotros) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$nosotros) { ?> menu_link<?php } ?>" style="color: white;<?php if ($nosotros) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/Nosotros">Nosotros</a>
+					<a class="nav-link <?php if (!$nosotros) { ?> menu_link<?php } ?>" style="color: white;<?php if ($nosotros) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a>
 				</li>
 				<li class="nav-item <?php if ($contactanos) { ?>menu_link<?php } ?>">
-					<a class="nav-link  <?php if (!$contactanos) { ?> menu_link<?php } ?>" style="color: white;<?php if ($contactanos) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/Contactanos">Contactanos</a>
+					<a class="nav-link  <?php if (!$contactanos) { ?> menu_link<?php } ?>" style="color: white;<?php if ($contactanos) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/contactanos">Contactanos</a>
 				</li>
 
 
@@ -126,7 +126,7 @@
 
 
 				<li class="nav-item <?php if ($login) { ?>menu_link<?php } ?>">
-					<a class="nav-link <?php if (!$login) { ?> menu_link<?php } ?>" style="color: white;<?php if ($login) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/Autenticacion/Login">Ingresar</a>
+					<a class="nav-link <?php if (!$login) { ?> menu_link<?php } ?>" style="color: white;<?php if ($login) { ?>border-bottom: 2px solid #FF1F7B;bottom: 15px; <?php } ?>" href="<?php echo $dirEjec ?>/autenticacion/Login">Ingresar</a>
 				</li>
 					
 
