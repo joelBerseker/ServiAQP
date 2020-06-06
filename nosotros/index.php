@@ -5,8 +5,11 @@ $nosotros=true;
 $titulo_html="Nosotros";
 include("../includes/header.php");
 ?>
+<div class="">
+	<img src="../frontend/images/imagen1.jpg" class="d-block img-fluid w-100">
 
-
+</div>
+<!--
 <div class="section">
 <nav aria-label="breadcrumb" style="">
 	<ol class="breadcrumb" style="">
@@ -14,8 +17,9 @@ include("../includes/header.php");
 		<li class="breadcrumb-item active" aria-current="page">Nosotros</li>
 	</ol>
 </nav>
-	<div class="container text-center">
-		<br>
+--->
+	<div class="container text-center mt-2 ">
+		
 		<p class="display-4">¿Quiénes somos?</p>
 		<div class="row justify-content-center">
 			<hr class="style14" width="50%">
@@ -26,7 +30,6 @@ include("../includes/header.php");
 	</div>
 
 	<div class="container text-center">
-		<br>
 		<p class="display-4">Misión</p>
 		<div class="row justify-content-center">
 			<hr class="style14" width="50%">
@@ -35,9 +38,8 @@ include("../includes/header.php");
 			<p class="mb-0">Satisfacer las necesidades de clientes jóvenes y adultos interesados en intercambiar juegos de consola a través de una plataforma virtual que les ofrezca la mejor experiencia de intercambio de juegos en internet.</p>
 		</blockquote>
 	</div>
-
 	<div class="container text-center">
-		<br>
+	
 		<p class="display-4">Visión</p>
 		<div class="row justify-content-center">
 			<hr class="style14" width="50%">
