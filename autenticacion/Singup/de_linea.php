@@ -42,6 +42,8 @@ include("../../includes/data_base.php");
         $message_class ='success';
     }  
          mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+      mysqli_close($conn);
       
+    }
   }
+  ?>
