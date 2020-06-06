@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2020 a las 00:57:31
+-- Tiempo de generación: 07-06-2020 a las 01:17:39
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -52,11 +52,18 @@ INSERT INTO `categoria` (`CatId`, `CatNom`, `CatDes`, `CatEstReg`, `CatFecCre`) 
 CREATE TABLE `subcategoria` (
   `SubCatId` int(11) NOT NULL,
   `SubCatCatId` int(11) NOT NULL,
-  `SubCatNom` int(11) NOT NULL,
-  `SubCatDes` int(11) NOT NULL,
-  `SubCatEstReg` int(11) NOT NULL,
-  `SubCatFecCre` int(11) NOT NULL
+  `SubCatNom` varchar(50) NOT NULL,
+  `SubCatDes` text NOT NULL,
+  `SubCatEstReg` int(11) NOT NULL DEFAULT 1,
+  `SubCatFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `subcategoria`
+--
+
+INSERT INTO `subcategoria` (`SubCatId`, `SubCatCatId`, `SubCatNom`, `SubCatDes`, `SubCatEstReg`, `SubCatFecCre`) VALUES
+(1, 1, 'Twitch', 'Subcategoria de enseñanza de juegos y uso de twitch', 1, '2020-06-06 23:17:10');
 
 --
 -- Índices para tablas volcadas
@@ -89,7 +96,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `subcategoria`
 --
 ALTER TABLE `subcategoria`
-  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
