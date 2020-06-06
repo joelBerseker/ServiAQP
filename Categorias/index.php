@@ -4,56 +4,56 @@
     $titulo_html="Categorias";
     include("../includes/header.php");
 ?>
-<div class="section">
-    <div class="container pt-4">
-	
-	<div class="row">
-		<div class="col-md-2">
-		<?php
-			include("crud_categoria/add.php");
-		?>
+<div class="section pt-3">
+    <div class="container">
+	<div class="">
+			<h5>Categorias disponibles</h5>
+			<p>Revisa todos los servicios clasificados en sus categorias</p>
 		</div>
-		<div class="col-md-11 pt-2">
-			<table class='table table-bordered'>
-				<thead>
-					<th>ID</th>
-					<th>Nombre</th>
-					<th>Descripcion</th>
-					<th>Estado</th>
-					<th>Fecha de creacion</th>
-					<th>Acciones</th>
-				</thead>
-				<tbody>
-				<?php
-				$query = "SELECT * FROM CATEGORIA";
-				$resultProduct= mysqli_query($conn, $query);
-				while($row= mysqli_fetch_array($resultProduct)){
-				?>
-					<tr>
-						<td><?php echo $row['CatId']?></td>
-						<td><?php echo $row['CatNom']?></td>
-						<td><?php echo $row['CatDes']?></td>
-						<td><?php echo $row['CatEstReg']?></td>
-						<td><?php echo $row['CatFecCre']?></td>
-						
-						<td>
-							<a href="crud_categoria/edit.php?id=<?php echo $row['CatId']?>" class="btn btn-warning">
-								Edit
-							</a>
-							<a href="crud_categoria/delete.php?id=<?php echo $row['CatId']?>" class="btn btn-danger">
-								Delete
-							</a>
-						</td>
-					</tr>
+		<div class="row justify-content-center">
 
+			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+				<div class="card mb-4 border-0 ">
+					
+					<div class="card-body text-center">
+						<h3 class="card-title">	Juegos </h3>
+						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
+						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+				<div class="card mb-4 border-0 ">
+					
+					<div class="card-body text-center">
+						<h3 class="card-title">	Saludable </h3>
+						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
+						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+				<div class="card mb-4 border-0 ">
+					
+					<div class="card-body text-center">
+						<h3 class="card-title">	Deporte </h3>
+						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
+						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+				<div class="card mb-4 border-0 ">
+					
+					<div class="card-body text-center">
+						<h3 class="card-title">	Productividad </h3>
+						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
+						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
+					</div>
+				</div>
+			</div>
 
-				<?php } ?>
-				</tbody>
-			</table
-			>
-		</div>
 	</div>
-</div>
 </div>
 <?php
     include("../includes/footer.php");
