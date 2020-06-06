@@ -6,7 +6,6 @@ $recurso = "/Categoria/edit";
 //include("../../includes/acl.php");
 //
 ?>
-
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -29,8 +28,6 @@ if(isset($_POST['update'])){
     $result = mysqli_query($conn, $query);
     header("Location: ../tabla.php");
 }?>
-
-
 <?php
 include('../../includes/navbar.php');
 $categoria = true;
