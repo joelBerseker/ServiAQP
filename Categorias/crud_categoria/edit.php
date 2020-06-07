@@ -4,7 +4,7 @@ include("../../includes/global_variable.php");
 include("../../includes/data_base.php");
 $recurso = "/Categoria/edit";
 //include("../../includes/acl.php");
-//
+
 ?>
 <?php
 if (isset($_GET['id'])) {
@@ -78,7 +78,6 @@ include("../../includes/data_base.php");
         <?php
             }
         ?>
-
 		</select>
         </div>
     </div>
