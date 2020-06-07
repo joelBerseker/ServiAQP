@@ -9,7 +9,6 @@
         </button>
       </div>
       <div class="modal-body">
-      <!--C:\xampp\htdocs\S4P\Categoria\crud_tipo_producto\save.php-->
       <form action="crud_categoria/save.php" method="POST"  enctype="multipart/form-data">
       <!--<div class="form-row form-group ">
               <div class="col" align="center" >

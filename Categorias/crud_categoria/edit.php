@@ -35,6 +35,7 @@ $titulo_html = "Categoria";
 include('../../includes/header.php');
 include("../../includes/data_base.php");
 ?>
+<div class="section">
 <div class="section2">
     <div class="container pt-4"></div>
     <div class="row">
@@ -44,11 +45,11 @@ include("../../includes/data_base.php");
                     <div class="form-group">
                         <label><b>EDITAR CATEGORIA</b></label>
                     </div>
-                    <div class="form-row form-group ">
-              <div class="col" align="center" >
-                <img src="<?=$dirEjec?>/image/objeto-sin-imagen.png"  class="img-fluid"id="imagenmuestra" alt="Img blob" />
-              </div>
-      </div>
+                    <!--<div class="form-row form-group ">
+                    <div class="col" align="center" >
+                        <img src="<?=$dirEjec?>/image/objeto-sin-imagen.png"  class="img-fluid"id="imagenmuestra" alt="Img blob" />
+                    </div>
+                    </div>-->
                     <div class="form-row form-group ">
                         <div class="col-4"><label>Nombre:</label></div>
                         <div class="col">
@@ -91,7 +92,7 @@ include("../../includes/data_base.php");
        
     
 </div>
-
+</div>
 <?php
     include("../../includes/footer.php")
 ?>

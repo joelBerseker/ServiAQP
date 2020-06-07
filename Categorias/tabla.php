@@ -34,7 +34,6 @@
 						<td><?php echo $row['CatDes']?></td>
 						<td><?php echo $row['CatEstReg']?></td>
 						<td><?php echo $row['CatFecCre']?></td>
-						
 						<td>
 							<a href="crud_categoria/edit.php?id=<?php echo $row['CatId']?>" class="btn btn-warning">
 								Edit
@@ -44,17 +43,13 @@
 							</a>
 						</td>
 					</tr>
-
-
 				<?php } ?>
 				</tbody>
-			</table
-			>
+			</table>
 		</div>
 	</div>
 </div>
 </div>
-
 <?php
     include("../includes/footer.php");
 ?>
