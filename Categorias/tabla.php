@@ -8,9 +8,9 @@
     <div class="container pt-4">
 	<div class="row">
 		<div class="col-md-2">
-		<?php
-			include("crud_categoria/add.php");
-		?>
+			<?php
+				include("crud_categoria/add.php");
+			?>
 		</div>
 		<div class="col-md-11 pt-2">
 			<table class='table table-bordered'>
@@ -49,7 +49,7 @@
 		</div>
 	</div>
 </div>
-</div>
+</div
 <?php
     include("../includes/footer.php");
 ?>
