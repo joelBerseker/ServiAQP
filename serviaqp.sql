@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2020 a las 01:17:39
--- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Tiempo de generación: 07-06-2020 a las 03:49:48
+-- Versión del servidor: 8.0.15
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +25,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `acceso`
+--
+
+CREATE TABLE `acceso` (
+  `AccId` int(11) NOT NULL,
+  `AccNom` varchar(50) NOT NULL,
+  `AccDes` text NOT NULL,
+  `AccRolId` int(11) NOT NULL,
+  `AccRecId` int(11) NOT NULL,
+  `AccEstReg` int(11) NOT NULL DEFAULT '1',
+  `AccFecCre` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `categoria`
 --
 
@@ -32,16 +48,44 @@ CREATE TABLE `categoria` (
   `CatId` int(11) NOT NULL,
   `CatNom` varchar(60) NOT NULL,
   `CatDes` text NOT NULL,
-  `CatEstReg` int(1) NOT NULL DEFAULT 1,
-  `CatFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `CatEstReg` int(1) NOT NULL DEFAULT '1',
+  `CatFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`CatId`, `CatNom`, `CatDes`, `CatEstReg`, `CatFecCre`) VALUES
-(1, 'Juegos', 'Categoria Relacionada a juegos', 1, '2020-06-06 22:17:32');
+INSERT INTO `categoria` (`CatId`, `CatNom`, `CatDes`, `CatEstReg`) VALUES
+(1, 'Juegos', 'Categoria Relacionada a juegos', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `recurso`
+--
+
+CREATE TABLE `recurso` (
+  `RecId` int(11) NOT NULL,
+  `RecNom` varchar(50) NOT NULL,
+  `RecDes` text NOT NULL,
+  `RecEstReg` int(11) NOT NULL DEFAULT '1',
+  `RecFecCre` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `RolId` int(11) NOT NULL,
+  `RolNom` varchar(50) NOT NULL,
+  `RolDes` text NOT NULL,
+  `RolEstReg` int(11) NOT NULL DEFAULT '1',
+  `RolFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -54,26 +98,46 @@ CREATE TABLE `subcategoria` (
   `SubCatCatId` int(11) NOT NULL,
   `SubCatNom` varchar(50) NOT NULL,
   `SubCatDes` text NOT NULL,
-  `SubCatEstReg` int(11) NOT NULL DEFAULT 1,
-  `SubCatFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `SubCatEstReg` int(11) NOT NULL DEFAULT '1',
+  `SubCatFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `subcategoria`
 --
 
-INSERT INTO `subcategoria` (`SubCatId`, `SubCatCatId`, `SubCatNom`, `SubCatDes`, `SubCatEstReg`, `SubCatFecCre`) VALUES
-(1, 1, 'Twitch', 'Subcategoria de enseñanza de juegos y uso de twitch', 1, '2020-06-06 23:17:10');
+INSERT INTO `subcategoria` (`SubCatId`, `SubCatCatId`, `SubCatNom`, `SubCatDes`, `SubCatEstReg`) VALUES
+(1, 1, 'Twitch', 'Subcategoria de enseñanza de juegos y uso de twitch', 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `acceso`
+--
+ALTER TABLE `acceso`
+  ADD PRIMARY KEY (`AccId`),
+  ADD KEY `fk_acc_rol` (`AccRolId`),
+  ADD KEY `fk_acc_rec` (`AccRecId`);
+
+--
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`CatId`);
+
+--
+-- Indices de la tabla `recurso`
+--
+ALTER TABLE `recurso`
+  ADD PRIMARY KEY (`RecId`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`RolId`);
 
 --
 -- Indices de la tabla `subcategoria`
@@ -87,10 +151,28 @@ ALTER TABLE `subcategoria`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `acceso`
+--
+ALTER TABLE `acceso`
+  MODIFY `AccId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `CatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `recurso`
+--
+ALTER TABLE `recurso`
+  MODIFY `RecId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `RolId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`
@@ -101,6 +183,13 @@ ALTER TABLE `subcategoria`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `acceso`
+--
+ALTER TABLE `acceso`
+  ADD CONSTRAINT `fk_acc_rec` FOREIGN KEY (`AccRecId`) REFERENCES `recurso` (`RecId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_acc_rol` FOREIGN KEY (`AccRolId`) REFERENCES `rol` (`RolId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `subcategoria`
