@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2020 a las 03:49:48
+-- Tiempo de generación: 07-06-2020 a las 04:48:12
 -- Versión del servidor: 8.0.15
 -- Versión de PHP: 7.3.10
 
@@ -31,11 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `acceso` (
   `AccId` int(11) NOT NULL,
   `AccNom` varchar(50) NOT NULL,
-  `AccDes` text NOT NULL,
   `AccRolId` int(11) NOT NULL,
   `AccRecId` int(11) NOT NULL,
   `AccEstReg` int(11) NOT NULL DEFAULT '1',
-  `AccFecCre` timestamp NOT NULL
+  `AccFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -70,8 +69,15 @@ CREATE TABLE `recurso` (
   `RecNom` varchar(50) NOT NULL,
   `RecDes` text NOT NULL,
   `RecEstReg` int(11) NOT NULL DEFAULT '1',
-  `RecFecCre` timestamp NOT NULL
+  `RecFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `recurso`
+--
+
+INSERT INTO `recurso` (`RecId`, `RecNom`, `RecDes`, `RecEstReg`, `RecFecCre`) VALUES
+(1, '/rol/crear', 'crear rol', 1, '2020-06-07 02:13:37');
 
 -- --------------------------------------------------------
 
@@ -86,6 +92,14 @@ CREATE TABLE `rol` (
   `RolEstReg` int(11) NOT NULL DEFAULT '1',
   `RolFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`RolId`, `RolNom`, `RolDes`, `RolEstReg`, `RolFecCre`) VALUES
+(2, 'Sergio', 'DSDSD', 1, '2020-06-07 01:52:21'),
+(3, 'ser123', 'dsds', 1, '2020-06-07 01:52:53');
 
 -- --------------------------------------------------------
 
@@ -166,13 +180,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `recurso`
 --
 ALTER TABLE `recurso`
-  MODIFY `RecId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RecId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `RolId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RolId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`

@@ -1,71 +1,97 @@
-<?php 
-    include("db.php");
-    
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-       
-        $query = "SELECT * FROM recurso WHERE recurso_id = $id";
-        $result = mysqli_query($conn,$query);
-        if(mysqli_num_rows($result)== 1 ){
-            $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre'];
-            $estado = $row['estado'];
-           
-        }
-        
-    }
-    if(isset($_POST['update'])){
-        $id = $_GET['id'];
-        $nombre = $_POST['nombrex2'];
-        $estado =$_POST['estadox2'];
-        $query = "UPDATE recurso SET nombre = '$nombre', estado = '$estado' WHERE recurso_id = $id";
-        $result = mysqli_query($conn,$query);
+<?php
+include("../../includes/global_variable.php");
+//include("../../includes/sesion.php");
+include("../../includes/data_base.php");
+$recurso = "/Recurso/edit";
+//include("../../includes/acl.php");
 
-        $_SESSION['message'] = 'Recurso Edited Succesfully';
-        $_SESSION['message_type']= 'info';
-        header("Location: ../index.php");
-        
-    }
 ?>
 <?php
-	include('../includes/header.php')
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $query = "SELECT * FROM RECURSO WHERE RecId = $id";
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_array($result);
+        $nombre         = $row['RecNom'];
+        $description    = $row['RecDes'];
+        $estado         = $row['RecEstReg'];
+    }
+}
+if(isset($_POST['update'])){
+    $id             = $_GET['id'];
+    $nombre         = $_POST['nombre'];
+    $description    = $_POST['description'];
+    $estado         = $_POST['estado'];
+    $query = "UPDATE `RECURSO` SET `RecNom`='$nombre',`RecDes`='$description' ,`RecEstReg`=$estado WHERE `RecID`= $id ";
+    $result = mysqli_query($conn, $query);
+    header("Location: ../");
+}?>
+<?php
+include('../../includes/navbar.php');
+$categoria = true;
+$titulo_html = "Recurso";
+include('../../includes/header.php');
+include("../../includes/data_base.php");
 ?>
-<div class="container p-4"></div>
+<div class="section">
+<div class="section2">
+    <div class="container pt-4"></div>
     <div class="row">
-        <div class="col-md-4 mx-auto">
+    <div class="col-md-4 mx-auto">
             <div class="card card-body">
-                <form action="edit.php?id=<?php echo $_GET['id']?>" method="POST">
+                <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
                     <div class="form-group">
-						<input type="text" name="nombrex2" class="form-control" value="<?php echo $nombre;?>" placeholder="Nombre" autofocus>
-					</div>
-					<div class="form-group">
-                        <?php
-                        if($estado==1){
-                        ?>
-                        Activo
-                        <input type="radio" name="estadox2" value="1" class="form-control" checked=""> <br>
-                        Inactivo
-                        <input type="radio" name="estadox2" value="0" class="form-control"> <br>
-                        <?php
-                        }else{
-                        ?>
-                        Activo
-                        <input type="radio" name="estadox2" value="1" class="form-control" > <br>
-                        Inactivo
-                        <input type="radio" name="estadox2" value="0" class="form-control" checked=""> <br>
-                        <?php
-                        }
-                        ?>
+                        <label><b>EDITAR RECURSO</b></label>
                     </div>
-					<button class="btn btn-success btn-block" name="update">
-                        Update
+                    <!--<div class="form-row form-group ">
+                    <div class="col" align="center" >
+                        <img src="<?=$dirEjec?>/image/objeto-sin-imagen.png"  class="img-fluid"id="imagenmuestra" alt="Img blob" />
+                    </div>
+                    </div>-->
+                    <div class="form-row form-group ">
+                        <div class="col-4"><label>Nombre:</label></div>
+                        <div class="col">
+                            <input value="<?php echo $nombre; ?>" class="form-control form-control-sm " vtype="text" name="nombre" required></div>
+                    </div>
+                    <div class="form-row form-group ">
+                        <div class="col-4"><label>Descripción:</label></div>
+                        <div class="col">
+                            <input value="<?php echo $description; ?>" class="form-control form-control-sm " vtype="text" name="description" required></div>
+                    </div>
+
+                    <div class="form-row form-group ">
+        <div class="col-4"><label>Estado:</label></div>
+        <div class="col">
+        <select name="estado" class="form-control form-control-sm">
+        <?php
+            if($estado==1){
+        ?>
+            <option value="1" selected> Activo </option>   
+            <option value="0" > Inactivo </option>   
+        <?php
+            }else{
+        ?>
+            <option value="1" > Activo </option> 
+            <option value="0" selected> Inactivo </option>
+        <?php
+            }
+        ?>
+		</select>
+        </div>
+    </div>
+                    
+                    <button class="btn btn-success btn-block" name="update">
+                    Actualizar
                     </button>
                 </form>
             </div>
         </div>
-    </div>
-
-
+       
+    
+</div>
+</div>
 <?php
-	include("../includes/footer.php")
+    include("../../includes/footer.php")
 ?>
