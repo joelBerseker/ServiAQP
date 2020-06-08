@@ -41,10 +41,10 @@
 						<td><?php echo $row['SubCatEstReg']?></td>
 						<td><?php echo $row['SubCatFecCre']?></td>
 						<td>
-							<a href="crud_categoria/edit.php?id=<?php echo $row['CatId']?>" class="btn btn-warning">
+							<a href="crud_subcategoria/edit.php?id=<?php echo $row['SubCatId']?>" class="btn btn-warning">
 								Edit
 							</a>
-							<a href="crud_categoria/delete.php?id=<?php echo $row['CatId']?>" class="btn btn-danger">
+							<a href="crud_subcategoria/delete.php?id=<?php echo $row['SubCatId']?>" class="btn btn-danger">
 								Delete
 							</a>
 						</td>
