@@ -2,7 +2,8 @@
     include("../includes/navbar.php");
     include("../includes/data_base.php");
     $titulo_html="Categorias";
-    include("../includes/header.php");
+	include("../includes/header.php");
+	$categoria=true;
 ?>
 <div class="section pt-3">
     <div class="container">

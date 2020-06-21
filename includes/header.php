@@ -32,8 +32,8 @@ include('global_variable.php');
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
-						<input class="form-control form-control-sm mr-sm-2" type="search" placeholder="">
-						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit">Buscar</button>
+						<input class="form-control form-control-sm mr-sm-2 " type="search" placeholder="">
+						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit"><span class=" icon-search"></span></button>
 					</form>
 					<li class="nav-item menu_link">
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?php echo $dirEjec ?>/">Inicio</a>
