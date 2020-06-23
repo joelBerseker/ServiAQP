@@ -8,3 +8,4 @@ checkstyle_resultncss.xml
 .models
 .buildpath
 .settings
+test/

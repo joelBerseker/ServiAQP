@@ -26,7 +26,7 @@
 				<?php
 				$query = "SELECT * FROM CATEGORIA";
 				$resultProduct= mysqli_query($conn, $query);
-				while($row= mysqli_fetch_array($resultProduct)){
+				while($row = mysqli_fetch_array($resultProduct)){
 				?>
 					<tr>
 						<td><?php echo $row['CatId']?></td>
