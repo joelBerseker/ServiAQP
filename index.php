@@ -1,10 +1,10 @@
 <?php
-include('includes/global_variable.php');
+include("includes/sesion.php");
+include("includes/global_variable.php");
+
 include('includes/navbar.php');
 $inicio = true;
 $titulo_html = "Inicio";
-
-
 include("includes/header.php");
 ?>
 

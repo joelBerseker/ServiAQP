@@ -1,4 +1,7 @@
 <?php
+include("../includes/sesion.php");
+include("../includes/global_variable.php");
+
 include("../includes/navbar.php");
 $servicio = true;
 $titulo_html = "Servicios";

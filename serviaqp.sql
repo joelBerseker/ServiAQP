@@ -70,7 +70,7 @@ CREATE TABLE `recurso` (
   `RecDes` text NOT NULL,
   `RecEstReg` int(11) NOT NULL DEFAULT '1',
   `RecFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `recurso`
@@ -91,7 +91,7 @@ CREATE TABLE `rol` (
   `RolDes` text NOT NULL,
   `RolEstReg` int(11) NOT NULL DEFAULT '1',
   `RolFecCre` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rol`
