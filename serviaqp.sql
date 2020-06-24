@@ -215,3 +215,49 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+
+CREATE TABLE `usuario` (
+  `UsuID` int(11) NOT NULL,
+  `UsuNom` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `UsuCor` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `UsuCon` varchar(400) COLLATE utf8_unicode_ci NOT NULL,
+  `UsuImgNom` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `UsuImgTip` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `UsuImgArc` longblob NOT NULL,
+  `UsuRolID` int(11) DEFAULT NULL,
+  `UsuEst` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+----
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`UsuID`),
+  ADD KEY `UsuRolID` (`UsuRolID`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `UsuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`UsuRolID`) REFERENCES `rol` (`RolID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
