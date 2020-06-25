@@ -79,6 +79,7 @@ a:active {
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 .card:hover {
+  transition: 1.5s;
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
 }
@@ -307,6 +308,36 @@ a.menu_link {
   border: none;
 }
 
+.cog_rot{
+  transition: 0.5s;
+}
+
+
+.disp_primero_servicios:hover .disp_segundo_servicios{
+  display: block;
+}
+.disp_primero_perfil:hover .disp_segundo_perfil{
+  display: block;
+}
+.disp_primero_configuracion:hover .disp_segundo_configuracion{
+  display: block;
+}
+.disp_primero_configuracion:hover .cog_rot{
+  transform: rotate(180deg);
+}
+
+.disp_primero_notificaciones:hover .rot_bell2{
+  animation-name: animar;
+  animation-duration: 0.5s;
+
+  animation-fill-mode: forwards
+}
+@keyframes animar {
+  0% { transform: rotate(0deg); }
+  33% { transform: rotate(-10deg); }
+  66% { transform: rotate(20deg); }
+  99% { transform: rotate(0deg); }
+}
 /*
 .imageny2 {
 	padding-bottom: 240px;

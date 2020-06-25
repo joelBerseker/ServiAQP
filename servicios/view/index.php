@@ -234,7 +234,7 @@ include("../../includes/data_base.php");
                             <div class="col-md-9 card2">
 
                                 <div class="float-right ">
-                                    <a class="btn equis btn-sm" href="#"><span class=" icon-cross"></span> </a>
+                                    <a class="btn equis btn-sm" href="#"><em class="fas fa-times"></em> </a>
                                 </div>
 
                                 <div class="card-body PT-0">

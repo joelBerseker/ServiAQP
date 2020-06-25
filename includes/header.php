@@ -22,9 +22,8 @@ include('data_base.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?= $titulo_html ?> - ServiAQP</title>
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/fonts.css">
-	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/icons.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
 </head>
 
@@ -39,14 +38,14 @@ include('data_base.php');
 				<ul class="navbar-nav ml-auto">
 					<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
 						<input class="form-control form-control-sm mr-sm-2 " type="search" placeholder="Busca un servicio">
-						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit"><span class=" icon-search"></span></button>
+						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit"><em class="fas fa-search"></em></button>
 					</form>
 					<li class="nav-item">
-						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/">Inicio</a>
+						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>
 					</li>
-					<li class="nav-item dropdown ">
-						<a class="nav-link menu_link disp_primero_servicios" style="color: white;" href="<?= $dirEjec ?>/servicios" id="navbarDropdownMenuLink"  aria-haspopup="true" aria-expanded="false">
-							Servicios
+					<li class="nav-item dropdown disp_primero_servicios">
+						<a class="nav-link menu_link<?php if ($servicio) { ?> select<?php } ?>" href="<?= $dirEjec ?>/servicios"  style="color: white;"   id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+						 Servicios
 						</a>
 						<div class="dropdown-menu dropdown-menu-right disp_segundo_servicios" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="#">Action</a>
@@ -55,7 +54,7 @@ include('data_base.php');
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link menu_link<?php if ($categoria) { ?> select<?php } ?>" href="<?= $dirEjec ?>/categorias">Categorias</a>
+						<a class="nav-link menu_link<?php if ($categoria) { ?> select<?php } ?>" href="<?= $dirEjec ?>/categorias"> Categorias</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link menu_link<?php if ($nosotros) { ?> select<?php } ?>" href="<?= $dirEjec ?>/nosotros">Nosotros</a>
@@ -65,9 +64,9 @@ include('data_base.php');
 					<?php if (!empty($user)) :  ?>
 
 
-						<li class="nav-item dropdown ">
-							<a class="nav-link menu_link disp_primero_perfil" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<?= $user['UsuCor'] ?>
+						<li class="nav-item dropdown disp_primero_perfil">
+							<a class="nav-link menu_link " style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<em class="fas fa-user"></em> <?= $user['UsuCor'] ?>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
 								<?php
@@ -81,17 +80,17 @@ include('data_base.php');
 								}
 								?>
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>">Ver perfil</a>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php">Salir</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
 						</li>
 
 
-						<li class="nav-item dropdown ">
+						<li class="nav-item dropdown disp_primero_notificaciones">
 							<a class="nav-link menu_link" style="color: white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="icon-bell"></span> 2
+								<em class="fas fa-bell rot_bell rot_bell2"></em> 2
 							</a>
 
-							<div class="dropdown-menu dropdown-menu-right" style="" aria-labelledby="navbarDropdownMenuLink">
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 								<div class=" pl-2 pr-2 pt-1">
 									<div class="card-body PT-0  notifi pt-2 pb-2">
 										<p class="card-text mb-0 card-noti">
@@ -99,7 +98,7 @@ include('data_base.php');
 										</p>
 										<hr class="mb-1 mt-2">
 
-										<p class="card-text">
+										<p class="card-text ">
 											<small class="text-muted ">
 												Hace 10 minutos
 											</small>
@@ -123,11 +122,11 @@ include('data_base.php');
 						?>
 
 
-							<li class="nav-item dropdown ">
-								<a class="nav-link menu_link disp_primero_configuracion " style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class=" icon-cog"></span>
+							<li class="nav-item dropdown disp_primero_configuracion">
+								<a class="nav-link menu_link" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class=""><em class="fas fa-cog cog_rot"></em></div>
 								</a>
-								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion " aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="<?= $dirEjec ?>/Acceso">Accesos</a>
 									<a class="dropdown-item" href="<?= $dirEjec ?>/Categoria/tabla.php">Categorias</a>
 									<a class="dropdown-item" href="<?= $dirEjec ?>/Producto/tabla.php">Servicios</a>
@@ -143,7 +142,7 @@ include('data_base.php');
 
 
 						<li class="nav-item menu_link">
-							<a class="nav-link menu_link<?php if ($login) { ?> select<?php } ?>" href="<?= $dirEjec ?>/autenticacion/Login">Ingresar</a>
+							<a class="nav-link menu_link<?php if ($login) { ?> select<?php } ?>" href="<?= $dirEjec ?>/autenticacion/Login"><em class="fas fa-sign-in-alt "></em> Ingresar</a>
 						</li>
 
 
