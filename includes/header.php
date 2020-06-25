@@ -94,7 +94,7 @@ include('data_base.php');
 
 							<div class="dropdown-menu dropdown-menu-right disp_segundo_notificaciones" aria-labelledby="navbarDropdownMenuLink">
 								<div class=" pl-2 pr-2 pt-1">
-									<div class="card-body PT-0  notifi pt-2 pb-2">
+									<div class="card-body PT-0  notifi pt-2 pb-2 mb-1">
 										<p class="card-text mb-0 card-noti">
 										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
 										</p>
@@ -109,7 +109,7 @@ include('data_base.php');
 									</div>
 								</div>
 								<div class=" pl-2 pr-2 pt-1">
-									<div class="card-body PT-0  notifi pt-2 pb-2">
+									<div class="card-body PT-0  notifi pt-2 pb-2 mb-1">
 										<p class="card-text mb-0 card-noti">
 										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
 										</p>
@@ -123,7 +123,7 @@ include('data_base.php');
 
 									</div>
 								</div>
-								<div align='center' class="pt-1 mb-0">
+								<div align='center' class="pt-0 mb-0">
 								<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>&opcion=1">Ver todas</a>
 								</div>
 							</div>

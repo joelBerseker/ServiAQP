@@ -191,19 +191,33 @@ a.menu_link:hover {
   content: "";
   display: block;
   position: absolute;
-  top: -15px;
-  right: 0;
+  top: -20px;
+  right: 0px;
+  border-top: 10px solid transparent;
+  border-left: 30px solid transparent;
+ 
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.6);
+
+
+}
+
+.dropdown-menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -20px;
+  right: 0px;
   border-top: 20px solid transparent;
   border-left: 80px solid transparent;
 }
 .dropdown-menu {
-  padding-top: 0px;
-  margin-top: 8px;
+  padding-top: 5px;
+  margin-top: 20px;
   background: rgba(0, 0, 0, 0.6);
   border: none;
-  border-top-left-radius: 0px;
+  
   border-top-right-radius: 0px;
-
   border-bottom: 2px solid var(--color-principal);
 }
 .dropdown-item {
@@ -215,7 +229,7 @@ a.menu_link:hover {
 .dropdown-item:hover {
   background-color: var(--color-principal);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateX(3px);
  
 }
 .navbar-toggler {
@@ -230,7 +244,7 @@ a.menu_link:hover {
   border-radius: 5px;
   max-width: 500px;
   background-color: white;
-  background: rgb(255, 255, 255, 0.6) !important;
+  background: rgb(255, 255, 255, 0.8) !important;
   transition: 0.5;
 }
 .notifi:hover {
@@ -376,7 +390,9 @@ display: none;
   transform: rotate(80deg);
   
 }
-
+.disp_segundo_notificaciones{
+  padding-top: 10px;
+}
 .disp_primero_notificaciones:hover .rot_bell2{
   animation-name: animar;
   animation-duration: 0.5s;
@@ -391,7 +407,8 @@ display: none;
   opacity: 0;
   margin-right: -15px;
   transition: 0.5s;
-  background: rgb(255, 255, 255, 0.6) !important;
+  background: rgb(255, 255, 255, 0.8) !important;
+
   border: none;
  
 }
