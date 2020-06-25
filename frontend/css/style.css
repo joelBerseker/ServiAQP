@@ -78,16 +78,21 @@ a:active {
 .card {
   backface-visibility: hidden;
  
-  transition: 0.2s;
+  transition: 0.5s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 5px rgba(0, 0, 0, 0.05);
  
 }
-.card:hover {
+.card-body{ 
+  position:relative; 
+ } 
+.card-ani:hover {
   transform: scale(1.01);
   
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
 }
+
+
 .descrip {
   width: 100%;
   border: 0px;
@@ -177,6 +182,10 @@ a.menu_link {
   position: relative;
   font-weight: bold;
   font-size: 15px;
+  transition: 0.5s;
+}
+a.menu_link:hover {
+  transform: translateY(-2px);
 }
 .dropdown-menu::before {
   content: "";
@@ -201,10 +210,13 @@ a.menu_link {
   color: #fff;
   font-weight: bold;
   font-size: 15px;
+  transition: 1s;
 }
 .dropdown-item:hover {
   background-color: var(--color-principal);
   color: #fff;
+  transform: translateY(-2px);
+ 
 }
 .navbar-toggler {
   background-color: white;
@@ -236,8 +248,6 @@ a.menu_link {
 }
 .labe {
   color: grey;
-  font-size: 150%;
-  margin-top: -8px;
 }
 .clasificacion {
   direction: rtl;
@@ -272,16 +282,34 @@ a.menu_link {
   display: block;
   position: absolute;
   top: 40px;
-  left: -40px;
+  left: -39px;
   border-top: 20px solid transparent;
   border-left: 20px solid transparent;
   border-right: 20px solid rgb(238, 238, 238);
   border-bottom: 20px solid transparent;
 }
-
+#div_noti{
+display: none;
+}
+#div_favo{
+display: none;
+}
 .card2 {
   border-radius: 5px;
   background-color: rgb(238, 238, 238);
+  transition: 0.5s;
+}
+.card2:hover {
+  transform: scale(1.03);
+}
+
+.card3 {
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  transition: 0.5s;
+}
+.card3:hover {
+  transform: scale(1.02);
 }
 
 .imageny3 {
@@ -301,6 +329,12 @@ a.menu_link {
   -o-background-size: cover;
   background-size: cover;
 }
+
+.imageny4 {
+  border-radius: 20px;
+
+
+}
 /*vista de servicio*/
 .equis {
   background-color: rgb(238, 238, 238);
@@ -316,6 +350,12 @@ a.menu_link {
 .cog_rot{
   transition: 0.5s;
 }
+.fa-heart{
+  transition: 0.5s;
+}
+.ani_heart:focus .fa-heart{
+  transform: translateY(-6px);
+}
 
 
 .disp_primero_servicios:hover .disp_segundo_servicios{
@@ -328,14 +368,12 @@ a.menu_link {
   display: block;
 }
 .disp_primero_configuracion:hover .cog_rot{
-  transform: rotate(180deg);
+  transform: rotate(80deg);
 }
 
 .disp_primero_notificaciones:hover .rot_bell2{
   animation-name: animar;
   animation-duration: 0.5s;
-
-  animation-fill-mode: forwards
 }
 @keyframes animar {
   0% { transform: rotate(0deg); }
@@ -343,6 +381,7 @@ a.menu_link {
   66% { transform: rotate(20deg); }
   99% { transform: rotate(0deg); }
 }
+
 /*
 .imageny2 {
 	padding-bottom: 240px;

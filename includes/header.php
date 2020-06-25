@@ -37,7 +37,7 @@ include('data_base.php');
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
-						<input class="form-control form-control-sm mr-sm-2 " type="search" placeholder="Busca un servicio">
+						<input class="form-control form-control-sm mr-sm-2 mr-0" type="search" placeholder="Busca un servicio">
 						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit"><em class="fas fa-search"></em></button>
 					</form>
 					<li class="nav-item">
@@ -80,6 +80,8 @@ include('data_base.php');
 								}
 								?>
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>">Ver perfil</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>">Favoritos</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>&opcion=1">Notificaciones</a>
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
 						</li>
@@ -94,7 +96,7 @@ include('data_base.php');
 								<div class=" pl-2 pr-2 pt-1">
 									<div class="card-body PT-0  notifi pt-2 pb-2">
 										<p class="card-text mb-0 card-noti">
-											Este es as
+										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
 										</p>
 										<hr class="mb-1 mt-2">
 
@@ -106,7 +108,26 @@ include('data_base.php');
 
 									</div>
 								</div>
+								<div class=" pl-2 pr-2 pt-1">
+									<div class="card-body PT-0  notifi pt-2 pb-2">
+										<p class="card-text mb-0 card-noti">
+										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+										</p>
+										<hr class="mb-1 mt-2">
+
+										<p class="card-text ">
+											<small class="text-muted ">
+												Hace 10 minutos
+											</small>
+										</p>
+
+									</div>
+								</div>
+								<div align='center' class="pt-1 mb-0">
+								<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>&opcion=1">Ver todas</a>
+								</div>
 							</div>
+							
 
 						</li>
 

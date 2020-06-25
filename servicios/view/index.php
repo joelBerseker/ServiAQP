@@ -140,7 +140,7 @@ include("../../includes/data_base.php");
                     </div>
                     <div class="card-img-overlay">
                         <a class="btn  btn-sm informacion-btn">$ 23.30</a>
-                        <a class="btn  btn-sm informacion-btn">4.0</a>
+                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> 4.0</a>
                     </div>
                     <div class="card-body text-left">
                         <h4 class="card-title text-center ">Este es el titulo de servicio</h4>
@@ -157,15 +157,15 @@ include("../../includes/data_base.php");
                                         <input type="submit" class=" btn btn-primary btn-sm av ml-3" value="Calificar">
                                         <input type="hidden" name="id" value="5653401597640704" />
                                         <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
-                                        <label for="radio1" class="labe">★</label>
+                                        <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
-                                        <label for="radio2" class="labe">★</label>
+                                        <label for="radio2" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio3" type="radio" name="estrellas" value="3" class="disradio">
-                                        <label for="radio3" class="labe">★</label>
+                                        <label for="radio3" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio4" type="radio" name="estrellas" value="2" class="disradio">
-                                        <label for="radio4" class="labe">★</label>
+                                        <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
-                                        <label for="radio5" class="labe">★</label>
+                                        <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
 
                                     </div>
                                 </form>
@@ -189,11 +189,11 @@ include("../../includes/data_base.php");
                         </div>
                         <hr class="mt-1">
 
-                        <a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm"><span class=" icon-heart"></span></a><a href=""></a>
+                        <a href="#" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 
-                        <button class="btn btn-primary btn-sm" name="update">Contactar</button>
-                        <button class="btn btn-primary btn-sm" name="update">Contratar $2.00</button>
-                        <button class="btn btn-primary btn-sm float-right" name="update">Editar</button>
+                        <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
+                        <a href="#" class="btn btn-primary btn-sm">Contratar $2.00</a>
+                        <a href="#" class="btn btn-primary btn-sm float-right">Editar</a>
                     </div>
 
                 </div>
