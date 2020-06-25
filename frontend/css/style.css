@@ -76,10 +76,15 @@ a:active {
   padding: 15px;
 }
 .card {
+  backface-visibility: hidden;
+ 
+  transition: 0.2s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 5px rgba(0, 0, 0, 0.05);
+ 
 }
 .card:hover {
-  transition: 1.5s;
+  transform: scale(1.01);
+  
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
 }
@@ -180,7 +185,7 @@ a.menu_link {
   top: -15px;
   right: 0;
   border-top: 20px solid transparent;
-  border-left: 100px solid transparent;
+  border-left: 80px solid transparent;
 }
 .dropdown-menu {
   padding-top: 0px;
