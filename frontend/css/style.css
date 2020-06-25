@@ -231,9 +231,11 @@ a.menu_link:hover {
   max-width: 500px;
   background-color: white;
   background: rgb(255, 255, 255, 0.6) !important;
+  transition: 0.5;
 }
 .notifi:hover {
   color: black;
+  transform: scale(1.01);
 }
 .card-noti {
   text-overflow: ellipsis;
@@ -367,13 +369,31 @@ display: none;
 .disp_primero_configuracion:hover .disp_segundo_configuracion{
   display: block;
 }
+.disp_primero_notificaciones:hover .disp_segundo_notificaciones{
+  display: block;
+}
 .disp_primero_configuracion:hover .cog_rot{
   transform: rotate(80deg);
+  
 }
 
 .disp_primero_notificaciones:hover .rot_bell2{
   animation-name: animar;
   animation-duration: 0.5s;
+}
+.primero_buscar:hover .segundo_buscar{
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-20px);
+}
+.segundo_buscar{
+  visibility: hidden;
+  opacity: 0;
+  margin-right: -15px;
+  transition: 0.5s;
+  background: rgb(255, 255, 255, 0.6) !important;
+  border: none;
+ 
 }
 @keyframes animar {
   0% { transform: rotate(0deg); }

@@ -36,9 +36,9 @@ include('data_base.php');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
-					<form class="form-inline mr-0 mr-lg-4 mt-lg-0 mt-2">
-						<input class="form-control form-control-sm mr-sm-2 mr-0" type="search" placeholder="Busca un servicio">
-						<button class="btn btn-sm btn-primary mr-sm-2 mt-lg-0 mt-1" type="submit"><em class="fas fa-search"></em></button>
+					<form class="form-inline mr-0 mr-lg-1 mt-lg-0 mt-2 primero_buscar">
+						<input class="form-control form-control-sm  segundo_buscar" type="search" placeholder="Busca un servicio">
+						<a class="nav-link menu_link " type="submit"><em class="fas fa-search"></em></a>
 					</form>
 					<li class="nav-item">
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>
@@ -92,7 +92,7 @@ include('data_base.php');
 								<em class="fas fa-bell rot_bell rot_bell2"></em> 2
 							</a>
 
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+							<div class="dropdown-menu dropdown-menu-right disp_segundo_notificaciones" aria-labelledby="navbarDropdownMenuLink">
 								<div class=" pl-2 pr-2 pt-1">
 									<div class="card-body PT-0  notifi pt-2 pb-2">
 										<p class="card-text mb-0 card-noti">
