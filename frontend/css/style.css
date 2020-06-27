@@ -86,7 +86,7 @@ a:active {
   position:relative; 
  } 
 .card-ani:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
