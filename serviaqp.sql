@@ -261,3 +261,40 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE `notificacion` (
+  `NotID` int(11) NOT NULL,
+  `NotDes` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `NotUsuId` int(11) DEFAULT NULL,
+  `NotEst` int(11) NOT NULL DEFAULT '0',
+  `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+----
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `notificacion`
+  ADD PRIMARY KEY (`NotID`),
+  ADD KEY `NotUsuId` (`NotUsuId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `notificacion`
+  MODIFY `NotID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `notificacion`
+  ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`NotUsuId`) REFERENCES `usuario` (`UsuID`);
+COMMIT;

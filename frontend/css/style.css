@@ -77,21 +77,19 @@ a:active {
 }
 .card {
   backface-visibility: hidden;
- 
+
   transition: 0.5s;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 5px rgba(0, 0, 0, 0.05);
- 
 }
-.card-body{ 
-  position:relative; 
- } 
+.card-body {
+  position: relative;
+}
 .card-ani:hover {
   transform: scale(1.02);
-  
+
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
 }
-
 
 .descrip {
   width: 100%;
@@ -150,10 +148,10 @@ a:active {
 /*Footter fin*/
 
 /*Navbar inicio*/
-.ani_ico{
+.ani_ico {
   transition: 0.5s;
 }
-.ani_ico:hover{
+.ani_ico:hover {
   transform: scale(1.1);
 }
 
@@ -202,11 +200,9 @@ a.menu_link:hover {
   right: 0px;
   border-top: 10px solid transparent;
   border-left: 20px solid transparent;
- 
+
   border-right: 15px solid transparent;
   border-bottom: 10px solid rgba(0, 0, 0, 0.6);
-
-
 }
 
 .dropdown-menu::after {
@@ -223,7 +219,7 @@ a.menu_link:hover {
   margin-top: 20px;
   background: rgba(0, 0, 0, 0.6);
   border: none;
-  
+
   border-top-right-radius: 0px;
   border-bottom: 2px solid var(--color-principal);
 }
@@ -237,7 +233,6 @@ a.menu_link:hover {
   background-color: var(--color-principal);
   color: #fff;
   transform: translateX(3px);
- 
 }
 .navbar-toggler {
   background-color: white;
@@ -254,10 +249,8 @@ a.menu_link:hover {
   background: rgb(255, 255, 255, 0.8) !important;
   transition: 0.5s;
   backface-visibility: hidden;
-  
 }
 .notifi:hover {
-
   transform: scale(1.01);
 }
 .card-noti {
@@ -313,11 +306,11 @@ a.menu_link:hover {
   border-right: 20px solid rgb(238, 238, 238);
   border-bottom: 20px solid transparent;
 }
-#div_noti{
-display: none;
+#div_noti {
+  display: none;
 }
-#div_favo{
-display: none;
+#div_favo {
+  display: none;
 }
 .card2 {
   border-radius: 5px;
@@ -358,8 +351,6 @@ display: none;
 
 .imageny4 {
   border-radius: 20px;
-
-
 }
 /*vista de servicio*/
 .equis {
@@ -373,69 +364,72 @@ display: none;
   border: none;
 }
 
-.cog_rot{
+.cog_rot {
   transition: 0.5s;
 }
-.fa-heart{
+.fa-heart {
   transition: 0.5s;
 }
-.ani_heart:focus .fa-heart{
+.ani_heart:focus .fa-heart {
   transform: translateY(-6px);
 }
 
-
-.disp_primero_servicios:hover .disp_segundo_servicios{
+.disp_primero_servicios:hover .disp_segundo_servicios {
   display: block;
 }
-.disp_primero_perfil:hover .disp_segundo_perfil{
+.disp_primero_perfil:hover .disp_segundo_perfil {
   display: block;
 }
-.disp_primero_configuracion:hover .disp_segundo_configuracion{
+.disp_primero_configuracion:hover .disp_segundo_configuracion {
   display: block;
 }
-.disp_primero_notificaciones:hover .disp_segundo_notificaciones{
+/*.disp_primero_notificaciones:hover .disp_segundo_notificaciones {
   display: block;
-}
-.disp_primero_configuracion:hover .cog_rot{
+}*/
+.disp_primero_configuracion:hover .cog_rot {
   transform: rotate(80deg);
-  
 }
-.disp_segundo_notificaciones{
-  padding-top: 10px;
+.disp_segundo_notificaciones {
+  padding-top: 5px;
 }
-.disp_primero_notificaciones:hover .rot_bell2{
+.disp_primero_notificaciones:hover .rot_bell2 {
   animation-name: animar;
   animation-duration: 0.5s;
 }
-.primero_buscar:hover .segundo_buscar{
+.primero_buscar:hover .segundo_buscar {
   visibility: visible;
   opacity: 1;
- 
+
   width: 144px !important;
   padding-left: 8px;
   padding-right: 8px;
 }
-.segundo_buscar{
+.segundo_buscar {
   visibility: hidden;
   opacity: 0;
   width: 0px !important;
   transition: width 0.5s;
   transition: 0.5s;
- padding-left: 0px;
- padding-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
   background: rgb(255, 255, 255, 0.8) !important;
 
   border: none;
- 
 }
-.primero_buscar{
- 
-}
+
 @keyframes animar {
-  0% { transform: rotate(0deg); }
-  33% { transform: rotate(-10deg); }
-  66% { transform: rotate(20deg); }
-  99% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(-10deg);
+  }
+  66% {
+    transform: rotate(20deg);
+  }
+  99% {
+    transform: rotate(0deg);
+  }
 }
 
 /*

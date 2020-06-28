@@ -1,6 +1,14 @@
 <?php
 include('global_variable.php');
 include('data_base.php');
+
+$count_noti = 0;
+$sql_noti = "SELECT * FROM notificacion WHERE NotEst = 0 and NotUsuID = '" . $user['UsuID'] . "'";
+$result_noti = mysqli_query($conn, $sql_noti);
+$count_noti = mysqli_num_rows($result_noti);
+if ($count_noti == 0) {
+	$count_noti = '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +25,54 @@ include('data_base.php');
 		}
 		gtag('js', new Date());
 		gtag('config', 'UA-153099513-1');
+
+		function myFunction() {
+			$.ajax({
+
+				url: "<?= $dirEjec ?>/includes/notification.php",
+				type: "POST",
+
+				processData: false,
+				success: function(data) {
+					$(".noti_contenido").html(data);
+					$(".num_noti").remove();
+				},
+
+				error: function(jqXHR, textStatus, errorThrown) {
+
+					if (jqXHR.status === 0) {
+
+						alert('Not connect: Verify Network.');
+
+					} else if (jqXHR.status == 404) {
+
+						alert('Requested page not found [404]');
+
+					} else if (jqXHR.status == 500) {
+
+						alert('Internal Server Error [500].');
+
+					} else if (textStatus === 'parsererror') {
+
+						alert('Requested JSON parse failed.');
+
+					} else if (textStatus === 'timeout') {
+
+						alert('Time out error.');
+
+					} else if (textStatus === 'abort') {
+
+						alert('Ajax request aborted.');
+
+					} else {
+
+						alert('Uncaught Error: ' + jqXHR.responseText);
+
+					}
+
+				}
+			});
+		}
 	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,8 +100,8 @@ include('data_base.php');
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>
 					</li>
 					<li class="nav-item dropdown disp_primero_servicios">
-						<a class="nav-link menu_link<?php if ($servicio) { ?> select<?php } ?>" href="<?= $dirEjec ?>/servicios"  style="color: white;"   id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-						 Servicios
+						<a class="nav-link menu_link<?php if ($servicio) { ?> select<?php } ?>" href="<?= $dirEjec ?>/servicios" style="color: white;" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+							Servicios
 						</a>
 						<div class="dropdown-menu dropdown-menu-right disp_segundo_servicios" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="#">Action</a>
@@ -66,86 +122,42 @@ include('data_base.php');
 
 						<li class="nav-item dropdown disp_primero_perfil">
 							<a class="nav-link menu_link " style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<em class="fas fa-user"></em> <?= $user['UsuCor'] ?>
+								<em class="fas fa-user"></em> <?= $user['UsuCor'] ?><?= $user['UsuID'] ?>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
-								<?php
-								$correo 	= 	$user['UsuCor'];
-								$conn1 = mysqli_connect($database_red, $database_nombre, $database_contraseña, $database_name) or die("Error al conectar al servidor");
-								$queryUser = "SELECT UsuID FROM usuario WHERE UsuCor = '$correo'";
-								$resultUser = mysqli_query($conn1, $queryUser);
-								if (mysqli_num_rows($resultUser) == 1) {
-									$row 		= mysqli_fetch_array($resultUser);
-									$idUser 	= $row['UsuID'];
-								}
-								?>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>">Ver perfil</a>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>">Favoritos</a>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>&opcion=1">Notificaciones</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>">Ver perfil</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>">Favoritos</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Notificaciones</a>
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
 						</li>
 
 
 						<li class="nav-item dropdown disp_primero_notificaciones">
-							<a class="nav-link menu_link" style="color: white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<em class="fas fa-bell rot_bell rot_bell2"></em> 2
+							<a class="nav-link menu_link" onclick='myFunction()' style="color: white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<em class="fas fa-bell rot_bell rot_bell2"></em> <span class="num_noti" style="position: absolute; font-size: 10px; top:3px"><?= $count_noti ?></span>
 							</a>
 
 							<div class="dropdown-menu dropdown-menu-right disp_segundo_notificaciones" aria-labelledby="navbarDropdownMenuLink">
-								<div class=" pl-2 pr-2 pt-1">
-									<div class="card-body PT-0  notifi pt-2 pb-2 mb-1">
-										<p class="card-text mb-0 card-noti">
-										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-										</p>
-										<hr class="mb-1 mt-2">
+								<div class="noti_contenido">
 
-										<p class="card-text ">
-											<small class="text-muted ">
-												Hace 10 minutos
-											</small>
-										</p>
-
-									</div>
-								</div>
-								<div class=" pl-2 pr-2 pt-1">
-									<div class="card-body PT-0  notifi pt-2 pb-2 mb-1">
-										<p class="card-text mb-0 card-noti">
-										This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-										</p>
-										<hr class="mb-1 mt-2">
-
-										<p class="card-text ">
-											<small class="text-muted ">
-												Hace 10 minutos
-											</small>
-										</p>
-
-									</div>
 								</div>
 								<div align='center' class="pt-0 mb-0">
-								<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $idUser ?>&opcion=1">Ver todas</a>
+									<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Ver todas</a>
 								</div>
 							</div>
-							
+
 
 						</li>
 
 						<?php
-						$queryUser2 = "SELECT UsuRolID FROM usuario WHERE UsuCor = '$correo'";
-						$resultUser2 = mysqli_query($conn1, $queryUser2);
-						if (mysqli_num_rows($resultUser2) == 1) {
-							$row2 		= mysqli_fetch_array($resultUser2);
-							$idRolUser 	= $row2['UsuRolID'];
-						}
-
-						if ($idRolUser == 1) {
+						if ($user['UsuRolID'] == 1) {
 						?>
 
 
 							<li class="nav-item dropdown disp_primero_configuracion">
 								<a class="nav-link menu_link" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<div class=""><em class="fas fa-cog cog_rot"></em></div>
+									<div class=""><em class="fas fa-cog cog_rot"></em></div>
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion " aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="<?= $dirEjec ?>/Acceso">Accesos</a>

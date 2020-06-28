@@ -117,18 +117,26 @@ include("../../includes/data_base.php");
                     <div id="div_noti">
                         <h5>Notificaciones</h5>
                         <hr class="mt-1">
-                        <div class="card3 mb-3">
-                            <div class="row no-gutters">
+                        <?php
+                        $sql = "SELECT * FROM notificacion WHERE NotUsuID=" . $user['UsuID'] . " ORDER BY NotFecCre DESC";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <div class="card3 mb-3">
+                                <div class="row no-gutters">
 
-                                <div class="card-body">
+                                    <div class="card-body">
 
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <hr class="mb-2">
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        <p class="card-text"><?=$row["NotDes"]?></p>
+                                        <hr class="mb-2">
+                                        <p class="card-text"><small class="text-muted"><?=$row["NotFecCre"]?></small></p>
+                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
