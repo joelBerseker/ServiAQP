@@ -1,14 +1,6 @@
 <?php
 include('global_variable.php');
 include('data_base.php');
-
-$count_noti = 0;
-$sql_noti = "SELECT * FROM notificacion WHERE NotEst = 0 and NotUsuID = '" . $user['UsuID'] . "'";
-$result_noti = mysqli_query($conn, $sql_noti);
-$count_noti = mysqli_num_rows($result_noti);
-if ($count_noti == 0) {
-	$count_noti = '';
-}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +9,7 @@ if ($count_noti == 0) {
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099513-1"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 
@@ -28,51 +21,74 @@ if ($count_noti == 0) {
 
 		function myFunction() {
 			$.ajax({
-
 				url: "<?= $dirEjec ?>/includes/notification.php",
 				type: "POST",
-
 				processData: false,
 				success: function(data) {
 					$(".noti_contenido").html(data);
 					$(".num_noti").remove();
 				},
-
 				error: function(jqXHR, textStatus, errorThrown) {
-
 					if (jqXHR.status === 0) {
-
 						alert('Not connect: Verify Network.');
-
 					} else if (jqXHR.status == 404) {
-
 						alert('Requested page not found [404]');
-
 					} else if (jqXHR.status == 500) {
-
 						alert('Internal Server Error [500].');
-
 					} else if (textStatus === 'parsererror') {
-
 						alert('Requested JSON parse failed.');
-
 					} else if (textStatus === 'timeout') {
-
 						alert('Time out error.');
-
 					} else if (textStatus === 'abort') {
-
 						alert('Ajax request aborted.');
-
 					} else {
-
 						alert('Uncaught Error: ' + jqXHR.responseText);
-
 					}
-
 				}
 			});
 		}
+		var timestamp = 0;
+
+		function notification_push() {		
+			$.ajax({
+				url: "<?= $dirEjec ?>/includes/notification_push.php",
+				type: "POST",
+				data: "&timestamp=" + timestamp,
+				dataType: "html",
+				success: function(data) {
+					var json = eval("(" + data + ")");
+					timestamp = json.NotFecCre;
+					NotDes = json.NotDes;
+					actualizar = json.actualizar;		
+					if (actualizar == 1) {
+						alert("notifiacion nueva " + NotDes );
+					}				
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					if (jqXHR.status === 0) {
+						alert('Not connect: Verify Network.');
+					} else if (jqXHR.status == 404) {
+						alert('Requested page not found [404]');
+					} else if (jqXHR.status == 500) {
+						alert('Internal Server Error [500].');
+					} else if (textStatus === 'parsererror') {
+						alert('Requested JSON parse failed.');
+					} else if (textStatus === 'timeout') {
+						alert('Time out error.');
+					} else if (textStatus === 'abort') {
+						alert('Ajax request aborted.');
+					} else {
+						alert('Uncaught Error: ' + jqXHR.responseText);
+					}
+				}
+			});
+		}
+		setInterval(notification_push,1000);
+		$(document).ready(function() {
+			console.log("ready!");
+			notification_push();
+
+		});
 	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -117,7 +133,15 @@ if ($count_noti == 0) {
 					</li>
 
 
-					<?php if (!empty($user)) :  ?>
+					<?php if (!empty($user)) :
+						$count_noti = 0;
+						$sql_noti = "SELECT * FROM notificacion WHERE NotEst = 0 and NotUsuID = '" . $user['UsuID'] . "'";
+						$result_noti = mysqli_query($conn, $sql_noti);
+						$count_noti = mysqli_num_rows($result_noti);
+						if ($count_noti == 0) {
+							$count_noti = '';
+						}
+					?>
 
 
 						<li class="nav-item dropdown disp_primero_perfil">

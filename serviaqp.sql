@@ -268,7 +268,7 @@ CREATE TABLE `notificacion` (
   `NotDes` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `NotUsuId` int(11) DEFAULT NULL,
   `NotEst` int(11) NOT NULL DEFAULT '0',
-  `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ----
