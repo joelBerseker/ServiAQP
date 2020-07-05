@@ -14,6 +14,7 @@ $categoria = true;
 			<h5>Categorias disponibles</h5>
 			<p>Revisa todos los servicios clasificados en sus categorias</p>
 		</div>
+		<hr class="mb-3">
 		<div class="row justify-content-center">
 
 			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">

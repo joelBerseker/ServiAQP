@@ -26,7 +26,7 @@ include('data_base.php');
 				processData: false,
 				success: function(data) {
 					$(".noti_contenido").html(data);
-					$(".num_noti").remove();
+					$(".num_noti").text(0);
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					if (jqXHR.status === 0) {
@@ -49,7 +49,7 @@ include('data_base.php');
 		}
 		var timestamp = 0;
 
-		function notification_push() {		
+		function notification_push() {
 			$.ajax({
 				url: "<?= $dirEjec ?>/includes/notification_push.php",
 				type: "POST",
@@ -59,10 +59,30 @@ include('data_base.php');
 					var json = eval("(" + data + ")");
 					timestamp = json.NotFecCre;
 					NotDes = json.NotDes;
-					actualizar = json.actualizar;		
+					actualizar = json.actualizar;
+					NotID = json.NotID;
 					if (actualizar == 1) {
-						alert("notifiacion nueva " + NotDes );
-					}				
+						var lista = document.getElementsByClassName("noti_push");
+						lista[0].insertAdjacentHTML("afterbegin", "<div id='"+NotID+"'class='toast mb-0 mt-1 ' data-delay='3000'>" +
+							"<div class='toast-header'  role='alert' aria-live='assertive' aria-atomic='true'>" +
+							"<strong class='mr-auto'>Notificacion</strong>" +
+							"<small>" + timestamp + "</small>" +
+							"<button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>" +
+							"<span aria-hidden='true'>&times;</span>" +
+							"</button>" +
+							"</div>" +
+							"<div class='toast-body pt-2'>" +
+							NotDes +
+							"</div>" +
+							"</div>"
+						);
+						var tx=$(".num_noti").text();
+						var sum=parseInt(tx)+1;
+						$(".num_noti").text(sum);
+						$('#'+NotID).toast('show');
+						/*eliminarElemento(NotID);*/
+
+					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					if (jqXHR.status === 0) {
@@ -82,24 +102,50 @@ include('data_base.php');
 					}
 				}
 			});
+			
 		}
-		setInterval(notification_push,1000);
+		
 		$(document).ready(function() {
+			<?php if (!empty($user)) { ?>
 			console.log("ready!");
 			notification_push();
+			setInterval(notification_push, 1000);
+			<?php } ?>
+			
 
 		});
+
+		function eliminarElemento(id) {	
+			setTimeout(function() {
+				imagen = document.getElementById(id);
+				if (!imagen) {
+					alert("El elemento selecionado no existe");
+				} else {
+					padre = imagen.parentNode;
+					padre.removeChild(imagen);
+				}
+				
+			}, 2000);
+
+		}
 	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?= $titulo_html ?> - ServiAQP</title>
-	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/bootstrap-4.5.0-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
+
 </head>
 
 <body>
+	<div class="container position-fixed fixed-top mt-5 pt-2" style="height: 0px;" aria-live="polite">
+		<div class="float-right clearfix  noti_push">
+
+		</div>
+	</div>
 	<nav id="pri" class="container-fluid navbar navbar-expand-lg navbar-light position-fixed fixed-top">
 		<div class="container">
 			<a class="ani_ico" href="<?= $dirEjec ?>/"><img src="<?= $dirEjec ?>/frontend/images/logo.png" height="35" alt="logo"></a>
@@ -138,9 +184,7 @@ include('data_base.php');
 						$sql_noti = "SELECT * FROM notificacion WHERE NotEst = 0 and NotUsuID = '" . $user['UsuID'] . "'";
 						$result_noti = mysqli_query($conn, $sql_noti);
 						$count_noti = mysqli_num_rows($result_noti);
-						if ($count_noti == 0) {
-							$count_noti = '';
-						}
+						
 					?>
 
 
@@ -206,5 +250,12 @@ include('data_base.php');
 					<?php endif; ?>
 				</ul>
 			</div>
+
+
+
 		</div>
+
+
+
+
 	</nav>

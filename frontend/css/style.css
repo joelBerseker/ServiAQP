@@ -107,6 +107,16 @@ a:active {
   color: #212529;
   overflow: hidden;
 }
+.imageny_carrusel{
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
 .imageny {
   padding-bottom: 150px;
   text-align: center;

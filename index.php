@@ -8,53 +8,56 @@ $titulo_html = "Inicio";
 include("includes/header.php");
 ?>
 
-<div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
-	<ul class="carousel-indicators">
-		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-	</ul>
-	<div class="carousel-inner" role="listbox">
-
-		<div class="carousel-item active">
-			<img src="frontend/images/anuncio1.jpg" alt="personas" class="d-block img-fluid w-100">
-			<div class="carousel-caption d-none d-md-block carrusel-background">
-				<h3>En estos tiempos de dificultad, te ayudamos brindando una plataforma donde puedes ofrecer servicios y ganar un ingreso extra.</h3>
+<div class="" >
+	<div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ul>
+		<div class="carousel-inner" role="listbox" >
+	
+			<div class="carousel-item active" style="height: 100vh;">
+				<div class="imageny_carrusel" style="background-image:url('frontend/images/anuncio1.jpg');"></div>
+				<div class="carousel-caption d-md-block carrusel-background">
+					<h3>En estos tiempos de dificultad, te ayudamos brindando una plataforma donde puedes ofrecer servicios y ganar un ingreso extra.</h3>
+				</div>
 			</div>
-		</div>
-
-		<div class="carousel-item">
-			<img src="frontend/images/anuncio2.jpg" alt="personas" class="d-block img-fluid w-100">
-			<div class="carousel-caption d-none d-md-block carrusel-background">
-				<h3>Publicar un servicio desde casa y genera millones</h3>
+	
+			<div class="carousel-item" style="height: 100vh;">
+			<div class="imageny_carrusel" style="background-image:url('frontend/images/anuncio2.jpg');"></div>
+				<div class="carousel-caption d-md-block carrusel-background">
+					<h3>Publicar un servicio desde casa y genera millones</h3>
+				</div>
 			</div>
-		</div>
-
-		<div class="carousel-item">
-			<img src="frontend/images/anuncio3.jpg" alt="torres" class="d-block img-fluid w-100">
-			<div class="carousel-caption d-none d-md-block carrusel-background">
-				<h3>Se tu propio jefe, no dependas de nadie para ganar dinero</h3>
+	
+			<div class="carousel-item" style="height: 100vh;">
+			<div class="imageny_carrusel" style="background-image:url('frontend/images/anuncio3.jpg');"></div>
+				<div class="carousel-caption d-md-block carrusel-background">
+					<h3>Se tu propio jefe, no dependas de nadie para ganar dinero</h3>
+				</div>
 			</div>
+	
 		</div>
-
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
-	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
 </div>
 
 <div class="section-index ">
 	<div class="container">
-		<hr class="" width="100%">
-		<div>
+		
+		<div class="mt-4">
 			<h5>Destacados</h5>
 			<p>Prueba los servicios destacados que tenemos para ti</p>
 		</div>
+		<hr class="mb-3">
 		<div class="row justify-content-center">
 			<?php for ($i = 1; $i <= 4; $i++) { ?>
 				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
@@ -81,11 +84,12 @@ include("includes/header.php");
 			<?php } ?>
 
 		</div>
-		<hr>
-		<div>
+		
+		<div class="mt-3">
 			<h5>Elecciones del editor</h5>
 			<p>Prueba los servicios que los editores tienen para ti</p>
 		</div>
+		<hr class="mb-3">
 		<div class="row justify-content-center">
 
 			<?php for ($i = 1; $i <= 4; $i++) { ?>

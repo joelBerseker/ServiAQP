@@ -13,6 +13,7 @@ include("../includes/header.php");
 			<h5>Categorias</h5>
 			<p>Prueba suerte entre las categorias mas solicitadas</p>
 		</div>
+		<hr class="mb-3">
 		<div>
 			<a href="#" class="btn btn-primary btn-sm">Cursos</a>
 			<a href="#" class="btn btn-primary btn-sm">Tutoriales</a>
@@ -27,12 +28,13 @@ include("../includes/header.php");
 
 		</div>
 
-		<hr>
+		
 
-		<div class="mt-3">
+		<div class="mt-4">
 			<h5>Servicios disponibles</h5>
 			<p>Revisa todos los servicios que cientos de personas han publicado</p>
 		</div>
+		<hr class="mb-3">
 		<div class="row justify-content-center">
 
 			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
