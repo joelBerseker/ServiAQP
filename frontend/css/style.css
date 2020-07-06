@@ -115,6 +115,7 @@ a:active {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
   height: 100%;
 }
 .imageny {
@@ -413,6 +414,7 @@ a.menu_link:hover {
   width: 144px !important;
   padding-left: 8px;
   padding-right: 8px;
+  margin-right: 0.5em;
 }
 .segundo_buscar {
   visibility: hidden;

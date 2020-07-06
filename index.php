@@ -9,9 +9,9 @@ include("includes/header.php");
 ?>
 
 <div class="" >
-	<div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide mb-3 carousel-fade" data-ride="carousel">
 		<ul class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active "></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		</ul>
