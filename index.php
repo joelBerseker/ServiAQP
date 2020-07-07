@@ -76,7 +76,7 @@ include("includes/header.php");
 							<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
 							<hr class="pt-0 mt-0 mb-3">
 
-							<a href="/ServiAQP" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
+							<a onclick="favoritos"  class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 							<a href="servicios/view/" class="btn btn-primary btn-sm ani_ver">Ver más <em class="fas fa-chevron-right"></em></a>
 						</div>
 					</div>

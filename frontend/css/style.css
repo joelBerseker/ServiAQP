@@ -380,9 +380,25 @@ a.menu_link:hover {
 }
 .fa-heart {
   transition: 0.5s;
+  color: white;
 }
-.ani_heart:focus .fa-heart {
-  transform: translateY(-6px);
+.ani_heart:active .fa-heart {
+  animation-name: animar;
+  animation-duration: 0.5s;
+}
+@keyframes animar2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(-10deg);
+  }
+  66% {
+    transform: rotate(20deg);
+  }
+  99% {
+    transform: rotate(0deg);
+  }
 }
 
 .disp_primero_servicios:hover .disp_segundo_servicios {
