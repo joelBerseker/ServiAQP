@@ -298,3 +298,13 @@ ALTER TABLE `notificacion`
 ALTER TABLE `notificacion`
   ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`NotUsuId`) REFERENCES `usuario` (`UsuID`);
 COMMIT;
+
+
+-- Servicios
+
+CREATE TABLE `serviaqp`.`servicio` ( `SerID` INT NOT NULL AUTO_INCREMENT , `SerUsuID` INT NOT NULL , `SerCatID` INT NOT NULL , `SerSubCatID` INT NOT NULL , `SerPreFre` TEXT NOT NULL , `SerDes` TEXT NOT NULL , `SerEstReg` VARCHAR(1) NOT NULL DEFAULT 'A' , `SerFecCre` TIMESTAMP NOT NULL , PRIMARY KEY (`SerID`)) ENGINE = InnoDB;
+
+
+
+
+
