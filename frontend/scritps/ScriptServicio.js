@@ -1,38 +1,14 @@
 $(document).ready(function(){
-   
-    $('#btnguardarServicio').click(function(){
-        var datos= $('#formajax').serialize();
-        $.ajax({
-            type:"POST",
-            url:"/BaseDatos/Zona/crud_product/save.php",
-            data: datos,
-            success:function(r){
-                if(r==0){
-                    alert("fallo al Ingresar");
-                }else if(r==2){
-                    alert("Ya existe");
-                }
-                else{
-                    swal("Termine");
-                }
-                    
-            }
-        });
-        $("#formajax")[0].reset();
-        $('#recargar').load('tabla.php');
-        return false;
-    });
- 
-    $('#btnGuardarArchivos').click(function(){
-        var formData= new FormData(document.getElementById('frmArchivos'));
-        var fileSelect = document.getElementById('archivos');
+    $('#btnGuardarServicio').click(function(){
+        var formData= new FormData(document.getElementById('formServicio'));
+        var fileSelect = document.getElementById('ServicioImagenes');
         var files = fileSelect.files;
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
-            formData.append('archivos[]', file, file.name);
+            formData.append('imagenes[]', file, file.name);
         }
         $.ajax({
-            url: "save.php",
+            url: "/ServiAQP/servicios/crud_servicio/save.php",
             type: "POST",
             dataType: "html",
             data: formData,
@@ -40,15 +16,42 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success:function(respuesta){
-                respuesta=respuesta.trim();
-                if(respuesta==1){
-                    $('#recargarArchivos').load("tabla.php");
-                }else{
-                    alert(respuesta);
-                }
+                alert(respuesta);
+            }
+        });
+        alert("Espera")
+        $("#formServicio")[0].reset();
+        return false;
+    });
+    $('#btnCalificarServicio').click(function(){
+        var formData= new FormData(document.getElementById('formCalificacion'));
+        $.ajax({
+            url: "/ServiAQP/servicios/crud_servicio/save.php",
+            type: "POST",
+            data: formData,
+            success:function(respuesta){
+                alert(respuesta);
             }
         });
         return false;
     });
+    $('#categoria').on('change',function(){
+        var categoriaID= $(this).val();
+        if(categoria){
+            $.ajax({
+                url: "/ServiAQP/servicios/recargables/ajaxSubcategoria.php",
+                type: "POST",
+                data:'categoria='+categoriaID,
+                success:function(html){
+
+                    $('#subcategoria').html(html);
+                    
+                }
+            });
+        }else{
+            $('#subcategoria').html('<option value="">Selecciona una categoria primero</option>');
+        }   
+    });
+    
  });
  

@@ -152,9 +152,10 @@ include("../../includes/data_base.php");
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
-                                <form action="/event/cal" method="post">
+                                <form id="formCalificacion">
                                     <div class="clasificacion  clasi">
-                                        <input type="submit" class=" btn btn-primary btn-sm av ml-3" value="Calificar">
+                                        <button class=" btn btn-primary btn-sm av ml-3" id="btnCalificarServicio">Calificar</button>
+                                        <!--<input type="submit" class=" btn btn-primary btn-sm av ml-3" value="Calificar">-->
                                         <input type="hidden" name="id" value="5653401597640704" />
                                         <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
                                         <label for="radio1" class="labe"><i class="fas fa-star"></i></label>

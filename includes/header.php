@@ -8,7 +8,6 @@ include('data_base.php');
 
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153099513-1"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
