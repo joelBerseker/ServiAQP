@@ -2,7 +2,7 @@
 Trabajo de Pruebas de Software
 
 ## Getting Started
-Iniciamos
+Iniciamos este trabajo en el curso de pruebas de software
 ## Authors
 
 * **Joel Atamari** - *Initial work* - [JoelBersek](https://github.com/joelBerseker)
