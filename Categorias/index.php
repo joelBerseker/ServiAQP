@@ -14,7 +14,6 @@ $categoria = true;
 			<h5>Categorias disponibles</h5>
 			<p>Revisa todos los servicios clasificados en sus categorias</p>
 		</div>
-		<hr class="mb-3">
 		<div class="row justify-content-center">
 
 			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
@@ -22,37 +21,9 @@ $categoria = true;
 
 					<div class="card-body text-center">
 						<h3 class="card-title"> Juegos </h3>
+						<hr class="pt-0 mt-0 mb-2">
 						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-				<div class="card mb-4 border-0 ">
-
-					<div class="card-body text-center">
-						<h3 class="card-title"> Saludable </h3>
-						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-				<div class="card mb-4 border-0 ">
-
-					<div class="card-body text-center">
-						<h3 class="card-title"> Deporte </h3>
-						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-				<div class="card mb-4 border-0 ">
-
-					<div class="card-body text-center">
-						<h3 class="card-title"> Productividad </h3>
-						<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
+						<hr class="pt-0 mt-0 mb-2">
 						<a href="/Categoria/VerProductos?id=8" class="btn btn-primary btn-sm">Ver más</a><a href=""></a>
 					</div>
 				</div>

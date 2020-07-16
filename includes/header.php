@@ -7,126 +7,13 @@ include('data_base.php');
 <html lang="es">
 
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-		gtag('config', 'UA-153099513-1');
-
-		function myFunction() {
-			$.ajax({
-				url: "<?= $dirEjec ?>/includes/notification.php",
-				type: "POST",
-				processData: false,
-				success: function(data) {
-					$(".noti_contenido").html(data);
-					$(".num_noti").text(0);
-				},
-				error: function(jqXHR, textStatus, errorThrown) {
-					if (jqXHR.status === 0) {
-						alert('Not connect: Verify Network.');
-					} else if (jqXHR.status == 404) {
-						alert('Requested page not found [404]');
-					} else if (jqXHR.status == 500) {
-						alert('Internal Server Error [500].');
-					} else if (textStatus === 'parsererror') {
-						alert('Requested JSON parse failed.');
-					} else if (textStatus === 'timeout') {
-						alert('Time out error.');
-					} else if (textStatus === 'abort') {
-						alert('Ajax request aborted.');
-					} else {
-						alert('Uncaught Error: ' + jqXHR.responseText);
-					}
-				}
-			});
-		}
-		var timestamp = 0;
-
-		function notification_push() {
-			$.ajax({
-				url: "<?= $dirEjec ?>/includes/notification_push.php",
-				type: "POST",
-				data: "&timestamp=" + timestamp,
-				dataType: "html",
-				success: function(data) {
-					var json = eval("(" + data + ")");
-					timestamp = json.NotFecCre;
-					NotDes = json.NotDes;
-					actualizar = json.actualizar;
-					NotID = json.NotID;
-					if (actualizar == 1) {
-						var lista = document.getElementsByClassName("noti_push");
-						lista[0].insertAdjacentHTML("afterbegin", "<div id='"+NotID+"'class='toast mb-0 mt-1 ' data-delay='3000'>" +
-							"<div class='toast-header'  role='alert' aria-live='assertive' aria-atomic='true'>" +
-							"<strong class='mr-auto'>Notificacion</strong>" +
-							"<small>" + timestamp + "</small>" +
-							"<button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>" +
-							"<span aria-hidden='true'>&times;</span>" +
-							"</button>" +
-							"</div>" +
-							"<div class='toast-body pt-2'>" +
-							NotDes +
-							"</div>" +
-							"</div>"
-						);
-						var tx=$(".num_noti").text();
-						var sum=parseInt(tx)+1;
-						$(".num_noti").text(sum);
-						$('#'+NotID).toast('show');
-						/*eliminarElemento(NotID);*/
-
-					}
-				},
-				error: function(jqXHR, textStatus, errorThrown) {
-					if (jqXHR.status === 0) {
-						alert('Not connect: Verify Network.');
-					} else if (jqXHR.status == 404) {
-						alert('Requested page not found [404]');
-					} else if (jqXHR.status == 500) {
-						alert('Internal Server Error [500].');
-					} else if (textStatus === 'parsererror') {
-						alert('Requested JSON parse failed.');
-					} else if (textStatus === 'timeout') {
-						alert('Time out error.');
-					} else if (textStatus === 'abort') {
-						alert('Ajax request aborted.');
-					} else {
-						alert('Uncaught Error: ' + jqXHR.responseText);
-					}
-				}
-			});
-			
-		}
-		
 		$(document).ready(function() {
 			<?php if (!empty($user)) { ?>
-			console.log("ready!");
-			notification_push();
-			setInterval(notification_push, 1000);
+				notification_push();
+				setInterval(notification_push, 1000);
 			<?php } ?>
-			
-
 		});
-
-		function eliminarElemento(id) {	
-			setTimeout(function() {
-				imagen = document.getElementById(id);
-				if (!imagen) {
-					alert("El elemento selecionado no existe");
-				} else {
-					padre = imagen.parentNode;
-					padre.removeChild(imagen);
-				}
-				
-			}, 2000);
-
-		}
 	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -177,16 +64,13 @@ include('data_base.php');
 						<a class="nav-link menu_link<?php if ($nosotros) { ?> select<?php } ?>" href="<?= $dirEjec ?>/nosotros">Nosotros</a>
 					</li>
 
-
 					<?php if (!empty($user)) :
 						$count_noti = 0;
 						$sql_noti = "SELECT * FROM notificacion WHERE NotEst = 0 and NotUsuID = '" . $user['UsuID'] . "'";
 						$result_noti = mysqli_query($conn, $sql_noti);
 						$count_noti = mysqli_num_rows($result_noti);
-						
+
 					?>
-
-
 						<li class="nav-item dropdown disp_primero_perfil">
 							<a class="nav-link menu_link " style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<em class="fas fa-user"></em> <?= $user['UsuCor'] ?><?= $user['UsuID'] ?>
@@ -198,13 +82,10 @@ include('data_base.php');
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
 						</li>
-
-
 						<li class="nav-item dropdown disp_primero_notificaciones">
-							<a class="nav-link menu_link" onclick='myFunction()' style="color: white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link menu_link" onclick='notification_display()' style="color: white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<em class="fas fa-bell rot_bell rot_bell2"></em> <span class="num_noti" style="position: absolute; font-size: 10px; top:3px"><?= $count_noti ?></span>
 							</a>
-
 							<div class="dropdown-menu dropdown-menu-right disp_segundo_notificaciones" aria-labelledby="navbarDropdownMenuLink">
 								<div class="noti_contenido">
 
@@ -213,14 +94,11 @@ include('data_base.php');
 									<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Ver todas</a>
 								</div>
 							</div>
-
-
 						</li>
 
 						<?php
 						if ($user['UsuRolID'] == 1) {
 						?>
-
 
 							<li class="nav-item dropdown disp_primero_configuracion">
 								<a class="nav-link menu_link" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -236,25 +114,15 @@ include('data_base.php');
 								</div>
 							</li>
 
-
 						<?php  }  ?>
 					<?php else :  ?>
-
 
 						<li class="nav-item menu_link">
 							<a class="nav-link menu_link<?php if ($login) { ?> select<?php } ?>" href="<?= $dirEjec ?>/autenticacion/Login"><em class="fas fa-sign-in-alt "></em> Ingresar</a>
 						</li>
 
-
 					<?php endif; ?>
 				</ul>
 			</div>
-
-
-
 		</div>
-
-
-
-
 	</nav>

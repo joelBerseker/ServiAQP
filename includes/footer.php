@@ -41,8 +41,8 @@ include('global_variable.php');
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="<?= $dirEjec ?>/frontend/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
 
-<script src="<?= $dirEjec ?>/frontend/scritps/ScriptServicio.js"></script>
-
+<script src="<?= $dirEjec ?>/frontend/scritps/script_servicio.js"></script>
+<script src="<?= $dirEjec ?>/frontend/scritps/script_notificacion.js"></script>
 </body>
 
 </html>
