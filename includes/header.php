@@ -105,12 +105,12 @@ include('data_base.php');
 									<div class=""><em class="fas fa-cog cog_rot"></em></div>
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion " aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Acceso">Accesos</a>
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Categoria/tabla.php">Categorias</a>
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Producto/tabla.php">Servicios</a>
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Recurso">Recursos</a>
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Rol">Roles</a>
-									<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario">Usuarios</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/acceso">Accesos</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/categoria/tabla.php">Categorias</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/producto/tabla.php">Servicios</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/recurso">Recursos</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/rol">Roles</a>
+									<a class="dropdown-item" href="<?= $dirEjec ?>/usuario">Usuarios</a>
 								</div>
 							</li>
 

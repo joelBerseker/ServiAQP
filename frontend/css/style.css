@@ -3,6 +3,7 @@
   --color-principal: #11cdbb;
   --fondo-principal: white;
   --color-principal-hover: rgb(24, 170, 155);
+  --color-principal-disa: rgb(87, 211, 199);
   --color-footer: rgb(63, 63, 63);
 }
 /*Variables fin*/
@@ -34,11 +35,15 @@ div.section-index {
 p {
   font-size: 15px;
 }
+label {
+  font-size: 15px;
+}
 
 .carrusel-background {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 }
+
 /*Genral fin*/
 
 /*Enlaces inicio*/
@@ -61,6 +66,25 @@ a:active {
 .btn-primary:hover {
   background-color: var(--color-principal-hover) !important;
   border-color: var(--color-principal-hover);
+}
+.btn-disabled{
+  background-color: var(--color-principal-disa) !important;
+ border-color: var(--color-principal-disa) !important;
+}
+.table{
+  font-size: 15px;
+  margin: 0px;
+}
+.tb{
+  border-radius: 6px;
+
+}
+.table td, .table th{
+  padding: .6rem;
+
+}
+.table th{
+  font-weight: 600;
 }
 /*Fin botones*/
 
