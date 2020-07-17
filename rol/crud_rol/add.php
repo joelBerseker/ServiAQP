@@ -8,8 +8,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form action="crud_rol/save.php" method="POST" enctype="multipart/form-data">
+
+      <form action="crud_rol/save.php" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+
           <div class="form-row form-group ">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col"><input class="form-control form-control-sm " value="" type="text" name="nombre" required></div>
@@ -27,11 +29,13 @@
               </select>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline-success  btn-sm" type="submit" name="save_product">Enviar</button>
-      </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-success btn-sm" type="submit" name="save_product">Enviar</button>
+        </div>
+      </form>
+
     </div>
   </div>
 </div>

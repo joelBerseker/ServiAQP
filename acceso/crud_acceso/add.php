@@ -50,7 +50,7 @@
         </div>
 
         <div class="modal-footer">
-          <button class="btn btn-outline-success  btn-sm" type="submit" name="save_product">Enviar</button>
+          <button class="btn btn-outline-success  btn-sm" type="submit" name="save_acceso">Enviar</button>
         </div>
       </form>
     </div>
