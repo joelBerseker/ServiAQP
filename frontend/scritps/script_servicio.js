@@ -55,7 +55,6 @@ $(document).ready(function(){
     
  });
  function eliminarServicio(idRecibido){
-    alert(idRecibido);
     if(confirm("Seguro que desea eliminar? id= ".idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/crud_servicio/delete.php",
