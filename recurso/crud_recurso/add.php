@@ -9,13 +9,7 @@
         </button>
       </div>
       <form action="crud_recurso/save.php" method="POST" enctype="multipart/form-data">
-      <div class="modal-body">
-        
-          <!--<div class="form-row form-group ">
-              <div class="col" align="center" >
-                <img src="../image/objeto-sin-imagen.png"  class="img-fluid"id="imagenmuestra" alt="Img blob" />
-              </div>
-      </div>-->
+        <div class="modal-body">
           <div class="form-row form-group ">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col"><input class="form-control form-control-sm " value="" type="text" name="nombre" required></div>
@@ -24,10 +18,6 @@
             <div class="col-4"><label>Descripción:</label></div>
             <div class="col"><input class="form-control form-control-sm " value="" type="text" name="descripcion" required></div>
           </div>
-          <!--<div class="form-row form-group ">
-          <div class="col-4"><label>Imagen:</label></div>
-          <div class="col"><input type="file" name="myFile" accept="image/* "class="form-control-file"></div>
-    </div>-->
           <div class="form-row form-group ">
             <div class="col-4"><label>Estado:</label></div>
             <div class="col">
@@ -37,13 +27,10 @@
               </select>
             </div>
           </div>
-          
-
-        
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline-success btn-sm" type="submit" name="save_product">Enviar</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-success btn-sm" type="submit" name="save_product">Enviar</button>
+        </div>
       </form>
     </div>
   </div>

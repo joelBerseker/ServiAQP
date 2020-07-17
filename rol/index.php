@@ -87,12 +87,7 @@ include("../includes/header.php");
 					</button>
 				</div>
 				<div class="modal_body_edit">
-
 				</div>
-
-
-
-
 			</div>
 		</div>
 	</div>
