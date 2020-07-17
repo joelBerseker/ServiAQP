@@ -8,8 +8,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="crud_recurso/save.php" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
-        <form action="crud_recurso/save.php" method="POST" enctype="multipart/form-data">
+        
           <!--<div class="form-row form-group ">
               <div class="col" align="center" >
                 <img src="../image/objeto-sin-imagen.png"  class="img-fluid"id="imagenmuestra" alt="Img blob" />
@@ -36,14 +37,14 @@
               </select>
             </div>
           </div>
-          <button class="btn btn-success btn-block" type="submit" name="save_product">Enviar</button>
+          
 
-        </form>
+        
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer">
+        <button class="btn btn-outline-success btn-sm" type="submit" name="save_product">Enviar</button>
       </div>
-      -->
+      </form>
     </div>
   </div>
 </div>

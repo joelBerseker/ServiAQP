@@ -54,7 +54,7 @@ include("../includes/header.php");
 								<td><?php echo $row['RecFecCre'] ?></td>
 								<td>
 								<button type="button" onclick="edit_acceso(<?php echo $row['AccId'] ?>)" class="btn btn-outline-warning btn-sm mb-1" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Edit</button>
-									<a href="crud_recurso/delete.php?id=<?php echo $row['RecId'] ?>" class="btn btn-outline-danger btn-sm">
+									<a href="crud_recurso/delete.php?id=<?php echo $row['RecId'] ?>" class="btn btn-outline-danger btn-sm mb-1">
 										Delete
 									</a>
 								</td>
