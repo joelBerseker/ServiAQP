@@ -54,4 +54,23 @@ $(document).ready(function(){
     });
     
  });
- 
+ function eliminarServicio(idRecibido){
+    alert(idRecibido);
+    if(confirm("Seguro que desea eliminar? id= ".idRecibido)){
+        $.ajax({
+            url: "/ServiAQP/servicios/crud_servicio/delete.php",
+            type: "POST",
+            data:'id='+idRecibido,
+            success:function(enviado)
+            {   
+                if(enviado)
+                    $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+                else
+                    alert("No se Elimino")
+            }
+        });
+    }else{
+
+    }
+    return false;
+ }
