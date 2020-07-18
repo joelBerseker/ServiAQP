@@ -35,7 +35,7 @@ include("../includes/header.php");
 
 		<div>
 			<?php
-			$query = "SELECT * FROM acceso";
+			$query = "SELECT * FROM acceso_tabla";
 			$resultAcceso = mysqli_query($conn, $query);
 			if (mysqli_num_rows($resultAcceso) > 0) {
 			?>
@@ -44,8 +44,8 @@ include("../includes/header.php");
 						<thead class="thead-light">
 							<th>ID</th>
 							<th>Nombre</th>
-							<th>Id del rol</th>
-							<th>Id de recurso</th>
+							<th>Rol</th>
+							<th>Recurso</th>
 							<th>Estado</th>
 							<th>Fecha de creación</th>
 							<th>Acciones</th>
@@ -57,8 +57,8 @@ include("../includes/header.php");
 								<tr>
 									<td><?php echo $row['AccId'] ?></td>
 									<td><?php echo $row['AccNom'] ?></td>
-									<td><?php echo $row['AccRolId'] ?></td>
-									<td><?php echo $row['AccRecId'] ?></td>
+									<td><?php echo $row['RolNom'] ?></td>
+									<td><?php echo $row['RecNom'] ?></td>
 									<td><?php echo $row['AccEstReg'] ?></td>
 									<td><?php echo $row['AccFecCre'] ?></td>
 									<td>

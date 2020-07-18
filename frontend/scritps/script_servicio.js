@@ -19,8 +19,9 @@ $(document).ready(function(){
                 alert(respuesta);
             }
         });
-        alert("Espera")
+        alert("Espera");
         $("#formServicio")[0].reset();
+        $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
         return false;
     });
     $('#btnCalificarServicio').click(function(){

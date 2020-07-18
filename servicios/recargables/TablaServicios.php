@@ -42,6 +42,8 @@
                 <button class="btn btn-danger" onclick="eliminarServicio(<?php echo $row['SerID']?>)">Delete</button>
             </td>
         </tr>
-    <?php } ?>
+    <?php }
+        //conn2.close();
+    ?>
     </tbody>
 </table>
