@@ -1,7 +1,6 @@
 <?php
-/*include("../../includes/sesion.php");*/
+include("../../includes/sesion.php");
 include("../../includes/data_base.php");
-
 include("../../includes/global_variable.php");
 ?>
 <?php
@@ -62,58 +61,43 @@ function imprimirTiempo($time)
     }
 }
 
-/*
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $query = "SELECT * FROM usuario_producto WHERE UsuProID = $id";
+    $query = "SELECT * FROM servicio_tabla WHERE  SerID = $id";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_array($result);
-        $nombre                = $row['UsuProNom'];
-        $product             = $row['UsuProProID'];
-        $description        = $row['UsuProDes'];
-        $precio             = $row['UsuProPre'];
-        $estado                = $row['usuProEst'];
-
-        $query2 = "SELECT ProNom FROM producto WHERE ProID = $product";
+        $row            = mysqli_fetch_array($result);
+        $creador        = $row['SerUsuID'];
+        $creadorN        = $row['UsuNom'];
+        $nombre         = $row['SerNom'];
+        $categoria       = $row['SerCatID'];
+        $categoriaN     = $row['CatNom'];
+        $subcategoria   = $row['SerSubCatID'];
+        $subcategoriaN   = $row['SubCatNom'];
+        $preguntas      = $row['SerPreFre'];
+        $descripcion    = $row['SerDes'];
+        $valoracion     = $row['SerVal'];
+        $precio         = $row['SerPre'];
+        $fechaC         = $row['SerFecCre'];
+        $query2 = "SELECT * FROM servicio_img WHERE SerImgSerId = $id";
         $result2 = mysqli_query($conn, $query2);
-        if (mysqli_num_rows($result2) == 1) {
-            $row2 = mysqli_fetch_array($result2);
-            $nombreProducto = $row2['ProNom'];
+        $arrayImg= array();
+        $i=0;
+        while($row2= mysqli_fetch_array($result2)){
+            $arrayImg[$i]=array(
+                "nombre"=>$row2['SerImgNom'],
+                "tipo"=>$row2['SerImgTip']
+            );
+            $i=$i+1;
         }
+        
     }
 }
-if (isset($_POST['update_comentar'])) {
-    $correa     =     $user['UsuCor'];
-    $queryUser = "SELECT UsuID FROM usuario WHERE UsuCor = '$correa'";
-    $resultUser = mysqli_query($conn, $queryUser);
-    if (mysqli_num_rows($resultUser) == 1) {
-        $rowUser                = mysqli_fetch_array($resultUser);
-        $idUser                 = $rowUser['UsuID'];
-        $usuario                =   $idUser;
-        $id                  =   $_GET['id'];
-        $comentario         =   $_POST['comentario'];
-        $query = "INSERT INTO usuario_mensaje (`UsuMenUsuProID`,`UsuMenUsuID`, `UsuMenDes`) VALUES (?,?, ?)";
-        $stmt = mysqli_prepare($conn, $query);
-        $stmt->bind_param('iis', $id, $usuario, $comentario);
-
-        if (!mysqli_stmt_execute($stmt)) {
-            echo "Chanfle, hubo un problema y no se guardo el archivo. " . mysqli_stmt_error($stmt) . "<br/>";
-        }
-
-        mysqli_stmt_close($stmt);
-        header("Location: ../view?id=$id");
-    }else{
-        header("Location: $dirEjec/Errores/?m=jodete");
-    }
-}
-*/
 ?>
-
 <?php
 include('../../includes/navbar.php');
-$titulo_html = "Producto";
+$titulo_html = "Servicios";
 include('../../includes/header.php');
 include("../../includes/data_base.php");
 ?>
@@ -124,7 +108,7 @@ include("../../includes/data_base.php");
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="#">Servicios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Vista de juego</li>
+                <li class="breadcrumb-item active" aria-current="page">Vista de Servicio</li>
             </ol>
         </nav>
     </div>
@@ -135,28 +119,27 @@ include("../../includes/data_base.php");
                 <div class="card">
                     <div class="img-animtion">
                         <img class="card-img-top" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Imagen del autor del comentario" style="width: 100%;" />
-                        <!--<img class="card-img-top" src="../mostrar.php?id=<?php echo $product; ?>" alt="Imagen del autor del comentario" style="width: 100%;" />--->
+                        <!--<img class="card-img-top" src="../mostrar.php?id=<?php //echo $product; ?>" alt="Imagen del autor del comentario" style="width: 100%;" />--->
 
                     </div>
                     <div class="card-img-overlay">
-                        <a class="btn  btn-sm informacion-btn">$ 23.30</a>
-                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> 4.0</a>
+                        <a class="btn  btn-sm informacion-btn"><?=$precio?></a>
+                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i><?=$valoracion?></a>
                     </div>
                     <div class="card-body text-left">
-                        <h4 class="card-title text-center ">Este es el titulo de servicio</h4>
+                        <h4 class="card-title text-center "><?=$nombre?></h4>
                         <hr>
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Descripcion del producto:</label></div>
-                            <div class="col"><label>Esta es la descripcion del producto</label></div>
+                            <div class="col"><label><?=$descripcion?></label></div>
                         </div>
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
-                                <form id="formCalificacion">
+                                <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>        
+                                <form id="formCalificacion" method="POST">
                                     <div class="clasificacion  clasi">
-                                        <button class=" btn btn-primary btn-sm av ml-3" id="btnCalificarServicio">Calificar</button>
-                                        <!--<input type="submit" class=" btn btn-primary btn-sm av ml-3" value="Calificar">-->
-                                        <input type="hidden" name="id" value="5653401597640704" />
+                                        <input type="hidden" name="id" value="<?=$id?>" />
                                         <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
                                         <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
@@ -176,14 +159,14 @@ include("../../includes/data_base.php");
                             <div class="col">
                                 <p class="card-text ">
                                     <small class="text-muted">
-                                        Publicado por: Jhon Mamani
+                                        <?=$creadorN?>
                                     </small>
                                 </p>
                             </div>
                             <div class="col">
                                 <p class="card-text float-right">
                                     <small class="text-muted">
-                                        Hace 1 minuto
+                                        <?=imprimirTiempo($fechaC)?>
                                     </small>
                                 </p>
                             </div>
@@ -193,7 +176,7 @@ include("../../includes/data_base.php");
                         <a href="#" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 
                         <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
-                        <a href="#" class="btn btn-primary btn-sm">Contratar $2.00</a>
+                        <a href="#" class="btn btn-primary btn-sm">Contratar <?=$precio?></a>
                         <a href="#" class="btn btn-primary btn-sm float-right">Editar</a>
                     </div>
 
@@ -259,16 +242,11 @@ include("../../includes/data_base.php");
                             </div>
                         </div>
                     </div>
-                    <!--  hasta aqui para los comentarios-->
                 </div>
-
             </div>
-
-
         </div>
     </div>
 </div>
-
 <?php
 include("../../includes/footer.php")
 ?>
