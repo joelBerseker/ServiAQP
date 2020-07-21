@@ -13,12 +13,11 @@ include("../includes/header.php");;
 	<div class="container pt-4">
 		<div class="mb-2">
 			<a href="<?= $dirEjec ?>/acceso" class="btn btn-primary btn-sm mb-1">Accesos</a>
-			<a href="<?= $dirEjec ?>/categoria/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
-			<a href="<?= $dirEjec ?>/producto/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
+			<a href="<?= $dirEjec ?>/categorias/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
+			<a href="<?= $dirEjec ?>/servicios/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
 			<a href="<?= $dirEjec ?>/recurso" class="btn btn-primary btn-sm mb-1">Recursos</a>
 			<a href="<?= $dirEjec ?>/rol" class="btn btn-primary btn-sm mb-1">Roles</a>
 			<a href="<?= $dirEjec ?>/usuario" class="btn btn-primary btn-sm mb-1 btn-disabled disabled">Usuarios</a>
-
 		</div>
 		<hr class="mt-3">
 		<div class="mt-3 row">
@@ -52,7 +51,7 @@ include("../includes/header.php");;
 						</thead>
 						<tbody>
 							<?php
-							
+
 							while ($row = mysqli_fetch_array($resultAcceso)) {
 							?>
 								<tr>
@@ -64,13 +63,9 @@ include("../includes/header.php");;
 									<td><?php echo $row['UsuEst'] ?></td>
 									<td><?php echo $row['created_at'] ?></td>
 									<td>
-										<a href="crud_usuario/edit.php?id=<?php echo $row['UsuID'] ?>">
-											<button class="btn btn-warning icon-pencil"></button>
-										</a>
 
-								
 
-										<button type="button" onclick="edit_rol(<?php echo $row['RolId'] ?>)" class="btn btn-outline-warning btn-sm mb-1" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Edit</button>
+										<button type="button" onclick="edit_usuario(<?php echo $row['UsuID'] ?>)" class="btn btn-outline-warning btn-sm mb-1" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Edit</button>
 										<a href="crud_usuario/delete.php?id=<?php echo $row['UsuID'] ?>" class="btn btn-outline-danger btn-sm mb-1">
 											Delete
 										</a>
@@ -85,8 +80,20 @@ include("../includes/header.php");;
 			<?php } ?>
 		</div>
 	</div>
-</div>
-</div>
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal_body_edit">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <?php

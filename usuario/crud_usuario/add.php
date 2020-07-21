@@ -1,20 +1,21 @@
 <?php 
   include("../includes/global_variable.php");
 ?>
-<button type="button" class="btn btn-outline-success btn-sm float-right mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar nuevo <span class="icon-plus"></span></button>
+<button type="button" class="btn btn-outline-success btn-sm float-right mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+	  </div>
+	  <form action="crud_usuario/save.php" method="POST"  enctype="multipart/form-data">
       <div class="modal-body">
       <!--C:\xampp\htdocs\<?//php echo $dirEjec?>\Categoria\crud_tipo_producto\save.php-->
-	  <form action="crud_usuario/save.php" method="POST"  enctype="multipart/form-data">
+	  
 	  
 	  <div class="form-row form-group ">
               <div class="col" align="center" >
@@ -60,15 +61,15 @@
 						?>
 					</select></div></div>
 					
-					<input type="submit" class="btn btn-success btn-block" name="save_acceso" value="Enviar">
-				</form>
+					
+				
 
 
       </div>
-     <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-      --> 
+	  <div class="modal-footer">
+          <button class="btn btn-outline-success btn-sm" type="submit" name="save_acceso">Enviar</button>
+		</div>
+		</form>
     </div>
   </div>
 </div>

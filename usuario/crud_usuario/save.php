@@ -2,7 +2,7 @@
 include ('../../includes/sesion.php');
 include ('../../includes/data_base.php');
 $recurso="/Usuario/save";
-include ('../../includes/acl.php');
+//include ('../../includes/acl.php');
 ?>
 
 <?php
