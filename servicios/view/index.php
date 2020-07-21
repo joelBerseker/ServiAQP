@@ -62,53 +62,39 @@ function imprimirTiempo($time)
     }
 }
 
-/*
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $query = "SELECT * FROM usuario_producto WHERE UsuProID = $id";
+    $query = "SELECT * FROM servicio_tabla WHERE  SerID = $id";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_array($result);
-        $nombre                = $row['UsuProNom'];
-        $product             = $row['UsuProProID'];
-        $description        = $row['UsuProDes'];
-        $precio             = $row['UsuProPre'];
-        $estado                = $row['usuProEst'];
-
-        $query2 = "SELECT ProNom FROM producto WHERE ProID = $product";
+        $row            = mysqli_fetch_array($result);
+        $creador        = $row['SerUsuID'];
+        $creadorN        = $row['UsuNom'];
+        $nombre         = $row['SerNom'];
+        $categoria       = $row['SerCatID'];
+        $categoriaN     = $row['CatNom'];
+        $subcategoria   = $row['SerSubCatID'];
+        $subcategoriaN   = $row['SubCatNom'];
+        $preguntas      = $row['SerPreFre'];
+        $descripcion    = $row['SerDes'];
+        $valoracion     = $row['SerVal'];
+        $precio         = $row['SerPre'];
+        $fechaC         = $row['SerFecCre'];
+        $query2 = "SELECT * FROM servicio_img WHERE SerImgSerId = $id";
         $result2 = mysqli_query($conn, $query2);
-        if (mysqli_num_rows($result2) == 1) {
-            $row2 = mysqli_fetch_array($result2);
-            $nombreProducto = $row2['ProNom'];
+        $arrayImg= array();
+        $i=0;
+        while($row2= mysqli_fetch_array($result2)){
+            $arrayImg[$i]=array(
+                "nombre"=>$row2['SerImgNom'],
+                "tipo"=>$row2['SerImgTip']
+            );
+            $i=$i+1;
         }
+        
     }
 }
-if (isset($_POST['update_comentar'])) {
-    $correa     =     $user['UsuCor'];
-    $queryUser = "SELECT UsuID FROM usuario WHERE UsuCor = '$correa'";
-    $resultUser = mysqli_query($conn, $queryUser);
-    if (mysqli_num_rows($resultUser) == 1) {
-        $rowUser                = mysqli_fetch_array($resultUser);
-        $idUser                 = $rowUser['UsuID'];
-        $usuario                =   $idUser;
-        $id                  =   $_GET['id'];
-        $comentario         =   $_POST['comentario'];
-        $query = "INSERT INTO usuario_mensaje (`UsuMenUsuProID`,`UsuMenUsuID`, `UsuMenDes`) VALUES (?,?, ?)";
-        $stmt = mysqli_prepare($conn, $query);
-        $stmt->bind_param('iis', $id, $usuario, $comentario);
-
-        if (!mysqli_stmt_execute($stmt)) {
-            echo "Chanfle, hubo un problema y no se guardo el archivo. " . mysqli_stmt_error($stmt) . "<br/>";
-        }
-
-        mysqli_stmt_close($stmt);
-        header("Location: ../view?id=$id");
-    }else{
-        header("Location: $dirEjec/Errores/?m=jodete");
-    }
-}
-*/
 ?>
 
 <?php
@@ -130,13 +116,36 @@ include("../../includes/data_base.php");
     </div>
     <div class="container p-4">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
 
                 <div class="card">
                     <div class="img-animtion">
-                        <img class="card-img-top" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Imagen del autor del comentario" style="width: 100%;" />
-                        <!--<img class="card-img-top" src="../mostrar.php?id=<?php echo $product; ?>" alt="Imagen del autor del comentario" style="width: 100%;" />--->
-
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="card-img-overlay">
                         <a class="btn  btn-sm informacion-btn">$ 23.30</a>
@@ -192,7 +201,7 @@ include("../../includes/data_base.php");
 
                         <a href="#" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 
-                        <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
+                        <a href="#" class="btn btn-primary btn-sm">Contactar</a>
                         <a href="#" class="btn btn-primary btn-sm">Contratar $2.00</a>
                         <a href="#" class="btn btn-primary btn-sm float-right">Editar</a>
                     </div>
@@ -202,22 +211,19 @@ include("../../includes/data_base.php");
             </div>
 
 
-            <div class="col-6">
+            <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+                <div class="card card-body">
+                    <div>
+                        <h5>Preguntas frecuentes</h5>
 
-
-                <form action="index.php?id=<?php echo $id ?>" method="post">
-                    <div class="card card-body">
-                        <div class="mb-2">
-                            <textarea class="offset-0 col-12 form-control" placeholder="Envia un comentario" name="comentario" required></textarea>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary btn-sm " name="update_comentar">
-                                Enviar
-                            </button>
-                        </div>
                     </div>
-                </form>
-
+                    <hr class="mt-1">
+                    <p>¿Es facil de manejar?.
+                        no demoraras mucho maximo 1 año en apache_response_headers
+                        <br>¿Es necesario saber de la vida?
+                        pos si wey seas mamon
+                    </p>
+                </div>
 
                 <div class="card card-body mt-3">
                     <div>
@@ -225,14 +231,25 @@ include("../../includes/data_base.php");
 
                     </div>
                     <hr class="mt-1">
+                    <form action="index.php?id=<?php echo $id ?>" method="post">
+                        <div class="mb-2">
+                            <textarea class="offset-0 col-12 form-control" placeholder="Envia un comentario" name="comentario" required></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-sm float-right" name="update_comentar">
+                                Enviar
+                            </button>
+                        </div>
+                    </form>
+                    <hr>
                     <!-- Esto desde aqui se va repetir -->
-                    <div class=" mb-3 " style="max-width: 540px;">
+                    <div class=" mb-3 ">
                         <div class="row no-gutters">
 
-                            <div class="col-md-3">
+                            <div class="col-3">
                                 <div class="imageny3" style="background-image:url('../../frontend/images/usuario-sin-imagen.jpg');"></div>
                             </div>
-                            <div class="col-md-9 card2">
+                            <div class="col-9 card2">
 
                                 <div class="float-right ">
                                     <a class="btn equis btn-sm" href="#"><em class="fas fa-times"></em> </a>

@@ -7,14 +7,6 @@ include('data_base.php');
 <html lang="es">
 
 <head>
-	<script>
-		$(document).ready(function() {
-			<?php if (!empty($user)) { ?>
-				notification_push();
-				setInterval(notification_push, 1000);
-			<?php } ?>
-		});
-	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?= $titulo_html ?> - ServiAQP</title>
@@ -23,7 +15,7 @@ include('data_base.php');
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
-
+	
 </head>
 
 <body>

@@ -43,9 +43,9 @@ function notification_push() {
             if (actualizar == 1) {
                 var lista = document.getElementsByClassName("noti_push");
                 lista[0].insertAdjacentHTML("afterbegin", 
-                "<div id='"+NotID+"'class='toast mb-0 mt-1 ' data-delay='3000'>" +
+                "<div id='"+NotID+"'class='toast mb-0 mt-1 ' data-delay='5000'>" +
                     "<div class='toast-header'  role='alert' aria-live='assertive' aria-atomic='true'>" +
-                    "<strong class='mr-auto'>Notificacion</strong>" +
+                    
                     "<small>" + timestamp + "</small>" +
                     "<button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>" +
                     "<span aria-hidden='true'>&times;</span>" +

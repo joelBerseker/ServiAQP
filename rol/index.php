@@ -25,11 +25,9 @@ include("../includes/header.php");
 				<p>Roles existentes en el sistema.</p>
 			</div>
 			<div class="col-2 align-self-center mb-3">
-
 				<?php
 				include("crud_rol/add.php");
 				?>
-
 			</div>
 		</div>
 		<div>

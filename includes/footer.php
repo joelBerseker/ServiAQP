@@ -43,6 +43,14 @@ include('global_variable.php');
 
 <script src="<?= $dirEjec ?>/frontend/scritps/script_servicio.js"></script>
 <script src="<?= $dirEjec ?>/frontend/scritps/script_notificacion.js"></script>
+<script>
+    $(document).ready(function() {
+        <?php if (!empty($user)) { ?>
+            notification_push();
+            setInterval(notification_push, 3000);
+        <?php } ?>
+    });
+</script>
 </body>
 
 </html>
