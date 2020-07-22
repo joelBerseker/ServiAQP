@@ -16,9 +16,9 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success:function(respuesta){
-                $("#formServicio")[0].reset();
-                $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
-                $('#exampleModal').modal('hide');
+            $("#formServicio")[0].reset();
+            $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+            $('#exampleModal').modal('hide')
             }
         });
         
