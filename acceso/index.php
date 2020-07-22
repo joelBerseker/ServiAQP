@@ -11,11 +11,11 @@ include("../includes/header.php");
 	<div class="container pt-4">
 		<div class="mb-2">
 			<a href="<?= $dirEjec ?>/acceso" class="btn btn-primary btn-sm mb-1 btn-disabled disabled">Accesos</a>
-			<a href="<?= $dirEjec ?>/categoria/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
-			<a href="<?= $dirEjec ?>/producto/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
+			<a href="<?= $dirEjec ?>/categorias/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
+			<a href="<?= $dirEjec ?>/servicios/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
 			<a href="<?= $dirEjec ?>/recurso" class="btn btn-primary btn-sm mb-1">Recursos</a>
-			<a href="<?= $dirEjec ?>/rol" class="btn btn-primary btn-sm mb-1 ">Roles</a>
-			<a href="<?= $dirEjec ?>/usuario" class="btn btn-primary btn-sm mb-1">Usuarios</a>
+			<a href="<?= $dirEjec ?>/rol" class="btn btn-primary btn-sm mb-1">Roles</a>
+			<a href="<?= $dirEjec ?>/usuario" class="btn btn-primary btn-sm mb-1 ">Usuarios</a>
 
 		</div>
 		<hr class="mt-3">
@@ -83,7 +83,7 @@ include("../includes/header.php");
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Editar Rol</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Editar acceso</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

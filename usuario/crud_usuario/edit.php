@@ -1,8 +1,8 @@
 <?php
-include('../../includes/sesion.php');
+//include('../../includes/sesion.php');
 include('../../includes/data_base.php');
 $recurso = "/Usuario/edit";
-include("../../includes/acl_usuario_edit.php");
+//include("../../includes/acl_usuario_edit.php");
 
 ?>
 <?php
@@ -57,115 +57,95 @@ if (isset($_POST['update'])) {
     header("Location: ../");
 }
 ?>
-<?php
-include("../../includes/navbar.php");
-$login = true;
-$titulo_html = "Editar Usuario";
-include('../../includes/header.php');
-include("../../includes/data_base.php");
+
+<form action="crud_usuario/edit.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
+
+    <div class="modal-body">
+        <div class="form-row form-group ">
+            <div class="col pb-2" align="center">
+                <img src="../mostrar.php?id=<?php echo $_GET['id'] ?>" width="200px" id="imagenmuestra" alt="Img blob" class="imageny4" />
+            </div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Nombre:</label></div>
+            <div class="col">
+                <input value="<?php echo $nombre; ?>" class="form-control form-control-sm " type="text" name="nombre" required></div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Correo:</label></div>
+            <div class="col">
+                <input value="<?php echo $correo_edit; ?>" class="form-control form-control-sm " type="text" name="correo" required></div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Rol:</label></div>
+            <div class="col">
+                <?php
+                $querytipo = mysqli_query($conn, "SELECT RolID, RolNom FROM rol");
+                ?>
+                <select class="form-control col form-control-sm " id="exampleFormControlSelect1" name="rol">
+                    <?php
+                    while ($datosa = mysqli_fetch_array($querytipo)) {
+                        if ($datosa['RolID'] == $id_rol) {
+                    ?>
+                            <option value="<?php echo $datosa['RolID']; ?>" selected> <?php echo $datosa['RolNom']; ?> </option>
+                        <?php } else ?>
+                        <option value="<?php echo $datosa['RolID'] ?>"> <?php echo $datosa['RolNom'] ?> </option>
 
 
-?>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4">
+                <label>Contraseña:</label>
+            </div>
+            <div class="col">
+                <input class="form-control form-control-sm " value="<?php echo $contraseña; ?>" type="password" name="contraseña" required>
+            </div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Estado:</label></div>
+            <div class="col">
+                <select class="form-control col form-control-sm " id="exampleFormControlSelect1" name="estado">
+                    <?php
+                    if ($estado == 1) {
+                    ?>
+                        <option value="1" selected> Activo </option>
+                        <option value="0"> Inactivo </option>
+                    <?php } else { ?>
+                        <option value="1"> Activo </option>
+                        <option value="0" selected> Inactivo </option>
 
-
-<div class="section2">
-    <div class="container pt-4"></div>
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body">
-                <form action="edit.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
-                    <div class="">
-                        <h5>Editar usuario</h5>
-                        <hr>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col pb-2" align="center">
-                            <img src="../mostrar.php?id=<?php echo $_GET['id'] ?>" width="200px" id="imagenmuestra" alt="Img blob" class="imageny4" />
-                        </div>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col-4"><label>Nombre:</label></div>
-                        <div class="col">
-                            <input value="<?php echo $nombre; ?>" class="form-control form-control-sm " type="text" name="nombre" required></div>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col-4"><label>Correo:</label></div>
-                        <div class="col">
-                            <input value="<?php echo $correo_edit; ?>" class="form-control form-control-sm " type="text" name="correo" required></div>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col-4"><label>Rol:</label></div>
-                        <div class="col">
-                            <?php
-                            $querytipo = mysqli_query($conn, "SELECT RolID, RolNom FROM rol");
-                            ?>
-                            <select class="form-control col form-control-sm " id="exampleFormControlSelect1" name="rol">
-                                <?php
-                                while ($datosa = mysqli_fetch_array($querytipo)) {
-                                    if ($datosa['RolID'] == $id_rol) {
-                                ?>
-                                        <option value="<?php echo $datosa['RolID']; ?>" selected> <?php echo $datosa['RolNom']; ?> </option>
-                                    <?php } else ?>
-                                    <option value="<?php echo $datosa['RolID'] ?>"> <?php echo $datosa['RolNom'] ?> </option>
-
-
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col-4">
-                            <label>Contraseña:</label>
-                        </div>
-                        <div class="col">
-                            <input class="form-control form-control-sm " value="<?php echo $contraseña; ?>" type="password" name="contraseña" required>
-                        </div>
-                    </div>
-                    <div class="form-row form-group ">
-                        <div class="col-4"><label>Estado:</label></div>
-                        <div class="col">
-                            <select class="form-control col form-control-sm " id="exampleFormControlSelect1" name="estado">
-                                <?php
-                                if ($estado == 1) {
-                                ?>
-                                    <option value="1" selected> Activo </option>
-                                    <option value="0"> Inactivo </option>
-                                <?php } else { ?>
-                                    <option value="1"> Activo </option>
-                                    <option value="0" selected> Inactivo </option>
-
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
 
 
 
 
-                    <div class="form-row form-group ">
-                        <div class="col-4"><label>Imagen:</label></div>
-                        <div class="col">
-                            <!--
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Imagen:</label></div>
+            <div class="col">
+                <!--
                     
                     <input type="file" name="myFile" accept="image/* "class="form-control-file">
                 -->
-                            <input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen" maxlength="256" placeholder="Imagen">
-                            <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
+                <input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen" maxlength="256" placeholder="Imagen">
+                <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
 
-                        </div>
-                    </div>
-                    <button class="btn btn-primary btn-block" name="update">
-                        Actualizar
-                    </button>
-                </form>
             </div>
         </div>
     </div>
-</div>
-<?php
-include("../../includes/footer.php");
-?>
+    <div class="modal-footer">
+        <button class="btn btn-outline-success btn-sm" name="update">
+            Actualizar
+        </button>
+    </div>
+</form>
+
