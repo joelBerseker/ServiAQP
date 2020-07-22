@@ -10,19 +10,19 @@ if(isset($_POST['save_acceso'])){
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
     $estado = $_POST['estado'];
-    $archivo_nombre=$_FILES['myFile']['name'];
-    $explode= explode('.',$archivo_nombre);
-    $tipo = array_pop($explode);
     $ruta = $_FILES['myFile']['tmp_name']; 
-    $tipo = $_FILES['myFile']['type']; 
-
-    if(!isset($archivo_nombre)){
-        $archivo_nombre="com.jpg";
-        $tipo="img";
+    if($ruta==null){
+        $archivo_nombre="usuario-sin-imagen.jpg";
+        $tipo ="puto jhon";
+    }else{
+        $archivo_nombre=$_FILES['myFile']['name'];
+        $explode= explode('.',$archivo_nombre);
+        $tipo = array_pop($explode);
+        $tipo = $_FILES['myFile']['type'];
+        $carpeta = "../img/";
+        $rutaFinal = $carpeta.$archivo_nombre;
+        move_uploaded_file($ruta,$rutaFinal);
     }
-    $carpeta = "../img/";
-    $rutaFinal = $carpeta.$archivo_nombre;
-    move_uploaded_file($ruta,$rutaFinal);
             
     $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
     $id_rol = $_POST['rol'];

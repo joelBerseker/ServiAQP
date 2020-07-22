@@ -50,7 +50,7 @@
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="message-text">Añadir Imagenes:</label></div>
-          <div class="col"><input type="file" name="ServicioImagenes" id="ServicioImagenes" multiple class="form-control-file"></div>
+          <div class="col"><input type="file" name="ServicioImagenes" id="ServicioImagenes" required multiple class="form-control-file"></div>
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="recipient-name">Precio de Servicio:</label></div>
