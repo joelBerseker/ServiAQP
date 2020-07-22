@@ -96,6 +96,34 @@ $(document).ready(function(){
     });
     $("#FormComentario")[0].reset();
     return false;
-
  }
- 
+function filtrarC(idCat){
+    $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat});
+    return false;
+}
+function favoritos(idSer){
+    var data = "servicio="+idSer;
+    $.ajax({
+        url: "/ServiAQP/servicios/view/AddFavorito.php",
+        type: "POST",
+        data: data,
+        success:function(respuesta){
+           alert(respuesta);
+        }
+        
+    });
+    return false;
+}
+function adquirir(idSer){
+    var data = "servicio="+idSer;
+    $.ajax({
+        url: "/ServiAQP/servicios/view/AddServicio.php",
+        type: "POST",
+        data: data,
+        success:function(respuesta){
+           alert(respuesta);
+        }
+        
+    });
+    return false;
+}  
