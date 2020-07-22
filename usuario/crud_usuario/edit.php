@@ -26,14 +26,18 @@ if (isset($_POST['update'])) {
     $correo = $_POST['correo'];
     $estado = $_POST['estado'];
     $id_rol = $_POST['rol'];
-    $archivo_nombre = $_FILES['myFile']['name'];
-
-    $archivo_tipo = $_FILES['myFile']['type'];
-    $archivo_temp = $_FILES['myFile']['tmp_name'];
-    $archivo_binario = (file_get_contents($archivo_temp));
+    $archivo_nombre=$_FILES['myFile']['name'];
+    $explode= explode('.',$archivo_nombre);
+    $tipo = array_pop($explode);
+    $ruta = $_FILES['myFile']['tmp_name']; 
+    $tipo = $_FILES['myFile']['type']; 
+    $carpeta = "../img/";
+    $rutaFinal = $carpeta.$archivo_nombre;
+    move_uploaded_file($ruta,$rutaFinal);
+   
     $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
     $mysqli = new mysqli($database_red, $database_nombre, $database_contraseña, $database_name);
-    $stmt = $mysqli->prepare("UPDATE usuario SET `UsuNom`=?, `UsuCor`=?,`UsuCon`=?,`UsuImgNom`=?,`UsuImgTip`=? ,`UsuImgArc`=?,`UsuRolID`=?,`UsuEst`=? WHERE UsuID=?");
+    $stmt = $mysqli->prepare("UPDATE usuario SET `UsuNom`=?, `UsuCor`=?,`UsuCon`=?,`UsuImgNom`=?,`UsuImgTip`=?,`UsuRolID`=?,`UsuEst`=? WHERE UsuID=?");
     /* BK: always check whether the prepare() succeeded */
     if ($stmt === false) {
         trigger_error($this->mysqli->error, E_USER_ERROR);
@@ -43,7 +47,7 @@ if (isset($_POST['update'])) {
     /* Bind our params */
     /* BK: variables must be bound in the same order as the params in your SQL.
         * Some people prefer PDO because it supports named parameter. */
-    $stmt->bind_param('ssssssiii', $nombre, $correo, $contraseña, $archivo_nombre, $archivo_tipo, $archivo_binario, $id_rol, $estado, $id);
+    $stmt->bind_param('sssssiii', $nombre, $correo, $contraseña, $archivo_nombre, $archivo_tipo, $id_rol, $estado, $id);
 
     /* Set our params */
     /* BK: No need to use escaping when using parameters, in fact, you must not, 
@@ -57,13 +61,11 @@ if (isset($_POST['update'])) {
     header("Location: ../");
 }
 ?>
-
 <form action="crud_usuario/edit.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
-
     <div class="modal-body">
         <div class="form-row form-group ">
             <div class="col pb-2" align="center">
-                <img src="mostrar.php?id=<?php echo $_GET['id'] ?>" width="200px" id="imagenmuestra" alt="Img blob" />
+                <img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="200px" id="imagenmuestra" alt="Img blob" />
             </div>
         </div>
         <div class="form-row form-group ">
@@ -71,7 +73,6 @@ if (isset($_POST['update'])) {
             <div class="col">
                 <input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen" maxlength="256" placeholder="Imagen">
                 <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
-
             </div>
         </div>
         <div class="form-row form-group ">

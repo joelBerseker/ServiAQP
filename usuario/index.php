@@ -58,7 +58,7 @@ include("../includes/header.php");;
 									<td><?php echo $row['UsuID'] ?></td>
 									<td><?php echo $row['UsuNom'] ?></td>
 									<td><?php echo $row['UsuCor'] ?></td>
-									<td><img src="mostrar.php?id=<?php echo $row['UsuID'] ?>" width="75" alt="Img blob" /></td>
+									<td><img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="75" alt="Img blob" /></td>
 									<td><?php echo $row['UsuRolID'] ?></td>
 									<td><?php echo $row['UsuEst'] ?></td>
 									<td><?php echo $row['created_at'] ?></td>

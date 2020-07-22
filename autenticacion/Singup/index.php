@@ -22,9 +22,9 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nomb
   } else {
     $nombre = $_POST['nombre'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $archivo_binario = (file_get_contents('../../frontend/images/usuario-sin-imagen.jpg'));
+    $archivo_binario="usuario-sin-imagen.jpg";
 
-    $query = "INSERT INTO usuario (`UsuNom`, `UsuCor`, `UsuCon`, `UsuImgArc`, `UsuRolID`, `UsuEst`) VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO usuario (`UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuRolID`, `UsuEst`) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
     $rol = 2;
     $est = 1;
