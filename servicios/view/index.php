@@ -2,6 +2,7 @@
 include("../../includes/sesion.php");
 include("../../includes/data_base.php");
 include("../../includes/global_variable.php");
+include("tiempo.php");
 ?>
 <?php
 
@@ -111,9 +112,9 @@ include("../../includes/data_base.php");
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
-                                <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>        
-                                <form id="formCalificacion" method="POST">
+                                 <form id="formCalificacion" method="POST">
                                     <div class="clasificacion  clasi">
+                                        <!--Aca-->
                                         <input type="hidden" name="id" value="<?=$id?>" />
                                         <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
                                         <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
@@ -125,23 +126,23 @@ include("../../includes/data_base.php");
                                         <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
                                         <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
                                         <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
-
                                     </div>
-                                </form>
+                                </form><button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>        
+                               
                             </div>
                         </div>
                         <div class="form-row form-group ">
                             <div class="col">
                                 <p class="card-text ">
                                     <small class="text-muted">
-                                        <?=$creadorN?>
+                                        Creado por <?=$creadorN?>
                                     </small>
                                 </p>
                             </div>
                             <div class="col">
                                 <p class="card-text float-right">
                                     <small class="text-muted">
-                                        <?=$fechaC?>
+                                        <?=imprimirTiempo($fechaC)?>
                                     </small>
                                 </p>
                             </div>
@@ -152,7 +153,15 @@ include("../../includes/data_base.php");
 
                         <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
                         <a href="#" class="btn btn-primary btn-sm">Contratar <?=$precio?></a>
+                        <?php
+                        if(isset($user)){
+                            if($creador==$user['UsuID']){
+                        ?>
                         <a href="#" class="btn btn-primary btn-sm float-right">Editar</a>
+                        <?php
+                            }
+                        }   
+                        ?>
                     </div>
 
                 </div>

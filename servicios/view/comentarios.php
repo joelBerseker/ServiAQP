@@ -1,5 +1,4 @@
 <?php
-        include("tiempo.php");
         $database_red ="localhost";
         $database_nombre="root";
         $database_contraseña="";
@@ -16,6 +15,8 @@
         }else{
             $idPag2 = $_POST['id'];
             $idPag=$idPag2;
+            include("tiempo.php");
+        
         }
         $query = "SELECT * FROM `Servicio_comentario` where SerComSerID = $idPag order by SerMenFecCre desc";
         $resultProduct= mysqli_query($conn2, $query);
@@ -29,13 +30,15 @@
         </div>
         <div class="col-9 card2">
         <?php
-        if($row['UsuID']){
+        if(isset($user)){
+        if($row['SerComUsuID']==$user['UsuID']){
         ?>    
         <div class="float-right ">
                 <a class="btn equis btn-sm" href="#"><em class="fas fa-times"></em> </a>
             </div>
             <?php
                 }
+            }
             ?>
             <div class="card-body PT-0">
                 <p class="card-text mb-0">
