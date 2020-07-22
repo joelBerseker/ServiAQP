@@ -78,7 +78,7 @@ if (isset($_POST['update'])) {
             <div class="col">
 
                 <?php
-                $consulta_rol = "SELECT RolID, RolNom FROM rol WHERE RolID = '$rol'";
+                $consulta_rol = "SELECT RolID, RolNom FROM rol";
 
 
                 $querya = mysqli_query($conn, $consulta_rol);
@@ -87,7 +87,8 @@ if (isset($_POST['update'])) {
                     <?php
                     while ($datosa = mysqli_fetch_array($querya)) {
                     ?>
-                        <option value="<?php echo $datosa['RolID'] ?>"> <?php echo $datosa['RolNom'] ?> </option>
+                        
+                        <option value="<?php echo $datosa['RolID'] ?>" <?php if($datosa['RolID']==$rol)echo "selected" ?>> <?php echo $datosa['RolNom'] ?> </option>
                     <?php
                     }
 
@@ -99,7 +100,7 @@ if (isset($_POST['update'])) {
             <div class="col-4"><label>Recurso:</label></div>
             <div class="col">
                 <?php
-                $consulta_recurso = "SELECT RecID, RecNom FROM recurso WHERE RecID = '$recurso'";
+                $consulta_recurso = "SELECT RecID, RecNom FROM recurso";
 
                 $queryb = mysqli_query($conn, $consulta_recurso);
                 ?>
@@ -107,7 +108,7 @@ if (isset($_POST['update'])) {
                     <?php
                     while ($datosb = mysqli_fetch_array($queryb)) {
                     ?>
-                        <option value="<?php echo $datosb['RecID'] ?>"> <?php echo $datosb['RecNom'] ?> </option>
+                        <option value="<?php echo $datosb['RecID'] ?>" <?php if($datosb['RecID']== $recurso)echo "selected" ?>> <?php echo $datosb['RecNom'] ?> </option>
                     <?php
                     }
                     ?>
