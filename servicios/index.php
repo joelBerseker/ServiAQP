@@ -14,16 +14,15 @@ include("../includes/header.php");
 			<p>Prueba suerte entre las categorias mas buscadas.</p>
 		</div>
 		<div>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Cursos</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Tutoriales</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Ayuda</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Salud</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Cocina</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Videojuegos</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Teconologia</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Programacion</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Diseño</a>
-			<a href="#" class="btn btn-primary btn-sm mb-1">Consejos</a>
+			<?php 
+				$queryC = "SELECT * FROM categoria where CatEstReg = 1";
+				$resultProduct = mysqli_query($conn, $queryC);
+				while ($rowC = mysqli_fetch_array($resultProduct)) {
+			?>
+				<button  class="btn btn-primary btn-sm mb-1" onclick="filtrarC(<?=$rowC['CatId']?>)"><?=$rowC['CatNom']?></button>
+			<?php 
+				}
+			?>
 		</div>
 
 		<hr class="mt-3">
@@ -65,7 +64,6 @@ include("../includes/header.php");
 								</div>
 							</div>
 						</div>
-
 					</div>
 		<?php
 			}

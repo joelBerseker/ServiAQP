@@ -95,6 +95,8 @@ $(document).ready(function(){
     });
     $("#FormComentario")[0].reset();
     return false;
-
  }
- 
+function filtrarC(idCat){
+    $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php',{"idCat":idCat});
+    return false;
+} 
