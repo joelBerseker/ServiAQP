@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2020 a las 19:07:24
+-- Tiempo de generación: 23-07-2020 a las 01:43:04
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -78,7 +78,8 @@ CREATE TABLE `adquiridos` (
 --
 
 INSERT INTO `adquiridos` (`AdqID`, `AdqUsuID`, `AdqSerID`, `AdqEstReg`, `AdqFecCre`) VALUES
-(1, 71, 11, 1, '2020-07-22 16:38:45');
+(2, 71, 11, 1, '2020-07-22 17:27:20'),
+(3, 71, 10, 1, '2020-07-22 17:41:18');
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,9 @@ CREATE TABLE `favoritos` (
 --
 
 INSERT INTO `favoritos` (`FavID`, `FavUsuID`, `FavSerID`, `FavEstReg`, `FacFecCre`) VALUES
-(1, 71, 11, 1, '2020-07-22 16:35:46');
+(1, 71, 11, 1, '2020-07-22 16:35:46'),
+(4, 71, 10, 1, '2020-07-22 17:34:57'),
+(6, 71, 12, 1, '2020-07-22 17:37:35');
 
 -- --------------------------------------------------------
 
@@ -226,6 +229,42 @@ INSERT INTO `recurso` (`RecId`, `RecNom`, `RecDes`, `RecEstReg`, `RecFecCre`) VA
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `reporte_tabla`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `reporte_tabla` (
+`SerRepID` int(11)
+,`SerRepDenUsuID` int(11)
+,`SerRepSerID` int(11)
+,`SerRepMot` text
+,`SerRepEstReg` int(1)
+,`SerRepFecCre` timestamp
+,`UsuID` int(11)
+,`UsuNom` varchar(100)
+,`UsuCor` varchar(40)
+,`UsuCon` varchar(400)
+,`UsuImgNom` varchar(200)
+,`UsuImgTip` varchar(200)
+,`UsuImgArc` longblob
+,`UsuRolID` int(11)
+,`UsuEst` int(11)
+,`created_at` timestamp
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
+,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `rol`
 --
 
@@ -271,9 +310,9 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`SerID`, `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerEstReg`, `SerFecCre`, `SerNom`, `SerPre`, `SerVal`) VALUES
-(10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '0.00', '4.0'),
-(11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '0.00', '-1.0'),
-(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '0.00', '-1.0');
+(10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '20.00', '4.0'),
+(11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '100.00', '-1.0'),
+(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '99.88', '-1.0');
 
 -- --------------------------------------------------------
 
@@ -295,7 +334,8 @@ CREATE TABLE `serviciocomentario` (
 --
 
 INSERT INTO `serviciocomentario` (`SerComID`, `SerComSerID`, `SerComUsuID`, `SerMenMen`, `SerMenEstReg`, `SerMenFecCre`) VALUES
-(34, 10, 71, '10-4', 1, '2020-07-22 03:16:35');
+(34, 10, 71, '10-4', 1, '2020-07-22 03:16:35'),
+(35, 10, 71, '10-5\r\n', 1, '2020-07-22 17:41:39');
 
 -- --------------------------------------------------------
 
@@ -365,6 +405,21 @@ INSERT INTO `servicio_img` (`SerImgId`, `SerImgSerId`, `SerImgNom`, `SerImgTip`,
 (36, 12, 'chompa-roja.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (37, 12, 'com.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (38, 12, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicio_report`
+--
+
+CREATE TABLE `servicio_report` (
+  `SerRepID` int(11) NOT NULL,
+  `SerRepDenUsuID` int(11) NOT NULL,
+  `SerRepSerID` int(11) NOT NULL,
+  `SerRepMot` text NOT NULL,
+  `SerRepEstReg` int(1) NOT NULL DEFAULT 1,
+  `SerRepFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -466,6 +521,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `favoritos_tablas`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `favoritos_tablas`  AS  select `f`.`FavID` AS `FavID`,`f`.`FavUsuID` AS `FavUsuID`,`f`.`FavSerID` AS `FavSerID`,`f`.`FavEstReg` AS `FavEstReg`,`f`.`FacFecCre` AS `FacFecCre`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuImgNom` AS `UsuImgNom`,`s`.`SerNom` AS `SerNom`,`s`.`SerDes` AS `SerDes` from ((`favoritos` `f` join `usuario` `u` on(`f`.`FavUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`f`.`FavSerID` = `s`.`SerUsuID`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `reporte_tabla`
+--
+DROP TABLE IF EXISTS `reporte_tabla`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reporte_tabla`  AS  select `sr`.`SerRepID` AS `SerRepID`,`sr`.`SerRepDenUsuID` AS `SerRepDenUsuID`,`sr`.`SerRepSerID` AS `SerRepSerID`,`sr`.`SerRepMot` AS `SerRepMot`,`sr`.`SerRepEstReg` AS `SerRepEstReg`,`sr`.`SerRepFecCre` AS `SerRepFecCre`,`u`.`UsuID` AS `UsuID`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuCor` AS `UsuCor`,`u`.`UsuCon` AS `UsuCon`,`u`.`UsuImgNom` AS `UsuImgNom`,`u`.`UsuImgTip` AS `UsuImgTip`,`u`.`UsuImgArc` AS `UsuImgArc`,`u`.`UsuRolID` AS `UsuRolID`,`u`.`UsuEst` AS `UsuEst`,`u`.`created_at` AS `created_at`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from ((`servicio_report` `sr` join `usuario` `u` on(`sr`.`SerRepDenUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`sr`.`SerRepSerID` = `s`.`SerID`)) ;
 
 -- --------------------------------------------------------
 
@@ -575,6 +639,14 @@ ALTER TABLE `servicio_img`
   ADD PRIMARY KEY (`SerImgId`);
 
 --
+-- Indices de la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  ADD PRIMARY KEY (`SerRepID`),
+  ADD KEY `FK_SerRep_Den` (`SerRepDenUsuID`),
+  ADD KEY `FK_SerRep_Ser` (`SerRepSerID`);
+
+--
 -- Indices de la tabla `subcategoria`
 --
 ALTER TABLE `subcategoria`
@@ -602,7 +674,7 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `adquiridos`
 --
 ALTER TABLE `adquiridos`
-  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -626,7 +698,7 @@ ALTER TABLE `c_chats`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -656,13 +728,19 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `serviciocomentario`
 --
 ALTER TABLE `serviciocomentario`
-  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio_img`
 --
 ALTER TABLE `servicio_img`
   MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  MODIFY `SerRepID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`
@@ -727,6 +805,13 @@ ALTER TABLE `servicio`
 ALTER TABLE `serviciocomentario`
   ADD CONSTRAINT `FK_SerCom_Ser` FOREIGN KEY (`SerComSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_SerCom_Usu` FOREIGN KEY (`SerComUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  ADD CONSTRAINT `FK_SerRep_Den` FOREIGN KEY (`SerRepDenUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_SerRep_Ser` FOREIGN KEY (`SerRepSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `subcategoria`
