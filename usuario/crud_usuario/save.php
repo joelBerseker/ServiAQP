@@ -13,7 +13,7 @@ if(isset($_POST['save_acceso'])){
     $ruta = $_FILES['myFile']['tmp_name']; 
     if($ruta==null){
         $archivo_nombre="usuario-sin-imagen.jpg";
-        $tipo ="puto jhon";
+        $tipo ="img/jpg";
     }else{
         $archivo_nombre=$_FILES['myFile']['name'];
         $explode= explode('.',$archivo_nombre);
