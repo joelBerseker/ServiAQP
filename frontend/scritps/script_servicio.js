@@ -78,3 +78,23 @@ $(document).ready(function(){
         }
     }); 
  }
+ function comentar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('FormComentario'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/Addcomentario.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            //alert(respuesta);
+            $('#Comentario').load('/ServiAQP/servicios/view/comentarios.php',{"id":id.value});
+        }
+        
+    });
+    $("#FormComentario")[0].reset();
+    return false;
+
+ }
+ 

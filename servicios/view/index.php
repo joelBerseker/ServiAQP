@@ -4,62 +4,6 @@ include("../../includes/data_base.php");
 include("../../includes/global_variable.php");
 ?>
 <?php
-function imprimirTiempo($time)
-{
-    date_default_timezone_set('America/Lima');
-    $start_date = new DateTime($time);
-    $since_start = $start_date->diff(new DateTime(date("Y-m-d") . " " . date("H:i:s")));
-    echo "Hace ";
-    if ($since_start->y == 0) {
-        if ($since_start->m == 0) {
-            if ($since_start->d == 0) {
-                if ($since_start->h == 0) {
-                    if ($since_start->i == 0) {
-                        if ($since_start->s == 0) {
-                            echo $since_start->s . ' segundos';
-                        } else {
-                            if ($since_start->s == 1) {
-                                echo $since_start->s . ' segundo';
-                            } else {
-                                echo $since_start->s . ' segundos';
-                            }
-                        }
-                    } else {
-                        if ($since_start->i == 1) {
-                            echo $since_start->i . ' minuto';
-                        } else {
-                            echo $since_start->i . ' minutos';
-                        }
-                    }
-                } else {
-                    if ($since_start->h == 1) {
-                        echo $since_start->h . ' hora';
-                    } else {
-                        echo $since_start->h . ' horas';
-                    }
-                }
-            } else {
-                if ($since_start->d == 1) {
-                    echo $since_start->d . ' día';
-                } else {
-                    echo $since_start->d . ' días';
-                }
-            }
-        } else {
-            if ($since_start->m == 1) {
-                echo $since_start->m . ' mes';
-            } else {
-                echo $since_start->m . ' meses';
-            }
-        }
-    } else {
-        if ($since_start->y == 1) {
-            echo $since_start->y . ' año';
-        } else {
-            echo $since_start->y . ' años';
-        }
-    }
-}
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -118,27 +62,30 @@ include("../../includes/data_base.php");
 
                 <div class="card">
                     <div class="img-animtion">
-<<<<<<< HEAD
-                        <img class="card-img-top" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Imagen del autor del comentario" style="width: 100%;" />
-                        <!--<img class="card-img-top" src="../mostrar.php?id=<?php //echo $product; ?>" alt="Imagen del autor del comentario" style="width: 100%;" />--->
-
-=======
+                        <?php 
+                            $size =count($arrayImg);
+                        ?>
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
+                                
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                <?php
+                                 for ($i=1; $i < $size; $i++) {  
+                                ?>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="<?=$i?>"></li>
+                                 <?php
+                                 }
+                                 ?>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="First slide">
+                                <?php 
+                                    foreach ($arrayImg as $clave => $valor){
+                                        $dirFin='/ServiAQP/servicios/img/'.$valor['nombre'];
+                                ?>
+                                <div class="carousel-item <?php if($clave==0)echo "active"?>">
+                                    <img class="d-block w-100" src="<?=$dirFin?>" alt="slide <?=$clave?>">
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png" alt="Third slide">
-                                </div>
+                                <?php }?>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -149,7 +96,6 @@ include("../../includes/data_base.php");
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
->>>>>>> 1203ee11458c7b91ac87bd524bd3418aa6ff0090
                     </div>
                     <div class="card-img-overlay">
                         <a class="btn  btn-sm informacion-btn"><?=$precio?></a>
@@ -195,7 +141,7 @@ include("../../includes/data_base.php");
                             <div class="col">
                                 <p class="card-text float-right">
                                     <small class="text-muted">
-                                        <?=imprimirTiempo($fechaC)?>
+                                        <?=$fechaC?>
                                     </small>
                                 </p>
                             </div>
@@ -204,13 +150,8 @@ include("../../includes/data_base.php");
 
                         <a href="#" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 
-<<<<<<< HEAD
                         <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
                         <a href="#" class="btn btn-primary btn-sm">Contratar <?=$precio?></a>
-=======
-                        <a href="#" class="btn btn-primary btn-sm">Contactar</a>
-                        <a href="#" class="btn btn-primary btn-sm">Contratar $2.00</a>
->>>>>>> 1203ee11458c7b91ac87bd524bd3418aa6ff0090
                         <a href="#" class="btn btn-primary btn-sm float-right">Editar</a>
                     </div>
 
@@ -226,63 +167,32 @@ include("../../includes/data_base.php");
 
                     </div>
                     <hr class="mt-1">
-                    <p>¿Es facil de manejar?.
-                        no demoraras mucho maximo 1 año en apache_response_headers
-                        <br>¿Es necesario saber de la vida?
-                        pos si wey seas mamon
+                    <p><?=$preguntas?>
                     </p>
                 </div>
-
                 <div class="card card-body mt-3">
                     <div>
                         <h5>Comentarios</h5>
-
                     </div>
                     <hr class="mt-1">
-                    <form action="index.php?id=<?php echo $id ?>" method="post">
+                    <form method="post" id="FormComentario">
+                        <input type="hidden" id="idServicio" name="id" value="<?=$id?>" />                
                         <div class="mb-2">
                             <textarea class="offset-0 col-12 form-control" placeholder="Envia un comentario" name="comentario" required></textarea>
                         </div>
-                        <div>
-                            <button class="btn btn-primary btn-sm float-right" name="update_comentar">
-                                Enviar
-                            </button>
-                        </div>
+
                     </form>
+                    <div>
+                        <button class="btn btn-primary btn-sm float-right" name="update_comentar" onclick="comentar()">
+                            Enviar
+                        </button>
+                    </div>
                     <hr>
                     <!-- Esto desde aqui se va repetir -->
-                    <div class=" mb-3 ">
-                        <div class="row no-gutters">
-
-                            <div class="col-3">
-                                <div class="imageny3" style="background-image:url('../../frontend/images/usuario-sin-imagen.jpg');"></div>
-                            </div>
-                            <div class="col-9 card2">
-
-                                <div class="float-right ">
-                                    <a class="btn equis btn-sm" href="#"><em class="fas fa-times"></em> </a>
-                                </div>
-
-                                <div class="card-body PT-0">
-
-
-                                    <p class="card-text mb-0">
-                                        Este es la descripcion del mensajenvamos a ver hasta donde se pone y como fucnniona estpo xddxd
-                                    </p>
-                                    <hr class="mb-1 mt-3">
-                                    <p class="card-text mb-0">
-                                        <small class="text-muted">
-                                            Publicado por: Jhon Mamani
-                                        </small>
-                                    </p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            Hace 10 minutos
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="Comentario">
+                        <?php
+                            include("comentarios.php");
+                        ?>
                     </div>
                 </div>
             </div>

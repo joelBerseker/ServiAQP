@@ -20,9 +20,7 @@
             $database_nombre,
             $database_contraseña,
             $database_name
-        )
-    ?>
-    <?php
+        );
         $query = "SELECT * FROM `servicio_tabla`";
         $resultProduct= mysqli_query($conn2, $query);
         while($row= mysqli_fetch_array($resultProduct)){
@@ -42,8 +40,8 @@
                 <button class="btn btn-danger" onclick="eliminarServicio(<?php echo $row['SerID']?>)">Delete</button>
             </td>
         </tr>
-    <?php }
-        //conn2.close();
+    <?php 
+        }
     ?>
     </tbody>
 </table>
