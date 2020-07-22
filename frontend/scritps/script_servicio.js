@@ -24,18 +24,6 @@ $(document).ready(function(){
         $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
         return false;
     });
-    $('#btnCalificarServicio').click(function(){
-        var formData= new FormData(document.getElementById('formCalificacion'));
-        $.ajax({
-            url: "/ServiAQP/servicios/crud_servicio/save.php",
-            type: "POST",
-            data: formData,
-            success:function(respuesta){
-                alert(respuesta);
-            }
-        });
-        return false;
-    });
     $('#categoria').on('change',function(){
         var categoriaID= $(this).val();
         if(categoria){
@@ -74,3 +62,39 @@ $(document).ready(function(){
     }
     return false;
  }
+ function calificar(){
+    
+    var formData= new FormData(document.getElementById('formCalificacion'));
+    
+    $.ajax({
+        //C:\xampp\htdocs\ServiAQP\servicios\view\calificar.php
+        url: "/ServiAQP/servicios/view/calificar.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            alert(respuesta);
+        }
+    }); 
+ }
+ function comentar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('FormComentario'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/Addcomentario.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            //alert(respuesta);
+            $('#Comentario').load('/ServiAQP/servicios/view/comentarios.php',{"id":id.value});
+        }
+        
+    });
+    $("#FormComentario")[0].reset();
+    return false;
+
+ }
+ 

@@ -1,8 +1,9 @@
 <?php
+    
+    include("../../includes/sesion.php");
     include("../../includes/data_base.php");
     
-    $user           = 66;
-    
+    $user           = $user['UsuID'];;
     $nombre         = $_POST['nombre'];
     $descripcion    = $_POST['descripcion'];
     $preguntas      = $_POST['preguntas'];
@@ -11,12 +12,6 @@
     
     $query ="INSERT INTO `servicio`( `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerNom`) 
             VALUES ($user,$categoria,$subcategoria,'$preguntas','$descripcion','$nombre')";
-    /*
-        if -1
-            valoracion = ingresa
-        else
-            valoracion = (valoracion +ingresas)/2
-    */
     if(mysqli_query($conn,$query)){
         $num =count($_FILES['imagenes']['size']);
         $query2= "SELECT MAX(SerID) FROM servicio";
