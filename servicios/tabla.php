@@ -27,12 +27,11 @@ include("../includes/header.php");
 			</div>
 		</div>
 
-		<div >
-			
-				<?php
-				include("recargables/TablaServicios.php");
-				?>
-			
+		<div id="recargaTablaServicio">
+			<?php
+			include("recargables/TablaServicios.php");
+			?>
+
 		</div>
 
 	</div>

@@ -16,12 +16,13 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success:function(respuesta){
-                alert(respuesta);
+                $("#formServicio")[0].reset();
+                $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+                $('#exampleModal').modal('hide');
             }
         });
-        alert("Espera");
-        $("#formServicio")[0].reset();
-        $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+        
+        
         return false;
     });
     $('#categoria').on('change',function(){
