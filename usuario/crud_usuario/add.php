@@ -19,7 +19,7 @@ include("../includes/global_variable.php");
 
 					<div class="form-row form-group ">
 						<div class="col" align="center">
-							<img src="<?php echo $dirEjec ?>/image/usuario-sin-imagen.jpg" style="width: 200px;" id="imagenmuestra2" alt="Img blob" />
+							<img src="<?php echo $dirEjec ?>/usuario/img/usuario-sin-imagen.jpg" style="width: 200px;" id="imagenmuestra2" alt="Img blob" />
 						</div>
 					</div>
 					<div class="form-group form-row">
