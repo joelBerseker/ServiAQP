@@ -26,16 +26,25 @@ if (isset($_POST['update'])) {
     $correo = $_POST['correo'];
     $estado = $_POST['estado'];
     $id_rol = $_POST['rol'];
-    $archivo_nombre=$_FILES['myFile']['name'];
-    $explode= explode('.',$archivo_nombre);
-    $tipo = array_pop($explode);
-    $ruta = $_FILES['myFile']['tmp_name']; 
-    $tipo = $_FILES['myFile']['type']; 
-    $carpeta = "../img/";
-    $rutaFinal = $carpeta.$archivo_nombre;
-    move_uploaded_file($ruta,$rutaFinal);
-   
-    $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
+    $ruta = $_FILES['myFile']['tmp_name'];
+    if ($ruta == null) {
+        $archivo_nombre = $row['UsuImgNom'];
+        $tipo = $row['UsuImgTip'];
+    } else {
+        $archivo_nombre = $_FILES['myFile']['name'];
+        $explode = explode('.', $archivo_nombre);
+        $tipo = array_pop($explode);
+        $ruta = $_FILES['myFile']['tmp_name'];
+        $tipo = $_FILES['myFile']['type'];
+        $carpeta = "../img/";
+        $rutaFinal = $carpeta . $archivo_nombre;
+        move_uploaded_file($ruta, $rutaFinal);
+    }
+    if ($_POST['contraseña'] == null) {
+        $password=$contraseña;
+    } else {
+        $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
+    }
     $mysqli = new mysqli($database_red, $database_nombre, $database_contraseña, $database_name);
     $stmt = $mysqli->prepare("UPDATE usuario SET `UsuNom`=?, `UsuCor`=?,`UsuCon`=?,`UsuImgNom`=?,`UsuImgTip`=?,`UsuRolID`=?,`UsuEst`=? WHERE UsuID=?");
     /* BK: always check whether the prepare() succeeded */
@@ -47,7 +56,7 @@ if (isset($_POST['update'])) {
     /* Bind our params */
     /* BK: variables must be bound in the same order as the params in your SQL.
         * Some people prefer PDO because it supports named parameter. */
-    $stmt->bind_param('sssssiii', $nombre, $correo, $contraseña, $archivo_nombre, $archivo_tipo, $id_rol, $estado, $id);
+    $stmt->bind_param('sssssiii', $nombre, $correo, $password, $archivo_nombre, $tipo, $id_rol, $estado, $id);
 
     /* Set our params */
     /* BK: No need to use escaping when using parameters, in fact, you must not, 
@@ -112,7 +121,7 @@ if (isset($_POST['update'])) {
                 <label>Contraseña:</label>
             </div>
             <div class="col">
-                <input class="form-control form-control-sm " value="<?php echo $contraseña; ?>" type="password" name="contraseña" required>
+                <input class="form-control form-control-sm " value="" type="password" name="contraseña" autocomplete="new-password"> 
             </div>
         </div>
         <div class="form-row form-group ">
@@ -138,7 +147,7 @@ if (isset($_POST['update'])) {
 
 
 
-        
+
     </div>
     <div class="modal-footer">
         <button class="btn btn-outline-success btn-sm" name="update">
@@ -148,15 +157,15 @@ if (isset($_POST['update'])) {
 </form>
 <script>
     function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-        $('#imagenmuestra').attr('src', e.target.result);
-        }
-                reader.readAsDataURL(input.files[0]);
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imagenmuestra').attr('src', e.target.result);
             }
+            reader.readAsDataURL(input.files[0]);
         }
-        $("#imagen").change(function() {
+    }
+    $("#imagen").change(function() {
         readURL(this);
     });
 </script>
