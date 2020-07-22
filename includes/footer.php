@@ -51,6 +51,21 @@ include('global_variable.php');
         <?php } ?>
     });
 </script>
+
+<script>
+    function readURL2(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        $('#imagenmuestra2').attr('src', e.target.result);
+        }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imagen2").change(function() {
+        readURL2(this);
+    });
+</script>
 </body>
 
 </html>

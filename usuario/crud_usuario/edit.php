@@ -63,7 +63,15 @@ if (isset($_POST['update'])) {
     <div class="modal-body">
         <div class="form-row form-group ">
             <div class="col pb-2" align="center">
-                <img src="../mostrar.php?id=<?php echo $_GET['id'] ?>" width="200px" id="imagenmuestra" alt="Img blob" class="imageny4" />
+                <img src="mostrar.php?id=<?php echo $_GET['id'] ?>" width="200px" id="imagenmuestra" alt="Img blob" />
+            </div>
+        </div>
+        <div class="form-row form-group ">
+            <div class="col-4"><label>Imagen:</label></div>
+            <div class="col">
+                <input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen" maxlength="256" placeholder="Imagen">
+                <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
+
             </div>
         </div>
         <div class="form-row form-group ">
@@ -129,18 +137,7 @@ if (isset($_POST['update'])) {
 
 
 
-        <div class="form-row form-group ">
-            <div class="col-4"><label>Imagen:</label></div>
-            <div class="col">
-                <!--
-                    
-                    <input type="file" name="myFile" accept="image/* "class="form-control-file">
-                -->
-                <input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen" maxlength="256" placeholder="Imagen">
-                <input type="hidden" class="form-control" name="imagenactual" id="imagenactual">
-
-            </div>
-        </div>
+        
     </div>
     <div class="modal-footer">
         <button class="btn btn-outline-success btn-sm" name="update">
@@ -148,4 +145,17 @@ if (isset($_POST['update'])) {
         </button>
     </div>
 </form>
-
+<script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        $('#imagenmuestra').attr('src', e.target.result);
+        }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imagen").change(function() {
+        readURL(this);
+    });
+</script>
