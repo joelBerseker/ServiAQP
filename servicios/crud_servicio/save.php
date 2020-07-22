@@ -5,13 +5,14 @@
     
     $user           = $user['UsuID'];;
     $nombre         = $_POST['nombre'];
+    $precio         = $_POST['precio'];
     $descripcion    = $_POST['descripcion'];
     $preguntas      = $_POST['preguntas'];
     $categoria      = $_POST['categoria'];
     $subcategoria   = $_POST['subcategoria'];
     
-    $query ="INSERT INTO `servicio`( `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerNom`) 
-            VALUES ($user,$categoria,$subcategoria,'$preguntas','$descripcion','$nombre')";
+    $query ="INSERT INTO `servicio`( `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerNom`, `SerPre`) 
+        VALUES ($user,$categoria,$subcategoria,'$preguntas','$descripcion','$nombre',$precio)";
     if(mysqli_query($conn,$query)){
         $num =count($_FILES['imagenes']['size']);
         $query2= "SELECT MAX(SerID) FROM servicio";
