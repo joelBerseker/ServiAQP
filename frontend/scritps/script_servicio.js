@@ -98,6 +98,6 @@ $(document).ready(function(){
     return false;
  }
 function filtrarC(idCat){
-    $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php',{"idCat":idCat});
+    $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat});
     return false;
 } 
