@@ -151,7 +151,7 @@ include("../../includes/data_base.php");
 
                         <a href="#" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
 
-                        <a href="#" class="btn btn-primary btn-sm" >Contactar</a>
+                        <a href="../../chat/?$creador=<?=$id?>" class="btn btn-primary btn-sm">Contactar</a>
                         <a href="#" class="btn btn-primary btn-sm">Contratar <?=$precio?></a>
                         <?php
                         if(isset($user)){
