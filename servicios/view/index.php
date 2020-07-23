@@ -159,12 +159,12 @@ include("../../includes/data_base.php");
                             $resultProductF = mysqli_query($conn, $queryF);
                             $totalF = mysqli_num_rows($resultProductF);
                         ?>
-                        <button class="btn btn-primary btn-sm ani_heart<?php if($totalF>0) echo"disabled"?>" <?php if($totalF>0) echo"disabled"?> onclick="favoritos(<?=$id?>)">
+                        <button class="btn btn-primary btn-sm ani_heart <?php if($totalF>0) echo"disabled"?>" <?php if($totalF>0) echo"disabled"?> onclick="favoritos(<?=$id?>)">
                             <em class="fas fa-heart"></em>
                         </button>
 
-                        <a href="../../chat/?$creador=<?=$id?>" class="btn btn-primary btn-sm">Contactar</a>
-                        <button href="#" class="btn btn-primary btn-sm<?php if($totalA>0) echo"disabled"?>" <?php if($totalA>0) echo"disabled"?> onclick="adquirir(<?=$id?>)">Contratar <?=$precio?></button>
+                        <a href="../../chat/?creador=<?=$creador?>" class="btn btn-primary btn-sm">Contactar</a>
+                        <button href="#" class="btn btn-primary btn-sm <?php if($totalA>0) echo"disabled"?>" <?php if($totalA>0) echo"disabled"?> onclick="adquirir(<?=$id?>)">Contratar <?=$precio?></button>
                         <?php
                         if(isset($user)){
                             if($creador==$user['UsuID']){
