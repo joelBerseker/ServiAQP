@@ -99,8 +99,6 @@ function eliminarElemento(id) {
   }, 2000);
 }
 
-
-
 function edit_rol(id) {
   $.ajax({
     url: "/ServiAQP/rol/crud_rol/edit.php",
@@ -217,6 +215,35 @@ function edit_usuario(id) {
   });
 }
 
+function edit_usuario2(id) {
+  $.ajax({
+    url: "/ServiAQP/usuario/view/edit.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $(".modal_body_edit").html(data);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}
+
 function edit_categoria(id) {
   $.ajax({
     url: "/ServiAQP/categorias/crud_categoria/edit.php",
@@ -247,31 +274,95 @@ function edit_categoria(id) {
 }
 
 function edit_servicio(id) {
-    $.ajax({
-      url: "/ServiAQP/servicios/crud_servicio/edit.php",
-      type: "GET",
-      data: "&id=" + id,
-      dataType: "html",
-      success: function (data) {
-        $(".modal_body_edit").html(data);
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        if (jqXHR.status === 0) {
-          alert("Not connect: Verify Network.");
-        } else if (jqXHR.status == 404) {
-          alert("Requested page not found [404]");
-        } else if (jqXHR.status == 500) {
-          alert("Internal Server Error [500].");
-        } else if (textStatus === "parsererror") {
-          alert("Requested JSON parse failed.");
-        } else if (textStatus === "timeout") {
-          alert("Time out error.");
-        } else if (textStatus === "abort") {
-          alert("Ajax request aborted.");
-        } else {
-          alert("Uncaught Error: " + jqXHR.responseText);
-        }
-      },
-    });
-  }
-  
+  $.ajax({
+    url: "/ServiAQP/servicios/crud_servicio/edit.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $(".modal_body_edit").html(data);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}
+function noti(id) {
+  $.ajax({
+    url: "/ServiAQP/usuario/view/notificaciones.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $('#recargarusuario').html(data);
+      $('#badqu').removeClass("btn-disabled disabled");
+      $('#bpubl').removeClass("btn-disabled disabled");
+      $('#bnoti').addClass("btn-disabled disabled");
+      $('#bfavo').removeClass("btn-disabled disabled");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}
+
+function favo(id) {
+  $.ajax({
+    url: "/ServiAQP/usuario/view/favoritos.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $("#recargarusuario").html(data);
+      $('#badqu').removeClass("btn-disabled disabled");
+      $('#bpubl').removeClass("btn-disabled disabled");
+      $('#bnoti').removeClass("btn-disabled disabled");
+      $('#bfavo').addClass("btn-disabled disabled");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}

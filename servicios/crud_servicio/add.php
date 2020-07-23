@@ -54,7 +54,7 @@
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="recipient-name">Precio de Servicio:</label></div>
-          <div class="col-4"><input type="number" class="form-control form-control-sm" name="precio" step="0.01" min="0" id="recipient-name"></div>
+          <div class="col"><input type="number" class="form-control form-control-sm" name="precio" step="0.01" min="0" id="recipient-name"></div>
           </div>
         </form>
       </div>

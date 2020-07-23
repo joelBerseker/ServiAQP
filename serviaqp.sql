@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2020 a las 19:07:24
+-- Tiempo de generación: 23-07-2020 a las 02:48:57
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -78,24 +78,32 @@ CREATE TABLE `adquiridos` (
 --
 
 INSERT INTO `adquiridos` (`AdqID`, `AdqUsuID`, `AdqSerID`, `AdqEstReg`, `AdqFecCre`) VALUES
-(1, 71, 11, 1, '2020-07-22 16:38:45');
+(2, 71, 11, 1, '2020-07-22 17:27:20'),
+(3, 71, 10, 1, '2020-07-22 17:41:18');
 
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `aquiridos_tablas`
+-- Estructura Stand-in para la vista `adquiridos_tabla`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `aquiridos_tablas` (
+CREATE TABLE `adquiridos_tabla` (
 `AdqID` int(11)
 ,`AdqUsuID` int(11)
 ,`AdqSerID` int(11)
 ,`AdqEstReg` int(1)
 ,`AdqFecCre` timestamp
-,`UsuNom` varchar(100)
-,`UsuImgNom` varchar(200)
-,`SerNom` varchar(90)
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
 ,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
 );
 
 -- --------------------------------------------------------
@@ -167,24 +175,33 @@ CREATE TABLE `favoritos` (
 --
 
 INSERT INTO `favoritos` (`FavID`, `FavUsuID`, `FavSerID`, `FavEstReg`, `FacFecCre`) VALUES
-(1, 71, 11, 1, '2020-07-22 16:35:46');
+(1, 71, 11, 1, '2020-07-22 16:35:46'),
+(4, 71, 10, 1, '2020-07-22 17:34:57'),
+(6, 71, 12, 1, '2020-07-22 17:37:35');
 
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `favoritos_tablas`
+-- Estructura Stand-in para la vista `favoritos_tabla`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `favoritos_tablas` (
+CREATE TABLE `favoritos_tabla` (
 `FavID` int(11)
 ,`FavUsuID` int(11)
 ,`FavSerID` int(11)
 ,`FavEstReg` int(1)
 ,`FacFecCre` timestamp
-,`UsuNom` varchar(100)
-,`UsuImgNom` varchar(200)
-,`SerNom` varchar(90)
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
 ,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
 );
 
 -- --------------------------------------------------------
@@ -196,6 +213,8 @@ CREATE TABLE `favoritos_tablas` (
 CREATE TABLE `notificacion` (
   `NotID` int(11) NOT NULL,
   `NotDes` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `NotEnvUsuID` int(11) NOT NULL,
+  `NotMot` text COLLATE utf8_unicode_ci NOT NULL,
   `NotUsuId` int(11) DEFAULT NULL,
   `NotEst` int(11) NOT NULL DEFAULT 0,
   `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp()
@@ -222,6 +241,42 @@ CREATE TABLE `recurso` (
 INSERT INTO `recurso` (`RecId`, `RecNom`, `RecDes`, `RecEstReg`, `RecFecCre`) VALUES
 (1, '/rol/crear', 'crear rol', 1, '2020-06-07 02:13:37'),
 (3, '/rol/editar', 'editar rol', 1, '2020-07-22 02:11:54');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `reporte_tabla`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `reporte_tabla` (
+`SerRepID` int(11)
+,`SerRepDenUsuID` int(11)
+,`SerRepSerID` int(11)
+,`SerRepMot` text
+,`SerRepEstReg` int(1)
+,`SerRepFecCre` timestamp
+,`UsuID` int(11)
+,`UsuNom` varchar(100)
+,`UsuCor` varchar(40)
+,`UsuCon` varchar(400)
+,`UsuImgNom` varchar(200)
+,`UsuImgTip` varchar(200)
+,`UsuImgArc` longblob
+,`UsuRolID` int(11)
+,`UsuEst` int(11)
+,`created_at` timestamp
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
+,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
+);
 
 -- --------------------------------------------------------
 
@@ -271,9 +326,9 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`SerID`, `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerEstReg`, `SerFecCre`, `SerNom`, `SerPre`, `SerVal`) VALUES
-(10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '0.00', '4.0'),
-(11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '0.00', '-1.0'),
-(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '0.00', '-1.0');
+(10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '20.00', '4.0'),
+(11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '100.00', '-1.0'),
+(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '99.88', '-1.0');
 
 -- --------------------------------------------------------
 
@@ -295,7 +350,8 @@ CREATE TABLE `serviciocomentario` (
 --
 
 INSERT INTO `serviciocomentario` (`SerComID`, `SerComSerID`, `SerComUsuID`, `SerMenMen`, `SerMenEstReg`, `SerMenFecCre`) VALUES
-(34, 10, 71, '10-4', 1, '2020-07-22 03:16:35');
+(34, 10, 71, '10-4', 1, '2020-07-22 03:16:35'),
+(35, 10, 71, '10-5\r\n', 1, '2020-07-22 17:41:39');
 
 -- --------------------------------------------------------
 
@@ -365,6 +421,21 @@ INSERT INTO `servicio_img` (`SerImgId`, `SerImgSerId`, `SerImgNom`, `SerImgTip`,
 (36, 12, 'chompa-roja.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (37, 12, 'com.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (38, 12, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicio_report`
+--
+
+CREATE TABLE `servicio_report` (
+  `SerRepID` int(11) NOT NULL,
+  `SerRepDenUsuID` int(11) NOT NULL,
+  `SerRepSerID` int(11) NOT NULL,
+  `SerRepMot` text NOT NULL,
+  `SerRepEstReg` int(1) NOT NULL DEFAULT 1,
+  `SerRepFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -443,6 +514,26 @@ INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuI
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `usuario_tabla`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `usuario_tabla` (
+`UsuID` int(11)
+,`UsuNom` varchar(100)
+,`UsuCor` varchar(40)
+,`UsuCon` varchar(400)
+,`UsuImgNom` varchar(200)
+,`UsuImgTip` varchar(200)
+,`UsuImgArc` longblob
+,`UsuRolID` int(11)
+,`UsuEst` int(11)
+,`created_at` timestamp
+,`RolNom` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `acceso_tabla`
 --
 DROP TABLE IF EXISTS `acceso_tabla`;
@@ -452,20 +543,29 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `aquiridos_tablas`
+-- Estructura para la vista `adquiridos_tabla`
 --
-DROP TABLE IF EXISTS `aquiridos_tablas`;
+DROP TABLE IF EXISTS `adquiridos_tabla`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aquiridos_tablas`  AS  select `a`.`AdqID` AS `AdqID`,`a`.`AdqUsuID` AS `AdqUsuID`,`a`.`AdqSerID` AS `AdqSerID`,`a`.`AdqEstReg` AS `AdqEstReg`,`a`.`AdqFecCre` AS `AdqFecCre`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuImgNom` AS `UsuImgNom`,`s`.`SerNom` AS `SerNom`,`s`.`SerDes` AS `SerDes` from ((`adquiridos` `a` join `usuario` `u` on(`a`.`AdqUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`a`.`AdqSerID` = `s`.`SerUsuID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `adquiridos_tabla`  AS  select `a`.`AdqID` AS `AdqID`,`a`.`AdqUsuID` AS `AdqUsuID`,`a`.`AdqSerID` AS `AdqSerID`,`a`.`AdqEstReg` AS `AdqEstReg`,`a`.`AdqFecCre` AS `AdqFecCre`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from (`adquiridos` `a` join `servicio` `s` on(`a`.`AdqSerID` = `s`.`SerID`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `favoritos_tablas`
+-- Estructura para la vista `favoritos_tabla`
 --
-DROP TABLE IF EXISTS `favoritos_tablas`;
+DROP TABLE IF EXISTS `favoritos_tabla`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `favoritos_tablas`  AS  select `f`.`FavID` AS `FavID`,`f`.`FavUsuID` AS `FavUsuID`,`f`.`FavSerID` AS `FavSerID`,`f`.`FavEstReg` AS `FavEstReg`,`f`.`FacFecCre` AS `FacFecCre`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuImgNom` AS `UsuImgNom`,`s`.`SerNom` AS `SerNom`,`s`.`SerDes` AS `SerDes` from ((`favoritos` `f` join `usuario` `u` on(`f`.`FavUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`f`.`FavSerID` = `s`.`SerUsuID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `favoritos_tabla`  AS  select `f`.`FavID` AS `FavID`,`f`.`FavUsuID` AS `FavUsuID`,`f`.`FavSerID` AS `FavSerID`,`f`.`FavEstReg` AS `FavEstReg`,`f`.`FacFecCre` AS `FacFecCre`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from (`favoritos` `f` join `servicio` `s` on(`f`.`FavSerID` = `s`.`SerID`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `reporte_tabla`
+--
+DROP TABLE IF EXISTS `reporte_tabla`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reporte_tabla`  AS  select `sr`.`SerRepID` AS `SerRepID`,`sr`.`SerRepDenUsuID` AS `SerRepDenUsuID`,`sr`.`SerRepSerID` AS `SerRepSerID`,`sr`.`SerRepMot` AS `SerRepMot`,`sr`.`SerRepEstReg` AS `SerRepEstReg`,`sr`.`SerRepFecCre` AS `SerRepFecCre`,`u`.`UsuID` AS `UsuID`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuCor` AS `UsuCor`,`u`.`UsuCon` AS `UsuCon`,`u`.`UsuImgNom` AS `UsuImgNom`,`u`.`UsuImgTip` AS `UsuImgTip`,`u`.`UsuImgArc` AS `UsuImgArc`,`u`.`UsuRolID` AS `UsuRolID`,`u`.`UsuEst` AS `UsuEst`,`u`.`created_at` AS `created_at`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from ((`servicio_report` `sr` join `usuario` `u` on(`sr`.`SerRepDenUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`sr`.`SerRepSerID` = `s`.`SerID`)) ;
 
 -- --------------------------------------------------------
 
@@ -484,6 +584,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `servicio_tabla`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `servicio_tabla`  AS  select `s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal`,`u`.`UsuNom` AS `UsuNom`,`c`.`CatNom` AS `CatNom`,`sc`.`SubCatNom` AS `SubCatNom` from (((`servicio` `s` join `usuario` `u` on(`s`.`SerUsuID` = `u`.`UsuID`)) join `categoria` `c` on(`s`.`SerCatID` = `c`.`CatId`)) join `subcategoria` `sc` on(`s`.`SerSubCatID` = `sc`.`SubCatId`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `usuario_tabla`
+--
+DROP TABLE IF EXISTS `usuario_tabla`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuario_tabla`  AS  select `u`.`UsuID` AS `UsuID`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuCor` AS `UsuCor`,`u`.`UsuCon` AS `UsuCon`,`u`.`UsuImgNom` AS `UsuImgNom`,`u`.`UsuImgTip` AS `UsuImgTip`,`u`.`UsuImgArc` AS `UsuImgArc`,`u`.`UsuRolID` AS `UsuRolID`,`u`.`UsuEst` AS `UsuEst`,`u`.`created_at` AS `created_at`,`r`.`RolNom` AS `RolNom` from (`usuario` `u` join `rol` `r` on(`u`.`UsuRolID` = `r`.`RolId`)) ;
 
 --
 -- Índices para tablas volcadas
@@ -537,7 +646,8 @@ ALTER TABLE `favoritos`
 --
 ALTER TABLE `notificacion`
   ADD PRIMARY KEY (`NotID`),
-  ADD KEY `NotUsuId` (`NotUsuId`);
+  ADD KEY `NotUsuId` (`NotUsuId`),
+  ADD KEY `fk_not_usu` (`NotEnvUsuID`);
 
 --
 -- Indices de la tabla `recurso`
@@ -575,6 +685,14 @@ ALTER TABLE `servicio_img`
   ADD PRIMARY KEY (`SerImgId`);
 
 --
+-- Indices de la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  ADD PRIMARY KEY (`SerRepID`),
+  ADD KEY `FK_SerRep_Den` (`SerRepDenUsuID`),
+  ADD KEY `FK_SerRep_Ser` (`SerRepSerID`);
+
+--
 -- Indices de la tabla `subcategoria`
 --
 ALTER TABLE `subcategoria`
@@ -602,7 +720,7 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `adquiridos`
 --
 ALTER TABLE `adquiridos`
-  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -626,7 +744,7 @@ ALTER TABLE `c_chats`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -656,13 +774,19 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `serviciocomentario`
 --
 ALTER TABLE `serviciocomentario`
-  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio_img`
 --
 ALTER TABLE `servicio_img`
   MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  MODIFY `SerRepID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`
@@ -711,6 +835,7 @@ ALTER TABLE `favoritos`
 -- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
+  ADD CONSTRAINT `fk_not_usu` FOREIGN KEY (`NotEnvUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`NotUsuId`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -727,6 +852,13 @@ ALTER TABLE `servicio`
 ALTER TABLE `serviciocomentario`
   ADD CONSTRAINT `FK_SerCom_Ser` FOREIGN KEY (`SerComSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_SerCom_Usu` FOREIGN KEY (`SerComUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `servicio_report`
+--
+ALTER TABLE `servicio_report`
+  ADD CONSTRAINT `FK_SerRep_Den` FOREIGN KEY (`SerRepDenUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_SerRep_Ser` FOREIGN KEY (`SerRepSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `subcategoria`
