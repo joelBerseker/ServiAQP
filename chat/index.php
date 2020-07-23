@@ -157,7 +157,7 @@ $sergio= "gaaa";
                   </div>
                   <!-- /.direct-chat-info -->
                   <?php
-                  $ima = "SELECT UsuImgNom from usuario where UsuID=".$user;
+                  $ima = "SELECT UsuImgNom from usuario where UsuID=".$sess;
                   $result = mysqli_query($conn, $ima);
                   if ($row2 = mysqli_fetch_array($result)) {
                     $dirImg = trim($row2[0]);
@@ -185,7 +185,7 @@ $sergio= "gaaa";
                   </div>
                   <!-- /.direct-chat-info -->
                   <?php
-                  $ima2 = "SELECT UsuImgNom from usuario where UsuID=".$sess;
+                  $ima2 = "SELECT UsuImgNom from usuario where UsuID=".$user;
                   $result2 = mysqli_query($conn, $ima2);
                   if ($row3 = mysqli_fetch_array($result2)) {
                     $dirImg2 = trim($row3[0]);
@@ -220,7 +220,7 @@ $sergio= "gaaa";
                 <div class="input-group">
                   <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
                       <span class="input-group-btn">
-                        <input type="submit" name="enviar" class="btn btn-primary btn-flat">Enviar</button>
+                        <input type="submit" name="enviar" class="btn btn-primary btn-flat"></button>
                       </span>
                 </div>
               </form>
