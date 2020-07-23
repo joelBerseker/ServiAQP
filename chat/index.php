@@ -156,7 +156,15 @@ $sergio= "gaaa";
                     <span class="direct-chat-timestamp pull-right"><?php echo $ch['fecha']; ?></span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="avatars/<?php echo $us['avatar']; ?>"><!-- /.direct-chat-img -->
+                  <?php
+                  $ima = "SELECT UsuImgNom from usuario where UsuID=".$user;
+                  $result = mysqli_query($conn, $ima);
+                  if ($row2 = mysqli_fetch_array($result)) {
+                    $dirImg = trim($row2[0]);
+                  }
+                  $dirFin = '/ServiAQP/usuario/img/' . $dirImg;
+                  ?>
+                  <img class="direct-chat-img" src="<?php echo $dirFin; ?>"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     <?php echo $ch['mensaje']; ?>
                   </div>
@@ -176,7 +184,15 @@ $sergio= "gaaa";
                     <span class="direct-chat-timestamp pull-left"><?php echo $ch['fecha']; ?></span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="avatars/<?php echo $us['avatar']; ?>"><!-- /.direct-chat-img -->
+                  <?php
+                  $ima2 = "SELECT UsuImgNom from usuario where UsuID=".$sess;
+                  $result2 = mysqli_query($conn, $ima2);
+                  if ($row3 = mysqli_fetch_array($result2)) {
+                    $dirImg2 = trim($row3[0]);
+                  }
+                  $dirFin2 = '/ServiAQP/usuario/img/' . $dirImg2;
+                  ?>
+                  <img class="direct-chat-img" src="<?php echo $dirFin2; ?>"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     <?php echo $ch['mensaje']; ?>
                   </div>
