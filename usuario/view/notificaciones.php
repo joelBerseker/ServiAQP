@@ -8,21 +8,24 @@ $id = $_GET['id'];
     <?php
     $sql = "SELECT * FROM notificacion WHERE NotUsuID=" . $id . " ORDER BY NotFecCre DESC";
     $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_array($result)) {
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
     ?>
-        <div class="card3 mb-3">
-            <div class="row no-gutters">
+            <div class="card3 mb-3">
+                <div class="row no-gutters">
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                    <p class="card-text"><?= $row["NotDes"] ?></p>
-                    <hr class="mb-2">
-                    <p class="card-text"><small class="text-muted"><?= $row["NotFecCre"] ?></small></p>
+                        <p class="card-text"><?= $row["NotDes"] ?></p>
+                        <hr class="mb-2">
+                        <p class="card-text"><small class="text-muted"><?= $row["NotFecCre"] ?></small></p>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-    <?php
-    }
-    ?>
+        <?php
+        }
+    } else { ?>
+    <p>No hay elementos</p>
+    <?php } ?>
 </div>
