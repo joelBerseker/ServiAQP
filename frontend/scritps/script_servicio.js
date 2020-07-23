@@ -98,8 +98,13 @@ $(document).ready(function(){
     $("#FormComentario")[0].reset();
     return false;
  }
-function filtrarC(idCat){
+function filtrarC(idCat){   
+    $('#subcategorias').load('/ServiAQP/servicios/recargables/subcategoria.php',{"idCat":idCat});
     $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat});
+    return false;
+}
+function filtrarSC(idSubCat,idCat){   
+    $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat,"idCatSub":idSubCat});
     return false;
 }
 function favoritos(idSer){

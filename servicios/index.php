@@ -14,7 +14,7 @@ include("../includes/header.php");
 			<p>Prueba suerte entre las categorias mas buscadas.</p>
 		</div>
 		<div>
-			<button class="btn btn-sm mb-1 boton_menu bm_select" onclick="filtrarC(<?= $rowC['CatId'] ?>)">Todos</button>
+			<button class="btn btn-sm mb-1 boton_menu bm_select" onclick="filtrarC(-1)">Todos</button>
 
 			<?php
 			$queryC = "SELECT * FROM categoria where CatEstReg = 1";
@@ -31,17 +31,13 @@ include("../includes/header.php");
 
 
 		<div class="row">
-			<div class="col-auto mt-2" style="max-width: 150px;">
-				<button class="btn btn-sm mb-1 boton_menu bm_select btn-block" onclick="filtrarC(<?= $rowC['CatId'] ?>)">Todos</button>
-				<button class="btn btn-sm mb-1 boton_menu  btn-block" onclick="filtrarC(<?= $rowC['CatId'] ?>)">Todos ddd dd  ss ss ss ss</button>
-				<button class="btn btn-sm mb-1 boton_menu  btn-block" onclick="filtrarC(<?= $rowC['CatId'] ?>)">Todos</button>
-
+			<div id="subcategorias">
+				<?php 
+					include("recargables/subcategoria.php");
+				?>
 			</div>
 			<div class="col">
 				<div class="mt-2">
-
-
-
 					<div class="row">
 						<div class="col ">
 							<h5>Servicios disponibles</h5>
