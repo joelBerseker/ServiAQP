@@ -284,6 +284,7 @@ a.menu_link:hover {
   font-weight: 600;
   border-radius: 0px;
   transition: 0.5s;
+  border-bottom: 3px solid var(--fondo-principal);
 }
 .boton_menu:hover{
   color: var(--color-principal) !important;

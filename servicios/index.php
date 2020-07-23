@@ -14,14 +14,14 @@ include("../includes/header.php");
 			<p>Prueba suerte entre las categorias mas buscadas.</p>
 		</div>
 		<div>
-			<button class="btn btn-sm mb-1 boton_menu bm_select" onclick="filtrarC(-1)">Todos</button>
+			<a class="btn btn-sm mb-1 boton_menu bm_select filc" onclick="filtrarC(-1)" id="filc-1">Todos</a>
 
 			<?php
 			$queryC = "SELECT * FROM categoria where CatEstReg = 1";
 			$resultProduct = mysqli_query($conn, $queryC);
 			while ($rowC = mysqli_fetch_array($resultProduct)) {
 			?>
-				<button class="btn btn-sm mb-1 boton_menu" onclick="filtrarC(<?= $rowC['CatId'] ?>)"><?= $rowC['CatNom'] ?></button>
+				<a class="btn btn-sm mb-1 boton_menu filc" id="filc<?= $rowC['CatId'] ?>" onclick="filtrarC(<?= $rowC['CatId'] ?>)"><?= $rowC['CatNom'] ?></a>
 			<?php
 			}
 			?>
