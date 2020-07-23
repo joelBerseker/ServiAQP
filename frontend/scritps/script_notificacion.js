@@ -309,10 +309,9 @@ function noti(id) {
     dataType: "html",
     success: function (data) {
       $('#recargarusuario').html(data);
-      $('#badqu').removeClass("btn-disabled disabled");
-      $('#bpubl').removeClass("btn-disabled disabled");
-      $('#bnoti').addClass("btn-disabled disabled");
-      $('#bfavo').removeClass("btn-disabled disabled");
+      $('.boton_menu').removeClass("bm_select");
+      $('#bnoti').addClass("bm_select");
+     
     },
     error: function (jqXHR, textStatus, errorThrown) {
       if (jqXHR.status === 0) {
@@ -342,10 +341,70 @@ function favo(id) {
     dataType: "html",
     success: function (data) {
       $("#recargarusuario").html(data);
-      $('#badqu').removeClass("btn-disabled disabled");
-      $('#bpubl').removeClass("btn-disabled disabled");
-      $('#bnoti').removeClass("btn-disabled disabled");
-      $('#bfavo').addClass("btn-disabled disabled");
+      $('.boton_menu').removeClass("bm_select");
+      $('#bfavo').addClass("bm_select");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}
+function adqu(id) {
+  $.ajax({
+    url: "/ServiAQP/usuario/view/adquiridos.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $('#recargarusuario').html(data);
+      $('.boton_menu').removeClass("bm_select");
+      $('#adqu').addClass("bm_select");
+     
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      if (jqXHR.status === 0) {
+        alert("Not connect: Verify Network.");
+      } else if (jqXHR.status == 404) {
+        alert("Requested page not found [404]");
+      } else if (jqXHR.status == 500) {
+        alert("Internal Server Error [500].");
+      } else if (textStatus === "parsererror") {
+        alert("Requested JSON parse failed.");
+      } else if (textStatus === "timeout") {
+        alert("Time out error.");
+      } else if (textStatus === "abort") {
+        alert("Ajax request aborted.");
+      } else {
+        alert("Uncaught Error: " + jqXHR.responseText);
+      }
+    },
+  });
+}
+function publ(id) {
+  $.ajax({
+    url: "/ServiAQP/usuario/view/publicados.php",
+    type: "GET",
+    data: "&id=" + id,
+    dataType: "html",
+    success: function (data) {
+      $('#recargarusuario').html(data);
+      $('.boton_menu').removeClass("bm_select");
+      $('#bpubl').addClass("bm_select");
+     
     },
     error: function (jqXHR, textStatus, errorThrown) {
       if (jqXHR.status === 0) {

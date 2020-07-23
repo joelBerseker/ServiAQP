@@ -3,8 +3,7 @@ include("../../includes/data_base.php");
 $id = $_GET['id'];
 ?>
 <div id="div_noti">
-    <h5>Notificaciones</h5>
-    <hr class="mt-1">
+    <hr class="mt-3">
     <?php
     $sql = "SELECT * FROM notificacion WHERE NotUsuID=" . $id . " ORDER BY NotFecCre DESC";
     $result = mysqli_query($conn, $sql);

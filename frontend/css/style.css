@@ -286,13 +286,15 @@ a.menu_link:hover {
   transition: 0.5s;
 }
 .boton_menu:hover{
-  color: var(--color-principal);
+  color: var(--color-principal) !important;
   border-bottom: 3px solid var(--color-principal);
 }
+.boton_menu:click{
+  background-color: red;
+}
 .bm_select{
-  color: var(--color-principal);
+  color: var(--color-principal) !important;
 border-bottom: 3px solid var(--color-principal);
-
 }
 
 /*notificaciones*/
