@@ -372,7 +372,7 @@ function adqu(id) {
     success: function (data) {
       $('#recargarusuario').html(data);
       $('.boton_menu').removeClass("bm_select");
-      $('#adqu').addClass("bm_select");
+      $('#badqu').addClass("bm_select");
      
     },
     error: function (jqXHR, textStatus, errorThrown) {
