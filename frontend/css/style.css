@@ -274,6 +274,23 @@ a.menu_link:hover {
 }
 
 /*Navbar fin*/
+
+.boton_menu{
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0px;
+  
+}
+.boton_menu:hover{
+  color: var(--color-principal);
+  border-bottom: 3px solid var(--color-principal);
+}
+.bm_select{
+  color: var(--color-principal);
+border-bottom: 3px solid var(--color-principal);
+
+}
+
 /*notificaciones*/
 .notifi {
   color: black;

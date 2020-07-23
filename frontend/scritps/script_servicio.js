@@ -18,7 +18,8 @@ $(document).ready(function(){
             success:function(respuesta){
             $("#formServicio")[0].reset();
             $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
-            $('#exampleModal').modal('hide')
+            $('#exampleModal').modal('hide');
+            $("#exampleModal .close").click()
             }
         });
         
