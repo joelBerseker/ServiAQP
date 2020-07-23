@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2020 a las 02:48:57
+-- Tiempo de generación: 24-07-2020 a las 00:45:40
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -79,7 +79,8 @@ CREATE TABLE `adquiridos` (
 
 INSERT INTO `adquiridos` (`AdqID`, `AdqUsuID`, `AdqSerID`, `AdqEstReg`, `AdqFecCre`) VALUES
 (2, 71, 11, 1, '2020-07-22 17:27:20'),
-(3, 71, 10, 1, '2020-07-22 17:41:18');
+(3, 71, 10, 1, '2020-07-22 17:41:18'),
+(5, 71, 12, 1, '2020-07-23 22:45:18');
 
 -- --------------------------------------------------------
 
@@ -177,7 +178,8 @@ CREATE TABLE `favoritos` (
 INSERT INTO `favoritos` (`FavID`, `FavUsuID`, `FavSerID`, `FavEstReg`, `FacFecCre`) VALUES
 (1, 71, 11, 1, '2020-07-22 16:35:46'),
 (4, 71, 10, 1, '2020-07-22 17:34:57'),
-(6, 71, 12, 1, '2020-07-22 17:37:35');
+(6, 71, 12, 1, '2020-07-22 17:37:35'),
+(8, 68, 11, 1, '2020-07-23 17:14:51');
 
 -- --------------------------------------------------------
 
@@ -214,11 +216,19 @@ CREATE TABLE `notificacion` (
   `NotID` int(11) NOT NULL,
   `NotDes` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `NotEnvUsuID` int(11) NOT NULL,
+  `NotSerID` int(11) NOT NULL,
   `NotMot` text COLLATE utf8_unicode_ci NOT NULL,
   `NotUsuId` int(11) DEFAULT NULL,
   `NotEst` int(11) NOT NULL DEFAULT 0,
   `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `notificacion`
+--
+
+INSERT INTO `notificacion` (`NotID`, `NotDes`, `NotEnvUsuID`, `NotSerID`, `NotMot`, `NotUsuId`, `NotEst`, `NotFecCre`) VALUES
+(63, 'tenemos ofertas', 71, 11, 'OFERTAS', 68, 1, '2020-07-23 22:25:19');
 
 -- --------------------------------------------------------
 
@@ -328,7 +338,8 @@ CREATE TABLE `servicio` (
 INSERT INTO `servicio` (`SerID`, `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerEstReg`, `SerFecCre`, `SerNom`, `SerPre`, `SerVal`) VALUES
 (10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '20.00', '4.0'),
 (11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '100.00', '-1.0'),
-(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '99.88', '-1.0');
+(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '99.88', '-1.0'),
+(15, 71, 1, 6, 'asd', 'asd', 1, '2020-07-23 22:22:36', 'asd', '999.99', '-1.0');
 
 -- --------------------------------------------------------
 
@@ -351,7 +362,9 @@ CREATE TABLE `serviciocomentario` (
 
 INSERT INTO `serviciocomentario` (`SerComID`, `SerComSerID`, `SerComUsuID`, `SerMenMen`, `SerMenEstReg`, `SerMenFecCre`) VALUES
 (34, 10, 71, '10-4', 1, '2020-07-22 03:16:35'),
-(35, 10, 71, '10-5\r\n', 1, '2020-07-22 17:41:39');
+(35, 10, 71, '10-5\r\n', 1, '2020-07-22 17:41:39'),
+(36, 12, 71, 'holi\r\n', 1, '2020-07-23 22:30:51'),
+(37, 12, 71, 'holi\r\n', 1, '2020-07-23 22:30:58');
 
 -- --------------------------------------------------------
 
@@ -420,7 +433,17 @@ INSERT INTO `servicio_img` (`SerImgId`, `SerImgSerId`, `SerImgNom`, `SerImgTip`,
 (35, 12, 'alex.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (36, 12, 'chompa-roja.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
 (37, 12, 'com.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
-(38, 12, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38');
+(38, 12, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
+(39, 13, 'marrano.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
+(40, 13, 'me mame.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
+(41, 13, 'men.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
+(42, 13, 'mu2 .jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
+(43, 14, 'drake.jpg', 'image/jpeg', 1, '2020-07-23 17:44:31'),
+(44, 15, 'marrano.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
+(45, 15, 'me mame.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
+(46, 15, 'men.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
+(47, 15, 'mu2 .jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
+(48, 15, 'muuu.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36');
 
 -- --------------------------------------------------------
 
@@ -436,6 +459,13 @@ CREATE TABLE `servicio_report` (
   `SerRepEstReg` int(1) NOT NULL DEFAULT 1,
   `SerRepFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `servicio_report`
+--
+
+INSERT INTO `servicio_report` (`SerRepID`, `SerRepDenUsuID`, `SerRepSerID`, `SerRepMot`, `SerRepEstReg`, `SerRepFecCre`) VALUES
+(1, 71, 11, 'as', 1, '2020-07-23 16:49:20');
 
 -- --------------------------------------------------------
 
@@ -481,7 +511,8 @@ CREATE TABLE `subcategoria` (
 
 INSERT INTO `subcategoria` (`SubCatId`, `SubCatCatId`, `SubCatNom`, `SubCatDes`, `SubCatEstReg`, `SubCatFecCre`) VALUES
 (1, 1, 'Twitch', 'Subcategoria de enseñanza de juegos y uso de twitch', 1, '2020-07-13 22:15:28'),
-(4, 2, 'Retos y Challenges', 'cosas para pendejos', 1, '2020-07-22 16:14:22');
+(4, 2, 'Retos y Challenges', 'cosas para pendejos', 1, '2020-07-22 16:14:22'),
+(6, 1, 'youtube', 'as', 1, '2020-07-23 22:21:48');
 
 -- --------------------------------------------------------
 
@@ -508,8 +539,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuImgTip`, `UsuImgArc`, `UsuRolID`, `UsuEst`, `created_at`) VALUES
 (68, 'asdads', 'joel1@joel.com', '$2y$10$8e6jv/xerB4OljVmXq40r.F5wCjKCMl/RoCV.mJVVY3zl9j4.tJvy', 'identifi_app.jpg', '', '', 1, 1, '2020-07-22 02:47:37'),
-(71, '12', '12', '$2y$10$kIpZsAgsiezW1Ff5cPQSlOshpQnAyc3Ub0pXkDGBm8urICpN8cEW2', 'marrano.jpg', '', '', 2, 1, '2020-07-22 15:32:47'),
-(72, 'asd', 'asd', '$2y$10$qFQqBvfq.SwYTsouQ5Z3QuPRu1Ro48wcYJ/KOpybxwaQUd5OSYsUW', 'espiral.jpg', '', '', 1, 1, '2020-07-22 03:00:04');
+(71, 'Pedrin', '12', '$2y$10$kIpZsAgsiezW1Ff5cPQSlOshpQnAyc3Ub0pXkDGBm8urICpN8cEW2', 'marrano.jpg', '', '', 1, 1, '2020-07-23 03:00:40');
 
 -- --------------------------------------------------------
 
@@ -647,7 +677,8 @@ ALTER TABLE `favoritos`
 ALTER TABLE `notificacion`
   ADD PRIMARY KEY (`NotID`),
   ADD KEY `NotUsuId` (`NotUsuId`),
-  ADD KEY `fk_not_usu` (`NotEnvUsuID`);
+  ADD KEY `fk_not_usu` (`NotEnvUsuID`),
+  ADD KEY `FK_Not_Ser` (`NotSerID`);
 
 --
 -- Indices de la tabla `recurso`
@@ -720,13 +751,13 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `adquiridos`
 --
 ALTER TABLE `adquiridos`
-  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `AdqID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `CatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `chats`
@@ -744,13 +775,13 @@ ALTER TABLE `c_chats`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
-  MODIFY `NotID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `NotID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `recurso`
@@ -768,31 +799,31 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `SerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `SerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `serviciocomentario`
 --
 ALTER TABLE `serviciocomentario`
-  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `SerComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio_img`
 --
 ALTER TABLE `servicio_img`
-  MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio_report`
 --
 ALTER TABLE `servicio_report`
-  MODIFY `SerRepID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SerRepID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategoria`
 --
 ALTER TABLE `subcategoria`
-  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -835,6 +866,7 @@ ALTER TABLE `favoritos`
 -- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
+  ADD CONSTRAINT `FK_Not_Ser` FOREIGN KEY (`NotSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_not_usu` FOREIGN KEY (`NotEnvUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`NotUsuId`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
 

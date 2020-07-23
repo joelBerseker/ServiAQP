@@ -5,7 +5,7 @@ $id = $_GET['id'];
 <div id="div_favo">
     <hr class="mt-3">
     <?php
-    $sql = "SELECT * FROM adquiridos_tabla WHERE AdqUsuID=" . $id . " ORDER BY FacFecCre DESC";
+    $sql = "SELECT * FROM adquiridos_tabla WHERE AdqUsuID=" . $id . " ORDER BY AdqFecCre DESC";
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
