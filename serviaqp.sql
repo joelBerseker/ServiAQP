@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2020 a las 02:03:14
+-- Tiempo de generación: 23-07-2020 a las 02:48:57
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -84,19 +84,26 @@ INSERT INTO `adquiridos` (`AdqID`, `AdqUsuID`, `AdqSerID`, `AdqEstReg`, `AdqFecC
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `aquiridos_tablas`
+-- Estructura Stand-in para la vista `adquiridos_tabla`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `aquiridos_tablas` (
+CREATE TABLE `adquiridos_tabla` (
 `AdqID` int(11)
 ,`AdqUsuID` int(11)
 ,`AdqSerID` int(11)
 ,`AdqEstReg` int(1)
 ,`AdqFecCre` timestamp
-,`UsuNom` varchar(100)
-,`UsuImgNom` varchar(200)
-,`SerNom` varchar(90)
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
 ,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
 );
 
 -- --------------------------------------------------------
@@ -175,19 +182,26 @@ INSERT INTO `favoritos` (`FavID`, `FavUsuID`, `FavSerID`, `FavEstReg`, `FacFecCr
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `favoritos_tablas`
+-- Estructura Stand-in para la vista `favoritos_tabla`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `favoritos_tablas` (
+CREATE TABLE `favoritos_tabla` (
 `FavID` int(11)
 ,`FavUsuID` int(11)
 ,`FavSerID` int(11)
 ,`FavEstReg` int(1)
 ,`FacFecCre` timestamp
-,`UsuNom` varchar(100)
-,`UsuImgNom` varchar(200)
-,`SerNom` varchar(90)
+,`SerID` int(11)
+,`SerUsuID` int(11)
+,`SerCatID` int(11)
+,`SerSubCatID` int(11)
+,`SerPreFre` text
 ,`SerDes` text
+,`SerEstReg` int(1)
+,`SerFecCre` timestamp
+,`SerNom` varchar(90)
+,`SerPre` decimal(9,2)
+,`SerVal` decimal(2,1)
 );
 
 -- --------------------------------------------------------
@@ -529,20 +543,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `aquiridos_tablas`
+-- Estructura para la vista `adquiridos_tabla`
 --
-DROP TABLE IF EXISTS `aquiridos_tablas`;
+DROP TABLE IF EXISTS `adquiridos_tabla`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aquiridos_tablas`  AS  select `a`.`AdqID` AS `AdqID`,`a`.`AdqUsuID` AS `AdqUsuID`,`a`.`AdqSerID` AS `AdqSerID`,`a`.`AdqEstReg` AS `AdqEstReg`,`a`.`AdqFecCre` AS `AdqFecCre`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuImgNom` AS `UsuImgNom`,`s`.`SerNom` AS `SerNom`,`s`.`SerDes` AS `SerDes` from ((`adquiridos` `a` join `usuario` `u` on(`a`.`AdqUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`a`.`AdqSerID` = `s`.`SerUsuID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `adquiridos_tabla`  AS  select `a`.`AdqID` AS `AdqID`,`a`.`AdqUsuID` AS `AdqUsuID`,`a`.`AdqSerID` AS `AdqSerID`,`a`.`AdqEstReg` AS `AdqEstReg`,`a`.`AdqFecCre` AS `AdqFecCre`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from (`adquiridos` `a` join `servicio` `s` on(`a`.`AdqSerID` = `s`.`SerID`)) ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `favoritos_tablas`
+-- Estructura para la vista `favoritos_tabla`
 --
-DROP TABLE IF EXISTS `favoritos_tablas`;
+DROP TABLE IF EXISTS `favoritos_tabla`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `favoritos_tablas`  AS  select `f`.`FavID` AS `FavID`,`f`.`FavUsuID` AS `FavUsuID`,`f`.`FavSerID` AS `FavSerID`,`f`.`FavEstReg` AS `FavEstReg`,`f`.`FacFecCre` AS `FacFecCre`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuImgNom` AS `UsuImgNom`,`s`.`SerNom` AS `SerNom`,`s`.`SerDes` AS `SerDes` from ((`favoritos` `f` join `usuario` `u` on(`f`.`FavUsuID` = `u`.`UsuID`)) join `servicio` `s` on(`f`.`FavSerID` = `s`.`SerUsuID`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `favoritos_tabla`  AS  select `f`.`FavID` AS `FavID`,`f`.`FavUsuID` AS `FavUsuID`,`f`.`FavSerID` AS `FavSerID`,`f`.`FavEstReg` AS `FavEstReg`,`f`.`FacFecCre` AS `FacFecCre`,`s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal` from (`favoritos` `f` join `servicio` `s` on(`f`.`FavSerID` = `s`.`SerID`)) ;
 
 -- --------------------------------------------------------
 
