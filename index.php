@@ -60,19 +60,25 @@ include("includes/header.php");
 						<div class="img-animtion">
 							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
 							</div>
-							<div class="card-img-overlay">
+							<div class="card-img-overlay pad_serv">
 								<a class="btn  btn-sm informacion-btn">$ 23.30</a>
 								<a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> 4.0</a>
 							</div>
 						</div>
-						<div class="card-body text-center">
-							<h3 class="card-title"> Clases de escritura d sfsd dfsdfsd fds sf </h3>
-							<hr class="pt-0 mt-0 mb-2">
-							<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-							<hr class="pt-0 mt-0 mb-3">
-
-							<a onclick="favoritos" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
-							<a href="servicios/view/" class="btn btn-primary btn-sm ani_ver">Ver más <em class="fas fa-chevron-right"></em></a>
+						<div class="card-body text-center pad_serv">
+							<div class="row">
+								<div class="col pr-2">
+									<h3 class="card-title"> Clases de escritura d sfsd dfsdfsd fds sf </h3>
+									<hr class="pt-0 mt-0 mb-2">
+									<textarea disabled class="descrip text-left">jy pj yjp py jpyp jpyjpyjpypjpy pjpy pjpy pjyp jypj yjypj pypj pyjd jpjpjyjpyjpyjy asd asdasdasdjpjpjyjpyjpyjy asdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar </textarea>
+									
+								</div>
+								
+								<div class="col-auto pl-2 align-self-center">
+									<a onclick="favoritos" class="btn btn-primary btn-sm ani_heart btn-block"><em class="fas fa-heart"></em></a>
+									<a href="servicios/view/" class="btn btn-primary btn-sm ani_ver btn-block mt-1"><em class="fas fa-chevron-right"></em></a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

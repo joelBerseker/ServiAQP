@@ -21,6 +21,8 @@ include("../includes/header.php");
 				<p>Servicios existentes en el sistema.</p>
 			</div>
 			<div class="col-2 align-self-center mb-3">
+				<button type="button" class="btn btn-outline-success btn-sm float-right mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
+
 				<?php
 				include("crud_servicio/add.php");
 				?>

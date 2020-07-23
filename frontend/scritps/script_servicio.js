@@ -18,7 +18,8 @@ $(document).ready(function(){
             success:function(respuesta){
             $("#formServicio")[0].reset();
             $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
-            $('#exampleModal').modal('hide')
+            $('#exampleModal').modal('hide');
+            $("#exampleModal .close").click()
             }
         });
         
@@ -97,8 +98,13 @@ $(document).ready(function(){
     $("#FormComentario")[0].reset();
     return false;
  }
-function filtrarC(idCat){
+function filtrarC(idCat){   
+    $('#subcategorias').load('/ServiAQP/servicios/recargables/subcategoria.php',{"idCat":idCat});
     $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat});
+    return false;
+}
+function filtrarSC(idSubCat,idCat){   
+    $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat,"idCatSub":idSubCat});
     return false;
 }
 function favoritos(idSer){
@@ -125,5 +131,38 @@ function adquirir(idSer){
         }
         
     });
+    return false;
+}
+function reportar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('formReport'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/AddReport.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            alert(respuesta);
+            $("#formReport")[0].reset();
+        } 
+    });  
+    return false;
+} 
+function notificar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('formNoticacion'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/Addnotificaciones.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            alert(respuesta);
+            $("#formNoticacion")[0].reset();
+        }
+    });
+    
     return false;
 }  
