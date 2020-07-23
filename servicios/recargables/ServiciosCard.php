@@ -1,5 +1,4 @@
 <div class="row justify-content-right">
-    
 <?php
 $query = "SELECT * FROM `servicio` WHERE `SerEstReg` = 1";
 if(isset($_POST['idCat'])){

@@ -108,6 +108,10 @@ a:active {
 .card-body {
   position: relative;
 }
+.pad_serv{
+  padding: 13px;
+}
+
 .card-ani:hover {
   transform: scale(1.02);
 
@@ -279,7 +283,7 @@ a.menu_link:hover {
   font-size: 15px;
   font-weight: 600;
   border-radius: 0px;
-  
+  transition: 0.5s;
 }
 .boton_menu:hover{
   color: var(--color-principal);
