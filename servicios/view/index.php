@@ -150,20 +150,20 @@ include("../../includes/data_base.php");
                             </div>
                         </div>
                         <hr class="mt-1">
-
-                        <?php
-                        if (isset($user)) {
-                            $user1       = $user['UsuID'];
-                            $queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
-                            $resultProduct = mysqli_query($conn, $queryA);
-                            $totalA = mysqli_num_rows($resultProduct);
-                            $queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
-                            $resultProductF = mysqli_query($conn, $queryF);
-                            $totalF = mysqli_num_rows($resultProductF);
-                        } else {
-                            $totalA = 0;
-                            $totalF = 0;
-                        }
+                        <?php 
+                            if(isset($user)){
+                                $user1       = $user['UsuID'];
+                                $queryA ="SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
+                                $resultProduct = mysqli_query($conn, $queryA);
+                                $totalA = mysqli_num_rows($resultProduct);
+                                $queryF ="SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+                                $resultProductF = mysqli_query($conn, $queryF);
+                                $totalF = mysqli_num_rows($resultProductF);
+                            }
+                            else{
+                                $totalA = 0;
+                                $totalF = 0;
+                            }
                         ?>
                         <button class="btn btn-primary btn-sm ani_heart <?php if ($totalF > 0) echo "btn-disabled" ?>" <?php if ($totalF > 0) echo "disabled" ?> onclick="favoritos(<?= $id ?>)">
                             <em class="fas fa-heart"></em>
