@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2020 a las 01:43:04
+-- Tiempo de generación: 23-07-2020 a las 02:03:14
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -199,6 +199,8 @@ CREATE TABLE `favoritos_tablas` (
 CREATE TABLE `notificacion` (
   `NotID` int(11) NOT NULL,
   `NotDes` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `NotEnvUsuID` int(11) NOT NULL,
+  `NotMot` text COLLATE utf8_unicode_ci NOT NULL,
   `NotUsuId` int(11) DEFAULT NULL,
   `NotEst` int(11) NOT NULL DEFAULT 0,
   `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp()
@@ -498,6 +500,26 @@ INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuI
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `usuario_tabla`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `usuario_tabla` (
+`UsuID` int(11)
+,`UsuNom` varchar(100)
+,`UsuCor` varchar(40)
+,`UsuCon` varchar(400)
+,`UsuImgNom` varchar(200)
+,`UsuImgTip` varchar(200)
+,`UsuImgArc` longblob
+,`UsuRolID` int(11)
+,`UsuEst` int(11)
+,`created_at` timestamp
+,`RolNom` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `acceso_tabla`
 --
 DROP TABLE IF EXISTS `acceso_tabla`;
@@ -548,6 +570,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `servicio_tabla`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `servicio_tabla`  AS  select `s`.`SerID` AS `SerID`,`s`.`SerUsuID` AS `SerUsuID`,`s`.`SerCatID` AS `SerCatID`,`s`.`SerSubCatID` AS `SerSubCatID`,`s`.`SerPreFre` AS `SerPreFre`,`s`.`SerDes` AS `SerDes`,`s`.`SerEstReg` AS `SerEstReg`,`s`.`SerFecCre` AS `SerFecCre`,`s`.`SerNom` AS `SerNom`,`s`.`SerPre` AS `SerPre`,`s`.`SerVal` AS `SerVal`,`u`.`UsuNom` AS `UsuNom`,`c`.`CatNom` AS `CatNom`,`sc`.`SubCatNom` AS `SubCatNom` from (((`servicio` `s` join `usuario` `u` on(`s`.`SerUsuID` = `u`.`UsuID`)) join `categoria` `c` on(`s`.`SerCatID` = `c`.`CatId`)) join `subcategoria` `sc` on(`s`.`SerSubCatID` = `sc`.`SubCatId`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `usuario_tabla`
+--
+DROP TABLE IF EXISTS `usuario_tabla`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuario_tabla`  AS  select `u`.`UsuID` AS `UsuID`,`u`.`UsuNom` AS `UsuNom`,`u`.`UsuCor` AS `UsuCor`,`u`.`UsuCon` AS `UsuCon`,`u`.`UsuImgNom` AS `UsuImgNom`,`u`.`UsuImgTip` AS `UsuImgTip`,`u`.`UsuImgArc` AS `UsuImgArc`,`u`.`UsuRolID` AS `UsuRolID`,`u`.`UsuEst` AS `UsuEst`,`u`.`created_at` AS `created_at`,`r`.`RolNom` AS `RolNom` from (`usuario` `u` join `rol` `r` on(`u`.`UsuRolID` = `r`.`RolId`)) ;
 
 --
 -- Índices para tablas volcadas
@@ -601,7 +632,8 @@ ALTER TABLE `favoritos`
 --
 ALTER TABLE `notificacion`
   ADD PRIMARY KEY (`NotID`),
-  ADD KEY `NotUsuId` (`NotUsuId`);
+  ADD KEY `NotUsuId` (`NotUsuId`),
+  ADD KEY `fk_not_usu` (`NotEnvUsuID`);
 
 --
 -- Indices de la tabla `recurso`
@@ -789,6 +821,7 @@ ALTER TABLE `favoritos`
 -- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
+  ADD CONSTRAINT `fk_not_usu` FOREIGN KEY (`NotEnvUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`NotUsuId`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
