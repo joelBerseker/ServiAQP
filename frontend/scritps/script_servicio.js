@@ -126,4 +126,37 @@ function adquirir(idSer){
         
     });
     return false;
+}
+function reportar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('formReport'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/AddReport.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            alert(respuesta);
+            $("#formReport")[0].reset();
+        } 
+    });  
+    return false;
+} 
+function notificar(){
+    var id =document.getElementById('idServicio');
+    var formData= new FormData(document.getElementById('formNoticacion'));
+    $.ajax({
+        url: "/ServiAQP/servicios/view/Addnotificaciones.php",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success:function(respuesta){
+            alert(respuesta);
+            $("#formNoticacion")[0].reset();
+        }
+    });
+    
+    return false;
 }  
