@@ -30,11 +30,16 @@ while ($row = mysqli_fetch_array($resultProduct)) {
                 <textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
                 <hr class="pt-0 mt-0 mb-3">
                 <?php 
-                    $user1       = $user['UsuID'];
-                    $id = $row['SerID'];
-                    $queryF ="SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
-                    $resultProductF = mysqli_query($conn, $queryF);
-                    $totalF = mysqli_num_rows($resultProductF);
+                    if(isset($user)){
+                        $user1       = $user['UsuID'];
+                        $id = $row['SerID'];
+                        $queryF ="SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+                        $resultProductF = mysqli_query($conn, $queryF);
+                        $totalF = mysqli_num_rows($resultProductF);
+                    }else{
+                        $totalF = 0;
+                    }
+                    
                 ?>
                 <a href="" class="btn btn-primary btn-sm card-link ani_heart <?php if($totalF>0) echo"btn-disabled"?>" <?php if($totalF>0) echo"disabled"?> onclick="favoritos(<?=$row['SerID']?>)"><em class="fas fa-heart"></em></a>
                 <a href="view/?id=<?= $row['SerID'] ?>" class="btn btn-primary btn-sm">Ver más <em class="fas fa-chevron-right"></em></a>
