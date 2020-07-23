@@ -5,7 +5,16 @@ if(isset($_POST['idCat'])){
     include("../../includes/data_base.php");
     include("../../includes/sesion.php");
     $idCat=$_POST['idCat'];
-    $query = "SELECT * FROM `servicio` WHERE `SerEstReg` = 1 and `SerCatID` =".$idCat;
+    if($idCat=="-1"){
+        $query = "SELECT * FROM `servicio` WHERE `SerEstReg` = 1";
+    }else{
+        if(isset($_POST['idCatSub'])){
+            $sc=$_POST['idCatSub'];
+            $query = "SELECT * FROM `servicio` WHERE `SerEstReg` = 1 and `SerCatID` =".$idCat." and SerSubCatID=".$sc;
+        }else{
+            $query = "SELECT * FROM `servicio` WHERE `SerEstReg` = 1 and `SerCatID` =".$idCat;
+        }
+    }
 }
 $resultProduct = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($resultProduct)) {
