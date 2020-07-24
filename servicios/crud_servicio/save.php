@@ -1,7 +1,11 @@
 <?php
-    
-    include("../../includes/sesion.php");
-    include("../../includes/data_base.php");
+$recurso="/servicio/save";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
+
+include('../../includes/data_base.php');
+?>
+<?php
     
     $user           = $user['UsuID'];;
     $nombre         = $_POST['nombre'];

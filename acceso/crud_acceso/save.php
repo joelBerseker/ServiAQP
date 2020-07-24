@@ -1,8 +1,9 @@
 <?php
-//include('../../includes/sesion.php');
+$recurso="/acceso/save";
+include('../../includes/sesion.php');
+include("../../includes/global_variable.php");
+
 include('../../includes/data_base.php');
-$recurso="/Acceso/save";
-//include("../../includes/acl.php");
 ?>
 
 <?php

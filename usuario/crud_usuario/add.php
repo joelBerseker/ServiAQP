@@ -36,15 +36,15 @@ include("../includes/global_variable.php");
 
 					<div class="form-group form-row">
 						<div class="col-4"><label>Nombre:</label></div>
-						<div class="col"><input type="text" name="nombre" class="form-control form-control-sm" autofocus></div>
+						<div class="col"><input type="text" name="nombre" class="form-control form-control-sm" autofocus required></div>
 					</div>
 					<div class="form-group form-row">
 						<div class="col-4"><label>Correo:</label></div>
-						<div class="col"><input type="text" name="correo" class="form-control form-control-sm"></div>
+						<div class="col"><input type="text" name="correo" class="form-control form-control-sm" required></div>
 					</div>
 					<div class="form-group form-row">
 						<div class="col-4"><label>Contraseña:</label></div>
-						<div class="col"><input type="password" name="contraseña" class="form-control form-control-sm"></div>
+						<div class="col"><input type="password" name="contraseña" class="form-control form-control-sm" required></div>
 					</div>
 					<div class="form-group form-row">
 						<div class="col-4"><label>Estado:</label></div>

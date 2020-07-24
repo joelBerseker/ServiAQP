@@ -1,10 +1,9 @@
 <?php
+$recurso="/subcategoria/edit";
+include("../../includes/sesion.php");
 include("../../includes/global_variable.php");
-//include("../../includes/sesion.php");
-include("../../includes/data_base.php");
-$recurso = "/Acceso/edit";
-//include("../../includes/acl.php");
 
+include('../../includes/data_base.php');
 ?>
 <?php
 
@@ -39,12 +38,12 @@ if (isset($_POST['update'])) {
         <div class="form-group form-row">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col">
-                <input type="text" name="nombre" class="form-control form-control-sm" value="<?php echo $nombre; ?>" autofocus></div>
+                <input type="text" name="nombre" class="form-control form-control-sm" value="<?php echo $nombre; ?>" autofocus required></div>
         </div>
         <div class="form-group form-row">
             <div class="col-4"><label>Descripcion:</label></div>
             <div class="col">
-                <input type="text" name="descripcion" class="form-control form-control-sm" value="<?php echo $descripcion; ?>" autofocus></div>
+                <input type="text" name="descripcion" class="form-control form-control-sm" value="<?php echo $descripcion; ?>" autofocus required></div>
         </div>
         <div class="form-row form-group ">
             <div class="col-4"><label>Estado:</label></div>

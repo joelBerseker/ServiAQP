@@ -1,6 +1,9 @@
 <?php
-include('../../includes/sesion.php');
-include("../../includes/data_base.php");
+$recurso="/usuario/view";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
+
+include('../../includes/data_base.php');
 ?>
 
 <?php

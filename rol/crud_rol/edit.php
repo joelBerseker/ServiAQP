@@ -1,10 +1,9 @@
 <?php
+$recurso="/rol/edit";
+include("../../includes/sesion.php");
 include("../../includes/global_variable.php");
-//include("../../includes/sesion.php");
-include("../../includes/data_base.php");
-$recurso = "/Rol/edit";
-//include("../../includes/acl.php");
-//
+
+include('../../includes/data_base.php');
 ?>
 <?php
 if (isset($_GET['id'])) {

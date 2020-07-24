@@ -1,9 +1,9 @@
 <?php
-//include('../../includes/sesion.php');
-include('../../includes/data_base.php');
-$recurso = "/Usuario/edit";
-//include("../../includes/acl_usuario_edit.php");
+$recurso="/usuario/edit";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
 
+include('../../includes/data_base.php');
 ?>
 <?php
 if (isset($_GET['id'])) {

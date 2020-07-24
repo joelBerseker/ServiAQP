@@ -1,7 +1,9 @@
 <?php
+$recurso="/servicio/view";
 include("../../includes/sesion.php");
-include("../../includes/data_base.php");
 include("../../includes/global_variable.php");
+
+include("../../includes/data_base.php");
 include("tiempo.php");
 ?>
 <?php

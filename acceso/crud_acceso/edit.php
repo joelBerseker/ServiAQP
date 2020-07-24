@@ -1,10 +1,9 @@
 <?php
+$recurso="/acceso/edit";
+include("../../includes/sesion.php");
 include("../../includes/global_variable.php");
-//include("../../includes/sesion.php");
-include("../../includes/data_base.php");
-$recurso = "/Acceso/edit";
-//include("../../includes/acl.php");
 
+include("../../includes/data_base.php");
 ?>
 <?php
 
@@ -42,7 +41,7 @@ if (isset($_POST['update'])) {
         <div class="form-group form-row">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col">
-                <input type="text" name="nombrex2" class="form-control form-control-sm" value="<?php echo $nombre; ?>" autofocus></div>
+                <input type="text" name="nombrex2" class="form-control form-control-sm" value="<?php echo $nombre; ?>" autofocus required></div>
         </div>
 
 
