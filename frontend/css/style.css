@@ -311,6 +311,9 @@ a.menu_link:hover {
   color: var(--color-principal) !important;
   border-bottom: 3px solid var(--color-principal);
 }
+.card_ove{
+overflow: hidden;
+}
 .boton_menu:click{
   background-color: red;
 }

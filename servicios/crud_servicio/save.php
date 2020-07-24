@@ -7,7 +7,7 @@
     $nombre         = $_POST['nombre'];
     $precio         = $_POST['precio'];
     $descripcion    = $_POST['descripcion'];
-    $preguntas      = $_POST['preguntas'];
+    $preguntas      = nl2br($_POST['preguntas']);
     $categoria      = $_POST['categoria'];
     $subcategoria   = $_POST['subcategoria'];
     

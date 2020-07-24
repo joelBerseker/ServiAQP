@@ -60,7 +60,7 @@ include("../../includes/data_base.php");
         <div class="row">
             <div class="col-12 col-lg-6">
 
-                <div class="card">
+                <div class="card card_ove">
                     <div class="img-animtion">
                         <?php
                         $size = count($arrayImg);
