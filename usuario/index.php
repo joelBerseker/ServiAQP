@@ -12,7 +12,7 @@ include("../includes/header.php");;
 <div class="section">
 	<div class="container pt-4">
 		<div class="mb-2">
-		<?php
+			<?php
 			$table_ms = 7;
 			include("../includes/tables_menu.php");
 			?>
@@ -56,7 +56,10 @@ include("../includes/header.php");;
 									<td><?php echo $row['UsuID'] ?></td>
 									<td><?php echo $row['UsuNom'] ?></td>
 									<td><?php echo $row['UsuCor'] ?></td>
-									<td><img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="75" alt="Img blob" /></td>
+									<td>
+										<div class="imageny7 " id="imagenmuestra" style="background-image:url('/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>');">
+										</div>
+									</td>
 									<td><?php echo $row['UsuRolID'] ?></td>
 									<td><?php echo $row['UsuEst'] ?></td>
 									<td><?php echo $row['created_at'] ?></td>

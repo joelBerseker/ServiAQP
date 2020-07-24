@@ -395,7 +395,9 @@ border-bottom: 3px solid var(--color-principal);
 .card2:hover {
   /* transform: scale(1.03); */
 }
-
+.descrip2{
+  background-color: rgb(238, 238, 238);
+}
 .card3 {
   border-radius: 5px;
   background-color: rgb(238, 238, 238);
@@ -423,7 +425,55 @@ border-bottom: 3px solid var(--color-principal);
   -o-background-size: cover;
   background-size: cover;
 }
-
+.imageny5 {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.imageny6 {
+  height: 200px;
+  width: 200px;
+  
+  text-align: center;
+  color: #fff;
+  display: block;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 20px;
+}
+.imageny7 {
+  height: 75px;
+  width: 75px;
+  
+  text-align: center;
+  color: #fff;
+  display: block;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 5px;
+}
 .imageny4 {
   border-radius: 20px;
 }

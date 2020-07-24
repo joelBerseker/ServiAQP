@@ -29,13 +29,14 @@ include("../../includes/data_base.php");
 <div class="section">
     <div class="container pt-4">
         <div class="row">
-            <div class="col-4 mx-auto">
+            <div class="col-12 col-lg-4 mx-auto">
                 <div class="card card-body">
                     <div class="form-row form-group ">
 
                         <div class="col pb-2 pt-2" align="center">
-                            <img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="200px" id="imagenmuestra" alt="Img blob" class="imageny4" />
 
+                            <div class="imageny6" style="background-image:url('/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>');">
+                            </div>
                         </div>
                     </div>
                     <div class="form-row form-group ">
@@ -62,23 +63,39 @@ include("../../includes/data_base.php");
                 </div>
 
             </div>
-            <div class="col-8 mx-auto">
+            <div class="col-12 col-lg-8 mt-3 mt-lg-0 mx-auto">
 
-                <div class="card card-body" >
+                <div class="card card-body">
                     <div class=" ">
-
-                        <a onclick="noti(<?php echo $row['UsuID'] ?>)" id="bnoti" class="btn boton_menu bm_select">Notificaciones</a>
-                        <a onclick="favo(<?php echo $row['UsuID'] ?>)" id="bfavo" class="btn  boton_menu ">Favoritos</a>
-                        <a onclick="adqu(<?php echo $row['UsuID'] ?>)" id="badqu" class="btn  boton_menu  ">Adquiridos</a>
-                        <a onclick="publ(<?php echo $row['UsuID'] ?>)" id="bpubl" class="btn  boton_menu  ">Publicados</a>
+                        <?php $m_opci = $_GET['opcion']; ?>
+                        <a onclick="noti(<?php echo $row['UsuID'] ?>)" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1) echo "bm_select" ?>">Notificaciones</a>
+                        <a onclick="favo(<?php echo $row['UsuID'] ?>)" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
+                        <a onclick="adqu(<?php echo $row['UsuID'] ?>)" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
+                        <a onclick="publ(<?php echo $row['UsuID'] ?>)" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
 
 
                     </div>
                     <div id="recargarusuario">
-                    <?php
+                        <?php
 
-                    include('notificaciones.php');
-                    ?>
+                        switch ($m_opci) {
+                            case 1:
+                                include('notificaciones.php');
+                                break;
+                            case 2:
+                                include('favoritos.php');
+                                break;
+                            case 3:
+                                include('adquiridos.php');
+                                break;
+                            case 4:
+                                include('publicados.php');
+                                break;
+                            default:
+                                include('notificaciones.php');
+                                break;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

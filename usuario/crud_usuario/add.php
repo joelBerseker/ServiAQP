@@ -19,15 +19,17 @@ include("../includes/global_variable.php");
 
 					<div class="form-row form-group ">
 						<div class="col" align="center">
-							<img src="<?php echo $dirEjec ?>/usuario/img/usuario-sin-imagen.jpg" style="width: 200px;" id="imagenmuestra2" alt="Img blob" />
+							
+							<div class="imageny6 " id="imagenmuestra2" style="background-image:url('/ServiAQP/usuario/img/usuario-sin-imagen.jpg');">
+							</div>
 						</div>
 					</div>
 					<div class="form-group form-row">
 						<div class="col-4"><label>Imagen:</label></div>
 						<div class="col">
-							
+
 							<input type="file" accept="image/* " class="form-control-file" name="myFile" id="imagen2" maxlength="256" placeholder="Imagen">
-                			<input type="hidden" class="form-control" name="imagenactual2" id="imagenactual2">
+							<input type="hidden" class="form-control" name="imagenactual2" id="imagenactual2">
 						</div>
 					</div>
 
@@ -51,7 +53,7 @@ include("../includes/global_variable.php");
 								<option value="0"> Inactivo </option>
 							</select></div>
 					</div>
-					
+
 					<div class="form-group form-row">
 						<div class="col-4"><label>Nombre:</label></div>
 

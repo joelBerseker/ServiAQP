@@ -70,7 +70,7 @@ include('global_variable.php');
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
-        $('#imagenmuestra2').attr('src', e.target.result);
+            $('#imagenmuestra2').css("background-image", "url(" + e.target.result + ")");
         }
                 reader.readAsDataURL(input.files[0]);
             }
