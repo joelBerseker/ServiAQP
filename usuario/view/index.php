@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
 <?php
 include('../../includes/navbar.php');
 $titulo_html = "Ver Usuario";
+$user_navbar=true;
 include('../../includes/header.php');
 include("../../includes/data_base.php");
 ?>

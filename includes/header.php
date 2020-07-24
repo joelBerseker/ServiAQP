@@ -64,7 +64,7 @@ include('data_base.php');
 
 					?>
 						<li class="nav-item dropdown disp_primero_perfil">
-							<a class="nav-link menu_link dropdown_esp" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link menu_link dropdown_esp <?php if ($user_navbar) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<em class="fas fa-user"></em> <?= $user['UsuNom'] ?><?= $user['UsuID'] ?>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
@@ -97,7 +97,7 @@ include('data_base.php');
 						?>
 
 							<li class="nav-item dropdown disp_primero_configuracion">
-								<a class="nav-link menu_link dropdown_esp" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link menu_link dropdown_esp <?php if ($configuracion) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class=""><em class="fas fa-cog cog_rot"></em></div>
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion " aria-labelledby="navbarDropdown">

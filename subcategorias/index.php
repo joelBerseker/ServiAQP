@@ -5,6 +5,7 @@ include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion = true;
 $titulo_html = "SubCategorias";
 include("../includes/header.php");
 ?>

@@ -5,10 +5,9 @@ include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion = true;
 $titulo_html = "Usuarios";
-include("../includes/header.php");;
-//$recurso = "/Usuario";
-//include("../includes/acl.php");
+include("../includes/header.php");
 ?>
 <div class="section">
 	<div class="container pt-4">
