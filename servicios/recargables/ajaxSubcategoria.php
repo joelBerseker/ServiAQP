@@ -4,7 +4,6 @@
         $query = $db->query("SELECT * FROM subcategoria WHERE SubCatCatId = ".$_POST['categoria']." ORDER BY SubCatNom ASC");
         $rowCount = $query->num_rows;
         if($rowCount > 0){
-            echo '<option value="">Select SubCategoria</option>';
             while($row = $query->fetch_assoc()){
                 echo '<option value="'.$row['SubCatId'].'">'.$row['SubCatNom'].'</option>';
             }

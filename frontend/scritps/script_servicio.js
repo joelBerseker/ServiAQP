@@ -1,29 +1,49 @@
+function validateForm() {
+    jQuery(function() {
+        jQuery( "#formServicio" ).validate({
+                rules: {
+                        nombre: {
+                                required: true,
+                                minlength: 4,
+                                maxlength: 20
+                        }
+                },
+                messages: {
+                        nombre: {
+                                required: "Hey vamos, por favor, dános tu nombre",
+                                minlength: $.format("Necesitamos por lo menos {3} caracteres"),
+                                maxlength: $.format("{8} caracteres son demasiados!")
+                        }
+                }
+        });
+     });
+}
 $(document).ready(function(){
     $('#btnGuardarServicio').click(function(){
-        var formData= new FormData(document.getElementById('formServicio'));
-        var fileSelect = document.getElementById('ServicioImagenes');
-        var files = fileSelect.files;
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            formData.append('imagenes[]', file, file.name);
-        }
-        $.ajax({
-            url: "/ServiAQP/servicios/crud_servicio/save.php",
-            type: "POST",
-            dataType: "html",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success:function(respuesta){
-            $("#formServicio")[0].reset();
-            $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
-            $('#exampleModal').modal('hide');
-            $("#exampleModal .close").click()
+        if(validateForm()){
+            var formData= new FormData(document.getElementById('formServicio'));
+            var fileSelect = document.getElementById('ServicioImagenes');
+            var files = fileSelect.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                formData.append('imagenes[]', file, file.name);
             }
-        });
-        
-        
+            $.ajax({
+                url: "/ServiAQP/servicios/crud_servicio/save.php",
+                type: "POST",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(respuesta){
+                $("#formServicio")[0].reset();
+                $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+                $('#exampleModal').modal('hide');
+                $("#exampleModal .close").click()
+                }
+            });
+        }
         return false;
     });
     $('#categoria').on('change',function(){
