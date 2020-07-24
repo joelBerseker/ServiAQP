@@ -1,23 +1,21 @@
 <?php
+$recurso="/usuario";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion = true;
 $titulo_html = "Usuarios";
-include("../includes/header.php");;
-//$recurso = "/Usuario";
-//include("../includes/acl.php");
+include("../includes/header.php");
 ?>
 <div class="section">
 	<div class="container pt-4">
 		<div class="mb-2">
-			<a href="<?= $dirEjec ?>/acceso" class="btn btn-primary btn-sm mb-1">Accesos</a>
-			<a href="<?= $dirEjec ?>/categorias/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
-			<a href="<?= $dirEjec ?>/servicios/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
-			<a href="<?= $dirEjec ?>/recurso" class="btn btn-primary btn-sm mb-1">Recursos</a>
-			<a href="<?= $dirEjec ?>/rol" class="btn btn-primary btn-sm mb-1">Roles</a>
-			<a href="<?= $dirEjec ?>/usuario" class="btn btn-primary btn-sm mb-1 btn-disabled disabled">Usuarios</a>
+			<?php
+			$table_ms = 7;
+			include("../includes/tables_menu.php");
+			?>
 		</div>
 		<hr class="mt-3">
 		<div class="mt-3 row">
@@ -58,7 +56,10 @@ include("../includes/header.php");;
 									<td><?php echo $row['UsuID'] ?></td>
 									<td><?php echo $row['UsuNom'] ?></td>
 									<td><?php echo $row['UsuCor'] ?></td>
-									<td><img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="75" alt="Img blob" /></td>
+									<td>
+										<div class="imageny7 " id="imagenmuestra" style="background-image:url('/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>');">
+										</div>
+									</td>
 									<td><?php echo $row['UsuRolID'] ?></td>
 									<td><?php echo $row['UsuEst'] ?></td>
 									<td><?php echo $row['created_at'] ?></td>

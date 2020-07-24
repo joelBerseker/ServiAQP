@@ -36,11 +36,11 @@ if (isset($_POST['update'])) {
         move_uploaded_file($ruta, $rutaFinal);
     }
     if ($_POST['contraseña'] == null) {
-        $password=$contraseña;
+        $password = $contraseña;
     } else {
         $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
     }
-    
+
     $mysqli = new mysqli($database_red, $database_nombre, $database_contraseña, $database_name);
     $stmt = $mysqli->prepare("UPDATE usuario SET `UsuNom`=?, `UsuCor`=?,`UsuCon`=?,`UsuImgNom`=?,`UsuImgTip`=? WHERE UsuID=?");
     /* BK: always check whether the prepare() succeeded */
@@ -70,7 +70,9 @@ if (isset($_POST['update'])) {
     <div class="modal-body">
         <div class="form-row form-group ">
             <div class="col pb-2" align="center">
-                <img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="200px" id="imagenmuestra2" alt="Img blob" />
+
+                <div class="imageny6 " id="imagenmuestra2" style="background-image:url('/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>');">
+                </div>
             </div>
         </div>
         <div class="form-row form-group ">
@@ -83,12 +85,12 @@ if (isset($_POST['update'])) {
         <div class="form-row form-group ">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col">
-                <input value="<?php echo $nombre; ?>" class="form-control form-control-sm " type="text" name="nombre" required ></div>
+                <input value="<?php echo $nombre; ?>" class="form-control form-control-sm " type="text" name="nombre" required></div>
         </div>
         <div class="form-row form-group ">
             <div class="col-4"><label>Correo:</label></div>
             <div class="col">
-                <input value="<?php echo $correo_edit; ?>" class="form-control form-control-sm " type="text" name="correo" required ></div>
+                <input value="<?php echo $correo_edit; ?>" class="form-control form-control-sm " type="text" name="correo" required></div>
         </div>
 
         <div class="form-row form-group ">
@@ -117,7 +119,9 @@ if (isset($_POST['update'])) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                $('#imagenmuestra2').attr('src', e.target.result);
+
+                $('#imagenmuestra2').css("background-image", "url(" + e.target.result + ")");
+
             }
             reader.readAsDataURL(input.files[0]);
         }

@@ -1,12 +1,14 @@
 <?php
+$recurso="/categoria";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$categoria = true;
 $titulo_html = "Categorias";
 include("../includes/header.php");
-$categoria = true;
+
 ?>
 <div class="section pt-3">
 	<div class="container">

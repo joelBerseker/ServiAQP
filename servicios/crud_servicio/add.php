@@ -11,11 +11,11 @@
         <form id="formServicio" enctype="multipart/form-data">
           <div class="form-row form-group">
             <div class="col-4"><label for="recipient-name">Nombre:</label></div>
-            <div class="col"><input type="text" class="form-control form-control-sm" name="nombre" id="recipient-name"></div>
+            <div class="col"><input type="text" class="form-control form-control-sm" name="nombre" id="recipient-name" required></div>
           </div>
           <div class="form-row form-group">
             <div class="col-4"><label for="message-text">Descripcion:</label></div>
-            <div class="col"><textarea class="form-control form-control-sm" name="descripcion" id="message-text"></textarea></div>
+            <div class="col"><textarea class="form-control form-control-sm" name="descripcion" id="message-text" required></textarea></div>
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="message-text">Categoria:</label></div>
@@ -24,7 +24,8 @@
             $query = $db->query("SELECT * FROM categoria ORDER BY CatId ASC");
             $rowCount = $query->num_rows;
             ?>
-            <div class="col"><select class="form-control form-control-sm" name="categoria" id="categoria">
+            <div class="col">
+              <select class="form-control form-control-sm" name="categoria" id="categoria" required>
               <option value="">Selecciona Una Categoria</option>
               <?php
               if ($rowCount > 0) {
@@ -39,21 +40,22 @@
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="message-text">Subcategoria:</label></div>
-          <div class="col"><select name="subcategoria" class="form-control form-control-sm" id="subcategoria">
+          <div class="col">
+            <select name="subcategoria" class="form-control form-control-sm" id="subcategoria" required>
               <option value="">Selecciona una categoria</option>
             </select></div>
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="message-text">Preguntas Frecuentes:</label></div>
-          <div class="col"><textarea class="form-control form-control-sm" name="preguntas" id="message-text"></textarea></div>
+          <div class="col"><textarea class="form-control form-control-sm" name="preguntas" id="message-text" required></textarea></div>
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="message-text">Añadir Imagenes:</label></div>
-          <div class="col"><input type="file" name="ServicioImagenes" id="ServicioImagenes" required multiple class="form-control-file"></div>
+          <div class="col"><input type="file" name="ServicioImagenes" id="ServicioImagenes" required multiple class="form-control-file" required></div>
           </div>
           <div class="form-row form-group">
           <div class="col-4"><label for="recipient-name">Precio de Servicio:</label></div>
-          <div class="col"><input type="number" class="form-control form-control-sm" name="precio" step="0.01" min="0" id="recipient-name"></div>
+          <div class="col"><input type="number" class="form-control form-control-sm" name="precio" step="0.01" min="0" id="recipient-name" required></div>
           </div>
         </form>
       </div>

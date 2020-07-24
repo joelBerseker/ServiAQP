@@ -19,23 +19,26 @@ $id = $_GET['id'];
     ?>
             <div class="card3 mb-3">
                 <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="<?= $dirFin ?>" class="card-img" alt="...">
+                    <div class="col-4">
+                        <div class="imageny5 card-img" style="background-image:url('<?= $dirFin ?>');">
+                        </div>
                     </div>
-                    <div class="col-md-8">
+                    
+                    <div class="col-8">
                         <div class="card-body">
 
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title"><?= $row["SerNom"] ?></h5>
 
-                                    <hr>
-                                    <p class="card-text"><?= $row["SerDes"] ?></p>
+                                    <hr class=" mb-2">
+                                    <textarea disabled class="descrip text-left descrip2"><?= $row["SerDes"] ?></textarea>
                                     <hr class="mb-2">
                                     <p class="card-text"><small class="text-muted"><?= $row["FacFecCre"] ?></small></p>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="../../servicios/view/?id=<?= $row['SerID'] ?>" class="btn btn-primary btn-sm"><em class="fas fa-chevron-right"></em></a>
+                                    <a href="../../servicios/view/?id=<?= $row['SerID'] ?>" class="btn btn-outline-secondary btn-sm btn-block"><em class="fas fa-chevron-right"></em></a>
+                                    <a class="btn  btn-sm btn-outline-secondary btn-block" href="#"> <em class="fas fa-times"></em> </a>
                                 </div>
                             </div>
                         </div>

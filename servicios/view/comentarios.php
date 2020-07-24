@@ -25,26 +25,18 @@ if (mysqli_num_rows($resultProduct) > 0) {
 ?>
         <div class=" mb-3 ">
             <div class="row no-gutters">
-                <div class="col-3">
+                <div class="col-auto mr-4">
                     <div class="imageny3" style="background-image:url('<?= $dirFin ?>');"></div>
                 </div>
-                <div class="col-9 card2">
-                    <?php
-                    if (isset($user)) {
-                        if ($row['SerComUsuID'] == $user['UsuID']) {
-                    ?>
-                            <div class="float-right ">
-                                <a class="btn equis btn-sm" href="#"><em class="fas fa-times"></em> </a>
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
+                <div class="col card2 ml-2">
+                   
                     <div class="card-body PT-0">
-                        <p class="card-text mb-0">
-                            <?= $row['SerMenMen']; ?>
-                        </p>
-                        <hr class="mb-1 mt-3">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <p class="card-text mb-0">
+                                    <?= $row['SerMenMen']; ?>
+                                </p>
+                                <hr class="mb-1 mt-3">
                         <p class="card-text mb-0">
                             <small class="text-muted">
                                 Publicado por: <?= $row['UsuNom']; ?>
@@ -55,6 +47,21 @@ if (mysqli_num_rows($resultProduct) > 0) {
                                 <?= imprimirTiempo($row['SerMenFecCre']) ?>
                             </small>
                         </p>
+                            </div>
+                            <?php
+                    if (isset($user)) {
+                        if ($row['SerComUsuID'] == $user['UsuID']) {
+                    ?>
+                            <div class="float-right col-auto ml-2">
+                                    <a class="btn  btn-sm btn-outline-secondary" href="#"> <em class="fas fa-times"></em> </a>
+                                </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -62,5 +69,5 @@ if (mysqli_num_rows($resultProduct) > 0) {
     <?php
     }
 } else { ?>
-    <p>No hay comentarios</p>
+    <p>No hay elementos</p>
 <?php } ?>

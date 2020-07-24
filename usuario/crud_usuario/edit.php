@@ -1,9 +1,9 @@
 <?php
-//include('../../includes/sesion.php');
-include('../../includes/data_base.php');
-$recurso = "/Usuario/edit";
-//include("../../includes/acl_usuario_edit.php");
+$recurso="/usuario/edit";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
 
+include('../../includes/data_base.php');
 ?>
 <?php
 if (isset($_GET['id'])) {
@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
         move_uploaded_file($ruta, $rutaFinal);
     }
     if ($_POST['contraseña'] == null) {
-        $password=$contraseña;
+        $password = $contraseña;
     } else {
         $password = password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
     }
@@ -74,7 +74,8 @@ if (isset($_POST['update'])) {
     <div class="modal-body">
         <div class="form-row form-group ">
             <div class="col pb-2" align="center">
-                <img src="/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>" width="200px" id="imagenmuestra" alt="Img blob" />
+                <div class="imageny6 " id="imagenmuestra" style="background-image:url('/ServiAQP/usuario/img/<?php echo $row['UsuImgNom'] ?>');">
+                </div>
             </div>
         </div>
         <div class="form-row form-group ">
@@ -121,7 +122,7 @@ if (isset($_POST['update'])) {
                 <label>Contraseña:</label>
             </div>
             <div class="col">
-                <input class="form-control form-control-sm " value="" type="password" name="contraseña" autocomplete="new-password"> 
+                <input class="form-control form-control-sm " value="" type="password" name="contraseña" autocomplete="new-password">
             </div>
         </div>
         <div class="form-row form-group ">
@@ -160,7 +161,7 @@ if (isset($_POST['update'])) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                $('#imagenmuestra').attr('src', e.target.result);
+                $('#imagenmuestra').css("background-image", "url(" + e.target.result + ")");
             }
             reader.readAsDataURL(input.files[0]);
         }

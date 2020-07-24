@@ -5,17 +5,7 @@ include("../includes/global_variable.php");
 ?>
 <?php
 $gaa="gaaaa";
-if(isset($_GET['leido'])) {
-  
-  $leido = mysql_real_escape_string($_GET['leido']);
-  $usuariod = mysql_real_escape_string($_GET['usuario']);
-  
-  $tchats = mysql_query("SELECT * FROM chats WHERE de = '$usuariod' OR para = '$usuariod'");
-  $tc = mysql_fetch_array($tchats);
-  if($tc['de'] != $_SESSION['id']) {
-  $update = mysql_query("UPDATE chats SET leido = '1' WHERE de = '$usuariod' OR para = '$usuariod'");
-  }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,10 +55,7 @@ include("../includes/data_base.php");
   <div class="section">
     <!-- Content Header (Page header) -->
     <section class="container">
-      <h1>
-        Chat
-        <small>13 nuevos mensajes</small>
-      </h1>
+      
     </section>
 
     <!-- Main content -->
@@ -79,7 +66,7 @@ include("../includes/data_base.php");
 
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Carpetas</h3>
+              <h3 class="box-title"></h3>
 
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -89,7 +76,7 @@ include("../includes/data_base.php");
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#"><i class="fa fa-inbox"></i> Mis chats
-                  <span class="label label-primary pull-right">13</span></a></li>
+                  <span class="label label-primary pull-right"></span></a></li>
               </ul>
             </div>
             <!-- /.box-body -->
@@ -129,7 +116,7 @@ $sergio= "gaaa";
               
 
                   $user = $user['UsuID'];
-                
+                            
                   $sess = $_GET['creador'];
       
                   $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha desc");
@@ -156,7 +143,15 @@ $sergio= "gaaa";
                     <span class="direct-chat-timestamp pull-right"><?php echo $ch['fecha']; ?></span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="avatars/<?php echo $us['avatar']; ?>"><!-- /.direct-chat-img -->
+                  <?php
+                  $ima = "SELECT UsuImgNom from usuario where UsuID=".$sess;
+                  $result = mysqli_query($conn, $ima);
+                  if ($row2 = mysqli_fetch_array($result)) {
+                    $dirImg = trim($row2[0]);
+                  }
+                  $dirFin = '/ServiAQP/usuario/img/' . $dirImg;
+                  ?>
+                  <img class="direct-chat-img" src="<?php echo $dirFin; ?>"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     <?php echo $ch['mensaje']; ?>
                   </div>
@@ -176,7 +171,15 @@ $sergio= "gaaa";
                     <span class="direct-chat-timestamp pull-left"><?php echo $ch['fecha']; ?></span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="avatars/<?php echo $us['avatar']; ?>"><!-- /.direct-chat-img -->
+                  <?php
+                  $ima2 = "SELECT UsuImgNom from usuario where UsuID=".$user;
+                  $result2 = mysqli_query($conn, $ima2);
+                  if ($row3 = mysqli_fetch_array($result2)) {
+                    $dirImg2 = trim($row3[0]);
+                  }
+                  $dirFin2 = '/ServiAQP/usuario/img/' . $dirImg2;
+                  ?>
+                  <img class="direct-chat-img" src="<?php echo $dirFin2; ?>"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     <?php echo $ch['mensaje']; ?>
                   </div>
@@ -204,7 +207,7 @@ $sergio= "gaaa";
                 <div class="input-group">
                   <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
                       <span class="input-group-btn">
-                        <input type="submit" name="enviar" class="btn btn-primary btn-flat">Enviar</button>
+                        <input type="submit" name="enviar" class="btn btn-primary btn-flat"></button>
                       </span>
                 </div>
               </form>
@@ -222,7 +225,7 @@ $sergio= "gaaa";
                 
 
                 $de = $user;
-                $para = $_GET['creador'];
+                $para = $sess;
                   
                   $asd="SELECT * FROM c_chats WHERE de = '$de' AND para = '$para' OR de = '$para' AND para = '$de'";
                   echo $asd;

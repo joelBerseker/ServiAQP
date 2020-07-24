@@ -1,22 +1,21 @@
 <?php
+$recurso = "/acceso";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion=true;
 $titulo_html = "Acceso";
 include("../includes/header.php");
 ?>
 <div class="section">
 	<div class="container pt-4">
 		<div class="mb-2">
-			<a href="<?= $dirEjec ?>/acceso" class="btn btn-primary btn-sm mb-1 btn-disabled disabled">Accesos</a>
-			<a href="<?= $dirEjec ?>/categorias/tabla.php" class="btn btn-primary btn-sm mb-1">Categorias</a>
-			<a href="<?= $dirEjec ?>/servicios/tabla.php" class="btn btn-primary btn-sm mb-1">Servicios</a>
-			<a href="<?= $dirEjec ?>/recurso" class="btn btn-primary btn-sm mb-1">Recursos</a>
-			<a href="<?= $dirEjec ?>/rol" class="btn btn-primary btn-sm mb-1">Roles</a>
-			<a href="<?= $dirEjec ?>/usuario" class="btn btn-primary btn-sm mb-1 ">Usuarios</a>
-
+			<?php
+			$table_ms = 1;
+			include("../includes/tables_menu.php");
+			?>
 		</div>
 		<hr class="mt-3">
 		<div class="mt-3 row">

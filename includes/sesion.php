@@ -11,7 +11,7 @@ try {
 }
 
 if (isset($_SESSION['user_id'])) {
-    $records = $conn_sesi->prepare('SELECT UsuID, UsuCor, UsuCon, UsuRolID FROM usuario WHERE UsuID = :id');
+    $records = $conn_sesi->prepare('SELECT UsuID, UsuCor, UsuCon, UsuRolID, UsuNom FROM usuario WHERE UsuID = :id');
     $records->bindParam(':id', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);

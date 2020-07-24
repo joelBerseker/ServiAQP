@@ -1,7 +1,9 @@
 <?php
+$recurso="/servicio/view";
 include("../../includes/sesion.php");
-include("../../includes/data_base.php");
 include("../../includes/global_variable.php");
+
+include("../../includes/data_base.php");
 include("tiempo.php");
 ?>
 <?php
@@ -60,7 +62,7 @@ include("../../includes/data_base.php");
         <div class="row">
             <div class="col-12 col-lg-6">
 
-                <div class="card">
+                <div class="card card_ove">
                     <div class="img-animtion">
                         <?php
                         $size = count($arrayImg);
@@ -98,8 +100,8 @@ include("../../includes/data_base.php");
                         </div>
                     </div>
                     <div class="card-img-overlay">
-                        <a class="btn  btn-sm informacion-btn"><?= $precio ?></a>
-                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i><?= $valoracion ?></a>
+                        <a class="btn  btn-sm informacion-btn">S/. <?= $precio ?></a>
+                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> <?= $valoracion ?></a>
                     </div>
                     <div class="card-body text-left">
                         <h4 class="card-title text-center "><?= $nombre ?></h4>
@@ -108,32 +110,40 @@ include("../../includes/data_base.php");
                             <div class="col-4"> <label>Descripcion del producto:</label></div>
                             <div class="col"><label><?= $descripcion ?></label></div>
                         </div>
+                        <?php if (!empty($user)) : ?>
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
-                                <form id="formCalificacion" method="POST">
-                                    <div class="clasificacion  clasi">
-                                        <!--Aca-->
-                                         <input type="hidden" name="id" value="<?= $id ?>" />
-                                        <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
-                                        <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
-                                        <label for="radio2" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio3" type="radio" name="estrellas" value="3" class="disradio">
-                                        <label for="radio3" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio4" type="radio" name="estrellas" value="2" class="disradio">
-                                        <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
-                                        <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
-
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <form id="formCalificacion" method="POST">
+                                            <div class="clasificacion  clasi">
+                                                <!--Aca-->
+                                                 <input type="hidden" name="id" value="<?= $id ?>" />
+                                                <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
+                                                <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
+                                                <label for="radio2" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio3" type="radio" name="estrellas" value="3" class="disradio">
+                                                <label for="radio3" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio4" type="radio" name="estrellas" value="2" class="disradio">
+                                                <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
+                                                <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
+                                        
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                                <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>
-                                       
+                                    <div class="col-auto">
+                                        <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>
+                                        
+                                    </div>  
+                                </div>     
 
                             </div>
                         </div>
-                        <div class="form-row form-group ">
+                        <?php endif; ?>
+                        <div class="row ">
                             <div class="col">
                                 <p class="card-text ">
                                     <small class="text-muted">
@@ -149,7 +159,8 @@ include("../../includes/data_base.php");
                                 </p>
                             </div>
                         </div>
-                        <hr class="mt-1">
+                        <?php if (!empty($user)) : ?>
+                        <hr class="mt-3">
                         <?php 
                             if(isset($user)){
                                 $user1       = $user['UsuID'];
@@ -168,8 +179,8 @@ include("../../includes/data_base.php");
                         <button class="btn btn-primary btn-sm ani_heart <?php if ($totalF > 0) echo "btn-disabled" ?>" <?php if ($totalF > 0) echo "disabled" ?> onclick="favoritos(<?= $id ?>)">
                             <em class="fas fa-heart"></em>
                         </button>
-
-                        <a href="../../chat/?$creador=<?= $id ?>" class="btn btn-primary btn-sm">Contactar</a>
+                    
+                        <a href="../../chat/?creador=<?= $creador ?>" class="btn btn-primary btn-sm">Contactar</a>
                         <button href="#" class="btn btn-primary btn-sm <?php if ($totalA > 0) echo "btn-disabled" ?>" <?php if ($totalA > 0) echo "disabled" ?> onclick="adquirir(<?= $id ?>)">Contratar <?= $precio ?></button>
                         <?php
                         if (isset($user)) {
@@ -182,6 +193,7 @@ include("../../includes/data_base.php");
                         ?>
                         <button type="button" class="btn btn-outline-danger btn-sm float-right" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">Reportar</button>
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#notificarModal" data-whatever="@mdo">Notificar</button>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -204,9 +216,9 @@ include("../../includes/data_base.php");
                         <h5>Comentarios</h5>
                     </div>
                     <hr class="mt-1">
-                    
-                    <div class="row">
-                        <div class="col-10">
+                    <?php if (!empty($user)) : ?>
+                    <div class="row no-gutters">
+                        <div class="col">
                             <form method="post" id="FormComentario">
                                 <input type="hidden" id="idServicio" name="id" value="<?= $id ?>" />
                                 <div class="mb-2">
@@ -215,13 +227,14 @@ include("../../includes/data_base.php");
                             
                             </form>
                         </div>
-                        <div class="col">
+                        <div class="col-auto ml-2">
                             <button class="btn btn-primary btn-sm float-right" name="update_comentar" onclick="comentar()">
                                 Enviar
                             </button>
                         </div>
                     </div>
                     <hr>
+                    <?php endif; ?>
                     <!-- Esto desde aqui se va repetir -->
                     <div id="Comentario">
                         <?php
