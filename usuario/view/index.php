@@ -56,7 +56,10 @@ include("../../includes/data_base.php");
                     </div>
                     <hr class="mt-2">
                     <div>
-                        <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Ascender a vendedor</button>
+                        <?php if ($rol == "Comprador") { ?>
+
+                            <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ascenderModal" data-whatever="@mdo">Ascender a vendedor</button>
+                        <?php } ?>
                         <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Editar</button>
                     </div>
 
@@ -67,8 +70,15 @@ include("../../includes/data_base.php");
 
                 <div class="card card-body">
                     <div class=" ">
-                        <?php $m_opci = $_GET['opcion']; ?>
-                        <a onclick="noti(<?php echo $row['UsuID'] ?>)" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1) echo "bm_select" ?>">Notificaciones</a>
+                        <?php
+                        $m_opci = 0;
+                        if (!empty($_GET['opcion'])) :
+                            $m_opci = $_GET['opcion'];
+                        endif;
+
+                        ?>
+
+                        <a onclick="noti(<?php echo $row['UsuID'] ?>)" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1 || $m_opci == 0) echo "bm_select" ?>">Notificaciones</a>
                         <a onclick="favo(<?php echo $row['UsuID'] ?>)" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
                         <a onclick="adqu(<?php echo $row['UsuID'] ?>)" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
                         <a onclick="publ(<?php echo $row['UsuID'] ?>)" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
@@ -117,5 +127,6 @@ include("../../includes/data_base.php");
     </div>
 </div>
 <?php
-include("../../includes/footer.php")
+include("ascender.php");
+include("../../includes/footer.php");
 ?>

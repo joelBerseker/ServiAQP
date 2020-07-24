@@ -32,8 +32,8 @@ include("../includes/header.php");
 
 		<div class="row">
 			<div id="subcategorias">
-				<?php 
-					include("recargables/subcategoria.php");
+				<?php
+				include("recargables/subcategoria.php");
 				?>
 			</div>
 			<div class="col">
@@ -43,9 +43,15 @@ include("../includes/header.php");
 							<h5>Servicios disponibles</h5>
 							<p>Revisa todos los servicios que nuestros usuarios han publicado.</p>
 						</div>
-						<div class="col-auto align-self-center mb-3">
-							<button type="button" class="btn btn-primary btn-sm float-right mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
-						</div>
+						<?php if (!empty($user)) :
+						
+							if ($user['UsuRolID'] != 2) {
+						?>
+								<div class="col-auto align-self-center mb-3">
+									<button type="button" class="btn btn-primary btn-sm float-right mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
+								</div>
+						<?php }
+						endif; ?>
 					</div>
 
 

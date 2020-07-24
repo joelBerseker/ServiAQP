@@ -98,8 +98,8 @@ include("../../includes/data_base.php");
                         </div>
                     </div>
                     <div class="card-img-overlay">
-                        <a class="btn  btn-sm informacion-btn"><?= $precio ?></a>
-                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i><?= $valoracion ?></a>
+                        <a class="btn  btn-sm informacion-btn">S/. <?= $precio ?></a>
+                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> <?= $valoracion ?></a>
                     </div>
                     <div class="card-body text-left">
                         <h4 class="card-title text-center "><?= $nombre ?></h4>
@@ -108,6 +108,7 @@ include("../../includes/data_base.php");
                             <div class="col-4"> <label>Descripcion del producto:</label></div>
                             <div class="col"><label><?= $descripcion ?></label></div>
                         </div>
+                        <?php if (!empty($user)) : ?>
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
@@ -139,7 +140,8 @@ include("../../includes/data_base.php");
 
                             </div>
                         </div>
-                        <div class="form-row form-group ">
+                        <?php endif; ?>
+                        <div class="row ">
                             <div class="col">
                                 <p class="card-text ">
                                     <small class="text-muted">
@@ -155,7 +157,8 @@ include("../../includes/data_base.php");
                                 </p>
                             </div>
                         </div>
-                        <hr class="mt-1">
+                        <?php if (!empty($user)) : ?>
+                        <hr class="mt-3">
                         <?php 
                             if(isset($user)){
                                 $user1       = $user['UsuID'];
@@ -188,6 +191,7 @@ include("../../includes/data_base.php");
                         ?>
                         <button type="button" class="btn btn-outline-danger btn-sm float-right" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">Reportar</button>
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#notificarModal" data-whatever="@mdo">Notificar</button>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -210,7 +214,7 @@ include("../../includes/data_base.php");
                         <h5>Comentarios</h5>
                     </div>
                     <hr class="mt-1">
-                    
+                    <?php if (!empty($user)) : ?>
                     <div class="row no-gutters">
                         <div class="col">
                             <form method="post" id="FormComentario">
@@ -228,6 +232,7 @@ include("../../includes/data_base.php");
                         </div>
                     </div>
                     <hr>
+                    <?php endif; ?>
                     <!-- Esto desde aqui se va repetir -->
                     <div id="Comentario">
                         <?php
