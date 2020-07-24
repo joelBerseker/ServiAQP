@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2020 a las 00:45:40
+-- Tiempo de generación: 24-07-2020 a las 02:07:44
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -73,15 +73,6 @@ CREATE TABLE `adquiridos` (
   `AdqFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `adquiridos`
---
-
-INSERT INTO `adquiridos` (`AdqID`, `AdqUsuID`, `AdqSerID`, `AdqEstReg`, `AdqFecCre`) VALUES
-(2, 71, 11, 1, '2020-07-22 17:27:20'),
-(3, 71, 10, 1, '2020-07-22 17:41:18'),
-(5, 71, 12, 1, '2020-07-23 22:45:18');
-
 -- --------------------------------------------------------
 
 --
@@ -126,8 +117,14 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`CatId`, `CatNom`, `CatDes`, `CatEstReg`, `CatFecCre`) VALUES
-(1, 'Juegos', 'Categoria Relacionada a juegos', 1, '2020-07-13 22:15:27'),
-(2, 'Ocio', 'Ocio y mas', 1, '2020-07-22 16:12:06');
+(4, 'Ocio', 'Ocio y mas', 1, '2020-07-23 23:44:03'),
+(5, 'Grafica y DiseÃ±o', 'Graficos y diseÃ±os, todo lo relacionado', 1, '2020-07-23 23:45:17'),
+(6, 'Marketing Digital', 'marketing empresarial y en la web', 1, '2020-07-23 23:46:09'),
+(7, 'Programacion y Tecnologia', 'final', 1, '2020-07-23 23:46:37'),
+(8, 'Negocios', 'todo lo relacionado a negorias', 1, '2020-07-23 23:47:14'),
+(9, 'Musica y Audio', 'enseÃ±anza de audio y musica', 1, '2020-07-23 23:48:32'),
+(10, 'Video y Animacion', 'enseÃ±anza de video y animacion', 1, '2020-07-23 23:49:19'),
+(11, 'Redaccion y Traduccion', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:49:59');
 
 -- --------------------------------------------------------
 
@@ -171,16 +168,6 @@ CREATE TABLE `favoritos` (
   `FacFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `favoritos`
---
-
-INSERT INTO `favoritos` (`FavID`, `FavUsuID`, `FavSerID`, `FavEstReg`, `FacFecCre`) VALUES
-(1, 71, 11, 1, '2020-07-22 16:35:46'),
-(4, 71, 10, 1, '2020-07-22 17:34:57'),
-(6, 71, 12, 1, '2020-07-22 17:37:35'),
-(8, 68, 11, 1, '2020-07-23 17:14:51');
-
 -- --------------------------------------------------------
 
 --
@@ -222,13 +209,6 @@ CREATE TABLE `notificacion` (
   `NotEst` int(11) NOT NULL DEFAULT 0,
   `NotFecCre` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `notificacion`
---
-
-INSERT INTO `notificacion` (`NotID`, `NotDes`, `NotEnvUsuID`, `NotSerID`, `NotMot`, `NotUsuId`, `NotEst`, `NotFecCre`) VALUES
-(63, 'tenemos ofertas', 71, 11, 'OFERTAS', 68, 1, '2020-07-23 22:25:19');
 
 -- --------------------------------------------------------
 
@@ -331,16 +311,6 @@ CREATE TABLE `servicio` (
   `SerVal` decimal(2,1) NOT NULL DEFAULT -1.0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `servicio`
---
-
-INSERT INTO `servicio` (`SerID`, `SerUsuID`, `SerCatID`, `SerSubCatID`, `SerPreFre`, `SerDes`, `SerEstReg`, `SerFecCre`, `SerNom`, `SerPre`, `SerVal`) VALUES
-(10, 71, 1, 1, 'asd', 'asd', 1, '2020-07-22 03:15:29', 'Twitch', '20.00', '4.0'),
-(11, 71, 1, 1, 'asda', 'asd', 1, '2020-07-22 16:01:03', 'sercicio01', '100.00', '-1.0'),
-(12, 71, 2, 4, 'asasd', 'as', 1, '2020-07-22 16:15:37', 'Ice bucket challenge', '99.88', '-1.0'),
-(15, 71, 1, 6, 'asd', 'asd', 1, '2020-07-23 22:22:36', 'asd', '999.99', '-1.0');
-
 -- --------------------------------------------------------
 
 --
@@ -355,16 +325,6 @@ CREATE TABLE `serviciocomentario` (
   `SerMenEstReg` int(11) NOT NULL DEFAULT 1,
   `SerMenFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `serviciocomentario`
---
-
-INSERT INTO `serviciocomentario` (`SerComID`, `SerComSerID`, `SerComUsuID`, `SerMenMen`, `SerMenEstReg`, `SerMenFecCre`) VALUES
-(34, 10, 71, '10-4', 1, '2020-07-22 03:16:35'),
-(35, 10, 71, '10-5\r\n', 1, '2020-07-22 17:41:39'),
-(36, 12, 71, 'holi\r\n', 1, '2020-07-23 22:30:51'),
-(37, 12, 71, 'holi\r\n', 1, '2020-07-23 22:30:58');
 
 -- --------------------------------------------------------
 
@@ -460,13 +420,6 @@ CREATE TABLE `servicio_report` (
   `SerRepFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `servicio_report`
---
-
-INSERT INTO `servicio_report` (`SerRepID`, `SerRepDenUsuID`, `SerRepSerID`, `SerRepMot`, `SerRepEstReg`, `SerRepFecCre`) VALUES
-(1, 71, 11, 'as', 1, '2020-07-23 16:49:20');
-
 -- --------------------------------------------------------
 
 --
@@ -510,9 +463,20 @@ CREATE TABLE `subcategoria` (
 --
 
 INSERT INTO `subcategoria` (`SubCatId`, `SubCatCatId`, `SubCatNom`, `SubCatDes`, `SubCatEstReg`, `SubCatFecCre`) VALUES
-(1, 1, 'Twitch', 'Subcategoria de enseñanza de juegos y uso de twitch', 1, '2020-07-13 22:15:28'),
-(4, 2, 'Retos y Challenges', 'cosas para pendejos', 1, '2020-07-22 16:14:22'),
-(6, 1, 'youtube', 'as', 1, '2020-07-23 22:21:48');
+(7, 4, 'Retos y Challenges', 'Gente estupida', 1, '2020-07-23 23:51:59'),
+(8, 4, 'Zing', 'Gente estupida x2', 1, '2020-07-23 23:52:46'),
+(9, 5, 'DiseÃ±o de Logos', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:53:35'),
+(10, 5, 'Guias de estilo para marcar', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:54:02'),
+(11, 5, 'Tarjetas de presentaciÃ³n y papelerÃ­a', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:54:26'),
+(12, 6, 'Marketin para Redes Social', 'servicio personalizado', 1, '2020-07-23 23:55:06'),
+(13, 6, 'Estrategias de Marketing', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:55:28'),
+(14, 6, 'Relaciones Publicas', 'enseÃ±anza personalizada', 1, '2020-07-23 23:56:51'),
+(15, 10, 'Edicion de Videos', 'enseÃ±anza y servicios personalizados', 1, '2020-07-23 23:58:02'),
+(16, 10, 'Explicacion de animacion en Whitebord', 'enseÃ±anza personalizada', 1, '2020-07-23 23:58:58'),
+(17, 7, 'WordPress', 'enseÃ±anza personalizada', 1, '2020-07-23 23:59:49'),
+(18, 8, 'Gestion de Comercio Electronico', 'enseÃ±anza y servicios personalizados', 1, '2020-07-24 00:00:34'),
+(19, 9, 'Voice Over', 'servicio personalizado', 1, '2020-07-24 00:01:26'),
+(20, 11, 'Articulos y Blogs', 'servicio personalizado', 1, '2020-07-24 00:02:16');
 
 -- --------------------------------------------------------
 
@@ -539,7 +503,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuImgTip`, `UsuImgArc`, `UsuRolID`, `UsuEst`, `created_at`) VALUES
 (68, 'asdads', 'joel1@joel.com', '$2y$10$8e6jv/xerB4OljVmXq40r.F5wCjKCMl/RoCV.mJVVY3zl9j4.tJvy', 'identifi_app.jpg', '', '', 1, 1, '2020-07-22 02:47:37'),
-(71, 'Pedrin', '12', '$2y$10$kIpZsAgsiezW1Ff5cPQSlOshpQnAyc3Ub0pXkDGBm8urICpN8cEW2', 'marrano.jpg', '', '', 1, 1, '2020-07-23 03:00:40');
+(71, 'Pedrin', 'prueba01@gmail.com', '$2y$10$kIpZsAgsiezW1Ff5cPQSlOshpQnAyc3Ub0pXkDGBm8urICpN8cEW2', 'marrano.jpg', '', '', 1, 1, '2020-07-23 23:40:40'),
+(74, 'Jhon', 'jmamanimama@unsa.edu.pe', '$2y$10$sSxfuAOmR66sH6NGmISps.kZCK7C2qqjcleGfcDPT6jGNseHsd/Q6', 'usuario-sin-imagen.jpg', 'image/jpg', '', 3, 1, '2020-07-23 23:42:43'),
+(75, 'Jose', 'jose@gmail.com', '$2y$10$hnvTSLs9JE0Wzu16wOnwDu54efXmzT7kA4FWXHpnRrEv1DeBv.d5y', 'leelo.png', 'image/png', '', 2, 1, '2020-07-23 23:42:33');
 
 -- --------------------------------------------------------
 
@@ -757,7 +723,7 @@ ALTER TABLE `adquiridos`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `CatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `chats`
@@ -823,13 +789,13 @@ ALTER TABLE `servicio_report`
 -- AUTO_INCREMENT de la tabla `subcategoria`
 --
 ALTER TABLE `subcategoria`
-  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `SubCatId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `UsuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `UsuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Restricciones para tablas volcadas
