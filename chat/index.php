@@ -5,17 +5,7 @@ include("../includes/global_variable.php");
 ?>
 <?php
 $gaa="gaaaa";
-if(isset($_GET['leido'])) {
-  
-  $leido = mysql_real_escape_string($_GET['leido']);
-  $usuariod = mysql_real_escape_string($_GET['usuario']);
-  
-  $tchats = mysql_query("SELECT * FROM chats WHERE de = '$usuariod' OR para = '$usuariod'");
-  $tc = mysql_fetch_array($tchats);
-  if($tc['de'] != $_SESSION['id']) {
-  $update = mysql_query("UPDATE chats SET leido = '1' WHERE de = '$usuariod' OR para = '$usuariod'");
-  }
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,10 +55,7 @@ include("../includes/data_base.php");
   <div class="section">
     <!-- Content Header (Page header) -->
     <section class="container">
-      <h1>
-        Chat
-        <small>13 nuevos mensajes</small>
-      </h1>
+      
     </section>
 
     <!-- Main content -->
@@ -79,7 +66,7 @@ include("../includes/data_base.php");
 
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Carpetas</h3>
+              <h3 class="box-title"></h3>
 
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -89,7 +76,7 @@ include("../includes/data_base.php");
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#"><i class="fa fa-inbox"></i> Mis chats
-                  <span class="label label-primary pull-right">13</span></a></li>
+                  <span class="label label-primary pull-right"></span></a></li>
               </ul>
             </div>
             <!-- /.box-body -->
@@ -129,7 +116,7 @@ $sergio= "gaaa";
               
 
                   $user = $user['UsuID'];
-                
+                            
                   $sess = $_GET['creador'];
       
                   $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha desc");
@@ -238,7 +225,7 @@ $sergio= "gaaa";
                 
 
                 $de = $user;
-                $para = $_GET['creador'];
+                $para = $sess;
                   
                   $asd="SELECT * FROM c_chats WHERE de = '$de' AND para = '$para' OR de = '$para' AND para = '$de'";
                   echo $asd;
