@@ -109,11 +109,19 @@ a:active {
   position: relative;
 }
 .pad_serv{
-  padding: 13px;
+  padding: 10px;
 }
-
+.pad_body_ser{
+  padding: 10px;
+}
+.pad_title_serv{
+  margin-bottom: 9px;
+}
+.card-img-overlay{
+padding: 15px
+}
 .card-ani:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
 
   box-shadow: 0 0 10px 2px rgba(17, 205, 187, 0.8),
     0 0 5px 5px rgba(17, 205, 187, 0.05);
@@ -126,7 +134,7 @@ a:active {
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   font-size: 14px;
   margin-top: 0px;
   background-color: white;
@@ -162,7 +170,7 @@ a:active {
 }
 .informacion-btn {
   color: #fff !important;
-  background: rgba(0, 0, 0, 0.4) !important;
+  background: rgba(0, 0, 0, 0.5) !important;
   border: none !important;
 }
 /*Contenedor servicio fin*/
@@ -229,7 +237,7 @@ a.menu_link {
   transition: 0.5s;
 }
 a.menu_link:hover {
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 .dropdown-menu::before {
   content: "";
@@ -266,12 +274,12 @@ a.menu_link:hover {
   color: #fff;
   font-weight: bold;
   font-size: 15px;
-  transition: 1s;
+  transition: 0.5s;
 }
 .dropdown-item:hover {
   background-color: var(--color-principal);
   color: #fff;
-  transform: translateX(3px);
+  /* transform: translateX(3px); */
 }
 .navbar-toggler {
   background-color: white;
@@ -280,8 +288,8 @@ a.menu_link:hover {
 /*Navbar fin*/
 
 .boton_menu{
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: normal;
   border-radius: 0px;
   transition: 0.5s;
   border-bottom: 3px solid var(--fondo-principal);
@@ -310,7 +318,7 @@ border-bottom: 3px solid var(--color-principal);
   backface-visibility: hidden;
 }
 .notifi:hover {
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
 }
 .card-noti {
   text-overflow: ellipsis;
@@ -372,7 +380,7 @@ border-bottom: 3px solid var(--color-principal);
   transition: 0.5s;
 }
 .card2:hover {
-  transform: scale(1.03);
+  /* transform: scale(1.03); */
 }
 
 .card3 {
@@ -382,7 +390,7 @@ border-bottom: 3px solid var(--color-principal);
   backface-visibility: hidden;
 }
 .card3:hover {
-  transform: scale(1.015);
+  /* transform: scale(1.015); */
 }
 
 .imageny3 {
