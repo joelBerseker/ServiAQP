@@ -1,4 +1,7 @@
 <?php
+include("../includes/sesion.php");
+include("../includes/global_variable.php");
+
 include("../includes/navbar.php");
 include("../includes/data_base.php");
 $titulo_html = "Categorias";

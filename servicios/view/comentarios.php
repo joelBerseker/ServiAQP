@@ -25,10 +25,10 @@ if (mysqli_num_rows($resultProduct) > 0) {
 ?>
         <div class=" mb-3 ">
             <div class="row no-gutters">
-                <div class="col-3">
+                <div class="col-auto mr-4">
                     <div class="imageny3" style="background-image:url('<?= $dirFin ?>');"></div>
                 </div>
-                <div class="col-9 card2">
+                <div class="col card2 ml-2">
                     <?php
                     if (isset($user)) {
                         if ($row['SerComUsuID'] == $user['UsuID']) {
@@ -62,5 +62,5 @@ if (mysqli_num_rows($resultProduct) > 0) {
     <?php
     }
 } else { ?>
-    <p>No hay comentarios</p>
+    <p>No hay elementos</p>
 <?php } ?>

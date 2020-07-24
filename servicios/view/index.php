@@ -111,25 +111,31 @@ include("../../includes/data_base.php");
                         <div class="form-row form-group ">
                             <div class="col-4"> <label>Calificacion:</label></div>
                             <div class="col">
-                                <form id="formCalificacion" method="POST">
-                                    <div class="clasificacion  clasi">
-                                        <!--Aca-->
-                                         <input type="hidden" name="id" value="<?= $id ?>" />
-                                        <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
-                                        <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
-                                        <label for="radio2" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio3" type="radio" name="estrellas" value="3" class="disradio">
-                                        <label for="radio3" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio4" type="radio" name="estrellas" value="2" class="disradio">
-                                        <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
-                                        <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
-                                        <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
-
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <form id="formCalificacion" method="POST">
+                                            <div class="clasificacion  clasi">
+                                                <!--Aca-->
+                                                 <input type="hidden" name="id" value="<?= $id ?>" />
+                                                <input id="radio1" type="radio" name="estrellas" value="5" class="disradio">
+                                                <label for="radio1" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio2" type="radio" name="estrellas" value="4" class="disradio">
+                                                <label for="radio2" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio3" type="radio" name="estrellas" value="3" class="disradio">
+                                                <label for="radio3" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio4" type="radio" name="estrellas" value="2" class="disradio">
+                                                <label for="radio4" class="labe"><i class="fas fa-star"></i></label>
+                                                <input id="radio5" type="radio" name="estrellas" value="1" class="disradio">
+                                                <label for="radio5" class="labe"><i class="fas fa-star"></i></label>
+                                        
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                                <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>
-                                       
+                                    <div class="col-auto">
+                                        <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>
+                                        
+                                    </div>  
+                                </div>     
 
                             </div>
                         </div>
@@ -205,8 +211,8 @@ include("../../includes/data_base.php");
                     </div>
                     <hr class="mt-1">
                     
-                    <div class="row">
-                        <div class="col-10">
+                    <div class="row no-gutters">
+                        <div class="col">
                             <form method="post" id="FormComentario">
                                 <input type="hidden" id="idServicio" name="id" value="<?= $id ?>" />
                                 <div class="mb-2">
@@ -215,7 +221,7 @@ include("../../includes/data_base.php");
                             
                             </form>
                         </div>
-                        <div class="col">
+                        <div class="col-auto ml-2">
                             <button class="btn btn-primary btn-sm float-right" name="update_comentar" onclick="comentar()">
                                 Enviar
                             </button>
