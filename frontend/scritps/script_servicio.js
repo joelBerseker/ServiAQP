@@ -101,10 +101,14 @@ $(document).ready(function(){
 function filtrarC(idCat){   
     $('#subcategorias').load('/ServiAQP/servicios/recargables/subcategoria.php',{"idCat":idCat});
     $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat});
+    $('.filc').removeClass("bm_select");
+    $('#filc'+idCat).addClass("bm_select");
     return false;
 }
 function filtrarSC(idSubCat,idCat){   
     $('#ServicioCard').load('/ServiAQP/servicios/recargables/ServiciosCard.php',{"idCat":idCat,"idCatSub":idSubCat});
+    $('.filsc').removeClass("bm_select");
+    $('#filsc'+idSubCat).addClass("bm_select");
     return false;
 }
 function favoritos(idSer){

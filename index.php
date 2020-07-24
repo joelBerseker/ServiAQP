@@ -70,7 +70,7 @@ include("includes/header.php");
 								<div class="col pr-2">
 									<h3 class="card-title"> Clases de escritura d sfsd dfsdfsd fds sf </h3>
 									<hr class="pt-0 mt-0 mb-2">
-									<textarea disabled class="descrip text-left">jy pj yjp py jpyp jpyjpyjpypjpy pjpy pjpy pjyp jypj yjypj pypj pyjd jpjpjyjpyjpyjy asd asdasdasdjpjpjyjpyjpyjy asdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar </textarea>
+									<textarea disabled class="descrip text-left">Es es una descripcion de como e sla clase de escritura</textarea>
 									
 								</div>
 								
