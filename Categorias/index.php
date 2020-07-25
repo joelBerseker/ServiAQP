@@ -1,5 +1,4 @@
 <?php
-$recurso="/categoria";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 

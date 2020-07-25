@@ -11,7 +11,7 @@ try {
 }
 
 if (isset($_SESSION['user_id'])) {
-    $records = $conn_sesi->prepare('SELECT UsuID, UsuCor, UsuCon, UsuRolID, UsuNom FROM usuario WHERE UsuID = :id');
+    $records = $conn_sesi->prepare('SELECT UsuID, UsuCor, UsuCon, UsuRolID, UsuNom, UsuEst FROM usuario WHERE UsuID = :id');
     $records->bindParam(':id', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -19,5 +19,11 @@ if (isset($_SESSION['user_id'])) {
     if (count($results) > 0) {
         $user = $results;
     }
+}
+if(isset($recurso)){
+include("data_base.php");
+include("acl.php");
+$a=comprobar($conn,$recurso,$user);
+print_r($a['mensaje']);
 }
 ?>

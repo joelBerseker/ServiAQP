@@ -1,5 +1,4 @@
 <?php
-$recurso="/servicio/tabla";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 

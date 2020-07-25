@@ -6,7 +6,7 @@
         );
         if(isset($user)){
             $RolID    = $user['UsuRolID'];
-            $estado   = $user['UsuEstReg']; 
+            $estado   = $user['UsuEst']; 
             if($estado==1){
                 $query_hacia_tabla_Rol = "SELECT RolEstReg FROM rol WHERE RolId = $RolID";
                 $respuesta_de_tabla_Rol = mysqli_query($conn, $query_hacia_tabla_Rol);
