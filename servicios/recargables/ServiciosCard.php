@@ -56,7 +56,7 @@
                     ?>
                     <a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
                     <?php if (!empty($user)) : ?>
-                        <a class="float-right btn btn-primary btn-sm ml-1 ani_heart <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
+                        <a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
                         <button class="float-right btn btn-primary btn-sm ml-1 btn-disabled" disabled ><i class="fas fa-check"></i></button>
                         <button class="float-right btn btn-primary btn-sm ml-1 btn-disabled" disabled ><i class="fas fa-user"></i></button>
                     <?php endif; ?>

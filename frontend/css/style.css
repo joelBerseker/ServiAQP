@@ -60,12 +60,12 @@ a:active {
 
 /*Inicio botones*/
 .btn-primary {
-  background-color: var(--color-principal) ;
-  border-color: var(--color-principal) ;
+  background-color: var(--color-principal);
+  border-color: var(--color-principal);
 }
 .btn-primary:hover {
-  background-color: var(--color-principal-hover) ;
-  border-color: var(--color-principal-hover) ;
+  background-color: var(--color-principal-hover);
+  border-color: var(--color-principal-hover);
 }
 .btn-primary:active {
   background-color: var(--color-principal-hover) !important;
@@ -110,7 +110,7 @@ a:active {
   backface-visibility: hidden;
 
   transition: 0.5s;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1), 0 0 5px 2px rgba(0, 0, 0, 0.05);
 }
 .card-body {
   position: relative;
@@ -130,8 +130,8 @@ a:active {
 .card-ani:hover {
   /* transform: scale(1.02); */
 
-  box-shadow: 0 0 10px 2px rgba(17, 205, 186, 0.473),
-    0 0 5px 5px rgba(17, 205, 187, 0.05);
+  box-shadow: 0 0 5px 2px rgba(17, 205, 186, 0.473),
+    0 0 5px 2px rgba(17, 205, 187, 0.05);
 }
 
 .descrip {
@@ -141,7 +141,7 @@ a:active {
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 4px;
   font-size: 14px;
   margin-top: 0px;
   background-color: white;
@@ -161,6 +161,16 @@ a:active {
   background-attachment: fixed;
   height: 100%;
 }
+.imageny_carrusel2 {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 350px;
+}
 .imageny {
   padding-bottom: 150px;
   text-align: center;
@@ -172,8 +182,8 @@ a:active {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .informacion-btn {
   color: #fff !important;
@@ -506,18 +516,15 @@ a.menu_link:hover {
   transition: 0.5s;
   color: white;
 }
-.fa-user {
-  transition: 0.5s;
-  color: white;
-}
 
-.heart_select{
-  background-color: rgb(243, 94, 94);
-  border-color: rgb(243, 94, 94);
+
+.heart_select {
+  background-color: rgb(247, 75, 75);
+  border-color: rgb(247, 75, 75);
 }
-.heart_select:hover{
-  background-color: rgb(238, 64, 64);
-  border-color: rgb(238, 64, 64);
+.heart_select:hover {
+  background-color: rgb(218, 66, 66);
+  border-color: rgb(218, 66, 66);
 }
 
 /* .ani_heart:active{
@@ -528,7 +535,6 @@ a.menu_link:hover {
   animation-name: animar2;
   animation-duration: 1s;
 } */
-
 
 .disp_primero_servicios:hover .disp_segundo_servicios {
   display: block;
@@ -590,26 +596,21 @@ label.error {
 }
 @keyframes animar2 {
   50% {
-    
     transform: scale(3);
     color: rgb(238, 77, 77);
-    
   }
   100% {
-   
     transform: scale(1);
     color: white;
   }
 }
 @keyframes animar3 {
-  
-  50%{
+  50% {
     background-color: var(--color-principal-hover);
     border-color: var(--color-principal-hover);
   }
   100% {
-    background-color:  rgb(238, 77, 77);
+    background-color: rgb(238, 77, 77);
     border-color: rgb(238, 77, 77);
-  
   }
 }

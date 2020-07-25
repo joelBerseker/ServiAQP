@@ -173,6 +173,7 @@ function favoritos(idSer){
         data: data,
         success:function(respuesta){
            alert(respuesta);
+           $(".fav_"+idSer).addClass("heart_select");
         }
         
     });
