@@ -576,7 +576,11 @@ border-bottom: 3px solid var(--color-principal);
     transform: rotate(0deg);
   }
 }
-
+label.error{
+  color: rgb(218, 0, 0);
+  font-size: 13px;
+  margin: 0px;
+}
 /*
 .imageny2 {
 	padding-bottom: 240px;

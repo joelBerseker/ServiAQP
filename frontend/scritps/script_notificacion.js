@@ -453,3 +453,31 @@ function publ(id) {
     },
   });
 }
+
+
+$("#formRegistrar").validate({
+  rules: {
+      confirm_password: {
+          equalTo: "#password",      
+      }
+  },
+  messages: {
+      nombre: {
+          required: "Rellene este campo",
+      },
+      email: {
+          required: "Rellene este campo",
+          email: "Introduzca una direccion de correo",
+      },
+      password: {
+          required: "Rellene este campo",
+          minlength: "Use al menos 8 caracteres",
+          
+      },
+      confirm_password: {
+          required: "Rellene este campo",
+          equalTo: "Las contraseñas debe ser iguales",
+          minlength: "Use al menos 8 caracteres",
+      }
+  }
+});
