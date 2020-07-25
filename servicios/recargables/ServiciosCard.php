@@ -30,8 +30,12 @@
                 <div class="imageny card-img" style="background-image:url('<?= $dirFin ?>');">
                 </div>
                 <div class="card-img-overlay pad_serv">
-                    <a class="btn  btn-sm informacion-btn">S/. <?= $row['SerPre'] ?></a>
-                    <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> <?= $row['SerVal'] ?></a>
+                    <button class="btn  btn-sm informacion-btn" disabled>S/. <?= $row['SerPre'] ?></button>
+                    <button class="btn  btn-sm informacion-btn" disabled><i class="fas fa-star"></i> <?php if ($row['SerVal'] == -1) {
+                                                                                            echo "S/C";
+                                                                                        } else {
+                                                                                            echo $row['SerVal'];
+                                                                                        } ?></button>
                 </div>
                 <div class="card-body text-center pad_body_ser">
                     <h3 class="card-title pad_title_serv"><?= $row['SerNom'] ?></h3>
@@ -52,7 +56,9 @@
                     ?>
                     <a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
                     <?php if (!empty($user)) : ?>
-                        <a href="" class="float-right btn btn-primary btn-sm card-link ani_heart <?php if ($totalF > 0) echo "btn-disabled" ?>" <?php if ($totalF > 0) echo "disabled" ?> onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
+                        <a class="float-right btn btn-primary btn-sm ml-1 ani_heart <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
+                        <button class="float-right btn btn-primary btn-sm ml-1 btn-disabled" disabled ><i class="fas fa-check"></i></button>
+                        <button class="float-right btn btn-primary btn-sm ml-1 btn-disabled" disabled ><i class="fas fa-user"></i></button>
                     <?php endif; ?>
                 </div>
             </div>

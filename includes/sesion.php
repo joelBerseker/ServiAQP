@@ -24,6 +24,6 @@ if(isset($recurso)){
 include("data_base.php");
 include("acl.php");
 $a=comprobar($conn,$recurso,$user);
-print_r($a['mensaje']);
+/* print_r($a['mensaje']); */
 }
 ?>

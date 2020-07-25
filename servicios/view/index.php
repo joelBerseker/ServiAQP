@@ -53,7 +53,7 @@ include("../../includes/data_base.php");
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="#">Servicios</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/servicios">Servicios</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Vista de Servicio</li>
             </ol>
         </nav>
@@ -100,8 +100,8 @@ include("../../includes/data_base.php");
                         </div>
                     </div>
                     <div class="card-img-overlay">
-                        <a class="btn  btn-sm informacion-btn">S/. <?= $precio ?></a>
-                        <a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> <?= $valoracion ?></a>
+                        <button class="btn  btn-sm informacion-btn" disabled>S/. <?= $precio ?></button>
+                        <button class="btn  btn-sm informacion-btn" disabled><i class="fas fa-star"></i> <?php if($valoracion==-1){echo "S/C";}else{echo $valoracion;} ?></button>
                     </div>
                     <div class="card-body text-left">
                         <h4 class="card-title text-center "><?= $nombre ?></h4>
@@ -176,11 +176,11 @@ include("../../includes/data_base.php");
                                 $totalF = 0;
                             }
                         ?>
-                        <button class="btn btn-primary btn-sm ani_heart <?php if ($totalF > 0) echo "btn-disabled" ?>" <?php if ($totalF > 0) echo "disabled" ?> onclick="favoritos(<?= $id ?>)">
+                        <a class="btn btn-primary btn-sm ani_heart <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $id ?>)">
                             <em class="fas fa-heart"></em>
-                        </button>
+                        </a>
                     
-                        <a href="../../chat/?creador=<?= $creador ?>" class="btn btn-primary btn-sm">Contactar</a>
+                        
                         <button href="#" class="btn btn-primary btn-sm <?php if ($totalA > 0) echo "btn-disabled" ?>" <?php if ($totalA > 0) echo "disabled" ?> onclick="adquirir(<?= $id ?>)">Contratar <?= $precio ?></button>
                         <?php
                         if (isset($user)) {
@@ -191,8 +191,10 @@ include("../../includes/data_base.php");
                             }
                         }
                         ?>
-                        <button type="button" class="btn btn-outline-danger btn-sm float-right" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">Reportar</button>
+                        <a href="../../chat/?creador=<?= $creador ?>" class="btn btn-primary btn-sm">Contactar</a>
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#notificarModal" data-whatever="@mdo">Notificar</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm float-right" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">Reportar</button>
+                       
                         <?php endif; ?>
                     </div>
 
