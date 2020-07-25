@@ -39,7 +39,7 @@ if (mysqli_num_rows($resultProduct) > 0) {
                         <td><?php echo $row['SerFecCre'] ?></td>
                         <td>
                             <button type="button" onclick="edit_rol(<?php echo $row['SerID'] ?>)" class="btn btn-outline-warning btn-sm mb-1" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Edit</button>
-                            <a href="crud_servicio/delete.php?id=<?php echo $row['SerID'] ?>" class="btn btn-outline-danger btn-sm mb-1">
+                            <a  onclick="eliminarServicio(<?=$row['SerID']?>)" class="btn btn-outline-danger btn-sm mb-1">
                                 Delete
                             </a>
                         </td>

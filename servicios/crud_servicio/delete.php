@@ -10,6 +10,7 @@ include('../../includes/data_base.php');
     $query = "DELETE FROM servicio WHERE SerID = $id";
     $result = mysqli_query($conn,$query);
     if(!$result){
+        echo $query;
         die("Query Fallo");
     }
     echo 1;

@@ -1,22 +1,56 @@
 function validateForm() {
-    jQuery(function() {
-        jQuery( "#formServicio" ).validate({
-                rules: {
-                        nombre: {
-                                required: true,
-                                minlength: 4,
-                                maxlength: 20
-                        }
-                },
-                messages: {
-                        nombre: {
-                                required: "Hey vamos, por favor, dános tu nombre",
-                                minlength: $.format("Necesitamos por lo menos {3} caracteres"),
-                                maxlength: $.format("{8} caracteres son demasiados!")
-                        }
-                }
-        });
-     });
+    var name = document.forms["formServicio"]["nombre"];
+    if (name.value == "") {
+      name.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        name.setCustomValidity("");
+    }
+    var descripcion = document.forms["formServicio"]["descripcion"];
+    if (descripcion.value == "") {
+        descripcion.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        descripcion.setCustomValidity("");
+    }
+    var categoria = document.forms["formServicio"]["categoria"];
+    if (categoria.value == "") {
+        categoria.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        categoria.setCustomValidity("");
+    }
+    var subcategoria = document.forms["formServicio"]["subcategoria"];
+    if (subcategoria.value == "") {
+        subcategoria.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        subcategoria.setCustomValidity("");
+    }
+    var preguntas = document.forms["formServicio"]["preguntas"];
+    if (preguntas.value == "") {
+        preguntas.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        preguntas.setCustomValidity("");
+    }
+    var ServicioImagenes = document.forms["formServicio"]["ServicioImagenes"];
+    if (ServicioImagenes.value == "") {
+        ServicioImagenes.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        ServicioImagenes.setCustomValidity("");
+    }
+    var precio = document.forms["formServicio"]["precio"];
+    if (precio.value == "") {
+        precio.setCustomValidity("This field cannot be left blank");
+      return false;
+    }else{
+        precio.setCustomValidity("");
+    }
+    
+    
+    return true;    
 }
 $(document).ready(function(){
     $('#btnGuardarServicio').click(function(){
@@ -66,7 +100,7 @@ $(document).ready(function(){
     
  });
  function eliminarServicio(idRecibido){
-    if(confirm("Seguro que desea eliminar? id= ".idRecibido)){
+    if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/crud_servicio/delete.php",
             type: "POST",
