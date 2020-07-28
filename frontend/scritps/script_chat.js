@@ -5,6 +5,9 @@ $(document).keypress(
       enviarMensaje();
     }
 });
+function myFunction() {
+  location.replace("https://www.w3schools.com")
+}
 function validarMensaje(){
   var name = document.forms["FormMensaje"]["mensaje"];
     if (name.value == "") {
@@ -28,8 +31,7 @@ function enviarMensaje(){
           contentType: false,
           success:function(respuesta){
               $('#chatsergio').load('/ServiAQP/chat/aja.php',{"creador":id.value});
-          }
-          
+          }        
       });
       $("#FormMensaje")[0].reset();
     }

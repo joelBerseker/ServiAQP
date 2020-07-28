@@ -16,6 +16,10 @@
             }
         }
     }
+    if(isset($_GET['q'])){
+        $b = $_GET['q'];
+        $query = $query." and SerNom like '%$b%' OR SerPreFre like '%$b%' OR SerDes like '%$b%' "; 
+    }
     $resultProduct = mysqli_query($conn, $query);
     if (mysqli_num_rows($resultProduct) > 0) {
         while ($row = mysqli_fetch_array($resultProduct)) {
@@ -25,6 +29,20 @@
                 $dirImg = trim($row2[0]);
             }
             $dirFin = '/ServiAQP/servicios/img/' . $dirImg;
+
+            $id = $row['SerID'];
+        if (isset($user)) {
+            $user1       = $user['UsuID'];
+            $queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
+            $resultProduct = mysqli_query($conn, $queryA);
+            $totalA = mysqli_num_rows($resultProduct);
+            $queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+            $resultProductF = mysqli_query($conn, $queryF);
+            $totalF = mysqli_num_rows($resultProductF);
+        } else {
+            $totalA = 0;
+            $totalF = 0;
+        }
     ?>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="card mb-4 border-0 card-ani">
@@ -37,26 +55,30 @@
                                                                                                                 } else {
                                                                                                                     echo $row['SerVal'];
                                                                                                                 } ?></button>
+                        
+                        
+                        <?php
+                            if($totalA>0){
+                                
+                        ?>
                         <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-check"></i></button>
+                        <?php 
+                            }
+                        ?>
+                        <?php
+                            if($row['SerUsuID']==$user1){
+                                
+                        ?>
                         <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
+                        <?php 
+                            }
+                        ?>
                     </div>
                     <div class="card-body text-center pad_body_ser">
                         <h3 class="card-title pad_title_serv"><?= $row['SerNom'] ?></h3>
                         <hr class="pt-0 mt-0 mb-1">
                         <textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
                         <hr class="pt-0 mt-0 mb-2">
-                        <?php
-                        if (isset($user)) {
-                            $user1       = $user['UsuID'];
-                            $id = $row['SerID'];
-                            $queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
-                            $resultProductF = mysqli_query($conn, $queryF);
-                            $totalF = mysqli_num_rows($resultProductF);
-                        } else {
-                            $totalF = 0;
-                        }
-
-                        ?>
                         <a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
                         <?php if (!empty($user)) : ?>
                             <a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
@@ -69,5 +91,4 @@
     } else { ?>
         <p class="col">No hay elementos</p>
     <?php } ?>
-
 </div>
