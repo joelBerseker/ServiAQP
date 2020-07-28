@@ -29,7 +29,6 @@
                 $dirImg = trim($row2[0]);
             }
             $dirFin = '/ServiAQP/servicios/img/' . $dirImg;
-
             $id = $row['SerID'];
         if (isset($user)) {
             $user1       = $user['UsuID'];
