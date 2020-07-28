@@ -190,6 +190,9 @@ a:active {
   background: rgba(0, 0, 0, 0.5) !important;
   border: none !important;
 }
+.informacion-btn:disabled {
+  opacity: 1;
+}
 /*Contenedor servicio fin*/
 
 /*Footter inicio*/
@@ -212,8 +215,12 @@ a:active {
 /*Footter fin*/
 
 /*Navbar inicio*/
+.av{
+  margin-top: -2px;
+}
 .ani_ico {
   transition: 0.5s;
+  
 }
 .ani_ico:hover {
   transform: scale(1.1);
@@ -518,14 +525,11 @@ a.menu_link:hover {
 }
 
 
-.heart_select {
-  background-color: rgb(247, 75, 75);
-  border-color: rgb(247, 75, 75);
+.heart_select .fa-heart{
+  color: rgba(255, 255, 255, 0.514);
+  
 }
-.heart_select:hover {
-  background-color: rgb(218, 66, 66);
-  border-color: rgb(218, 66, 66);
-}
+
 
 /* .ani_heart:active{
   animation-name: animar3;

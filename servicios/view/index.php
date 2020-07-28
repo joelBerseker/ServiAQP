@@ -48,17 +48,19 @@ include('../../includes/header.php');
 include("../../includes/data_base.php");
 ?>
 
-<div class="section">
+<div class="section pt-3">
     <div class="container ">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>">Inicio</a></li>
+            <ol class="breadcrumb p-0">
+               
                 <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/servicios">Servicios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Vista de Servicio</li>
+                <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/servicios"><?=$categoriaN ?></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/servicios"><?=$subcategoriaN ?></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?=$nombre ?></li>
             </ol>
         </nav>
     </div>
-    <div class="container p-4">
+    <div class="container pt-4">
         <div class="row">
             <div class="col-12 col-lg-6">
 
@@ -111,10 +113,7 @@ include("../../includes/data_base.php");
                     <div class="card-body text-left">
                         <h4 class="card-title text-center "><?= $nombre ?></h4>
                         <hr>
-                        <div class="form-row form-group ">
-                            <div class="col-4"> <label>Descripcion del producto:</label></div>
-                            <div class="col"><label><?= $descripcion ?></label></div>
-                        </div>
+                        
                         <?php if (!empty($user)) : ?>
                             <div class="form-row form-group ">
                                 <div class="col-4"> <label>Calificacion:</label></div>
@@ -140,7 +139,7 @@ include("../../includes/data_base.php");
                                             </form>
                                         </div>
                                         <div class="col-auto">
-                                            <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Calificar</button>
+                                            <button class="btn btn-primary btn-sm av ml-3" id="btnCalificarServicio" onclick="calificar()">Enviar</button>
 
                                         </div>
                                     </div>
@@ -148,6 +147,18 @@ include("../../includes/data_base.php");
                                 </div>
                             </div>
                         <?php endif; ?>
+                        <div class="form-row form-group ">
+                            <div class="col-4"> <label>Descripcion del producto:</label></div>
+                            <div class="col"><label><?= $descripcion ?></label></div>
+                        </div>
+                        <div class="form-row form-group ">
+                            <div class="col-4"> <label>Categoria:</label></div>
+                            <div class="col"><label><?= $categoriaN ?></label></div>
+                        </div>
+                        <div class="form-row form-group ">
+                            <div class="col-4"> <label>Subcategoria:</label></div>
+                            <div class="col"><label><?= $subcategoriaN ?></label></div>
+                        </div>
                         <div class="row ">
                             <div class="col">
                                 <p class="card-text ">

@@ -10,7 +10,7 @@ include('../../includes/data_base.php');
     $user           = $user['UsuID'];;
     $nombre         = $_POST['nombre'];
     $precio         = $_POST['precio'];
-    $descripcion    = $_POST['descripcion'];
+    $descripcion    = nl2br($_POST['descripcion']);
     $preguntas      = nl2br($_POST['preguntas']);
     $categoria      = $_POST['categoria'];
     $subcategoria   = $_POST['subcategoria'];
