@@ -215,12 +215,11 @@ a:active {
 /*Footter fin*/
 
 /*Navbar inicio*/
-.av{
+.av {
   margin-top: -2px;
 }
 .ani_ico {
   transition: 0.5s;
-  
 }
 .ani_ico:hover {
   transform: scale(1.1);
@@ -524,12 +523,9 @@ a.menu_link:hover {
   color: white;
 }
 
-
-.heart_select .fa-heart{
+.heart_select .fa-heart {
   color: rgba(255, 255, 255, 0.514);
-  
 }
-
 
 /* .ani_heart:active{
   animation-name: animar3;
@@ -584,7 +580,6 @@ label.error {
   margin: 0px;
 }
 
-
 @keyframes animar {
   0% {
     transform: rotate(0deg);
@@ -624,9 +619,9 @@ label.error {
 .direct-chat .box-body {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  position: relative;
-  overflow-x: hidden;
+  overflow-y: scroll;
   padding: 0;
+  height: 400px;
 }
 .direct-chat.chat-pane-open .direct-chat-contacts {
   -webkit-transform: translate(0, 0);
@@ -640,13 +635,18 @@ label.error {
   -o-transform: translate(0, 0);
   transform: translate(0, 0);
   padding: 10px;
+  
   height: 250px;
-  overflow: auto;
+  overflow-y: auto;
+  border: 1px solid rgb(209, 209, 209);
+  
+  border-radius: 5px;
 }
 .direct-chat-msg,
 .direct-chat-text {
   display: block;
 }
+
 .direct-chat-msg {
   margin-bottom: 10px;
 }
@@ -681,7 +681,7 @@ label.error {
   top: 15px;
   border: solid transparent;
   border-right-color: #d2d6de;
-  content: ' ';
+  content: " ";
   height: 0;
   width: 0;
   pointer-events: none;

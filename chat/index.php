@@ -45,19 +45,19 @@ include("../includes/data_base.php");
                         include("aja.php");
                       ?>
                     </div>
-                    <div class="box-footer">
+                    <div class="box-footer pt-2">
                       <div class="row no-gutters">
                         <div class="col">
                           <form id="FormMensaje">
                             <div class="input-group">
-                              <input type="text" id="mensaje" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
+                              <input type="text" id="mensaje" name="mensaje" placeholder="Escribe un mensaje" class="form-control form-control-sm">
                               <input type="hidden" name="creador" id="creador" value="<?=$sess?>">
                             </div>
                           </form>
                         </div>
                         <div class="col-auto">
                           <span class="input-group-btn">
-                            <button class="btn btn-primary btn-flat ml-2" onclick="enviarMensaje()">Enviar</button>
+                            <button class="btn btn-primary btn-flat ml-2 btn-sm" onclick="enviarMensaje()">Enviar</button>
                           </span>
                         </div>
                       </div>

@@ -59,6 +59,8 @@ include('global_variable.php');
             notification_push();
             setInterval(notification_push, 3000);
         <?php } ?>
+        
+    $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );   
     });
 </script>
 
