@@ -69,5 +69,5 @@ if (mysqli_num_rows($resultProduct) > 0) {
     <?php
     }
 } else { ?>
-    <p>No hay elementos</p>
+    <p>No hay comentarios</p>
 <?php } ?>

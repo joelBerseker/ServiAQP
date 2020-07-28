@@ -56,6 +56,7 @@ include('global_variable.php');
 
 <script src="<?= $dirEjec ?>/frontend/scritps/script_servicio.js"></script>
 <script src="<?= $dirEjec ?>/frontend/scritps/script_notificacion.js"></script>
+<script src="<?= $dirEjec ?>/frontend/scritps/script_chat.js"></script>
 <script>
     $(document).ready(function() {
         <?php if (!empty($user)) { ?>
