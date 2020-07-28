@@ -58,6 +58,9 @@ include('global_variable.php');
         <?php if (!empty($user)) { ?>
             notification_push();
             setInterval(notification_push, 3000);
+            if($ischat!=null){
+            setInterval(chat_push, 1000);
+            }
         <?php } ?>
         
     $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );   

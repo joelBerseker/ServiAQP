@@ -35,3 +35,7 @@ function enviarMensaje(){
     }
     return false;
  }
+ function chat_push() {
+  var id =document.getElementById('creador');   
+  $('#chatsergio').load('/ServiAQP/chat/aja.php',{"creador":id.value});
+}
