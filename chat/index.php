@@ -52,7 +52,7 @@ include("../includes/data_base.php");
                       </div>
                     </form>
                     <span class="input-group-btn">
-                      <input type="submit" name="enviar" class="btn btn-primary btn-flat" onclick="actualizar()"></button>
+                      <button class="btn btn-primary btn-flat" onclick="enviarMensaje()">Enviar</button>
                     </span>
                   </div>
                 </div>
