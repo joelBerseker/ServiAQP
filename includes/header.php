@@ -38,9 +38,9 @@ include('data_base.php');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
-					<form class="form-inline mr-0 mr-lg-1 mt-lg-0 mt-2 primero_buscar" method="GET" action="<?= $dirEjec ?>/servicios">
+					<form class="form-inline mr-0 mr-lg-2 mt-lg-0 mt-2 primero_buscar" method="GET" action="<?= $dirEjec ?>/servicios">
 						<input class="form-control form-control-sm  segundo_buscar" name="q" type="search" placeholder="Busca un servicio">
-						<button class="nav-link menu_link " type="submit"><em class="fas fa-search"></em></button>
+						<button style="font-size: 14px; color: white;" class="nav-link menu_link btn p-0"  type="submit"><em class="fas fa-search"></em></button>
 					</form>
 					<li class="nav-item">
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>

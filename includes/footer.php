@@ -58,9 +58,14 @@ include('global_variable.php');
         <?php if (!empty($user)) { ?>
             notification_push();
             setInterval(notification_push, 3000);
+
+            <?php if ($recursochat) { ?>
+                chat_push();
+                setInterval(chat_push, 1000);
+            <?php } ?>
         <?php } ?>
-        
-    $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );   
+
+        $('.direct-chat-messages').scrollTop($('.direct-chat-messages').prop('scrollHeight'));
     });
 </script>
 
@@ -77,8 +82,6 @@ include('global_variable.php');
     $("#imagen2").change(function() {
         readURL2(this);
     });
-
-
 </script>
 </body>
 
