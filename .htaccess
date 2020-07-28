@@ -1,1 +1,2 @@
-ErrorDocument 404 /ServiAQP/error/not-found.php
+ErrorDocument 404 /ServiAQP/error/
+ErrorDocument 401 /ServiAQP/error/not-found.php
