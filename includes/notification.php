@@ -10,14 +10,14 @@ if (mysqli_num_rows($result) > 0) {
 ?>
         <div class=' pl-2 pr-2 pt-1'>
             <div class='card-body PT-0  notifi pt-2 pb-2 mb-1'>
-                <p class='card-text mb-0 card-noti'>"
-                    $row["NotDes"]
+                <p class='card-text mb-0 card-noti'>
+                    <?=$row["NotDes"]?>
                 </p>
                 <hr class='mb-1 mt-2'>
 
                 <p class='card-text '>
-                    <small class='text-muted '>"
-                        $row["NotFecCre"]
+                    <small class='text-muted '>
+                        <?=$row["NotFecCre"]?>
                     </small>
                 </p>
 
