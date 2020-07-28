@@ -15,7 +15,7 @@ include('data_base.php');
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
-	
+
 </head>
 
 <body>
@@ -44,9 +44,9 @@ include('data_base.php');
 							Servicios
 						</a>
 						<div class="dropdown-menu dropdown-menu-right disp_segundo_servicios" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here proband o larfgi</a>
+							<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=2">Favoritos</a>
+							<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=3">Adquiridos</a>
+							<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=4">Publicados</a>
 						</div>
 					</li>
 					<li class="nav-item">
@@ -64,15 +64,15 @@ include('data_base.php');
 
 					?>
 						<li class="nav-item dropdown disp_primero_perfil">
-							<a class="nav-link menu_link dropdown_esp" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link menu_link dropdown_esp <?php if ($user_navbar) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<em class="fas fa-user"></em> <?= $user['UsuNom'] ?><?= $user['UsuID'] ?>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
 
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>">Ver perfil</a>
 								<a class="dropdown-item" href="/ServiAQP/chat/chats.php">Mis chats</a>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>">Favoritos</a>
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Notificaciones</a>
+
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
 						</li>
@@ -95,13 +95,13 @@ include('data_base.php');
 						?>
 
 							<li class="nav-item dropdown disp_primero_configuracion">
-								<a class="nav-link menu_link dropdown_esp" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link menu_link dropdown_esp <?php if ($configuracion) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class=""><em class="fas fa-cog cog_rot"></em></div>
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right disp_segundo_configuracion " aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="<?= $dirEjec ?>/acceso">Accesos</a>
 									<a class="dropdown-item" href="<?= $dirEjec ?>/categorias/tabla.php">Categorias</a>
-									
+
 									<a class="dropdown-item" href="<?= $dirEjec ?>/recurso">Recursos</a>
 									<a class="dropdown-item" href="<?= $dirEjec ?>/rol">Roles</a>
 									<a class="dropdown-item" href="<?= $dirEjec ?>/servicios/tabla.php">Servicios</a>

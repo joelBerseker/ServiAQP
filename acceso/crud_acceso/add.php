@@ -13,7 +13,7 @@
 
           <div class="form-group form-row">
             <div class="col-4"><label>Nombre:</label></div>
-            <div class="col"><input type="text" name="nombre" class="form-control form-control-sm" autofocus></div>
+            <div class="col"><input type="text" name="nombre" class="form-control form-control-sm" required autofocus></div>
           </div>
           <div class="form-group form-row">
             <div class="col-4"><label>Rol:</label></div>

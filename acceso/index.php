@@ -1,9 +1,11 @@
 <?php
+$recurso = "/acceso";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion=true;
 $titulo_html = "Acceso";
 include("../includes/header.php");
 ?>

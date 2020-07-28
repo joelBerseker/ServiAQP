@@ -1,8 +1,9 @@
 <?php
-include ('../../includes/sesion.php');
-include ('../../includes/data_base.php');
-$recurso="/Usuario/delete";
-include ('../../includes/acl.php');
+$recurso="/usuario/delete";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
+
+include('../../includes/data_base.php');
 ?>
 <?php
   

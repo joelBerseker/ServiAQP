@@ -4,4 +4,6 @@
 	$categoria		=	false;
 	$nosotros		=	false;
 	$login			=	false;
+	$configuracion	=	false;
+	$user_navbar	=	false;
 ?>

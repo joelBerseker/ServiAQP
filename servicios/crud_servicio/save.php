@@ -1,13 +1,17 @@
 <?php
-    
-    include("../../includes/sesion.php");
-    include("../../includes/data_base.php");
+$recurso="/servicio/save";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
+
+include('../../includes/data_base.php');
+?>
+<?php
     
     $user           = $user['UsuID'];;
     $nombre         = $_POST['nombre'];
     $precio         = $_POST['precio'];
-    $descripcion    = $_POST['descripcion'];
-    $preguntas      = $_POST['preguntas'];
+    $descripcion    = nl2br($_POST['descripcion']);
+    $preguntas      = nl2br($_POST['preguntas']);
     $categoria      = $_POST['categoria'];
     $subcategoria   = $_POST['subcategoria'];
     

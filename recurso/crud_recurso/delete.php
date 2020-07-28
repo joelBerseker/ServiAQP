@@ -1,8 +1,9 @@
 <?php
-//include('../../includes/sesion.php');
+$recurso="/recurso/delete";
+include("../../includes/sesion.php");
+include("../../includes/global_variable.php");
+
 include('../../includes/data_base.php');
-$recurso="/Recurso/delete";
-//include("../../includes/acl.php");
 ?>
 <?php
 if(isset($_GET['id'])){

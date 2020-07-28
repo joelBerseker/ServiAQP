@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="formServicio" enctype="multipart/form-data">
+        <form id="formServicio" name="formServicio"enctype="multipart/form-data">
           <div class="form-row form-group">
             <div class="col-4"><label for="recipient-name">Nombre:</label></div>
             <div class="col"><input type="text" class="form-control form-control-sm" name="nombre" id="recipient-name"></div>

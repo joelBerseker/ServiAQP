@@ -6,19 +6,28 @@ if (isset($_SESSION['user_id'])) {
   header('Location:' . $dirEjec . '/');
 }
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
-  
+
   $records = $conn_sesi->prepare('SELECT UsuID, UsuCor, UsuCon FROM usuario WHERE UsuCor = :email');
   $records->bindParam(':email', $_POST['email']);
   $records->execute();
   $results = $records->fetch(PDO::FETCH_ASSOC);
-  
+
   $message = '';
 
-  if (count($results) > 0 && password_verify($_POST['password'], $results['UsuCon'])) {
+  if ($results != null && password_verify($_POST['password'], $results['UsuCon'])) {
     $_SESSION['user_id'] = $results['UsuID'];
-    header('Location:'.$dirEjec.'/');
+    header('Location:' . $dirEjec . '/');
   } else {
-    $message = 'Usuario no encontrado o contraseña incorrecta '. count($results). $results;
+ 
+    if ($results == null) {
+      $message = 'Usuario no encontrado';
+    } else {
+      if (password_verify($_POST['password'], $results['UsuCon']) == false) {
+        $message = 'Contraseña incorrecta';
+      } else {
+        $message = 'Ocurrio un error';
+      }
+    }
   }
 }
 
@@ -43,11 +52,11 @@ include("../../includes/header.php");
 
           <div class="form-row form-group ">
             <div class="col-4"><label>Correo Electronico:</label></div>
-            <div class="col"><input class="form-control form-control-sm " type="text" name="email" required></div>
+            <div class="col"><input class="form-control form-control-sm " type="email" name="email" required></div>
           </div>
           <div class="form-row form-group ">
             <div class="col-4"><label>Contraseña:</label></div>
-            <div class="col"><input class="form-control form-control-sm " type="password" name="password" required></div>
+            <div class="col"><input class="form-control form-control-sm " type="password" name="password" required minlength="8"></div>
           </div>
 
           <div class="form-group mb-0 mt-3">

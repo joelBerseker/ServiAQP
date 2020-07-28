@@ -58,22 +58,22 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nomb
           <p class="text-<?= $message_class ?>"> <?= $message ?></p>
 
         <?php endif; ?>
-        <form action="index.php" method="POST">
+        <form action="index.php" method="POST" id="formRegistrar">
           <div class="form-row form-group ">
             <div class="col-4"><label>Nombre:</label></div>
             <div class="col"><input class="form-control form-control-sm " type="text" name="nombre" required></div>
           </div>
           <div class="form-row form-group ">
             <div class="col-4"><label>Correo Electronico:</label></div>
-            <div class="col"><input class="form-control form-control-sm " type="text" name="email" required></div>
+            <div class="col"><input class="form-control form-control-sm " type="email" name="email" required></div>
           </div>
           <div class="form-row form-group ">
             <div class="col-4"><label>Contraseña:</label></div>
-            <div class="col"><input class="form-control form-control-sm " type="password" name="password" required></div>
+            <div class="col"><input class="form-control form-control-sm " type="password" name="password" id="password" minlength="8" required></div>
           </div>
           <div class="form-row form-group ">
             <div class="col-4"><label>Confirme contraseña:</label></div>
-            <div class="col"><input class="form-control form-control-sm " type="password" name="confirm_password" required></div>
+            <div class="col"><input class="form-control form-control-sm " type="password" name="confirm_password" minlength="8" required></div>
           </div>
 
           <div class="form-group mb-0 mt-3">

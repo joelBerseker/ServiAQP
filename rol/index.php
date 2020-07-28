@@ -1,9 +1,11 @@
 <?php
+$recurso="/rol";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
 include("../includes/data_base.php");
+$configuracion = true;
 $titulo_html = "Roles";
 include("../includes/header.php");
 ?>

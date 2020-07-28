@@ -1,8 +1,10 @@
 <?php
+$recurso="/servicio/tabla";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 
 include("../includes/navbar.php");
+$configuracion = true;
 $titulo_html = "Servicios";
 include("../includes/header.php");
 ?>
