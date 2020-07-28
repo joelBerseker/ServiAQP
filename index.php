@@ -54,35 +54,82 @@ include("includes/header.php");
 			<p>Prueba los servicios que han sido mejor calificados.</p>
 		</div>
 		<div class="row justify-content-center">
-			<?php for ($i = 1; $i <= 4; $i++) { ?>
-				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-					<div class="card mb-4 border-0 card-ani">
-						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
-							</div>
-							<div class="card-img-overlay pad_serv">
-								<a class="btn  btn-sm informacion-btn">$ 23.30</a>
-								<a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> 4.0</a>
-							</div>
-						</div>
-						<div class="card-body text-center pad_serv">
-							<div class="row">
-								<div class="col pr-2">
-									<h3 class="card-title"> Clases de escritura d sfsd dfsdfsd fds sf </h3>
-									<hr class="pt-0 mt-0 mb-2">
-									<textarea disabled class="descrip text-left">Es es una descripcion de como e sla clase de escritura</textarea>
+			<?php
+			
+				include('includes/data_base.php');
+			  	$query = "SELECT * FROM `servicio` WHERE `SerEstReg`= 1 ORDER by `SerVal` desc";
+				$resultProduct = mysqli_query($conn, $query);
+				$cont = 0;
+				 while ($row = mysqli_fetch_array($resultProduct)) {
+					$query2 = "SELECT  SerImgNom FROM servicio_img where SerImgSerId=" . $row['SerID'];
+					$result = mysqli_query($conn, $query2);
+					if ($row2 = mysqli_fetch_array($result)) {
+						$dirImg = trim($row2[0]);
+					}
+					$dirFin = '/ServiAQP/servicios/img/' . $dirImg;
+					$id = $row['SerID'];
+					if (isset($user)) {
+						$user1       = $user['UsuID'];
+						$queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
+						$resultProductA = mysqli_query($conn, $queryA);
+						$totalA = mysqli_num_rows($resultProductA);
+						$queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+						$resultProductF = mysqli_query($conn, $queryF);
+						$totalF = mysqli_num_rows($resultProductF);
+					}else{
+						$totalA = 0;
+						$totalF = 0;
+					}
+				?>
+						<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+							<div class="card mb-4 border-0 card-ani">
+								<div class="imageny card-img" style="background-image:url('<?= $dirFin ?>');">
+								</div>
+								<div class="card-img-overlay pad_serv">
+									<button class="btn  btn-sm informacion-btn mb-1" disabled>S/. <?= $row['SerPre'] ?></button>
+									<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-star"></i> <?php if ($row['SerVal'] == -1) {
+																																echo "S/C";
+																															} else {
+																																echo $row['SerVal'];
+																															} ?></button>
 									
+									
+									<?php
+										if($totalA>0){
+											
+									?>
+									<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-check"></i></button>
+									<?php 
+										}
+									?>
+									<?php
+										if($row['SerUsuID']==$user1){
+											
+									?>
+									<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
+									<?php 
+										}
+									?>
 								</div>
-								
-								<div class="col-auto pl-2 align-self-center">
-									<a onclick="favoritos" class="btn btn-primary btn-sm ani_heart btn-block"><em class="fas fa-heart"></em></a>
-									<a href="servicios/view/" class="btn btn-primary btn-sm ani_ver btn-block mt-1"><em class="fas fa-chevron-right"></em></a>
+								<div class="card-body text-center pad_body_ser">
+									<h3 class="card-title pad_title_serv"><?= $row['SerNom'] ?></h3>
+									<hr class="pt-0 mt-0 mb-1">
+									<textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
+									<hr class="pt-0 mt-0 mb-2">
+									<a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
+									<?php if (!empty($user)) : ?>
+										<a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			<?php } ?>
+				   <?php
+					$cont = $cont +1;
+					if($cont>=4){
+						break;
+					}
+				} 
+			?>
 		</div>
 		<hr class="mt-2">
 		<div class="mt-3">
@@ -91,29 +138,82 @@ include("includes/header.php");
 		</div>
 
 		<div class="row justify-content-center">
-			<?php for ($i = 1; $i <= 4; $i++) { ?>
-				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
-					<div class="card mb-4 border-0 card-ani">
-						<div class="img-animtion">
-							<div class="imageny" style="background-image:url('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/129090915/original/cd7c0612dc9b69d9c2539ad982bf6c0f87b076f1/write-interesting-travel-blogs.png');">
+		<?php
+			
+			include('includes/data_base.php');
+			  $query= "SELECT * FROM `servicio` WHERE `SerEstReg`= 1 ORDER by `SerPre`";
+			$resultProduct = mysqli_query($conn, $query);
+			$cont = 0;
+			 while ($row = mysqli_fetch_array($resultProduct)) {
+				$query2 = "SELECT  SerImgNom FROM servicio_img where SerImgSerId=" . $row['SerID'];
+				$result = mysqli_query($conn, $query2);
+				if ($row2 = mysqli_fetch_array($result)) {
+					$dirImg = trim($row2[0]);
+				}
+				$dirFin = '/ServiAQP/servicios/img/' . $dirImg;
+				$id = $row['SerID'];
+				if (isset($user)) {
+					$user1       = $user['UsuID'];
+					$queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
+					$resultProductA = mysqli_query($conn, $queryA);
+					$totalA = mysqli_num_rows($resultProductA);
+					$queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+					$resultProductF = mysqli_query($conn, $queryF);
+					$totalF = mysqli_num_rows($resultProductF);
+				}else{
+					$totalA = 0;
+					$totalF = 0;
+				}
+			?>
+					<div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
+						<div class="card mb-4 border-0 card-ani">
+							<div class="imageny card-img" style="background-image:url('<?= $dirFin ?>');">
 							</div>
-							<div class="card-img-overlay">
-								<a class="btn  btn-sm informacion-btn">$ 23.30</a>
-								<a class="btn  btn-sm informacion-btn"><i class="fas fa-star"></i> 4.0</a>
+							<div class="card-img-overlay pad_serv">
+								<button class="btn  btn-sm informacion-btn mb-1" disabled>S/. <?= $row['SerPre'] ?></button>
+								<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-star"></i> <?php if ($row['SerVal'] == -1) {
+																															echo "S/C";
+																														} else {
+																															echo $row['SerVal'];
+																														} ?></button>
+								
+								
+								<?php
+									if($totalA>0){
+										
+								?>
+								<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-check"></i></button>
+								<?php 
+									}
+								?>
+								<?php
+									if($row['SerUsuID']==$user1){
+										
+								?>
+								<button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
+								<?php 
+									}
+								?>
 							</div>
-						</div>
-						<div class="card-body text-center">
-							<h3 class="card-title"> Clases de escritura d sfsd dfsdfsd fds sf </h3>
-							<hr class="pt-0 mt-0 mb-2">
-							<textarea disabled class="descrip text-center">Enc das das adsa sdasd adsa sdasd sadasdasd asdasdasdasdasd a das dusdfsfsasdasd a dsa da as dfsfsfentra los mejores juegos de plataforma que puedas encontrar</textarea>
-							<hr class="pt-0 mt-0 mb-3">
-
-							<a href="" class="btn btn-primary btn-sm ani_heart"><em class="fas fa-heart"></em></a>
-							<a href="servicios/view/" class="btn btn-primary btn-sm ani_ver">Ver más <em class="fas fa-chevron-right"></em></a>
+							<div class="card-body text-center pad_body_ser">
+								<h3 class="card-title pad_title_serv"><?= $row['SerNom'] ?></h3>
+								<hr class="pt-0 mt-0 mb-1">
+								<textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
+								<hr class="pt-0 mt-0 mb-2">
+								<a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
+								<?php if (!empty($user)) : ?>
+									<a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php } ?>
+			   <?php
+				$cont = $cont +1;
+				if($cont>=4){
+					break;
+				}
+			} 
+		?>
 		</div>
 	</div>
 </div>
