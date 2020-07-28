@@ -116,7 +116,7 @@ include("includes/header.php");
 									<hr class="pt-0 mt-0 mb-1">
 									<textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
 									<hr class="pt-0 mt-0 mb-2">
-									<a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
+									<a href="/ServiAQP/serviciosview/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
 									<?php if (!empty($user)) : ?>
 										<a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
 									<?php endif; ?>
@@ -200,7 +200,7 @@ include("includes/header.php");
 								<hr class="pt-0 mt-0 mb-1">
 								<textarea disabled class="descrip text-center"><?= $row['SerDes'] ?></textarea>
 								<hr class="pt-0 mt-0 mb-2">
-								<a href="view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
+								<a href="/ServiAQP/servicios/view/?id=<?= $row['SerID'] ?>" class="float-right btn btn-primary btn-sm ml-1"><em class="fas fa-chevron-right"></em></a>
 								<?php if (!empty($user)) : ?>
 									<a class="float-right btn btn-primary btn-sm ml-1 ani_heart fav_<?= $row['SerID'] ?> <?php if ($totalF > 0) echo "heart_select" ?>" onclick="favoritos(<?= $row['SerID'] ?>)"><em class="fas fa-heart"></em></a>
 								<?php endif; ?>
