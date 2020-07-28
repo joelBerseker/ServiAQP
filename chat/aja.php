@@ -1,6 +1,3 @@
-<?php
-
-?>
 <div class="box-body">
 <!-- Conversations are loaded here -->
 <div class="direct-chat-messages" style="overflow: scroll; height: 400px;">
@@ -12,8 +9,6 @@
       $sess = $_POST['creador'];
       $user = $user['UsuID'];
     }
-    
-  //  $sess = $_GET['creador'];
   $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha desc");
   while($ch = mysqli_fetch_array($chats)) { 
     if($ch['de'] == $user) {$var = $user;  } else {$var = $sess;}                    

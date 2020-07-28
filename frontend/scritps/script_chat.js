@@ -1,4 +1,4 @@
-function ajax(){
+/*function ajax(){
     var req = new XMLHttpRequest();
 
     req.onreadystatechange = function(){
@@ -9,9 +9,9 @@ function ajax(){
     
     req.open('GET', 'aja.php', true);
     req.send();
-  }
+  }*/
   function actualizar(creador){
-    $('#chatsergio').load('/ServiAQP/chat/aja.php',{"creador":creador});
+    //$('#chatsergio').load('/ServiAQP/chat/aja.php',{"creador":creador});
   }
   
 
