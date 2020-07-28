@@ -16,9 +16,9 @@
             }
         }
     }
-    if(isset($_GET['q'])){
+    if (isset($_GET['q'])) {
         $b = $_GET['q'];
-        $query = $query." and SerNom like '%$b%' OR SerPreFre like '%$b%' OR SerDes like '%$b%' "; 
+        $query = $query . " and SerNom like '%$b%' OR SerPreFre like '%$b%' OR SerDes like '%$b%' ";
     }
     $resultProduct = mysqli_query($conn, $query);
     if (mysqli_num_rows($resultProduct) > 0) {
@@ -30,18 +30,18 @@
             }
             $dirFin = '/ServiAQP/servicios/img/' . $dirImg;
             $id = $row['SerID'];
-        if (isset($user)) {
-            $user1       = $user['UsuID'];
-            $queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
-            $resultProduct = mysqli_query($conn, $queryA);
-            $totalA = mysqli_num_rows($resultProduct);
-            $queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
-            $resultProductF = mysqli_query($conn, $queryF);
-            $totalF = mysqli_num_rows($resultProductF);
-        } else {
-            $totalA = 0;
-            $totalF = 0;
-        }
+            if (isset($user)) {
+                $user1       = $user['UsuID'];
+                $queryA = "SELECT * FROM adquiridos WHERE AdqUsuID = $user1 and AdqSerID=$id";
+                $resultProductA = mysqli_query($conn, $queryA);
+                $totalA = mysqli_num_rows($resultProductA);
+                $queryF = "SELECT * FROM favoritos WHERE FavUsuID = $user1 and FavSerID=$id";
+                $resultProductF = mysqli_query($conn, $queryF);
+                $totalF = mysqli_num_rows($resultProductF);
+            } else {
+                $totalA = 0;
+                $totalF = 0;
+            }
     ?>
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="card mb-4 border-0 card-ani">
@@ -54,23 +54,23 @@
                                                                                                                 } else {
                                                                                                                     echo $row['SerVal'];
                                                                                                                 } ?></button>
-                        
-                        
+
+
                         <?php
-                            if($totalA>0){
-                                
+                        if ($totalA > 0) {
+
                         ?>
-                        <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-check"></i></button>
-                        <?php 
-                            }
+                            <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-check"></i></button>
+                        <?php
+                        }
                         ?>
                         <?php
-                            if($row['SerUsuID']==$user1){
-                                
+                        if ($row['SerUsuID'] == $user1) {
+
                         ?>
-                        <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
-                        <?php 
-                            }
+                            <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
+                        <?php
+                        }
                         ?>
                     </div>
                     <div class="card-body text-center pad_body_ser">

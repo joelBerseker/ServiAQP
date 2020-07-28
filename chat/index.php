@@ -76,6 +76,6 @@ include("../includes/data_base.php");
   </div>
 </div>
 <?php
-$ischat=true;
+$recursochat=true;
 include("../includes/footer.php");
 ?>
