@@ -25,11 +25,13 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nomb
     $imagennombre="usuario-sin-imagen.jpg";
     $imagentipo="image/jpg";
     $query = "INSERT INTO usuario (`UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuRolID`, `UsuEst`, `UsuImgTip`) VALUES (?, ?, ?, ?, ?, ?,?)";
+    
     $stmt = mysqli_prepare($conn, $query);
     $rol = 2;
     $est = 1;
     $stmt->bind_param('ssssiis', $nombre, $_POST['email'], $password, $imagennombre, $rol, $est, $imagentipo);
     if (!mysqli_stmt_execute($stmt)) {
+      echo mysqli_stmt_error($stmt);
       $message = 'Lo sentimos, debe haber habido un problema al crear su cuenta';
       $message_class = 'danger';
     } else {

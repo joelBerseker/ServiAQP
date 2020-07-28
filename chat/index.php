@@ -39,6 +39,9 @@ $gaa="gaaaa";
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+    
+    
 </head>
 <?php
 include('../includes/navbar.php');
@@ -47,7 +50,7 @@ include('../includes/header.php');
 include("../includes/data_base.php");
 ?>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body onLoad="ajax();" class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
 
@@ -104,110 +107,29 @@ include("../includes/data_base.php");
               <h3 class="box-title">NOMBRE USUARIO</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <!-- Conversations are loaded here -->
-              <div class="direct-chat-messages" style="overflow: scroll; height: 400px;">
-              
-                <?php
-
-                
-
-$sergio= "gaaa";
-              
-
-                  $user = $user['UsuID'];
-                            
-                  $sess = $_GET['creador'];
-      
-                  $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha desc");
-                  while($ch = mysqli_fetch_array($chats)) { 
-                    
-                    if($ch['de'] == $user) {$var = $user;  } else {$var = $sess;}
-                    
-                    $usere = mysqli_query($conn, "SELECT * FROM usuario WHERE UsuID = '$var'");
-                    $us = mysqli_fetch_array($usere);
-                  
-                
-                ?>
-  
-
-                <?php
-                if ($ch['para'] == $user) { ?>
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-<?php
-                  if(isset($_POST['usuario'])) {    ?>
-                    <span class="direct-chat-name pull-left"><?php echo $us['usuario']; ?></span>
-                  <?php } ?>
-                    <span class="direct-chat-timestamp pull-right"><?php echo $ch['fecha']; ?></span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <?php
-                  $ima = "SELECT UsuImgNom from usuario where UsuID=".$sess;
-                  $result = mysqli_query($conn, $ima);
-                  if ($row2 = mysqli_fetch_array($result)) {
-                    $dirImg = trim($row2[0]);
-                  }
-                  $dirFin = '/ServiAQP/usuario/img/' . $dirImg;
-                  ?>
-                  <img class="direct-chat-img" src="<?php echo $dirFin; ?>"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    <?php echo $ch['mensaje']; ?>
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <?php } elseif ($ch['de'] == $user) { ?>
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                  <?php
-                  if(isset($_POST['usuario'])) {    ?>
-                    <span class="direct-chat-name pull-right"><?php echo $us['usuario']; ?></span>
-                  <?php } ?>
-                    <span class="direct-chat-timestamp pull-left"><?php echo $ch['fecha']; ?></span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <?php
-                  $ima2 = "SELECT UsuImgNom from usuario where UsuID=".$user;
-                  $result2 = mysqli_query($conn, $ima2);
-                  if ($row3 = mysqli_fetch_array($result2)) {
-                    $dirImg2 = trim($row3[0]);
-                  }
-                  $dirFin2 = '/ServiAQP/usuario/img/' . $dirImg2;
-                  ?>
-                  <img class="direct-chat-img" src="<?php echo $dirFin2; ?>"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    <?php echo $ch['mensaje']; ?>
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <?php } ?>
-  
-
-            <?php } ?>
-
-
-
-              </div>
-              <!--/.direct-chat-messages-->
-
-              <!-- Contacts are loaded here -->
+            <?php 
+             $sergio= "gaaa";
+             $user = $user['UsuID'];
+             ?>
+             <div id="valor">
+            <?php
+            $sess = $_GET['creador'];
+            ?>  
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
+            <div id="chatsergio">
+              <?php 
+              include ("aja.php");
+              ?>
+              <!-- /.box-body -->
+            </div>
+              <div class="box-footer">
 
 
               <form action="" method="post">
                 <div class="input-group">
                   <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
                       <span class="input-group-btn">
-                        <input type="submit" name="enviar" class="btn btn-primary btn-flat"></button>
+                        <input type="submit" name="enviar" class="btn btn-primary btn-flat" onclick="actualizar(<?=$sess ?>)"></button>
                       </span>
                 </div>
               </form>
