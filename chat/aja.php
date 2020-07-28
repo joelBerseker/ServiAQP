@@ -1,6 +1,9 @@
+<?php 
+include("../servicios/view/tiempo.php");
+?>
 <div class="box-body">
   <!-- Conversations are loaded here -->
-  <div class="direct-chat-messages" style="overflow: scroll; height: 400px;">
+  <div class="direct-chat-messages">
     <?php
     $sergio = "gaaa";
     if (isset($_POST['creador'])) {
@@ -9,7 +12,7 @@
       $sess = $_POST['creador'];
       $user = $user['UsuID'];
     }
-    $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha desc");
+    $chats = mysqli_query($conn, "SELECT * FROM chats WHERE de = '$user' AND para = '$sess' OR de = '$sess' AND para = '$user' order by id_cha");
     while ($ch = mysqli_fetch_array($chats)) {
       if ($ch['de'] == $user) {
         $var = $user;
@@ -28,7 +31,7 @@
             if (isset($_POST['usuario'])) {    ?>
               <span class="direct-chat-name pull-left"><?php echo $us['usuario']; ?></span>
             <?php } ?>
-            <span class="direct-chat-timestamp pull-right"><?php echo $ch['fecha']; ?></span>
+            <span class="direct-chat-timestamp pull-right"><?php echo imprimirTiempo($ch['fecha']); ?></span>
           </div>
           <!-- /.direct-chat-info -->
           <?php
@@ -54,7 +57,7 @@
             if (isset($_POST['usuario'])) {    ?>
               <span class="direct-chat-name pull-right"><?php echo $us['usuario']; ?></span>
             <?php } ?>
-            <span class="direct-chat-timestamp pull-left"><?php echo $ch['fecha']; ?></span>
+            <span class="direct-chat-timestamp pull-left"><?php echo imprimirTiempo($ch['fecha']); ?></span>
           </div>
           <!-- /.direct-chat-info -->
           <?php
@@ -78,3 +81,6 @@
   <!--/.direct-chat-messages-->
   <!-- Contacts are loaded here -->
 </div>
+<script>
+    $('.direct-chat-messages').scrollTop( $('.direct-chat-messages').prop('scrollHeight') );   
+</script>
