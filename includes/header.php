@@ -22,11 +22,8 @@ include('data_base.php');
   	<link rel="stylesheet" href="../frontend/plugins/iCheck/flat/blue.css">
   	<!-- sergio-->
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
-
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
-
 </head>
-
 <body>
 	<div class="container position-fixed fixed-top mt-5 pt-2" style="height: 0px;" aria-live="polite">
 		<div class="float-right clearfix  noti_push">
@@ -41,9 +38,9 @@ include('data_base.php');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
-					<form class="form-inline mr-0 mr-lg-1 mt-lg-0 mt-2 primero_buscar">
-						<input class="form-control form-control-sm  segundo_buscar" type="search" placeholder="Busca un servicio">
-						<a class="nav-link menu_link " type="submit"><em class="fas fa-search"></em></a>
+					<form class="form-inline mr-0 mr-lg-1 mt-lg-0 mt-2 primero_buscar" method="GET" action="<?= $dirEjec ?>/servicios">
+						<input class="form-control form-control-sm  segundo_buscar" name="q" type="search" placeholder="Busca un servicio">
+						<button class="nav-link menu_link " type="submit"><em class="fas fa-search"></em></button>
 					</form>
 					<li class="nav-item">
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>
@@ -98,11 +95,9 @@ include('data_base.php');
 								</div>
 							</div>
 						</li>
-
 						<?php
 						if ($user['UsuRolID'] == 1) {
 						?>
-
 							<li class="nav-item dropdown disp_primero_configuracion">
 								<a class="nav-link menu_link dropdown_esp <?php if ($configuracion) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class=""><em class="fas fa-cog cog_rot"></em></div>
