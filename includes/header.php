@@ -17,7 +17,7 @@ include('data_base.php');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.min.css">
   	<link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.print.css" media="print">
-  	<link rel="stylesheet" href="../frontend/dist/css/AdminLTE.min.css">
+  	<!-- <link rel="stylesheet" href="../frontend/dist/css/AdminLTE.min.css"> -->
   	<link rel="stylesheet" href="../frontend/dist/css/skins/_all-skins.min.css">
   	<link rel="stylesheet" href="../frontend/plugins/iCheck/flat/blue.css">
   	<!-- sergio-->
