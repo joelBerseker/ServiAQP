@@ -9,7 +9,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
 ?>
         <div class=' pl-2 pr-2 pt-1'>
-            <div class='card-body PT-0  notifi pt-2 pb-2 mb-1'>
+            <div class='card-body  notifi pt-2 pb-1 mb-1'>
                 <p class='card-text mb-0 card-noti'>
                     <?=$row["NotDes"]?>
                 </p>
@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
                 </p>
 
             </div>
-        </div>;
+        </div>
     <?php
     }
 } else { ?>
