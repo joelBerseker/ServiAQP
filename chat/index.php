@@ -50,7 +50,7 @@ include("../includes/data_base.php");
                         <div class="col">
                           <form id="FormMensaje">
                             <div class="input-group">
-                              <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
+                              <input type="text" id="mensaje" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
                               <input type="hidden" name="creador" id="creador" value="<?=$sess?>">
                             </div>
                           </form>
