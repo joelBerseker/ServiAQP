@@ -1,76 +1,19 @@
 <?php
-include("../includes/sesion.php");
-include("../includes/data_base.php");
-include("../includes/global_variable.php");
-?>
-<?php
-$gaa="gaaaa";
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chats</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../frontend/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel
-  
-  ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- fullCalendar 2.2.5-->
-  <link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.min.css">
-  <link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.print.css" media="print">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../frontend/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../frontend/dist/css/skins/_all-skins.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="../frontend/plugins/iCheck/flat/blue.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  
-    
-    
-</head>
-<?php
+include('../includes/sesion.php');
 include('../includes/navbar.php');
-$titulo_html = "Servicios";
+$titulo_html = "Chats";
 include('../includes/header.php');
 include("../includes/data_base.php");
 ?>
-
-<body onLoad="ajax();" class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="section">
-    <!-- Content Header (Page header) -->
-    <section class="container">
-      
-    </section>
-
-    <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-md-3">
           <a href="chats.php" class="btn btn-primary btn-block margin-bottom">Mis chats</a>
-
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title"></h3>
-
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -82,9 +25,7 @@ include("../includes/data_base.php");
                   <span class="label label-primary pull-right"></span></a></li>
               </ul>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /. box -->
         </div>
         <!-- /.col -->
         <div class="col-md-9">
@@ -93,12 +34,6 @@ include("../includes/data_base.php");
             <div class="box-body no-padding">
               <!-- /.mailbox-read-info -->
               <div class="mailbox-read-message">
-              
-
-
-              
-
-
       <!-- Direct Chat -->
       <div class="row">
         <div class="col-md-12">
@@ -118,13 +53,11 @@ include("../includes/data_base.php");
             </div>
             <div id="chatsergio">
               <?php 
-              include ("aja.php");
+                include("aja.php");
               ?>
               <!-- /.box-body -->
             </div>
               <div class="box-footer">
-
-
               <form action="" method="post">
                 <div class="input-group">
                   <input type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control">
@@ -133,7 +66,6 @@ include("../includes/data_base.php");
                       </span>
                 </div>
               </form>
-
               <?php
               $aea="gaaaaaaa";
               if(isset($_POST['enviar'])) {
@@ -142,9 +74,6 @@ include("../includes/data_base.php");
                 
                 $mensaje = $_POST['mensaje'];
                 }
-                
-
-                
 
                 $de = $user;
                 $para = $sess;

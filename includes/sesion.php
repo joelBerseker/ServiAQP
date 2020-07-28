@@ -21,15 +21,9 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 if(isset($recurso)){
-<<<<<<< HEAD
-    include("data_base.php");
-    include("acl.php");
-    $a=comprobar($conn,$recurso,$user);   
-=======
 include("data_base.php");
 include("acl.php");
 $a=comprobar($conn,$recurso,$user);
 /* print_r($a['mensaje']); */
->>>>>>> a80e6dbfc7e6a5daf48f7243c3ebd3f3caa2d706
 }
 ?>
