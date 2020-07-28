@@ -53,8 +53,6 @@ include("../includes/header.php");
 						<?php }
 						endif; ?>
 					</div>
-
-
 				</div>
 				<div id="ServicioCard">
 					<?php
