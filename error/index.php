@@ -3,6 +3,10 @@ include("../includes/sesion.php");
 include("../includes/global_variable.php");
 include('../includes/navbar.php');
 include('../includes/header.php');
+$a = "Error ocurrido";
+if(isset($_GET['mensaje'])){
+    $a =$_GET['mensaje'];
+}
 
 ?>
 <div class="section">
@@ -13,7 +17,7 @@ include('../includes/header.php');
                     <div class="card-body text-center pad_body_ser">
                         <h3 class="card-title">Sucedio un error <i class="far fa-sad-tear"></i></h3>
                         <hr>
-                        <p>cualquier error </p>
+                        <p><?=$a?></p>
                         <hr class="mb-2">
                         <a onclick="history.go(-1)" class="float-left btn btn-primary btn-sm" style="color: white;"><em class="fas fa-chevron-left"></em></a>
                     </div>

@@ -118,6 +118,48 @@ $(document).ready(function(){
     }
     return false;
  }
+ function EliminarA(id){
+    if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
+        $.ajax({
+            url: "/ServiAQP/servicios/eliminar/deleteA.php",
+            type: "POST",
+            data:'id='+idRecibido,
+            success:function(enviado)
+            {   
+                if(enviado){
+                    alert("Eliminado de Adquiridos");
+                    //$('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+                }
+                else
+                    alert("No se Elimino")
+            }
+        });
+    }else{
+        alert("No se Elimino");
+    }
+    return false;
+ }
+ function EliminarF(id){
+    if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
+        $.ajax({
+            url: "/ServiAQP/servicios/eliminar/deleteF.php",
+            type: "POST",
+            data:'id='+idRecibido,
+            success:function(enviado)
+            {   
+                if(enviado){
+                   alert("Eliminado de favoritos");
+                }
+                else{
+                    alert("No se Elimino");
+                }
+            }
+        });
+    }else{
+        alert("No se Elimino");
+    }
+    return false;
+ }  
  function calificar(){
     
     var formData= new FormData(document.getElementById('formCalificacion'));
