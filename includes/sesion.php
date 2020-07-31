@@ -21,13 +21,12 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 if(isset($recurso)){
-include("data_base.php");
-include("acl.php");
-$a=comprobar($conn,$recurso,$user);
-if($a["estado"]==0){
-    $redireccion ="Location: /ServiAQP/error/?mensaje=".$a["mensaje"];
-    header($redireccion);
-}
-/* print_r($a['mensaje']); */
+    include("data_base.php");
+    include("acl.php");
+    $a=comprobar($conn,$recurso,$user);
+    if($a["estado"]==0){
+        $redireccion ="Location: /ServiAQP/error/?mensaje=".$a["mensaje"];
+        header($redireccion);
+    }
 }
 ?>
