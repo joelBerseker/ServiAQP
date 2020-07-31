@@ -20,7 +20,7 @@ $nom_subcategoria = $_GET["scn"];
 
 				<li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/categorias">Categorias</a></li>
 				<li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/categorias/subcategoria?id=<?= $id_categoria ?>&nombre=<?= $nom_categoria ?>"><?php echo $nom_categoria ?></a></li>
-				<li class="breadcrumb-item"><?php echo $nom_subcategoria ?></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo $nom_subcategoria ?></li>
 
 			</ol>
 		</nav>
