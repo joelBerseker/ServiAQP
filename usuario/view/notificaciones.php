@@ -1,5 +1,6 @@
 <?php
 include("../../includes/data_base.php");
+include('../../servicios/view/tiempo.php');
 $id = $_GET['id'];
 ?>
 <div id="div_noti">
@@ -17,7 +18,7 @@ $id = $_GET['id'];
 
                         <p class="card-text"><?= $row["NotDes"] ?></p>
                         <hr class="mb-2">
-                        <p class="card-text"><small class="text-muted"><?= $row["NotFecCre"] ?></small></p>
+                        <p class="card-text"><small class="text-muted"><?= imprimirTiempo($row["NotFecCre"]) ?></small></p>
                     </div>
 
                 </div>
