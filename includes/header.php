@@ -77,7 +77,7 @@ include('data_base.php');
 					?>
 						<li class="nav-item dropdown disp_primero_perfil">
 							<a class="nav-link menu_link dropdown_esp <?php if ($user_navbar) { ?> select<?php } ?>" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<em class="fas fa-user"></em> <?= $user['UsuNom'] ?><?= $user['UsuID'] ?>
+								<em class="fas fa-user"></em> <?= $user['UsuNom'] ?>
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
 
