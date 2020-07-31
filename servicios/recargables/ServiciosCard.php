@@ -66,13 +66,13 @@
                         ?>
                         <?php
                         if (isset($user)) {
-                        if ($row['SerUsuID'] == $user1) {
+                            if ($row['SerUsuID'] == $user1) {
 
                         ?>
-                            <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
+                                <button class="btn  btn-sm informacion-btn mb-1" disabled><i class="fas fa-user"></i></button>
                         <?php
+                            }
                         }
-                    }
                         ?>
                     </div>
                     <div class="card-body text-center pad_body_ser">

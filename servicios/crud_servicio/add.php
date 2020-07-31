@@ -25,7 +25,7 @@
             $rowCount = $query->num_rows;
             ?>
             <div class="col"><select class="form-control form-control-sm" name="categoria" id="categoria">
-              <option value="">Selecciona Una Categoria</option>
+              <option value="">Selecciona una categoria</option>
               <?php
               if ($rowCount > 0) {
                 while ($row = $query->fetch_assoc()) {
@@ -44,15 +44,15 @@
             </select></div>
           </div>
           <div class="form-row form-group">
-          <div class="col-4"><label for="message-text">Preguntas Frecuentes:</label></div>
+          <div class="col-4"><label for="message-text">Preguntas frecuentes:</label></div>
           <div class="col"><textarea class="form-control form-control-sm" name="preguntas" id="message-text"></textarea></div>
           </div>
           <div class="form-row form-group">
-          <div class="col-4"><label for="message-text">Añadir Imagenes:</label></div>
+          <div class="col-4"><label for="message-text">Añadir imagenes:</label></div>
           <div class="col"><input type="file" name="ServicioImagenes" id="ServicioImagenes" required multiple class="form-control-file"></div>
           </div>
           <div class="form-row form-group">
-          <div class="col-4"><label for="recipient-name">Precio de Servicio:</label></div>
+          <div class="col-4"><label for="recipient-name">Precio de servicio:</label></div>
           <div class="col"><input type="number" class="form-control form-control-sm" name="precio" step="0.01" min="0" id="recipient-name"></div>
           </div>
         </form>

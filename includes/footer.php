@@ -22,11 +22,12 @@ include('global_variable.php');
                     <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a></b></li>
                     <?php if (!empty($user)) : ?>
                         <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/logout">Salir</a></b></li>
-
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/usuario/view/?id=<?=$user['UsuID']?>">Ver perfil</a></b></li>
                     <?php else :  ?>
                         <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/login">Ingresar</a></b></li>
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/singup">Registrarse</a></b></li>
                     <?php endif; ?>
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/singup">Registrarse</a></b></li>
+                    
                 </ul>
             </div>
         </div>
