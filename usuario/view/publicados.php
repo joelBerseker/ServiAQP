@@ -1,7 +1,14 @@
 <?php
 include("../../includes/data_base.php");
 include('../../servicios/view/tiempo.php');
-$id = $_REQUEST['id'];
+
+
+if(isset($_POST['id'])){
+    include("../../includes/sesion.php");
+    $id=$_POST['id'];
+}else{
+    $id = $_GET['id'];
+}
 
 ?>
 <div id="div_favo">
@@ -22,7 +29,7 @@ $id = $_REQUEST['id'];
             <div class="card3 mb-3">
                 <div class="row no-gutters">
                     <div class="col-4">
-                    <div class="imageny5 card-img" style="background-image:url('<?= $dirFin ?>');">
+                        <div class="imageny5 card-img" style="background-image:url('<?= $dirFin ?>');">
                         </div>
                     </div>
                     <div class="col-8">
@@ -36,11 +43,17 @@ $id = $_REQUEST['id'];
 
                                     <textarea disabled class="descrip text-left descrip2"><?= $row["SerDes"] ?></textarea>
                                     <hr class="mb-2">
-                                    <p class="card-text"><small class="text-muted"><?=imprimirTiempo( $row["SerFecCre"]) ?></small></p>
+                                    <p class="card-text"><small class="text-muted"><?= imprimirTiempo($row["SerFecCre"]) ?></small></p>
                                 </div>
                                 <div class="col-auto">
                                     <a href="../../servicios/view/?id=<?= $row['SerID'] ?>" class="btn btn-outline-secondary btn-sm btn-block"><em class="fas fa-chevron-right"></em></a>
-                                    <button class="btn  btn-sm btn-outline-secondary btn-block" onclick="eliminarS(<?= $row["SerID"] ?>,<?= $user["UsuID"] ?>)"> <em class="fas fa-times"></em> </button>
+
+                                    <?php
+                                    
+                                        if ($user['UsuID'] == $id) { ?>
+                                            <button class="btn  btn-sm btn-outline-secondary btn-block" onclick="eliminarS(<?= $row["SerID"] ?>,<?= $user["UsuID"] ?>)"> <em class="fas fa-times"></em> </button>
+                                    <?php }
+                                ?>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ include("../includes/header.php");
 
 <div>
 	<div id="carouselExampleIndicators" class="carousel section slide mb-3 carousel-fade" data-ride="carousel">
-        <h1>Hubo un error maldito prro asqueroso escribe bien</h1>
+        <h1>Ocurrio un error</h1>
     </div>
 </div>
 <?php
