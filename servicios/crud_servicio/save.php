@@ -21,7 +21,7 @@ include('../../includes/data_base.php');
         $num =count($_FILES['imagenes']['size']);
         $query2= "SELECT MAX(SerID) FROM servicio";
         $resultProduct= mysqli_query($conn, $query2);
-        if ($row= mysqli_fetch_array($resultProduct)) 
+            if ($row= mysqli_fetch_array($resultProduct)) 
         {
             $idServicio = trim($row[0]);
         }  
