@@ -7,7 +7,14 @@ include('../../includes/data_base.php');
 ?>
 <?php
     $id = $_POST['id'];
-    $query = "DELETE FROM servicio WHERE SerID = $id";
+    $sql = "SELECT * FROM `servicio_img` where SerImgSerId = $id";
+    $result1 = mysqli_query($conn,$sql);
+    $dir = "../img/";
+    while ($row = mysqli_fetch_array($result1)){
+        $dirfin = $dir.$row['SerImgNom'];
+        unlink($dirfin);      
+    }
+    $query  = "DELETE FROM servicio WHERE SerID = $id";
     $result = mysqli_query($conn,$query);
     if(!$result){
         echo $query;
