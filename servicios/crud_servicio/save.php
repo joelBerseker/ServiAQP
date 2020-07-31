@@ -34,10 +34,11 @@ include('../../includes/data_base.php');
             $ruta = $_FILES['imagenes']['tmp_name'][$i]; 
             $tipo = $_FILES['imagenes']['type'][$i]; 
             $carpeta = "../img/";
-            $rutaFinal = $carpeta.$NomArchivo;
+            $name= "Servicio_".$idServicio."_".$i;
+            $rutaFinal = $carpeta.$name;
             move_uploaded_file($ruta,$rutaFinal);
             $queryIm="INSERT INTO `servicio_img`(`SerImgSerId`, `SerImgNom`, `SerImgTip`)
-             VALUES ($idServicio,'$NomArchivo','$tipo')";
+             VALUES ($idServicio,'$name','$tipo')";
             mysqli_query($conn,$queryIm);
         }
         echo "Envio correcto de Servicio";

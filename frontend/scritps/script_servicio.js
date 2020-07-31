@@ -107,16 +107,16 @@ $(document).ready(function(){
             data:'id='+idRecibido,
             success:function(enviado)
             {   
-                //alert(enviado);
                 if(enviado){
                     $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
                 }
-                else
-                    alert("No se Elimino")
+                else{
+                    alert("No se Elimino");
+                }
             }
         });
     }else{
-
+        alert("No se Elimino");
     }
     return false;
  }
