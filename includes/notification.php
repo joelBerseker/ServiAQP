@@ -1,6 +1,8 @@
 <?php
 include('sesion.php');
 include('data_base.php');
+include('data_base.php');
+include('../servicios/view/tiempo.php');
 $sql = "UPDATE notificacion SET NotEst = 1 WHERE NotEst = 0 and NotUsuID = " . $user['UsuID'];
 $result = mysqli_query($conn, $sql);
 $sql = "SELECT * FROM notificacion WHERE NotUsuID=" . $user['UsuID'] . " ORDER BY NotFecCre DESC limit 3";
@@ -17,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
 
                 <p class='card-text '>
                     <small class='text-muted '>
-                        <?=$row["NotFecCre"]?>
+                        <?=imprimirTiempo($row["NotFecCre"])?>
                     </small>
                 </p>
 
