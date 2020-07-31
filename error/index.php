@@ -18,11 +18,14 @@ if(isset($_GET['mensaje'])){
             <div class="col-sm-6 col-md-4 mt-5">
                 <div class="card mb-4 border-0">
                     <div class="card-body text-center pad_body_ser">
-                        <h3 class="card-title">Sucedio un error <i class="far fa-sad-tear"></i></h3>
+                        <h3 class="card-title">Ocurrio un error</h3>
                         <hr>
                         <p><?=$a?></p>
-                        <hr class="mb-2">
-                        <a onclick="history.go(-1)" class="float-left btn btn-primary btn-sm" style="color: white;"><em class="fas fa-chevron-left"></em></a>
+                        <div class="mb-2">
+                            <a href="/ServiAQP">Ir al inicio</a>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
