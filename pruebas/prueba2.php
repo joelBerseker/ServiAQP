@@ -1,4 +1,5 @@
 <?php
-   unlink("../usuario/img/com.jpg");
-   echo "eliminado";
+   $NomArchivo = "coasdasdm.jpg";
+   $dir = substr(strrchr($NomArchivo, "."), 0);
+   echo $dir;
 ?> 

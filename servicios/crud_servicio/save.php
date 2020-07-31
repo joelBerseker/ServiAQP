@@ -34,7 +34,8 @@ include('../../includes/data_base.php');
             $ruta = $_FILES['imagenes']['tmp_name'][$i]; 
             $tipo = $_FILES['imagenes']['type'][$i]; 
             $carpeta = "../img/";
-            $name= "Servicio_".$idServicio."_".$i;
+            $t = substr(strrchr($NomArchivo, "."), 0);
+            $name= "Servicio_".$idServicio."_".$i.$t;
             $rutaFinal = $carpeta.$name;
             move_uploaded_file($ruta,$rutaFinal);
             $queryIm="INSERT INTO `servicio_img`(`SerImgSerId`, `SerImgNom`, `SerImgTip`)
