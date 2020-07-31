@@ -1,6 +1,6 @@
 <?php
 include("../../includes/data_base.php");
-$id = $_GET['id'];
+$id = $_REQUEST['id'];
 ?>
 <div id="div_favo">
     <hr class="mt-3">
@@ -19,11 +19,11 @@ $id = $_GET['id'];
     ?>
             <div class="card3 mb-3">
                 <div class="row no-gutters">
-                    <div class="col-md-4">
-                    <div class="imageny5 card-img" style="background-image:url('<?= $dirFin ?>');">
+                    <div class="col-4">
+                        <div class="imageny5 card-img" style="background-image:url('<?= $dirFin ?>');">
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-8">
                         <div class="card-body">
 
                             <div class="row">
@@ -38,7 +38,7 @@ $id = $_GET['id'];
                                 </div>
                                 <div class="col-auto">
                                     <a href="../../servicios/view/?id=<?= $row['AdqSerID'] ?>" class="btn btn-outline-secondary btn-sm btn-block"><em class="fas fa-chevron-right"></em></a>
-                                    <a class="btn  btn-sm btn-outline-secondary btn-block" href="#"> <em class="fas fa-times"></em> </a>
+                                    <button class="btn  btn-sm btn-outline-secondary btn-block" onclick="EliminarA(<?= $row["AdqID"] ?>,<?= $user["UsuID"] ?>)"> <em class="fas fa-times"></em> </button>
                                 </div>
                             </div>
                         </div>

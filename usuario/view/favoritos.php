@@ -1,6 +1,6 @@
 <?php
 include("../../includes/data_base.php");
-$id = $_GET['id'];
+$id = $_REQUEST['id'];
 ?>
 <div id="div_favo">
     <hr class="mt-3">
@@ -38,7 +38,7 @@ $id = $_GET['id'];
                                 </div>
                                 <div class="col-auto">
                                     <a href="../../servicios/view/?id=<?= $row['SerID'] ?>" class="btn btn-outline-secondary btn-sm btn-block"><em class="fas fa-chevron-right"></em></a>
-                                    <a class="btn  btn-sm btn-outline-secondary btn-block" href="#"> <em class="fas fa-times"></em> </a>
+                                    <button class="btn  btn-sm btn-outline-secondary btn-block" onclick="EliminarF(<?= $row['FavID'] ?>,<?= $user["UsuID"] ?>)"> <em class="fas fa-times"></em> </button>
                                 </div>
                             </div>
                         </div>

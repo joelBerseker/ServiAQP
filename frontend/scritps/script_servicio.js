@@ -107,8 +107,9 @@ $(document).ready(function(){
             data:'id='+idRecibido,
             success:function(enviado)
             {   
-                if(enviado)
+                if(enviado){
                     $('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
+                }
                 else
                     alert("No se Elimino")
             }
@@ -118,7 +119,27 @@ $(document).ready(function(){
     }
     return false;
  }
- function EliminarA(idRecibido){
+ function eliminarS(idRecibido,iduser){
+    if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
+        $.ajax({
+            url: "/ServiAQP/servicios/crud_servicio/delete.php",
+            type: "POST",
+            data:'id='+idRecibido,
+            success:function(enviado)
+            {   
+                if(enviado){
+                    $('#recargarusuario').load('/ServiAQP/usuario/view/publicados.php',{"id":iduser});
+                }
+                else
+                    alert("No se Elimino")
+            }
+        });
+    }else{
+
+    }
+    return false;
+ }
+ function EliminarA(idRecibido,iduser){
     if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/eliminar/deleteA.php",
@@ -127,6 +148,7 @@ $(document).ready(function(){
             success:function(enviado)
             {   
                 if(enviado){
+                    $('#recargarusuario').load('/ServiAQP/usuario/view/adquiridos.php',{"id":iduser});
                     alert("Eliminado de Adquiridos");
                     //$('#recargaTablaServicio').load('/ServiAQP/servicios/recargables/TablaServicios.php');
                 }
@@ -139,7 +161,7 @@ $(document).ready(function(){
     }
     return false;
  }
- function EliminarF(idRecibido){
+ function EliminarF(idRecibido,iduser){
     if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/eliminar/deleteF.php",
@@ -148,7 +170,9 @@ $(document).ready(function(){
             success:function(enviado)
             {   
                 if(enviado){
+                    $('#recargarusuario').load('/ServiAQP/usuario/view/favoritos.php',{"id":iduser});
                    alert("Eliminado de favoritos");
+                   
                 }
                 else{
                     alert("No se Elimino");
