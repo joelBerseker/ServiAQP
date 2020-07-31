@@ -1,5 +1,6 @@
 <?php
 include("../../includes/data_base.php");
+include('../../servicios/view/tiempo.php');
 $id = $_REQUEST['id'];
 ?>
 <div id="div_favo">
@@ -34,7 +35,7 @@ $id = $_REQUEST['id'];
                                     <hr class=" mb-2">
                                     <textarea disabled class="descrip text-left descrip2"><?= $row["SerDes"] ?></textarea>
                                     <hr class="mb-2">
-                                    <p class="card-text"><small class="text-muted"><?= $row["FacFecCre"] ?></small></p>
+                                    <p class="card-text"><small class="text-muted"><?=imprimirTiempo( $row["FacFecCre"]) ?></small></p>
                                 </div>
                                 <div class="col-auto">
                                     <a href="../../servicios/view/?id=<?= $row['SerID'] ?>" class="btn btn-outline-secondary btn-sm btn-block"><em class="fas fa-chevron-right"></em></a>

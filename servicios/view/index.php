@@ -163,7 +163,7 @@ include("../../includes/data_base.php");
                             <div class="col">
                                 <p class="card-text ">
                                     <small class="text-muted">
-                                        Creado por <?= $creadorN ?>
+                                        Creado por <a href="/ServiAQP/usuario/view/?id=<?= $creador?>"><?= $creadorN ?></a>
                                     </small>
                                 </p>
                             </div>

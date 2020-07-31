@@ -58,14 +58,16 @@ include("../../includes/data_base.php");
                         <div class="col">
                             <input readonly value="<?php echo $rol; ?>" class="form-control form-control-sm " type="text" name="correo" required></div>
                     </div>
-                    <hr class="mt-2">
-                    <div>
-                        <?php if ($rol == "Comprador") { ?>
+                    <?php if ($user['UsuID'] == $id) { ?>
+                        <hr class="mt-2">
+                        <div>
+                            <?php if ($rol == "Comprador") { ?>
 
-                            <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ascenderModal" data-whatever="@mdo">Ascender a vendedor</button>
-                        <?php } ?>
-                        <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Editar</button>
-                    </div>
+                                <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ascenderModal" data-whatever="@mdo">Ascender a vendedor</button>
+                            <?php } ?>
+                            <button onclick="edit_usuario2(<?php echo $row['UsuID'] ?>)" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#editModal" data-whatever="@mdo">Editar</button>
+                        </div>
+                    <?php } ?>
 
                 </div>
 
@@ -82,40 +84,45 @@ include("../../includes/data_base.php");
 
                         ?>
 
-    
-                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=1" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1 || $m_opci == 0) echo "bm_select" ?>">Notificaciones</a>
-                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=2" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
-                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=3" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
-                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=4" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
-                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=5" id="bchat" class="btn boton_menu <?php if ($m_opci == 5) echo "bm_select" ?>">Mis chats</a>
-
+                        <?php if ($user['UsuID'] == $id) { ?>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=1" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1 || $m_opci == 0) echo "bm_select" ?>">Notificaciones</a>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=2" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=3" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=4" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=5" id="bchat" class="btn boton_menu <?php if ($m_opci == 5) echo "bm_select" ?>">Mis chats</a>
+                        <?php } else { ?>
+                            <a href="?id=<?php echo $row['UsuID'] ?>&opcion=4" id="bpubl" class="btn boton_menu bm_select">Publicados</a>
+                        <?php } ?>
                     </div>
                     <div id="recargarusuario">
                         <?php
+                        if ($user['UsuID'] == $id) {
+                            switch ($m_opci) {
+                                case 1:
+                                    include('notificaciones.php');
+                                    break;
+                                case 2:
+                                    include('favoritos.php');
+                                    break;
+                                case 3:
+                                    include('adquiridos.php');
+                                    break;
+                                case 4:
+                                    include('publicados.php');
+                                    break;
+                                case 5:
+                                    $paginachat = true;
+                                    break;
+                                case 6:
+                                    $paginacover = true;
 
-                        switch ($m_opci) {
-                            case 1:
-                                include('notificaciones.php');
-                                break;
-                            case 2:
-                                include('favoritos.php');
-                                break;
-                            case 3:
-                                include('adquiridos.php');
-                                break;
-                            case 4:
-                                include('publicados.php');
-                                break;
-                            case 5:
-                                $paginachat=true;
-                                break;
-                            case 6:
-                                $paginacover=true;
-                              
-                                break;
-                            default:
-                                include('notificaciones.php');
-                                break;
+                                    break;
+                                default:
+                                    include('notificaciones.php');
+                                    break;
+                            }
+                        } else {
+                            include('publicados.php');
                         }
                         ?>
                     </div>
