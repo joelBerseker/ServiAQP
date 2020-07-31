@@ -45,6 +45,7 @@ include('data_base.php');
 					<li class="nav-item">
 						<a class="nav-link menu_link <?php if ($inicio) { ?>select<?php } ?>" href="<?= $dirEjec ?>/"> Inicio</a>
 					</li>
+					<?php if (!empty($user)) :?>
 					<li class="nav-item dropdown disp_primero_servicios">
 						<a class="nav-link menu_link dropdown_esp <?php if ($servicio) { ?> select<?php } ?>" href="<?= $dirEjec ?>/servicios" style="color: white;" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 							Servicios
@@ -55,6 +56,11 @@ include('data_base.php');
 							<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=4">Publicados</a>
 						</div>
 					</li>
+					<?php else :  ?>
+					<li class="nav-item">
+						<a class="nav-link menu_link<?php if ($servicio) { ?> select<?php } ?>" href="<?= $dirEjec ?>/servicios"> Servicios</a>
+					</li>
+					<?php endif; ?>
 					<li class="nav-item">
 						<a class="nav-link menu_link<?php if ($categoria) { ?> select<?php } ?>" href="<?= $dirEjec ?>/categorias"> Categorias</a>
 					</li>
@@ -75,9 +81,9 @@ include('data_base.php');
 							</a>
 							<div class="dropdown-menu  dropdown-menu-right disp_segundo_perfil" aria-labelledby="navbarDropdown">
 
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>">Ver perfil</a>
-								<a class="dropdown-item" href="/ServiAQP/chat/chats.php">Mis chats</a>
-								<a class="dropdown-item" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Notificaciones</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/usuario/view?id=<?= $user['UsuID'] ?>">Ver perfil</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/usuario/view?id=<?= $user['UsuID'] ?>&opcion=5">Mis chats</a>
+								<a class="dropdown-item" href="<?= $dirEjec ?>/usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Notificaciones</a>
 
 								<a class="dropdown-item" href="<?= $dirEjec ?>/Autenticacion/logout.php"><em class="fas fa-sign-out-alt"></em> Salir</a>
 							</div>
@@ -91,7 +97,7 @@ include('data_base.php');
 
 								</div>
 								<div align='center' class="pt-0 mb-0">
-									<a style="font-size: 13px;" href="<?= $dirEjec ?>/Usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Ver todas</a>
+									<a style="font-size: 13px;" href="<?= $dirEjec ?>/usuario/view?id=<?= $user['UsuID'] ?>&opcion=1">Ver todas</a>
 								</div>
 							</div>
 						</li>
@@ -118,7 +124,7 @@ include('data_base.php');
 					<?php else :  ?>
 
 						<li class="nav-item menu_link">
-							<a class="nav-link menu_link<?php if ($login) { ?> select<?php } ?>" href="<?= $dirEjec ?>/autenticacion/Login"><em class="fas fa-sign-in-alt "></em> Ingresar</a>
+							<a class="nav-link menu_link<?php if ($login) { ?> select<?php } ?>" href="<?= $dirEjec ?>/autenticacion/login"><em class="fas fa-sign-in-alt "></em> Ingresar</a>
 						</li>
 
 					<?php endif; ?>

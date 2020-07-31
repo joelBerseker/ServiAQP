@@ -210,7 +210,7 @@ include("../../includes/data_base.php");
                                 } else { ?>
                                     <button type="button" class="btn btn-outline-danger btn-sm float-right" data-toggle="modal" data-target="#reportModal" data-whatever="@mdo">Reportar</button>
                                     <button href="#" class="btn btn-primary btn-sm <?php if ($totalA > 0) echo "btn-disabled" ?>" <?php if ($totalA > 0) echo "disabled" ?> onclick="adquirir(<?= $id ?>)">Adquirir por S/. <?= $precio ?></button>
-                                    <a href="../../chat/?creador=<?= $creador ?>" class="btn btn-primary btn-sm"><i class="fas fa-comment"></i> Contactar</a>
+                                    <a href="/ServiAQP/usuario/view/?id=<?=$user['UsuID']?>&opcion=6&creador=<?= $creador ?>" class="btn btn-primary btn-sm"><i class="fas fa-comment"></i> Contactar</a>
                             <?php }
                             }
                             ?>

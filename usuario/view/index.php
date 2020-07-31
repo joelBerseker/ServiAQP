@@ -1,5 +1,5 @@
 <?php
-$recurso="/usuario/view";
+$recurso = "/usuario/view";
 include("../../includes/sesion.php");
 include("../../includes/global_variable.php");
 
@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
 <?php
 include('../../includes/navbar.php');
 $titulo_html = "Ver Usuario";
-$user_navbar=true;
+$user_navbar = true;
 include('../../includes/header.php');
 include("../../includes/data_base.php");
 ?>
@@ -82,11 +82,12 @@ include("../../includes/data_base.php");
 
                         ?>
 
-                        <a onclick="noti(<?php echo $row['UsuID'] ?>)" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1 || $m_opci == 0) echo "bm_select" ?>">Notificaciones</a>
-                        <a onclick="favo(<?php echo $row['UsuID'] ?>)" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
-                        <a onclick="adqu(<?php echo $row['UsuID'] ?>)" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
-                        <a onclick="publ(<?php echo $row['UsuID'] ?>)" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
-
+    
+                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=1" id="bnoti" class="btn boton_menu <?php if ($m_opci == 1 || $m_opci == 0) echo "bm_select" ?>">Notificaciones</a>
+                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=2" id="bfavo" class="btn boton_menu <?php if ($m_opci == 2) echo "bm_select" ?>">Favoritos</a>
+                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=3" id="badqu" class="btn boton_menu <?php if ($m_opci == 3) echo "bm_select" ?>">Adquiridos</a>
+                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=4" id="bpubl" class="btn boton_menu <?php if ($m_opci == 4) echo "bm_select" ?>">Publicados</a>
+                        <a href="?id=<?php echo $row['UsuID'] ?>&opcion=5" id="bchat" class="btn boton_menu <?php if ($m_opci == 5) echo "bm_select" ?>">Mis chats</a>
 
                     </div>
                     <div id="recargarusuario">
@@ -104,6 +105,13 @@ include("../../includes/data_base.php");
                                 break;
                             case 4:
                                 include('publicados.php');
+                                break;
+                            case 5:
+                                $paginachat=true;
+                                break;
+                            case 6:
+                                $paginacover=true;
+                              
                                 break;
                             default:
                                 include('notificaciones.php');

@@ -17,7 +17,7 @@ $nom_categoria = $_GET["nombre"];
 			<ol class="breadcrumb p-0">
 
 				<li class="breadcrumb-item"><a href="<?php echo $dirEjec ?>/categorias">Categorias</a></li>
-				<li class="breadcrumb-item"><?php echo $nom_categoria?></li>
+				<li class="breadcrumb-item active" aria-current="page"><?php echo $nom_categoria?></li>
 
 			</ol>
 		</nav>

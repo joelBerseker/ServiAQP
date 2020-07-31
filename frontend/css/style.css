@@ -5,6 +5,7 @@
   --color-principal-hover: rgb(24, 170, 155);
   --color-principal-disa: #32dbca;
   --color-footer: rgb(63, 63, 63);
+  --color-font: rgb(37, 37, 37);
 }
 /*Variables fin*/
 
@@ -20,10 +21,12 @@ html {
   position: relative;
   min-height: 100%;
   background-color: var(--fondo-principal);
+  
 }
 body {
   margin-bottom: 190px;
   background-color: var(--fondo-principal);
+  color: var(--color-font);
 }
 div.section {
   background-color: var(--fondo-principal);
@@ -38,7 +41,10 @@ p {
 label {
   font-size: 15px;
 }
-
+h5{
+  font-size: 18px;
+  font-weight: normal;
+}
 .carrusel-background {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
@@ -80,18 +86,21 @@ a:active {
   border-color: var(--color-principal-disa) !important;
 }
 .table {
+  color: var(--color-font);
   font-size: 15px;
   margin: 0px;
 }
 .tb {
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .table td,
 .table th {
+  
   padding: 0.6rem;
 }
 .table th {
-  font-weight: 600;
+  color: var(--color-font) !important;
+  font-weight: normal;
 }
 /*Fin botones*/
 
@@ -145,9 +154,9 @@ a:active {
   font-size: 14px;
   margin-top: 0px;
   background-color: white;
-  font-weight: 400;
+  font-weight: normal;
   line-height: 1.5;
-  color: #212529;
+  color: var(--color-font);
   overflow: hidden;
 }
 .imageny_carrusel {
@@ -323,6 +332,7 @@ a.menu_link:hover {
 /*Navbar fin*/
 
 .boton_menu {
+  color: var(--color-font);
   font-size: 16px;
   font-weight: normal;
   border-radius: 0px;
@@ -346,9 +356,9 @@ a.menu_link:hover {
 
 /*notificaciones*/
 .notifi {
-  color: black;
+  color: var(--color-font);
   font-weight: normal !important;
-  border-radius: 5px;
+  border-radius: 3px;
   max-width: 500px;
   background-color: white;
   background: rgb(255, 255, 255, 0.8) !important;
@@ -636,11 +646,11 @@ label.error {
   transform: translate(0, 0);
   padding: 10px;
   
-  height: 250px;
+  height: 295.25px;
   overflow-y: auto;
   border: 1px solid rgb(209, 209, 209);
   
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .direct-chat-msg,
 .direct-chat-text {
@@ -672,7 +682,7 @@ label.error {
   background: #d2d6de;
   border: 1px solid #d2d6de;
   margin: 5px 0 0 50px;
-  color: #444444;
+  color: var(--color-font);
 }
 .direct-chat-text:after,
 .direct-chat-text:before {

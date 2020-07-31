@@ -6,22 +6,28 @@ include('global_variable.php');
         <div class="row">
             <div class="col-4 pt-3" align="center">
                 <ul class="lista-footer">
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Intercambio">Servicios</a></b></li>
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Categoria">Categorias</a></b></li>
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Nosotros">Nosotros</a></b></li>
+                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>">Inicio</a></b></li>
+                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/servicios">Servicios</a></b></li>
+                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/categorias">Categorias</a></b></li>
+
                 </ul>
             </div>
             <div class="col-4 pt-5">
                 <div align="center">
                     <img src="<?php echo $dirEjec ?>/frontend/images/logo.png" alt="logo de S4P" style="height: 50%;width: 50%;">
-
                 </div>
             </div>
             <div class="col-4 pt-3" align="center">
                 <ul class="lista-footer">
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Contactanos">Contactanos</a></b></li>
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Autenticacion/Login">Ingresar</a></b></li>
-                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/Autenticacion/Singup">Registrarse</a></b></li>
+                    <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/nosotros">Nosotros</a></b></li>
+                    <?php if (!empty($user)) : ?>
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/logout">Salir</a></b></li>
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/usuario/view/?id=<?=$user['UsuID']?>">Ver perfil</a></b></li>
+                    <?php else :  ?>
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/login">Ingresar</a></b></li>
+                        <li><b><a class="item-footer" href="<?php echo $dirEjec ?>/autenticacion/singup">Registrarse</a></b></li>
+                    <?php endif; ?>
+                    
                 </ul>
             </div>
         </div>
@@ -59,11 +65,22 @@ include('global_variable.php');
             notification_push();
             setInterval(notification_push, 3000);
 
-            <?php if ($recursochat) { ?>
-                chat_push();
-                setInterval(chat_push, 1000);
+
+
+            <?php if (isset($paginachat)) { ?>
+                chat();
             <?php } ?>
+            <?php if (isset($paginacover)) { ?>
+                conver(<?= $_GET['creador'] ?>);
+                setInterval(chat_push, 1000, <?= $_GET['creador'] ?>);
+
+            <?php } ?>
+
+
+
+
         <?php } ?>
+
 
         $('.direct-chat-messages').scrollTop($('.direct-chat-messages').prop('scrollHeight'));
     });
