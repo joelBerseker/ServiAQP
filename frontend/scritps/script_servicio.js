@@ -118,7 +118,7 @@ $(document).ready(function(){
     }
     return false;
  }
- function EliminarA(id){
+ function EliminarA(idRecibido){
     if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/eliminar/deleteA.php",
@@ -139,7 +139,7 @@ $(document).ready(function(){
     }
     return false;
  }
- function EliminarF(id){
+ function EliminarF(idRecibido){
     if(confirm("Seguro que desea eliminar? id= "+idRecibido)){
         $.ajax({
             url: "/ServiAQP/servicios/eliminar/deleteF.php",

@@ -1,9 +1,12 @@
 <?php
+
+$titulo_html = "Error";
 include("../includes/sesion.php");
 include("../includes/global_variable.php");
 include('../includes/navbar.php');
 include('../includes/header.php');
-$a = "Error ocurrido";
+
+$a = "Error 404<br/>ocurrido";
 if(isset($_GET['mensaje'])){
     $a =$_GET['mensaje'];
 }
