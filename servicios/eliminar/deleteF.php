@@ -5,7 +5,7 @@
 
     include('../../includes/data_base.php');
     $id = $_POST['id'];
-    $query = "DELETE FROM favoritos WHERE SerID = $FavID";
+    $query = "DELETE FROM favoritos WHERE FavID = $FavID";
     $result = mysqli_query($conn,$query);
     if(!$result){
         echo $query;
