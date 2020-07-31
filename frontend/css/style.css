@@ -636,11 +636,11 @@ label.error {
   transform: translate(0, 0);
   padding: 10px;
   
-  height: 250px;
+  height: 295.25px;
   overflow-y: auto;
   border: 1px solid rgb(209, 209, 209);
   
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .direct-chat-msg,
 .direct-chat-text {
