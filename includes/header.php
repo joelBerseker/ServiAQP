@@ -13,14 +13,7 @@ include('data_base.php');
 
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/bootstrap-4.5.0-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/css/style.css">
-	<!-- sergio-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.min.css">
-  	<link rel="stylesheet" href="../frontend/plugins/fullcalendar/fullcalendar.print.css" media="print">
-  	<!-- <link rel="stylesheet" href="../frontend/dist/css/AdminLTE.min.css"> -->
-  	<link rel="stylesheet" href="../frontend/dist/css/skins/_all-skins.min.css">
-  	<link rel="stylesheet" href="../frontend/plugins/iCheck/flat/blue.css">
-  	<!-- sergio-->
+
 	<link rel="stylesheet" type="text/css" href="<?= $dirEjec ?>/frontend/fontawesome-free-5.13.1-web/css/all.min.css">
 	<link rel="icon" href="<?= $dirEjec ?>/frontend/images/page_icon.png">
 </head>
