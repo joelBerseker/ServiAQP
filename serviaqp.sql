@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2020 a las 02:07:44
+-- Tiempo de generación: 01-08-2020 a las 01:14:26
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -142,6 +142,41 @@ CREATE TABLE `chats` (
   `leido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `chats`
+--
+
+INSERT INTO `chats` (`id_cha`, `id_cch`, `de`, `para`, `mensaje`, `fecha`, `leido`) VALUES
+(1, 1, 68, 71, 'hola', '2020-07-28 13:26:42', 0),
+(2, 1, 68, 71, 'holi', '2020-07-28 13:30:05', 0),
+(3, 1, 68, 71, 'hola', '2020-07-28 13:35:00', 0),
+(4, 1, 71, 68, 'hola', '2020-07-28 13:35:09', 0),
+(5, 1, 68, 71, 'hola', '2020-07-28 13:35:48', 0),
+(6, 1, 68, 71, '', '2020-07-28 13:58:22', 0),
+(7, 1, 68, 71, 'a', '2020-07-28 13:58:29', 0),
+(8, 1, 68, 71, 'as', '2020-07-28 13:59:48', 0),
+(9, 1, 68, 71, 'puto Jhon', '2020-07-28 14:01:45', 0),
+(10, 1, 68, 71, 'colita', '2020-07-28 14:17:04', 0),
+(11, 1, 68, 71, 'colin', '2020-07-28 14:17:12', 0),
+(12, 1, 68, 71, 'bla', '2020-07-28 14:17:38', 0),
+(13, 1, 68, 71, 'prro', '2020-07-28 14:18:50', 0),
+(14, 1, 68, 71, '', '2020-07-28 14:18:56', 0),
+(15, 1, 68, 71, 'tmr', '2020-07-28 14:19:47', 0),
+(16, 1, 68, 71, 'puto jhon', '2020-07-28 14:20:12', 0),
+(17, 1, 68, 71, 'tmr', '2020-07-28 14:23:08', 0),
+(18, 1, 68, 71, 'jasdasda', '2020-07-28 14:24:06', 0),
+(19, 1, 68, 71, 'asdasdasdasf x', '2020-07-28 14:24:21', 0),
+(20, 1, 68, 71, 'asdas1', '2020-07-28 14:24:33', 0),
+(21, 1, 68, 71, '123', '2020-07-28 14:25:01', 0),
+(22, 1, 68, 71, 'asdasdasd', '2020-07-28 14:27:37', 0),
+(23, 1, 68, 71, '123', '2020-07-28 14:27:44', 0),
+(24, 1, 68, 71, 'asd', '2020-07-28 14:29:06', 0),
+(25, 1, 68, 71, '456', '2020-07-28 14:29:12', 0),
+(26, 1, 71, 68, 'Â´proo', '2020-07-28 21:43:50', 0),
+(27, 1, 71, 68, 'donde estas', '2020-07-28 21:43:54', 0),
+(28, 1, 71, 68, 'prri', '2020-07-28 21:44:09', 0),
+(29, 1, 71, 68, 'prri', '2020-07-28 21:44:16', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -153,6 +188,13 @@ CREATE TABLE `c_chats` (
   `de` int(11) NOT NULL,
   `para` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `c_chats`
+--
+
+INSERT INTO `c_chats` (`id_cch`, `de`, `para`) VALUES
+(1, 68, 71);
 
 -- --------------------------------------------------------
 
@@ -230,7 +272,8 @@ CREATE TABLE `recurso` (
 
 INSERT INTO `recurso` (`RecId`, `RecNom`, `RecDes`, `RecEstReg`, `RecFecCre`) VALUES
 (1, '/rol/crear', 'crear rol', 1, '2020-06-07 02:13:37'),
-(3, '/rol/editar', 'editar rol', 1, '2020-07-22 02:11:54');
+(3, '/rol/editar', 'editar rol', 1, '2020-07-22 02:11:54'),
+(4, '/subcategoria', 'Vista de subcategorias', 1, '2020-07-25 00:40:28');
 
 -- --------------------------------------------------------
 
@@ -239,33 +282,6 @@ INSERT INTO `recurso` (`RecId`, `RecNom`, `RecDes`, `RecEstReg`, `RecFecCre`) VA
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `reporte_tabla` (
-`SerRepID` int(11)
-,`SerRepDenUsuID` int(11)
-,`SerRepSerID` int(11)
-,`SerRepMot` text
-,`SerRepEstReg` int(1)
-,`SerRepFecCre` timestamp
-,`UsuID` int(11)
-,`UsuNom` varchar(100)
-,`UsuCor` varchar(40)
-,`UsuCon` varchar(400)
-,`UsuImgNom` varchar(200)
-,`UsuImgTip` varchar(200)
-,`UsuImgArc` longblob
-,`UsuRolID` int(11)
-,`UsuEst` int(11)
-,`created_at` timestamp
-,`SerID` int(11)
-,`SerUsuID` int(11)
-,`SerCatID` int(11)
-,`SerSubCatID` int(11)
-,`SerPreFre` text
-,`SerDes` text
-,`SerEstReg` int(1)
-,`SerFecCre` timestamp
-,`SerNom` varchar(90)
-,`SerPre` decimal(9,2)
-,`SerVal` decimal(2,1)
 );
 
 -- --------------------------------------------------------
@@ -359,52 +375,6 @@ CREATE TABLE `servicio_img` (
   `SerImgFecCre` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `servicio_img`
---
-
-INSERT INTO `servicio_img` (`SerImgId`, `SerImgSerId`, `SerImgNom`, `SerImgTip`, `SerImgEstReg`, `SerImgFecCre`) VALUES
-(9, 7, 'Figure_1.png', 'image/png', 1, '2020-07-15 22:54:11'),
-(10, 7, 'Figure_3.png', 'image/png', 1, '2020-07-15 22:54:11'),
-(11, 7, 'Figure_4.png', 'image/png', 1, '2020-07-15 22:54:11'),
-(12, 7, 'Figure_5.png', 'image/png', 1, '2020-07-15 22:54:11'),
-(13, 7, 'Figure_6.png', 'image/png', 1, '2020-07-15 22:54:11'),
-(14, 8, 'ejercicio01_1.png', 'image/png', 1, '2020-07-17 21:43:17'),
-(15, 8, 'ejercicio01_2.png', 'image/png', 1, '2020-07-17 21:43:17'),
-(16, 8, 'ejercicio01_3.png', 'image/png', 1, '2020-07-17 21:43:18'),
-(17, 9, 'Brai.png', 'image/png', 1, '2020-07-22 01:32:55'),
-(18, 9, 'dos.png', 'image/png', 1, '2020-07-22 01:32:55'),
-(19, 9, 'editar01.png', 'image/png', 1, '2020-07-22 01:32:55'),
-(20, 9, 'imagen 1.png', 'image/png', 1, '2020-07-22 01:32:55'),
-(21, 9, 'imagen 2.png', 'image/png', 1, '2020-07-22 01:32:55'),
-(22, 10, 'sigueme.jfif', 'image/jpeg', 1, '2020-07-22 03:15:29'),
-(23, 10, 'alex.jpg', 'image/jpeg', 1, '2020-07-22 03:15:29'),
-(24, 10, 'chompa-roja.jpg', 'image/jpeg', 1, '2020-07-22 03:15:29'),
-(25, 10, 'com.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(26, 10, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(27, 10, 'esp.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(28, 10, 'espiral.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(29, 10, 'heroe.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(30, 10, 'identifi_app.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(31, 10, 'img.jpg', 'image/jpeg', 1, '2020-07-22 03:15:30'),
-(32, 11, 'mu2 .jpg', 'image/jpeg', 1, '2020-07-22 16:01:03'),
-(33, 11, 'muuu.jpg', 'image/jpeg', 1, '2020-07-22 16:01:03'),
-(34, 11, 'paralela.jpg', 'image/jpeg', 1, '2020-07-22 16:01:03'),
-(35, 12, 'alex.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
-(36, 12, 'chompa-roja.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
-(37, 12, 'com.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
-(38, 12, 'drake.jpg', 'image/jpeg', 1, '2020-07-22 16:15:38'),
-(39, 13, 'marrano.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
-(40, 13, 'me mame.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
-(41, 13, 'men.jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
-(42, 13, 'mu2 .jpg', 'image/jpeg', 1, '2020-07-23 02:01:53'),
-(43, 14, 'drake.jpg', 'image/jpeg', 1, '2020-07-23 17:44:31'),
-(44, 15, 'marrano.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
-(45, 15, 'me mame.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
-(46, 15, 'men.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
-(47, 15, 'mu2 .jpg', 'image/jpeg', 1, '2020-07-23 22:22:36'),
-(48, 15, 'muuu.jpg', 'image/jpeg', 1, '2020-07-23 22:22:36');
-
 -- --------------------------------------------------------
 
 --
@@ -491,7 +461,6 @@ CREATE TABLE `usuario` (
   `UsuCon` varchar(400) COLLATE utf8_unicode_ci NOT NULL,
   `UsuImgNom` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `UsuImgTip` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `UsuImgArc` longblob NOT NULL,
   `UsuRolID` int(11) DEFAULT NULL,
   `UsuEst` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -501,11 +470,11 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuImgTip`, `UsuImgArc`, `UsuRolID`, `UsuEst`, `created_at`) VALUES
-(68, 'asdads', 'joel1@joel.com', '$2y$10$8e6jv/xerB4OljVmXq40r.F5wCjKCMl/RoCV.mJVVY3zl9j4.tJvy', 'identifi_app.jpg', '', '', 1, 1, '2020-07-22 02:47:37'),
-(71, 'Pedrin', 'prueba01@gmail.com', '$2y$10$kIpZsAgsiezW1Ff5cPQSlOshpQnAyc3Ub0pXkDGBm8urICpN8cEW2', 'marrano.jpg', '', '', 1, 1, '2020-07-23 23:40:40'),
-(74, 'Jhon', 'jmamanimama@unsa.edu.pe', '$2y$10$sSxfuAOmR66sH6NGmISps.kZCK7C2qqjcleGfcDPT6jGNseHsd/Q6', 'usuario-sin-imagen.jpg', 'image/jpg', '', 3, 1, '2020-07-23 23:42:43'),
-(75, 'Jose', 'jose@gmail.com', '$2y$10$hnvTSLs9JE0Wzu16wOnwDu54efXmzT7kA4FWXHpnRrEv1DeBv.d5y', 'leelo.png', 'image/png', '', 2, 1, '2020-07-23 23:42:33');
+INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuImgTip`, `UsuRolID`, `UsuEst`, `created_at`) VALUES
+(68, 'asdads', 'joel1@joel.com', '$2y$10$8e6jv/xerB4OljVmXq40r.F5wCjKCMl/RoCV.mJVVY3zl9j4.tJvy', 'identifi_app.jpg', '', 1, 1, '2020-07-22 02:47:37'),
+(71, 'Pedrin', 'prueba01@joel.com', '$2y$10$0VUmpeA7f5rQoN3D0pSatOPM3jnEGrgYNfUI.g3SP6AdhH2.1Gu7m', 'marrano.jpg', '', 1, 1, '2020-07-31 23:12:27'),
+(74, 'Jhon', 'jhonmamani46@gmail.com', '$2y$10$zEIlgKGhaaO5QX9VLgxlqOBR5pV/zXZbJgzZKWUbokuvDSDw0doLG', 'usuario-sin-imagen.jpg', 'image/jpg', 1, 1, '2020-07-31 23:11:58'),
+(75, 'joel', 'jose@gmail.com', '$2y$10$1jw.YtaF/xLtfkO4RpDTnukzF6ebk.AkzHHrnkxzV.u8RfSTGRNYi', 'leelo.png', 'image/png', 2, 1, '2020-07-31 23:12:12');
 
 -- --------------------------------------------------------
 
@@ -514,17 +483,6 @@ INSERT INTO `usuario` (`UsuID`, `UsuNom`, `UsuCor`, `UsuCon`, `UsuImgNom`, `UsuI
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `usuario_tabla` (
-`UsuID` int(11)
-,`UsuNom` varchar(100)
-,`UsuCor` varchar(40)
-,`UsuCon` varchar(400)
-,`UsuImgNom` varchar(200)
-,`UsuImgTip` varchar(200)
-,`UsuImgArc` longblob
-,`UsuRolID` int(11)
-,`UsuEst` int(11)
-,`created_at` timestamp
-,`RolNom` varchar(50)
 );
 
 -- --------------------------------------------------------
@@ -679,7 +637,8 @@ ALTER TABLE `serviciocomentario`
 -- Indices de la tabla `servicio_img`
 --
 ALTER TABLE `servicio_img`
-  ADD PRIMARY KEY (`SerImgId`);
+  ADD PRIMARY KEY (`SerImgId`),
+  ADD KEY `FK_IMG_SER` (`SerImgSerId`);
 
 --
 -- Indices de la tabla `servicio_report`
@@ -729,19 +688,19 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_cha` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `c_chats`
 --
 ALTER TABLE `c_chats`
-  MODIFY `id_cch` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `FavID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -753,7 +712,7 @@ ALTER TABLE `notificacion`
 -- AUTO_INCREMENT de la tabla `recurso`
 --
 ALTER TABLE `recurso`
-  MODIFY `RecId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `RecId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -765,7 +724,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `SerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `SerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `serviciocomentario`
@@ -777,7 +736,7 @@ ALTER TABLE `serviciocomentario`
 -- AUTO_INCREMENT de la tabla `servicio_img`
 --
 ALTER TABLE `servicio_img`
-  MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `SerImgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio_report`
@@ -850,6 +809,12 @@ ALTER TABLE `servicio`
 ALTER TABLE `serviciocomentario`
   ADD CONSTRAINT `FK_SerCom_Ser` FOREIGN KEY (`SerComSerID`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_SerCom_Usu` FOREIGN KEY (`SerComUsuID`) REFERENCES `usuario` (`UsuID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `servicio_img`
+--
+ALTER TABLE `servicio_img`
+  ADD CONSTRAINT `FK_IMG_SER` FOREIGN KEY (`SerImgSerId`) REFERENCES `servicio` (`SerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `servicio_report`
