@@ -52,22 +52,22 @@ include('global_variable.php');
 <script src="<?= $dirEjec ?>/frontend/scritps/script_servicio.js"></script>
 <script src="<?= $dirEjec ?>/frontend/scritps/script_notificacion.js"></script>
 <script src="<?= $dirEjec ?>/frontend/scritps/script_chat.js"></script>
-<!-- <script>
+<script>
     $(document).ready(function() {
         <?php if (!empty($user)) { ?>
-            notification_push();
-            setInterval(notification_push, 3000);
+            /* notification_push();
+            setInterval(notification_push, 3000); */
             <?php if (isset($paginachat)) { ?>
                 chat();
             <?php } ?>
             <?php if (isset($paginacover)) { ?>
                 conver(<?= $_GET['creador'] ?>);
-                setInterval(chat_push, 1000, <?= $_GET['creador'] ?>);
+                /* setInterval(chat_push, 1000, <?= $_GET['creador'] ?>); */
             <?php } ?>
         <?php } ?>
         $('.direct-chat-messages').scrollTop($('.direct-chat-messages').prop('scrollHeight'));
     });
-</script> -->
+</script>
 
 <script>
     function readURL2(input) {
